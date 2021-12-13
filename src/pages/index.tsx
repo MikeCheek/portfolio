@@ -1,4 +1,5 @@
 import * as React from "react"
+import AnimatedBg from '../assets/animated-bg.svg'
 
 // styles
 const pageStyles = {
@@ -125,11 +126,20 @@ const links = [
   },
 ]
 
+const backgroundStyle = {
+  zIndex: -1,
+  width: "100vw",
+  height: "100%",
+  margin: "-110px",
+  position: "fixed",
+}
+
 // markup
 const IndexPage = ():JSX.Element => {
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
+      <AnimatedBg style={backgroundStyle} />
       <h1 style={headingStyles}>
         Congratulations
         <br />
