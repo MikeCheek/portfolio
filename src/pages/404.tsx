@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import SEO from "../components/seo/seo"
 
 // styles
 const pageStyles = {
@@ -28,14 +29,14 @@ const codeStyles = {
 const NotFoundPage = (): JSX.Element => {
   return (
     <main style={pageStyles}>
-      <title>Not found</title>
+      <SEO title={"Not found"} />
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
         Sorry{" "}
         <span role="img" aria-label="Pensive emoji">
           😔
         </span>{" "}
-        we couldn’t find what you were looking for.
+        we couldn't find what you were looking for.
         <br />
         {process.env.NODE_ENV === "development" ? (
           <>

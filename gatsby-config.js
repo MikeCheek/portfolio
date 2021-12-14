@@ -8,6 +8,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -37,7 +38,8 @@ module.exports = {
       options: {
         rule: {
           include: /assets/
-        }
+        },
+        path: "./assets/"
       }
     },
   ],
