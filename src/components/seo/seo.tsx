@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import {SEOProps, QueryTypes, } from './seo.types'
+//import { useStaticQuery, graphql } from "gatsby"
+import {SEOProps, /*QueryTypes*/} from './seo.types'
 
 const SEO = ({
   description = "",
