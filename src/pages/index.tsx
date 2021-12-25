@@ -1,6 +1,5 @@
 import * as React from "react"
-//@ts-ignore
-import AnimatedBg from '../assets/animated-bg.svg'
+import Layout from "../components/layout/layout"
 import SEO from '../components/seo/seo'
 
 // styles
@@ -10,21 +9,14 @@ const pageStyles = {
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 
-const backgroundStyle = {
-  zIndex: -1,
-  width: "100vw",
-  height: "100%",
-  margin: "-110px",
-  position: "fixed",
-}
-
 // markup
 const IndexPage = ():JSX.Element => {
   return (
-    <main style={pageStyles}>
-      <SEO title={"Home Page"} />
-      <AnimatedBg style={backgroundStyle} />
-    </main>
+    <Layout>
+      <div style={pageStyles}>
+        <SEO title={"Home Page"} />
+      </div>
+    </Layout>
   )
 }
 

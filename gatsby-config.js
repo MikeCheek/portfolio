@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/assets/logo.svg",
       },
     },
     "gatsby-plugin-sharp",
@@ -20,10 +20,10 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: "assets",
+        path: "./src/assets/",
       },
-      __key: "images",
+      __key: "assets",
     },
     {
       resolve: `gatsby-plugin-typescript`,
@@ -34,13 +34,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/
+          include: /assets/,
         },
-        path: "./assets/"
-      }
+        path: "./assets/",
+      },
     },
   ],
 };
