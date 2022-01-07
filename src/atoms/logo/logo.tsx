@@ -7,12 +7,8 @@ import Mlogo from '../../assets/logo.svg'
 
 const Logo = ({width = 60, to = '/', title = 'Go to Home Page' }: LogoProps): JSX.Element => {
     return (
-        <a href={to} title={title}>
-            <Mlogo
-                className={styles.logo}
-                width={width + "px"}
-                height={"auto"}
-            />
+        <a href={to} title={title}  className={styles.logo}>
+            <Mlogo width={width + "px"}/>
         </a>
     )
 }
