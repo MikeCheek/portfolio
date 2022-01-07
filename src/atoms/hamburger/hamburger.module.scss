@@ -6,7 +6,7 @@ $breakpoints: (
 );
 
 .line{
-    background-color: black;
+    background-color: var(--white);
     width: 40px;
     height: 5px;
     border-radius: 100px;
