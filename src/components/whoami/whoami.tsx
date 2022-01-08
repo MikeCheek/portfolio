@@ -6,8 +6,7 @@ import * as styles from './whoami.module.scss'
 const Whoami = (): JSX.Element => {
     return <div>
             <p className={styles.introduce}>
-                /*let me introduce 
-                    me to you*/
+                /*let me introduce myself*/
             </p>
             <TypingEffect initialText="Hi, I'm Michele Pulvirenti." />
         </div>
