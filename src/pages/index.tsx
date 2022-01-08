@@ -8,7 +8,7 @@ const IndexPage = ():JSX.Element => {
   return (
     <Layout>
       <div>
-        <SEO title={"Home Page"} />
+        <SEO title={"Michele Pulvirenti"} />
         <Whoami />
       </div>
     </Layout>

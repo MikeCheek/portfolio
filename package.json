@@ -4,6 +4,7 @@
   "private": true,
   "description": "Portfolio",
   "author": "Mike-cheek",
+  "homepage": "https://mike-cheek.github.io/portfolio",
   "keywords": [
     "gatsby"
   ],
@@ -14,7 +15,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "gatsby build && gh-pages -d public",
+    "deploygh": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.9.0",

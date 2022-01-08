@@ -26,7 +26,6 @@ const FullName = (): JSX.Element => {
     const random = (): number => {
         let rand = min + Math.random() * (max - min);
         rand = Math.floor(rand)
-        console.log(rand)
         return rand;
     }
 

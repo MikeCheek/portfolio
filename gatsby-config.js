@@ -3,7 +3,9 @@ module.exports = {
     siteUrl: "https://mike-cheek.github.io/portfolio",
     title: "Portfolio",
     url: "https://mike-cheek.github.io/portfolio",
+    
   },
+  pathPrefix: "/portfolio",
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
