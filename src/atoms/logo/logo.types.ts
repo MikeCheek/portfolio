@@ -1,5 +1,5 @@
 export type LogoProps = {
-    width?: Number, 
+    width?: number, 
     to?: string, 
     title?: string
 }
