@@ -7,18 +7,26 @@ const initialText: string = "Hi, I'm Michele Pulvirenti.";
 
 const array: string[] = Array.from(initialText);
 
-const FullName = () => {
+const FullName = (): JSX.Element => {
     const [text, setText] = useState<string>('');
 
     let tmpString: string = '';
+    const min = 0;
+    const max = 500;
 
-    const write = async () => {
+    const write = async (): Promise<void> => {
         for(let i = 0; i < array.length; i++){
-            console.log(text)
             tmpString += array[i];
             setText(tmpString);
-            await sleep(300);
+            await sleep(random());
         }
+    }
+
+    const random = (): number => {
+        let rand = min + Math.random() * (max - min);
+        rand = Math.floor(rand)
+        console.log(rand)
+        return rand;
     }
 
     useEffect(() => {

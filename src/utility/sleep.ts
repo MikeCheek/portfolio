@@ -1,4 +1,4 @@
-const sleep = (milliseconds: number)  => {
+const sleep = (milliseconds: number): Promise<unknown>  => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 

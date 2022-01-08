@@ -16,6 +16,10 @@
     "deploy": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "gatsby": "^4.3.0",
     "gatsby-plugin-image": "^2.3.0",
     "gatsby-plugin-manifest": "^4.3.0",
@@ -28,6 +32,7 @@
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-transformer-sharp": "^4.3.0",
     "n": "^8.0.1",
+    "prettier": "^2.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
