@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import sleep from '../../utility/sleep';
 
-import * as styles from './fullName.module.scss'
+import * as styles from './typingEffect.module.scss'
+import { TypingEffectProps } from './typingEffect.types';
 
-const initialText: string = "Hi, I'm Michele Pulvirenti.";
 
-const array: string[] = Array.from(initialText);
-
-const FullName = (): JSX.Element => {
+const TypingEffect = ({initialText}: TypingEffectProps): JSX.Element => {
+    const array: string[] = Array.from(initialText);
     const [text, setText] = useState<string>('');
 
     let tmpString: string = '';
     const min = 0;
-    const max = 500;
+    const max = 200;
 
     const write = async (): Promise<void> => {
-        await sleep(2000);
+        await sleep(1000);
         for(let i = 0; i < array.length; i++){
             tmpString += array[i];
             setText(tmpString);
@@ -40,4 +39,4 @@ const FullName = (): JSX.Element => {
     )
 }
 
-export default FullName
+export default TypingEffect

@@ -1,11 +1,15 @@
 import React from 'react'
-import FullName from '../../atoms/fullName/fullName'
+import TypingEffect from '../../atoms/typingEffect/typingEffect'
 
-//import * as styles from './whoami.module.scss'
+import * as styles from './whoami.module.scss'
 
 const Whoami = (): JSX.Element => {
     return <div>
-            <FullName />
+            <p className={styles.introduce}>
+                /*let me introduce 
+                    me to you*/
+            </p>
+            <TypingEffect initialText="Hi, I'm Michele Pulvirenti." />
         </div>
     
 }
