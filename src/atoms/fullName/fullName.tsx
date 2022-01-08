@@ -15,6 +15,7 @@ const FullName = (): JSX.Element => {
     const max = 500;
 
     const write = async (): Promise<void> => {
+        await sleep(2000);
         for(let i = 0; i < array.length; i++){
             tmpString += array[i];
             setText(tmpString);

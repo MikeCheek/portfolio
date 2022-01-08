@@ -4,7 +4,7 @@
 }
 
 .text::after{
-    content: ' |';
+    content: '|';
     animation: blink-animation 1s step-start 0s infinite;
     -webkit-animation: blink-animation 1s step-start 0s infinite;
 
