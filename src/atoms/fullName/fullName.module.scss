@@ -4,7 +4,10 @@
 }
 
 .text::after{
-    content: '|';
+    content: '||';
+    width: 5px;
+    margin-left: 3px;
+    background-color: var(--white);
     animation: blink-animation 1s step-start 0s infinite;
     -webkit-animation: blink-animation 1s step-start 0s infinite;
 
