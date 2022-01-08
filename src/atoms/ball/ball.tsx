@@ -6,7 +6,7 @@ import * as styles from './ball.module.scss'
 const Ball = (): JSX.Element => {
     return (
         <div className={styles.ball}>
-            <BallSvg />
+            <BallSvg opacity={'0.5'}/>
         </div>
     )
 }
