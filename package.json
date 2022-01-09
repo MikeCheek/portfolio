@@ -17,7 +17,7 @@
     "clean": "gatsby clean",
     "deploy": "gatsby build && gh-pages -d public",
     "deploygh": "gatsby build --prefix-paths && gh-pages -d public",
-    "push": "git add . && git commit -m $MESS && git push"  
+    "push": "git add . && git commit -m $MESS && git push"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.9.0",

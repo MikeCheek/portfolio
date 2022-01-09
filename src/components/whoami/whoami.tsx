@@ -1,5 +1,6 @@
 import React from 'react'
 import TypingEffect from '../../atoms/typingEffect/typingEffect'
+import Profile from '../profile/profile'
 
 import * as styles from './whoami.module.scss'
 
@@ -8,7 +9,10 @@ const Whoami = (): JSX.Element => {
             <p className={styles.introduce}>
                 /*let me introduce myself*/
             </p>
-            <TypingEffect initialText="Hi, I'm Michele Pulvirenti." heading={true} fast={false} />
+            <div className={styles.wrap} >
+                <Profile />
+                <TypingEffect initialText="Hi, I'm Michele Pulvirenti." heading={true} fast={false} />
+            </div>
         </div>
     
 }
