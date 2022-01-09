@@ -28,7 +28,6 @@ const Hero = (): JSX.Element => {
                     <p>{skills}</p>
                 </Section>
             </div>
-            <Separator />
         </>
     )
 }
