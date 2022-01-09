@@ -1,0 +1,29 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+
+    @media screen and (min-width: "768px") {
+        flex-direction: row;
+    }
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+    @media screen and (min-width: "768px") {
+        width: 40%;
+    }
+
+    >*{
+        height: 40px;
+    }
+}
+
+.contacts{
+    margin-bottom: 20px;
+}

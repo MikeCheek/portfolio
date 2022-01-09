@@ -8,11 +8,11 @@ const Navigation = ({onClick}: NavigationProps): JSX.Element => {
         <>
             <div className={styles.navDesktop}>
                 <NavItem text="Home" path="/" />
-                <NavItem text="Info" path="#info" isHref={true} />
+                <NavItem text="Contacts" path="#contacts" isHref={true} />
             </div>
             <div className={styles.navMobile}>
                 <NavItem text="Home" path="/" onClick={onClick} />
-                <NavItem text="Info" path="#info" onClick={onClick} isHref={true} />
+                <NavItem text="Contacts" path="#contacts" onClick={onClick} isHref={true} />
             </div>
         </>
     )

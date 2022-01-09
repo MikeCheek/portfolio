@@ -8,7 +8,6 @@ import "../styles/globals.scss"
 const IndexPage = ():JSX.Element => {
 
   const animateKeyDown = (key: any) => {
-    console.log(key)
     if(key.keyCode === 79) //o
       document.body.style.color = "var(--orange)";
     if(key.keyCode === 80) //p
