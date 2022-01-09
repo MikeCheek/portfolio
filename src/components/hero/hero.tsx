@@ -10,7 +10,6 @@ const Hero = (): JSX.Element => {
     return (
         <>
             <Whoami />
-            <Separator />
             <div className={styles.sectionWrap}>
                 <Section title={"About me"} >
                     <p>{about}</p>
