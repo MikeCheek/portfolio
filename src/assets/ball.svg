@@ -4,8 +4,42 @@
         <filter id="a" x="-.6" y="-.6" width="2.2" height="2.2">
             <feGaussianBlur in="SourceGraphic" stdDeviation="15"/>
         </filter>
+        <style>
+            .circle-white{
+                animation: moveLeftRight 10s infinite alternate-reverse ease-in-out;
+            }
+            .circle-orange{
+                animation: moveLeftRight 15s infinite alternate ease-in-out;
+            }
+            .circle-pink{
+                animation: moveUpDown 20s infinite alternate ease-in-out;
+            }
+
+            @keyframes moveUpDown{
+                0%{
+                    transform: translateY(0);
+                }
+                50%{
+                    transform: translateY(20%);
+                }
+                100%{
+                    transform: translateY(-20%);
+                }
+            }
+            @keyframes moveLeftRight{
+                0%{
+                    transform: translateX(0);
+                }
+                50%{
+                    transform: translateX(20%);
+                }
+                100%{
+                    transform: translateX(-20%);
+                }
+            }
+        </style>
     </defs>
-    <circle transform="matrix(.67256 0 0 .67256 29.903 16.511)" cx="128.76" cy="109" r="30" fill="#fffefd" filter="url(#a)" height="100%"/>
-    <circle transform="matrix(.88279 0 0 .88279 -5.5728 22.265)" cx="105" cy="100" r="30" fill="#ffac30" filter="url(#a)" height="100%"/>
-    <circle transform="matrix(1.1925 0 0 1.1925 -17.21 -18.753)" cx="100" cy="100" r="30" fill="#fd76cb" filter="url(#a)" height="100%"/>
+    <circle transform="matrix(.67256 0 0 .67256 29.903 16.511)" cx="128.76" cy="109" r="30" fill="#fffefd" filter="url(#a)" height="100%" class="circle-white" />
+    <circle transform="matrix(.88279 0 0 .88279 -5.5728 22.265)" cx="105" cy="100" r="30" fill="#ffac30" filter="url(#a)" height="100%" class="circle-orange" />
+    <circle transform="matrix(1.1925 0 0 1.1925 -17.21 -18.753)" cx="100" cy="100" r="30" fill="#fd76cb" filter="url(#a)" height="100%" class="circle-pink" />
 </svg>
