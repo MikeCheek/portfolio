@@ -6,13 +6,13 @@
         </filter>
         <style>
             .circle-white{
-                animation: moveLeftRight 10s infinite alternate-reverse ease-in-out;
+                animation: moveLeftRight 20s infinite alternate-reverse ease-in-out;
             }
             .circle-orange{
-                animation: moveLeftRight 15s infinite alternate ease-in-out;
+                animation: moveLeftRight 30s infinite alternate ease-in-out;
             }
             .circle-pink{
-                animation: moveUpDown 20s infinite alternate ease-in-out;
+                animation: moveUpDown 40s infinite alternate ease-in-out;
             }
 
             @keyframes moveUpDown{
