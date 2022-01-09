@@ -5,16 +5,16 @@ import * as styles from './typingEffect.module.scss'
 import { TypingEffectProps } from './typingEffect.types';
 
 
-const TypingEffect = ({initialText}: TypingEffectProps): JSX.Element => {
+const TypingEffect = ({initialText, heading = false, fast = true}: TypingEffectProps): JSX.Element => {
     const array: string[] = Array.from(initialText);
     const [text, setText] = useState<string>('');
 
     let tmpString: string = '';
     const min = 0;
-    const max = 200;
+    const max = fast? 10 : 200;
 
     const write = async (): Promise<void> => {
-        await sleep(1000);
+        await sleep(500);
         for(let i = 0; i < array.length; i++){
             tmpString += array[i];
             setText(tmpString);
@@ -33,9 +33,21 @@ const TypingEffect = ({initialText}: TypingEffectProps): JSX.Element => {
     }, [])
 
     return (
-        <h1 className={styles.text} >
-            {text}
-        </h1>
+        <>
+        {
+            heading?
+                <h1 className={styles.headingText} >
+                    {text}
+                </h1>
+            :
+                <p className={styles.paragraphText} >
+                    {text}
+                </p>
+
+
+        }
+        </>
+        
     )
 }
 

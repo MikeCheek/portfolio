@@ -1,7 +1,8 @@
 import * as React from "react"
+import Hero from "../components/hero/hero"
 import Layout from "../components/layout/layout"
 import SEO from '../components/seo/seo'
-import Whoami from "../components/whoami/whoami"
+
 import "../styles/globals.scss"
 
 const IndexPage = ():JSX.Element => {
@@ -9,7 +10,7 @@ const IndexPage = ():JSX.Element => {
     <Layout>
       <div>
         <SEO title={"Michele Pulvirenti"} />
-        <Whoami />
+        <Hero />
       </div>
     </Layout>
   )

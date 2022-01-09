@@ -1,3 +1,5 @@
 export type TypingEffectProps = {
-    initialText: string
+    initialText: string, 
+    heading?: boolean,
+    fast?: boolean,
 }

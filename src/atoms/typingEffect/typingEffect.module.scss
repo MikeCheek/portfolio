@@ -12,6 +12,15 @@
     -webkit-animation: blink-animation 1s step-start 0s infinite;
 
 }
+
+.headingText{
+    @extend .text;
+}
+
+.paragraphText{
+    @extend .text;
+}
+
 @keyframes blink-animation {
     50% {
         opacity: 0.0;

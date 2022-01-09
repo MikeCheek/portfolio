@@ -8,7 +8,7 @@ const Whoami = (): JSX.Element => {
             <p className={styles.introduce}>
                 /*let me introduce myself*/
             </p>
-            <TypingEffect initialText="Hi, I'm Michele Pulvirenti." />
+            <TypingEffect initialText="Hi, I'm Michele Pulvirenti." heading={true} fast={false} />
         </div>
     
 }

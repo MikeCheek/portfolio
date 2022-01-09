@@ -16,6 +16,7 @@ $breakpoints: (
   right: 0;
   left: 0;
   justify-content: space-between;
+  background-color: var(--transparent-black);
   > * {
     padding: 8px;
   }
