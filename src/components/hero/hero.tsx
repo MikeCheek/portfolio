@@ -2,7 +2,6 @@ import React from 'react'
 
 import * as styles from './hero.module.scss'
 
-import Separator from '../../atoms/separator/separator'
 import Section from '../section/section'
 import Whoami from '../whoami/whoami'
 
