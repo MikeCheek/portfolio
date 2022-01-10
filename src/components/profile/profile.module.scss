@@ -14,17 +14,27 @@
     margin-top: 20px;
     background-color: none;
     border: 3px groove;
-    border-color: var(--transparent-orange);
+    border-color: var(--orange);
     padding: 10px 15px 10px;
     text-decoration: none;
-    color: var(--transparent-orange);
+    color: var(--orange);
     text-transform: uppercase;
     font-weight: bolder;
 }
 
 .cvButton:hover{
-    transform: scale(1.1);
-}
+    animation: hov 200ms ease-in-out forwards;
+  }
+  
+@keyframes hov{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+        color:var(--orange);
+    }
+} 
 
 @keyframes slideRight {
     0%{
