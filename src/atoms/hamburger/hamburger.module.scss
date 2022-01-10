@@ -17,10 +17,9 @@ $breakpoints: (
     width: 35px;
     height: 30px;
     padding: 5px;
-    animation: pop 500ms ease-in-out;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     @media(min-width: 768px){
         width: 50px;

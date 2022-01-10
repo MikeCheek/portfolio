@@ -10,19 +10,19 @@ const Hero = (): JSX.Element => {
         <>
             <Whoami />
             <div className={styles.sectionWrap}>
-                <Section title={"About me"} >
+                <Section title={"About me"} id={"about"} >
                     <p>{about}</p>
                 </Section>
-                <Section title={"Work Experiences"} /*reversed={true}*/ >
+                <Section title={"Work Experiences"} id={"works"} /*reversed={true}*/ >
                     <p>{works}</p>
                 </Section>
-                <Section title={"Education"} /*reversed={true}*/ >
+                <Section title={"Education"} id={"education"} /*reversed={true}*/ >
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} /*reversed={true}*/ >
+                <Section title={"Other experiences"} id={"others"} /*reversed={true}*/ >
                     <p>{others}</p>
                 </Section>
-                <Section title={"Hard skills"} /*reversed={true}*/ >
+                <Section title={"Hard skills"} id={"skills"} /*reversed={true}*/ >
                     <p>{skills}</p>
                 </Section>
             </div>

@@ -3,16 +3,42 @@ import NavItem from '../../atoms/navItem/navItem'
 import * as styles from './navigation.module.scss'
 import { NavigationProps } from './navigation.type'
 
+const items = [
+    //{
+    //    text: "Home", path: "/"
+    //},
+    {
+        text: "About", path: "#about", isHref: true
+    },
+    {
+        text: "Education", path: "#education", isHref: true
+    },
+    {
+        text: "Works", path: "#works", isHref: true
+    },
+    {
+        text: "Skills", path: "#skills", isHref: true
+    },
+    {
+        text: "Other", path: "#others", isHref: true
+    },
+    {
+        text: "Contacts", path: "#contacts", isHref: true
+    },
+]
+
 const Navigation = ({onClick}: NavigationProps): JSX.Element => {
     return (
         <>
             <div className={styles.navDesktop}>
-                <NavItem text="Home" path="/" />
-                <NavItem text="Contacts" path="#contacts" isHref={true} />
+                {items.map((item) => {
+                    return <NavItem text={item.text} path={item.path} isHref={item.isHref} />
+                })}
             </div>
             <div className={styles.navMobile}>
-                <NavItem text="Home" path="/" onClick={onClick} />
-                <NavItem text="Contacts" path="#contacts" onClick={onClick} isHref={true} />
+                {items.map((item) => {
+                    return <NavItem text={item.text} path={item.path} onClick={onClick} isHref={item.isHref} />
+                })}
             </div>
         </>
     )
