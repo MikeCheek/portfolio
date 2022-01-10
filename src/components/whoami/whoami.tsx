@@ -10,8 +10,12 @@ const Whoami = (): JSX.Element => {
                 /*let me introduce myself*/
             </p>
             <div className={styles.wrap} >
-                <Profile />
-                <TypingEffect initialText="Hi, I'm Michele Pulvirenti." heading={true} fast={false} />
+                <div className={styles.profileWrap}>
+                    <Profile />
+                </div>
+                <div className={styles.typeWrap}>
+                    <TypingEffect initialText="Hi, I'm Michele Pulvirenti." heading={true} fast={false} />
+                </div>
             </div>
         </div>
     

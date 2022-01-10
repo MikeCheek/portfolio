@@ -1,0 +1,36 @@
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @media screen and (min-width: "768px") {
+        animation: slideRight 1.5s cubic-bezier(1,-0.37, 0.27, 1.01);
+    }
+    
+}
+
+.cvButton{
+    margin-top: 20px;
+    background-color: none;
+    border: 3px groove;
+    border-color: var(--transparent-orange);
+    padding: 10px 15px 10px;
+    text-decoration: none;
+    color: var(--transparent-orange);
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.cvButton:hover{
+    transform: scale(1.1);
+}
+
+@keyframes slideRight {
+    0%{
+        transform: translateX(-150%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}

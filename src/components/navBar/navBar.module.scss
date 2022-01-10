@@ -6,7 +6,7 @@ $breakpoints: (
 );
 
 .navBar {
-  height: 75px;
+  height: var(--nav-bar-height);
   width: 100vw;
   z-index: 1;
   position: fixed;
