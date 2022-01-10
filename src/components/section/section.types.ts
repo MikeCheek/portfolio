@@ -5,4 +5,5 @@ export type SectionProps = {
     children: ReactElement<any, any>,
     reversed?: boolean,
     id?: string
+    Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>
 }

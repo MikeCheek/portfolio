@@ -5,24 +5,30 @@ import * as styles from './hero.module.scss'
 import Section from '../section/section'
 import Whoami from '../whoami/whoami'
 
+import Account from '../../assets/account.svg'
+import Coding from '../../assets/coding.svg'
+import Skills from '../../assets/skills.svg'
+import Teaching from '../../assets/teaching.svg'
+import Things from '../../assets/things.svg'
+
 const Hero = (): JSX.Element => {
     return (
         <>
             <Whoami />
             <div className={styles.sectionWrap}>
-                <Section title={"About me"} id={"about"} >
+                <Section title={"About me"} id={"about"} Svg={Account} >
                     <p>{about}</p>
                 </Section>
-                <Section title={"Work Experiences"} id={"works"} /*reversed={true}*/ >
+                <Section title={"Work Experiences"} id={"works"} Svg={Coding} reversed={true}>
                     <p>{works}</p>
                 </Section>
-                <Section title={"Education"} id={"education"} /*reversed={true}*/ >
+                <Section title={"Education"} id={"education"} Svg={Teaching}>
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} id={"others"} /*reversed={true}*/ >
+                <Section title={"Other experiences"} id={"others"} Svg={Things} reversed={true} >
                     <p>{others}</p>
                 </Section>
-                <Section title={"Hard skills"} id={"skills"} /*reversed={true}*/ >
+                <Section title={"Hard skills"} id={"skills"} Svg={Skills} >
                     <p>{skills}</p>
                 </Section>
             </div>
