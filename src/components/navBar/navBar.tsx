@@ -19,12 +19,15 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
             if (document.getElementById("navBar")) {
                 if (currentScrollPos === 0) {
                     document.getElementById("navBar")!.style.top = "0";
-                    document.getElementById("arrowUp")!.style.bottom = "-100px";
                 } else if (prevScrollpos > currentScrollPos) {
                     document.getElementById("navBar")!.style.top = "0";
-                    document.getElementById("arrowUp")!.style.bottom = "0)";
                 } else if (!navBarOpen) {
                     document.getElementById("navBar")!.style.top = "-75px";
+                }
+                
+                if (currentScrollPos === 0 || currentScrollPos < 200) {
+                    document.getElementById("arrowUp")!.style.bottom = "-1000px";
+                } else {
                     document.getElementById("arrowUp")!.style.bottom = "0";
                 }
             }
