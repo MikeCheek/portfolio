@@ -86,9 +86,9 @@
         transform: rotateZ(0);
     }
     50%{
-        transform: rotateZ(5deg);
+        transform: rotateZ(5deg) translateY(-10px);
     }
     100%{
-        transform: rotateZ(-5deg);
+        transform: rotateZ(-5deg) translateY(-10px);
     }
 }
