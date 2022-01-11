@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import sleep from '../../utility/sleep';
+import sleep from '../../utilities/sleep';
 
 import * as styles from './typingEffect.module.scss'
 import { TypingEffectProps } from './typingEffect.types';

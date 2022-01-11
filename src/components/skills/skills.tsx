@@ -1,32 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Bar from '../../atoms/bar/bar'
 import { SkillsType } from './skills.types'
 
 import * as styles from './skills.module.scss'
+import isInViewport from '../../utilities/isInViewport'
 
 const Skills = (): JSX.Element => {
+
+    const [visible, setVisible] = useState(false);
+
+    const isVisible = isInViewport(1700, 2000)
+
+    useEffect(() => {
+        if(isVisible)
+            setVisible(true)
+    })
+
     return (
-        <div className={styles.skills} >
-            <h3>Programming Languages</h3>
-            {
-                programming.map((skill) => {
-                    return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                })
-            }
-            <h3>Framework</h3>
-            {
-                frameworks.map((skill) => {
-                    return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                })
-            }
-            <h3>Other</h3>
-            {
-                others.map((skill) => {
-                    return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                })
-            }
-            <p>{text}</p>
-        </div>
+        <>
+            {visible ?
+
+                <div className={styles.skills} >
+                    <h3>Programming Languages</h3>
+                    {
+                        programming.map((skill) => {
+                            return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+                        })
+                    }
+                    <h3>Framework</h3>
+                    {
+                        frameworks.map((skill) => {
+                            return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+                        })
+                    }
+                    <h3>Other</h3>
+                    {
+                        others.map((skill) => {
+                            return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+                        })
+                    }
+                    <p>{text}</p>
+                </div>
+                :
+                null}
+        </>
     )
 }
 
