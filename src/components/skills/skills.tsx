@@ -9,7 +9,7 @@ const Skills = (): JSX.Element => {
 
     const [visible, setVisible] = useState(false);
 
-    const isVisible = isInViewport(1700, 2000)
+    const isVisible = isInViewport(1700)
 
     useEffect(() => {
         if(isVisible)

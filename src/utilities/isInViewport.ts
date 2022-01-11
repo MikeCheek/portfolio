@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react"
 
 
-const isInViewport = (fromY: number, toY: number, firstTimeOnly: boolean = false) => {
+const isInViewport = (fromY: number, firstTimeOnly: boolean = false) => {
     const [isVisible, setIsVisible] = useState(false);
     const [seen, setSeen] = useState(false);
 
     const handler = () => {
-        if (document.documentElement.scrollTop >= fromY && document.documentElement.scrollTop <= toY) {
+        if (document.documentElement.scrollTop >= fromY) {
             setIsVisible(true);
             if (!seen) setSeen(true);
         } else {
