@@ -70,18 +70,20 @@
 }
 
 .svg{
-    align-self: start;
-    align-self: flex-start;
-    align-self: self-start;
+    @media screen and (min-width: "768px") {
+        align-self: start;
+        align-self: flex-start;
+        align-self: self-start;
+    }
 }
 
 .trebbling{
-    animation: trebble 1s ease-in-out infinite alternate;
+    animation: trebble 1s ease-in-out 3 alternate;
 }
 
 @keyframes trebble {
     0%{
-        transform: rotateZ(-2deg);
+        transform: rotateZ(0);
     }
     50%{
         transform: rotateZ(2deg);
