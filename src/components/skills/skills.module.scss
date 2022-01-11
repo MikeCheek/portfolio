@@ -11,6 +11,14 @@
     }
     width: 90%;
     animation: fade-in 1s ease-in-out;
+    
+    :nth-child(odd){
+        :nth-child(2){
+            > * {
+                background-color: var(--transparent-pink) ;
+            }
+        }
+    }
 }
 
 @keyframes fade-in{
