@@ -34,8 +34,9 @@ const Skills = (): JSX.Element => {
                             return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
                         })
                     }
-                    <h3>{title}</h3>
-                    <p>{text}</p>
+                    <h3>Languages</h3>
+                    <p>Italian (mothertongue)</p>
+                    <p>English (B2, Cambridge First Certificate)</p>
                 </div>
                 :
                 null}
@@ -44,15 +45,6 @@ const Skills = (): JSX.Element => {
 }
 
 export default Skills
-
-const title:string = (
-    `Languages`
-)
-
-const text: string = (
-    `Italian (mothertongue),
-    English (B2, Cambridge First Certificate)`
-)
 
 const programming: SkillsType = [
     {
