@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef } from 'react'
+//@ts-ignore
 import Bar from '../../atoms/bar/bar'
 import { SkillsType } from './skills.types'
 
 import * as styles from './skills.module.scss'
-import isInViewport from '../../utilities/isInViewport'
+//@ts-ignore
+import isOnScreen from '../../utilities/isOnScreen'
 
 const Skills = (): JSX.Element => {
-
-    const [visible, setVisible] = useState(false);
-
-    const isVisible = isInViewport(1700)
-
-    useEffect(() => {
-        if(isVisible)
-            setVisible(true)
-    })
+    const skillsRef = useRef<HTMLDivElement>(null)
+    const isVisible = isOnScreen(skillsRef)
 
     return (
-        <>
-            {visible ?
+        <div className={styles.wrap} ref={skillsRef}>
+            {isVisible ?
 
                 <div className={styles.skills} >
                     <h3>Programming Languages</h3>
@@ -43,7 +38,7 @@ const Skills = (): JSX.Element => {
                 </div>
                 :
                 null}
-        </>
+        </div>
     )
 }
 
