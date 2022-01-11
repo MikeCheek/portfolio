@@ -32,14 +32,19 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
 
     const closeNavBar = () => {
         setNavBarOpen(false);
+        let tmp =  document.getElementById("navBar");
+        if(tmp)
+            tmp.style.backgroundColor = "var(--transparent-black)";
         document.body.style.overflowY = "scroll";
         document.body.style.height = "auto";
         document.getElementsByTagName("html")[0].style.overflowY = "scroll";
-        document.getElementsByTagName("html")[0].style.height = "auto";
     }
 
     const openNavBar = () => {
         setNavBarOpen(true);
+        let tmp =  document.getElementById("navBar");
+        if(tmp)
+            tmp.style.backgroundColor = "var(--black)";
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";
         document.getElementsByTagName("html")[0].style.overflow = "hidden";
