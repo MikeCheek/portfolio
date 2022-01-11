@@ -30,7 +30,7 @@
 
     @media screen and (min-width: "768px") {
         flex-direction: row;   
-        justify-content: space-between;
+        justify-content: space-around;
     }
 }
 
@@ -67,4 +67,10 @@
     @media screen and (min-width: "768px") {
         width: 80%;
     }
+}
+
+.svg{
+    align-self: start;
+    align-self: flex-start;
+    align-self: self-start;
 }
