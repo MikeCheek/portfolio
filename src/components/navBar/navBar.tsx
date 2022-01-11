@@ -43,7 +43,6 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";
         document.getElementsByTagName("html")[0].style.overflow = "hidden";
-        document.getElementsByTagName("html")[0].style.height = "100%";
     }
 
     return (
