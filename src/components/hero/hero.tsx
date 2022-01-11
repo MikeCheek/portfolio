@@ -7,9 +7,10 @@ import Whoami from '../whoami/whoami'
 
 import Account from '../../assets/account.svg'
 import Coding from '../../assets/coding.svg'
-import Skills from '../../assets/skills.svg'
+import HSkills from '../../assets/skills.svg'
 import Teaching from '../../assets/teaching.svg'
 import Things from '../../assets/things.svg'
+import Skills from '../skills/skills'
 
 const Hero = (): JSX.Element => {
     return (
@@ -28,8 +29,8 @@ const Hero = (): JSX.Element => {
                 <Section title={"Other experiences"} id={"others"} Svg={Things} reversed={true} >
                     <p>{others}</p>
                 </Section>
-                <Section title={"Hard skills"} id={"skills"} Svg={Skills} >
-                    <p>{skills}</p>
+                <Section title={"Hard skills"} id={"skills"} Svg={HSkills} >
+                    <Skills />
                 </Section>
             </div>
         </>
@@ -87,21 +88,6 @@ const others: string = (
     -> Thanks to the Hackathon held during the event,
           I improved my knowledge skills of scientific
           calculation language such as Matlab and Simulink`
-)
-
-const skills: string = (
-    `Programming languages:
-    C, Java, Assembly MIPS, JavaScript, PHP
-    
-    Framework:
-    React, Gatsby 
-    
-    Other:
-    HTML, CSS, SQL, Linux, Matlab, Simulink
-    
-    Languages:
-    Italian (mothertongue),
-    English (B2, Cambridge First Certificate)`
 )
 
 export default Hero

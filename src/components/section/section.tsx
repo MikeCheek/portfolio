@@ -9,7 +9,9 @@ const Section = ({title, children, id, reversed = false, Svg}: SectionProps): JS
             <h2 className={reversed? styles.titleReversed : styles.title} >{title}</h2>
             <div className={reversed? styles.contentReversed : styles.content}>
                 {Svg? <Svg width={"100px"} height={"100px"} /> : null}
-                {children}
+                <div className={styles.children}>
+                    {children}
+                </div>
             </div>
             
         </div>

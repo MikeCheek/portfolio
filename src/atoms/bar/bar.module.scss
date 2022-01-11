@@ -1,0 +1,27 @@
+.wrap{
+    width: 100%;
+}
+
+.details{
+    width: 100%;
+    display: flex;  
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.barWrap{
+    position: relative;
+
+    border: 2px solid var(--transparent-white);
+    width: 100%;
+    border-radius: 20px;
+}
+
+.bar{
+    position: relative;
+    width: 0;
+    height: 9px;
+    border-radius: 10px;
+    background-color: var(--transparent-orange);
+    width: 0%;
+}
