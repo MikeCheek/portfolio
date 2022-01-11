@@ -36,7 +36,7 @@ const Skills = (): JSX.Element => {
                     }
                     <h3>Languages</h3>
                     <p>Italian (mothertongue)</p>
-                    <p>English (B2, Cambridge First Certificate)</p>
+                    <p>English (B2 Cambridge First Certificate)</p>
                 </div>
                 :
                 null}
