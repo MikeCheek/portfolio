@@ -14,7 +14,7 @@ import Skills from '../skills/skills'
 
 const Hero = (): JSX.Element => {
     return (
-        <>
+        <div className={styles.wrapper}>
             <Whoami />
             <div className={styles.sectionWrap}>
                 <Section title={"About me"} id={"about"} Svg={Account} >
@@ -33,7 +33,7 @@ const Hero = (): JSX.Element => {
                     <Skills />
                 </Section>
             </div>
-        </>
+        </div>
     )
 }
 

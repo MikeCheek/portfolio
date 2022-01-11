@@ -7,6 +7,7 @@ import NavBar from '../navBar/navBar'
 import Footer from '../footer/footer'
 import Ball from '../../atoms/ball/ball'
 import Separator from '../../atoms/separator/separator'
+import ArrowUp from '../../atoms/arrowUp/arrowUp'
 
 const Layout = ({children, isBlocking = false}: LayoutProps ): JSX.Element => {
     return (
@@ -17,6 +18,7 @@ const Layout = ({children, isBlocking = false}: LayoutProps ): JSX.Element => {
             {children}
             <Separator />
             <Footer />
+            <ArrowUp />
         </div>
         
     )
