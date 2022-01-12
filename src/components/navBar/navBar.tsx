@@ -26,7 +26,7 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
                 }
                 
                 if (currentScrollPos === 0 || currentScrollPos < 200) {
-                    document.getElementById("arrowUp")!.style.bottom = "-1000px";
+                    document.getElementById("arrowUp")!.style.bottom = "-500px";
                 } else {
                     document.getElementById("arrowUp")!.style.bottom = "0";
                 }
