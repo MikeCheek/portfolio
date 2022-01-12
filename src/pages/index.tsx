@@ -41,7 +41,10 @@ const IndexPage = ():JSX.Element => {
   return (
     <Layout>
       <div>
-        <SEO title={"Michele Pulvirenti"} description={"Since I was a child I have always had a passion for everything there is computer science, so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin."} />
+        <SEO 
+          title={"Michele Pulvirenti"} 
+          description={"Since I was a child I have always had a passion for everything there is computer science, so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin."} 
+          />
         <Hero />
       </div>
     </Layout>

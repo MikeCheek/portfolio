@@ -66,3 +66,8 @@ $breakpoints: (
         transform: rotateX(0deg);
     }
 }
+
+.navMobileDark{
+    @extend .navMobile;
+    background-color: var(--white) !important;
+}

@@ -53,3 +53,8 @@ $breakpoints: (
     display: flex;
   }
 }
+
+.navBarDark{
+  @extend .navBar;
+  background-color: var(--transparent-white);
+}

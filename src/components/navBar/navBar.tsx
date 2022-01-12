@@ -7,10 +7,9 @@ import Logo from '../../atoms/logo/logo'
 import Navigation from '../navigation/navigation'
 import Hamburger from '../../atoms/hamburger/hamburger'
 
+const NavBar = ({darkMode}: NavBarProps): JSX.Element => {
 
-const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
-
-    const [navBarOpen, setNavBarOpen] = useState(false);
+    const [navBarOpen, setNavBarOpen] = useState<boolean>(false);
 
     useEffect(() => {
         let prevScrollpos = window.pageYOffset;
@@ -40,7 +39,7 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
         setNavBarOpen(false);
         let tmp =  document.getElementById("navBar");
         if(tmp)
-            tmp.style.backgroundColor = "var(--transparent-black)";
+            tmp.style.backgroundColor = darkMode? "var(--transparent-white)" : "var(--transparent-black)";
         document.body.style.overflowY = "scroll";
         document.body.style.height = "auto";
         document.getElementsByTagName("html")[0].style.overflowY = "scroll";
@@ -50,28 +49,24 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
         setNavBarOpen(true);
         let tmp =  document.getElementById("navBar");
         if(tmp)
-            tmp.style.backgroundColor = "var(--black)";
+            tmp.style.backgroundColor = darkMode? "var(--white)" : "var(--black)";
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";
         document.getElementsByTagName("html")[0].style.overflow = "hidden";
     }
 
     return (
-        <div className={styles.navBar} id="navBar">
+        <div className={darkMode? styles.navBarDark: styles.navBar} id="navBar">
             <div className={styles.logo}>
                 <Logo/>
             </div>
 
-            {isBlocking ?
-                null
-                :
                 <div className={styles.navigationDesktop}>
-                    <Navigation />
+                    <Navigation darkMode={darkMode} />
                 </div>
-            }
 
             {
-                navBarOpen && !isBlocking ?
+                navBarOpen?
                     <div className={styles.navigationMobile}>
                         <Navigation onClick={closeNavBar} />
                     </div>
@@ -79,14 +74,9 @@ const NavBar = ({isBlocking = false}: NavBarProps): JSX.Element => {
                     null
             }
 
-            {
-                isBlocking ?
-                    null
-                    :
                     <div className={styles.hamburger}>
                         <Hamburger onClick={navBarOpen ? closeNavBar : openNavBar} navBarOpen={navBarOpen} />
                     </div>
-            }
         </div>
     )
 }

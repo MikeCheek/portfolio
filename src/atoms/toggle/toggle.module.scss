@@ -1,0 +1,50 @@
+.wrap{
+    border-radius: 20px;
+    border: var(--transparent-white) 2px solid;
+    width: 50px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.circle{
+    border-radius: 50%;
+    background-color: var(--transparent-white);
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+.circleToggled{
+    @extend .circle;
+    background-color: var(--transparent-black);
+    animation: untoggled 500ms forwards ease-in-out;
+}
+
+.circleUntoggled{
+    @extend .circle;
+    animation: toggled 500ms forwards ease-in-out;
+}
+
+@keyframes toggled {
+    0%{
+        margin-left: 25px;
+        margin-right: 5px;
+    }
+    100%{
+        margin-left: 5px;
+        margin-right: 25px;
+    }
+}
+
+@keyframes untoggled {
+    0%{
+        margin-left: 5px;
+        margin-right: 25px;
+    }
+    100%{
+        margin-left: 25px;
+        margin-right: 5px;
+    }
+}

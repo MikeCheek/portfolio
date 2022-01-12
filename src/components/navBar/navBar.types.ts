@@ -1,3 +1,3 @@
 export type NavBarProps = {
-    isBlocking?: Boolean
+    darkMode?: boolean
 }

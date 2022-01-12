@@ -12,9 +12,15 @@ import ArrowUp from '../../atoms/arrowUp/arrowUp'
 
 import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
+import Toggle from '../../atoms/toggle/toggle'
 
-const Layout = ({ children, isBlocking = false }: LayoutProps): JSX.Element => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
     const [browser, setBrowser] = useState<string>('Safari')
+    const [darkMode, setDarkMode] = useState<boolean>(false)
+
+    const changeDarkMode = () => {
+        setDarkMode(!darkMode)
+    }
 
     useEffect(() => {
         setBrowser(detectBrowser())
@@ -22,13 +28,14 @@ const Layout = ({ children, isBlocking = false }: LayoutProps): JSX.Element => {
 
     return (
         <div id="top" className={styles.layout}>
-            <NavBar isBlocking={isBlocking} />
+            <NavBar darkMode={darkMode} />
             {
                 browser === 'Safari' ?
                     <Ball BallSvg={BallStill} fastAnimation />
                     :
                     <Ball BallSvg={BallMoving} />
             }
+            <Toggle toggled={darkMode} changeToggle={changeDarkMode} />
 
             {children}
 
