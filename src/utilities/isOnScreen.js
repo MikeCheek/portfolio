@@ -1,17 +1,28 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from 'react'
+import sleep from './sleep'
 
-const isOnScreen = (ref) => {
-    const [isIntersecting, setIntersecting] = useState(false)
+const isOnScreen = (ref, retarded = false) => {
+  const [isIntersecting, setIntersecting] = useState(false)
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => setIntersecting(entry.isIntersecting)
-        )
-        observer.observe(ref.current)
-        return () => { observer.disconnect() }
-    }, [])
+  const setVisible = (entry) => {
+    if (entry.isIntersecting)
+      sleep(500).then(() => {
+        if (entry.isIntersecting) setIntersecting(true)
+        else setIntersecting(false)
+      })
+    else
+      setIntersecting(false)
+  }
 
-    return isIntersecting;
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => retarded? setVisible(entry) : setIntersecting(entry.isIntersecting))
+    observer.observe(ref.current)
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  return isIntersecting
 }
 
-export default isOnScreen;
+export default isOnScreen

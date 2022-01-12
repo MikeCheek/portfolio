@@ -9,7 +9,7 @@ import isOnScreen from '../../utilities/isOnScreen'
 
 const Skills = (): JSX.Element => {
     const skillsRef = useRef<HTMLDivElement>(null)
-    const isVisible = isOnScreen(skillsRef)
+    const isVisible = isOnScreen(skillsRef, true)
 
     return (
         <div className={styles.wrap} ref={skillsRef}>
