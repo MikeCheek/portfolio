@@ -12,34 +12,36 @@ const Skills = (): JSX.Element => {
     const isVisible = isOnScreen(skillsRef, true)
 
     return (
-        <div className={styles.wrap} ref={skillsRef}>
-            {isVisible ?
+        <div className={styles.wrap}>
 
-                <div className={styles.skills} >
-                    <h3>Programming Languages</h3>
-                    {
-                        programming.map((skill) => {
-                            return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                        })
-                    }
-                    <h3>Framework</h3>
-                    {
-                        frameworks.map((skill) => {
-                            return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                        })
-                    }
-                    <h3>Other</h3>
-                    {
-                        others.map((skill) => {
-                            return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                        })
-                    }
-                    <h3>Languages</h3>
-                    <p>Italian (mothertongue)</p>
-                    <p>English (B2 Cambridge First Certificate)</p>
-                </div>
-                :
-                null}
+            <div className={styles.skills} ref={skillsRef} >
+                {isVisible ?
+                    <>
+                        <h3>Programming Languages</h3>
+                        {
+                            programming.map((skill) => {
+                                return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+                            })
+                        }
+                        <h3>Framework</h3>
+                        {
+                            frameworks.map((skill) => {
+                                return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+                            })
+                        }
+                        <h3>Other</h3>
+                        {
+                            others.map((skill) => {
+                                return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+                            })
+                        }
+                        <h3>Languages</h3>
+                        <p>Italian (mothertongue)</p>
+                        <p>English (B2 Cambridge First Certificate)</p>
+                    </>
+                    :
+                    null}
+            </div>
         </div>
     )
 }

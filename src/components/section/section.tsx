@@ -1,13 +1,21 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { SectionProps } from './section.types'
 
-//@ts-ignore
-import isOnScreen from '../../utilities/isOnScreen'
 import * as styles from './section.module.scss'
+import sleep from '../../utilities/sleep';
 
 const Section = ({title, children, id, reversed = false, Svg}: SectionProps): JSX.Element => {
-    const svgRef = useRef<HTMLDivElement>(null)
-    const isVisible = isOnScreen(svgRef)
+
+    const [isClicked, setIsClicked] = useState(false);
+
+    const setClicked = async () => {
+        if(!isClicked){
+            setIsClicked(true);
+            await sleep(2000);
+            setIsClicked(false)
+        }
+    }
+    
     return (
         <div className={reversed? styles.sectionReversed : styles.section} id={id? id : title}>
             <h2 className={reversed? styles.titleReversed : styles.title} >{title}</h2>
@@ -15,13 +23,13 @@ const Section = ({title, children, id, reversed = false, Svg}: SectionProps): JS
                 {
                     Svg? 
                         <div 
-                            ref={svgRef} 
                             className={styles.svg}
+                            onClick={setClicked}
                         >
                             <Svg 
                                 width={"100px"} 
                                 height={"100px"} 
-                                className={isVisible? styles.trebbling : null} 
+                                className={isClicked? styles.trebbling : null} 
                             />
                         </div>
                      : null

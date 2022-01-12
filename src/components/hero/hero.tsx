@@ -23,14 +23,14 @@ const Hero = (): JSX.Element => {
                 <Section title={"Work Experiences"} id={"works"} Svg={Coding} reversed={true}>
                     <p>{works}</p>
                 </Section>
+                <Section title={"Hard skills"} id={"skills"} Svg={HSkills} >
+                    <Skills />
+                </Section>
                 <Section title={"Education"} id={"education"} Svg={Teaching}>
                     <p>{education}</p>
                 </Section>
                 <Section title={"Other experiences"} id={"others"} Svg={Things} reversed={true} >
                     <p>{others}</p>
-                </Section>
-                <Section title={"Hard skills"} id={"skills"} Svg={HSkills} >
-                    <Skills />
                 </Section>
             </div>
         </div>

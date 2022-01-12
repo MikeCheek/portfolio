@@ -14,13 +14,13 @@ const items = [
         text: "Works", path: "#works", isHref: true
     },
     {
+        text: "Skills", path: "#skills", isHref: true
+    },
+    {
         text: "Education", path: "#education", isHref: true
     },
     {
         text: "Other", path: "#others", isHref: true
-    },
-    {
-        text: "Skills", path: "#skills", isHref: true
     },
     {
         text: "Contacts", path: "#contacts", isHref: true

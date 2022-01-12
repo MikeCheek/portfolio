@@ -11,7 +11,7 @@ const isOnScreen = (ref, retarded = false) => {
         else setIntersecting(false)
       })
     else
-      setIntersecting(false)
+      sleep(500).then(() => setIntersecting(false)) 
   }
 
   useEffect(() => {
