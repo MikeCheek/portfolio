@@ -13,6 +13,7 @@ const Profile = (): JSX.Element => {
                 rel="noopener noreferrer" 
                 href={cv} 
                 target="_blank" 
+                title="Download my CV"
                 download="CV Michele Pulvirenti"
                 className={styles.cvButton}
             >

@@ -21,13 +21,13 @@ const Footer = ():JSX.Element => {
             <h2 className={styles.contacts}>Contacts</h2>
             <div className={styles.icons}>
                 {/*<Phone height={heigth} />*/}
-                <a href={'mailto:'+email} >
+                <a href={'mailto:'+email} title={"Send me an email"} >
                     <Email height={heigth}/>
                 </a>
-                <a href={linkedin}>
+                <a href={linkedin} title={"LinkedIn profile"} >
                     <Linkedin height={heigth}/>
                 </a>
-                <a href={github}>
+                <a href={github} title={"GitHub profile"} >
                     <Github height={heigth}/>
                 </a>
             </div>
