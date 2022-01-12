@@ -12,6 +12,11 @@
     width: 90%;
     animation: fade-in 1s ease-in-out;
     
+    :where(h3){
+        text-transform: uppercase;
+        margin-top: 50px;
+    }
+    
     :nth-child(odd){
         :nth-child(2){
             > * {
