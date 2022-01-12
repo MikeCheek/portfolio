@@ -48,10 +48,6 @@ const TypingEffect = ({initialText, heading = false, fast = true}: TypingEffectP
         write();
     }, [])
 
-    useEffect(() => {
-        console.log(text)
-    }, [text])
-
     return (
         <>
         {

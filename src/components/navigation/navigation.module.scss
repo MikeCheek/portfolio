@@ -45,7 +45,9 @@ $breakpoints: (
     align-items: center;
     justify-content: flex-start;
     background-color: var(--black);
+    -webkit-animation: rotateMenu 600ms ease-in-out forwards;
     animation: rotateMenu 600ms ease-in-out forwards;
+
     transform-origin: top center;
 
     > *{

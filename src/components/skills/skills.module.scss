@@ -10,6 +10,7 @@
         padding: 10px 0 10px;
     }
     width: 90%;
+    -webkit-animation: fade-in 1s ease-in-out;
     animation: fade-in 1s ease-in-out;
     
     :where(h3){
@@ -20,7 +21,7 @@
     :nth-child(odd){
         :nth-child(2){
             > * {
-                background-color: var(--transparent-pink) ;
+                background-color: var(--pink) ;
             }
         }
     }

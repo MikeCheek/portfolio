@@ -27,27 +27,33 @@ $breakpoints: (
 }
 .hamLine1{
     @extend .line;
+    -webkit-animation: animateCrossLine1 1s ease-in-out forwards;
     animation: animateCrossLine1 1s ease-in-out forwards;
 }
 .hamLine2{
     @extend .line;
+    -webkit-animation: animateCrossLine2 1s ease-in-out forwards;
     animation: animateCrossLine2 1s ease-in-out forwards;
 }
 .hamLine3{
     @extend .line;
+    -webkit-animation: animateCrossLine3 1s ease-in-out forwards;
     animation: animateCrossLine3 1s ease-in-out forwards;
 }
 
 .crossLine1{
     @extend .hamLine1;
+    -webkit-animation: animateHamLine1 1s ease-in-out forwards;
     animation: animateHamLine1 1s ease-in-out forwards;
 }
 .crossLine2{
     @extend .hamLine2;
+    -webkit-animation: animateHamLine2 1s ease-in-out forwards;
     animation: animateHamLine2 1s ease-in-out forwards;
 }
 .crossLine3{
     @extend .hamLine3;
+    -webkit-animation: animateHamLine3 1s ease-in-out forwards;
     animation: animateHamLine3 1s ease-in-out forwards;
 }
 

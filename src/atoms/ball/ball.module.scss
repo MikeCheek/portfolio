@@ -6,11 +6,27 @@
     align-items: center;
     justify-content: center;
     z-index: -1;
+    animation: fadeIn 5s ease-in-out;
 
     :first-child{
         transform: scale(1.5);
         @media screen and (min-width: "768px") {
             transform: scale(1);
         }
+    }
+}
+
+.ballFast{
+    @extend .ball;
+
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }

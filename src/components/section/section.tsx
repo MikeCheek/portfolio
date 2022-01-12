@@ -4,7 +4,7 @@ import { SectionProps } from './section.types'
 import * as styles from './section.module.scss'
 import sleep from '../../utilities/sleep';
 
-const Section = ({title, children, id, reversed = false, Svg}: SectionProps): JSX.Element => {
+const Section = ({title, children, id, reversed = false, Svg, paragraph = false}: SectionProps): JSX.Element => {
 
     const [isClicked, setIsClicked] = useState(false);
 
@@ -18,6 +18,32 @@ const Section = ({title, children, id, reversed = false, Svg}: SectionProps): JS
     
     return (
         <div className={reversed? styles.sectionReversed : styles.section} id={id? id : title}>
+            {
+                paragraph?
+                <>
+                <h2 className={styles.titleParagraph} >{title}</h2>
+                <div className={styles.contentParagraph}>
+                    {
+                        Svg? 
+                            <div 
+                                className={styles.svg}
+                                onClick={setClicked}
+                            >
+                                <Svg 
+                                    width={"100px"} 
+                                    height={"100px"} 
+                                    className={isClicked? styles.trebbling : null} 
+                                />
+                            </div>
+                         : null
+                    }
+                    <div className={styles.childrenParagraph}>
+                        {children}
+                    </div>
+                </div>
+                </>
+                :
+                <>
             <h2 className={reversed? styles.titleReversed : styles.title} >{title}</h2>
             <div className={reversed? styles.contentReversed : styles.content}>
                 {
@@ -38,6 +64,8 @@ const Section = ({title, children, id, reversed = false, Svg}: SectionProps): JS
                     {children}
                 </div>
             </div>
+            </>
+            }
             
         </div>
     )

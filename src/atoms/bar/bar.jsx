@@ -12,11 +12,12 @@ import isOnScreen from '../../utilities/isOnScreen';
 
 const BarDiv = styled.div`
         position: relative;
-        width: 0;
         height: 9px;
         border-radius: 10px;
-        background-color: var(--transparent-orange);
+        background-color: var(--orange);
+        will-change: width;
         width: ${(props) => props.percentage || "0%"};
+        -webkit-transition: width ${(props) => props.rand || 2}s ease-in-out;
         transition: width ${(props) => props.rand || 2}s ease-in-out;
     `
 

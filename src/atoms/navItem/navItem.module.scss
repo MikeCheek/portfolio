@@ -11,16 +11,17 @@ $breakpoints: (
 }
 
 .item {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    margin-top: auto;
-    margin-bottom: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .item:hover{
+  -webkit-animation: hov 200ms ease-in-out forwards;
   animation: hov 200ms ease-in-out forwards;
 }
 

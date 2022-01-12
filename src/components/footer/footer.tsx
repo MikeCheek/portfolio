@@ -24,7 +24,7 @@ const Footer = ():JSX.Element => {
                 <a href={'mailto:'+email} title={"Send me an email"} >
                     <Email height={heigth}/>
                 </a>
-                <a href={linkedin} title={"LinkedIn profile"} >
+                <a href={linkedin} title={"Linkedin profile"} >
                     <Linkedin height={heigth}/>
                 </a>
                 <a href={github} title={"GitHub profile"} >

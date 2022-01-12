@@ -1,12 +1,13 @@
 import React from 'react'
-import BallSvg from '../../assets/ball.svg'
 
 import * as styles from './ball.module.scss'
+import { BallProps } from './ball.types'
 
-const Ball = (): JSX.Element => {
+const Ball = ({BallSvg, fastAnimation = false}: BallProps): JSX.Element => {
+
     return (
-        <div className={styles.ball}>
-            <BallSvg opacity={'0.5'}/>
+        <div className={fastAnimation? styles.ballFast : styles.ball}>
+            <BallSvg />
         </div>
     )
 }

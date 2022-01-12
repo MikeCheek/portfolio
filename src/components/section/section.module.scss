@@ -78,7 +78,23 @@
 }
 
 .trebbling{
+    -webkit-animation: trebble 1s ease-in-out 2 alternate;
     animation: trebble 1s ease-in-out 2 alternate;
+}
+
+.titleParagraph{
+    color: var(--transparent-orange);
+}
+
+.contentParagraph{
+    @extend .content;
+}
+
+.childrenParagraph{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 @keyframes trebble {

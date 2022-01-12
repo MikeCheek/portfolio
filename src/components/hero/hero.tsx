@@ -4,13 +4,14 @@ import * as styles from './hero.module.scss'
 
 import Section from '../section/section'
 import Whoami from '../whoami/whoami'
+import Skills from '../skills/skills'
 
 import Account from '../../assets/account.svg'
 import Coding from '../../assets/coding.svg'
 import HSkills from '../../assets/skills.svg'
 import Teaching from '../../assets/teaching.svg'
 import Things from '../../assets/things.svg'
-import Skills from '../skills/skills'
+import Others from '../others/others'
 
 const Hero = (): JSX.Element => {
     return (
@@ -20,7 +21,7 @@ const Hero = (): JSX.Element => {
                 <Section title={"About me"} id={"about"} Svg={Account} >
                     <p>{about}</p>
                 </Section>
-                <Section title={"Work Experiences"} id={"works"} Svg={Coding} reversed={true}>
+                <Section title={"Work Experiences"} id={"works"} Svg={Coding} reversed>
                     <p>{works}</p>
                 </Section>
                 <Section title={"Hard skills"} id={"skills"} Svg={HSkills} >
@@ -29,8 +30,8 @@ const Hero = (): JSX.Element => {
                 <Section title={"Education"} id={"education"} Svg={Teaching}>
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} id={"others"} Svg={Things} reversed={true} >
-                    <p>{others}</p>
+                <Section title={"Other experiences"} id={"others"} Svg={Things} reversed>
+                    <Others />
                 </Section>
             </div>
         </div>
@@ -64,30 +65,6 @@ const education: string = (
   High school "Archimede" - Acireale 
    -> From September 2013 to June 2019
    -> High school diploma`
-)
-
-const others: string = (
-    `JEISM - JE Italy Summer Meeting (2021)
-    -> Event between Italian Junior Enterprises
-    -> Location: Gabicce, Marche
-    -> Duration: 3 days
-    -> It was a great opportunity to discuss with guys
-          from different Junior Enterprises and for getting
-          to know the partner companies of the event
-          through daily workshops.
-          A stimulating workshop was organized by Open
-          Marketplace on the theme of Open Innovation
-    
-    SysE2021 - Summer School (2021) 
-    -> Orientation event on the Master's degree
-          organized by the University of Genova in
-          collaboration with University of Savoie Mont
-          Blanc and carried out in English
-    -> Location: Imperia, Liguria
-    -> Duration: 5 days
-    -> Thanks to the Hackathon held during the event,
-          I improved my knowledge skills of scientific
-          calculation language such as Matlab and Simulink`
 )
 
 export default Hero
