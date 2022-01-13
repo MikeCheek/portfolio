@@ -1,3 +1,3 @@
 export type NavBarProps = {
-    darkMode?: boolean
+    lightMode?: boolean
 }

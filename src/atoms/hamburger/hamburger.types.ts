@@ -1,4 +1,5 @@
 export type HamburgerProps = {
     onClick: React.MouseEventHandler<HTMLDivElement>,
-    navBarOpen: Boolean
+    navBarOpen: Boolean,
+    lightMode?: boolean
 }

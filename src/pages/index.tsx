@@ -25,12 +25,7 @@ const IndexPage = ():JSX.Element => {
 
   }
   const animateKeyUp = (/*key: any*/) => {
-      document.body.style.color = "white";
-      document.body.style.transform = "none";
-      document.body.style.overflowX = "hidden";
-      document.body.style.textDecoration = "none";
-      document.body.style.webkitTextStroke = "transparent";
-
+      document.body.style.cssText = "none";
   }
 
   useEffect(() => {

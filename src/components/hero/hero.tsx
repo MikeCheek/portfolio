@@ -14,23 +14,26 @@ import Things from '../../assets/things.svg'
 import Others from '../others/others'
 
 const Hero = (): JSX.Element => {
+
+    const color = "#FD76CB88";
+
     return (
         <div className={styles.wrapper}>
             <Whoami />
             <div className={styles.sectionWrap}>
-                <Section title={"About me"} id={"about"} Svg={Account} >
+                <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
                     <p>{about}</p>
                 </Section>
-                <Section title={"Work Experiences"} id={"works"} Svg={Coding} reversed>
+                <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
                     <p>{works}</p>
                 </Section>
-                <Section title={"Hard skills"} id={"skills"} Svg={HSkills} >
+                <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} >
                     <Skills />
                 </Section>
-                <Section title={"Education"} id={"education"} Svg={Teaching}>
+                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }}>
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} id={"others"} Svg={Things} reversed>
+                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} reversed>
                     <Others />
                 </Section>
             </div>

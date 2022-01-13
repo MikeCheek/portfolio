@@ -16,10 +16,10 @@ import Toggle from '../../atoms/toggle/toggle'
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
     const [browser, setBrowser] = useState<string>('Safari')
-    const [darkMode, setDarkMode] = useState<boolean>(false)
+    const [lightMode, setLightMode] = useState<boolean>(false)
 
     const changeDarkMode = () => {
-        setDarkMode(!darkMode)
+        setLightMode(!lightMode)
     }
 
     useEffect(() => {
@@ -28,19 +28,19 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 
     return (
         <div id="top" className={styles.layout}>
-            <NavBar darkMode={darkMode} />
+            <NavBar lightMode={lightMode} />
             {
                 browser === 'Safari' ?
                     <Ball BallSvg={BallStill} fastAnimation />
                     :
                     <Ball BallSvg={BallMoving} />
             }
-            <Toggle toggled={darkMode} changeToggle={changeDarkMode} />
+            <Toggle toggled={lightMode} changeToggle={changeDarkMode} />
 
             {children}
 
             <Separator />
-            <Footer />
+            <Footer lightMode={lightMode} />
             <ArrowUp />
         </div>
 

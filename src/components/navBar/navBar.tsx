@@ -7,7 +7,7 @@ import Logo from '../../atoms/logo/logo'
 import Navigation from '../navigation/navigation'
 import Hamburger from '../../atoms/hamburger/hamburger'
 
-const NavBar = ({darkMode}: NavBarProps): JSX.Element => {
+const NavBar = ({lightMode}: NavBarProps): JSX.Element => {
 
     const [navBarOpen, setNavBarOpen] = useState<boolean>(false);
 
@@ -34,12 +34,20 @@ const NavBar = ({darkMode}: NavBarProps): JSX.Element => {
             prevScrollpos = currentScrollPos;
         }
     });
+    
+    useEffect(() => {
+        let tmp =  document.getElementById("navBar");
+        if(tmp){
+            lightMode? tmp.style.backgroundColor = "var(--transparent-white)" : tmp.style.cssText = "none";
+        }
+    }, [lightMode])
 
     const closeNavBar = () => {
         setNavBarOpen(false);
         let tmp =  document.getElementById("navBar");
-        if(tmp)
-            tmp.style.backgroundColor = darkMode? "var(--transparent-white)" : "var(--transparent-black)";
+        if(tmp){
+            tmp.style.backgroundColor = lightMode? "var(--transparent-white)" : "var(--transparent-black)";
+        }
         document.body.style.overflowY = "scroll";
         document.body.style.height = "auto";
         document.getElementsByTagName("html")[0].style.overflowY = "scroll";
@@ -48,34 +56,35 @@ const NavBar = ({darkMode}: NavBarProps): JSX.Element => {
     const openNavBar = () => {
         setNavBarOpen(true);
         let tmp =  document.getElementById("navBar");
-        if(tmp)
-            tmp.style.backgroundColor = darkMode? "var(--white)" : "var(--black)";
+        if(tmp){
+            tmp.style.backgroundColor = lightMode? "var(--white)" : "var(--black)";
+        }
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";
         document.getElementsByTagName("html")[0].style.overflow = "hidden";
     }
 
     return (
-        <div className={darkMode? styles.navBarDark: styles.navBar} id="navBar">
+        <div className={lightMode? styles.navBarDark: styles.navBar} id="navBar">
             <div className={styles.logo}>
-                <Logo/>
+                <Logo lightMode={lightMode}/>
             </div>
 
                 <div className={styles.navigationDesktop}>
-                    <Navigation darkMode={darkMode} />
+                    <Navigation lightMode={lightMode} />
                 </div>
 
             {
                 navBarOpen?
                     <div className={styles.navigationMobile}>
-                        <Navigation onClick={closeNavBar} />
+                        <Navigation onClick={closeNavBar} lightMode={lightMode} />
                     </div>
                     :
                     null
             }
 
                     <div className={styles.hamburger}>
-                        <Hamburger onClick={navBarOpen ? closeNavBar : openNavBar} navBarOpen={navBarOpen} />
+                        <Hamburger onClick={navBarOpen ? closeNavBar : openNavBar} navBarOpen={navBarOpen} lightMode={lightMode} />
                     </div>
         </div>
     )

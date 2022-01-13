@@ -29,10 +29,12 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                                 className={styles.svg}
                                 onClick={setClicked}
                             >
-                                <Svg 
+                                <Svg.svg 
                                     width={"100px"} 
                                     height={"100px"} 
                                     className={isClicked? styles.trebbling : null} 
+                                    fill={Svg.fill? Svg.fill : "none"}
+                                    stroke={Svg.stroke? Svg.stroke : "none"}
                                 />
                             </div>
                          : null
@@ -52,10 +54,12 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                             className={styles.svg}
                             onClick={setClicked}
                         >
-                            <Svg 
+                            <Svg.svg 
                                 width={"100px"} 
                                 height={"100px"} 
                                 className={isClicked? styles.trebbling : null} 
+                                fill={Svg.fill? Svg.fill : "none"}
+                                stroke={Svg.stroke? Svg.stroke : "none"}
                             />
                         </div>
                      : null
