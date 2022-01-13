@@ -4,7 +4,7 @@ import { SectionProps } from './section.types'
 import * as styles from './section.module.scss'
 import sleep from '../../utilities/sleep';
 
-const Section = ({title, children, id, reversed = false, Svg, paragraph = false}: SectionProps): JSX.Element => {
+const Section = ({title, children, id, reversed = false, Svg, paragraph = false, lightMode}: SectionProps): JSX.Element => {
 
     const [isClicked, setIsClicked] = useState(false);
 
@@ -17,7 +17,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
     }
     
     return (
-        <div className={reversed? styles.sectionReversed : styles.section} id={id? id : title}>
+        <div className={`${reversed? styles.sectionReversed : styles.section} ${lightMode? styles.light : null}`} id={id? id : title}>
             {
                 paragraph?
                 <>

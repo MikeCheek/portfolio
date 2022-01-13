@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useState, useEffect} from "react"
 import Hero from "../components/hero/hero"
 import Layout from "../components/layout/layout"
 import SEO from '../components/seo/seo'
@@ -6,6 +6,12 @@ import SEO from '../components/seo/seo'
 import "../styles/globals.scss"
 
 const IndexPage = ():JSX.Element => {
+
+  const [lightMode, setLightMode] = useState<boolean>(false)
+
+    const changeDarkMode = () => {
+        setLightMode(!lightMode)
+    }
 
   const animateKeyDown = (key: any) => {
     if(key.keyCode === 79) //o
@@ -34,15 +40,18 @@ const IndexPage = ():JSX.Element => {
   }, [])
 
   return (
-    <Layout>
-      <div>
-        <SEO 
-          title={"Michele Pulvirenti"} 
-          description={"Since I was a child I have always had a passion for everything there is computer science, so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin."} 
-          />
-        <Hero />
-      </div>
-    </Layout>
+    <>
+      <SEO 
+        title={"Michele Pulvirenti"} 
+        description={"Since I was a child I have always had a passion for everything there is computer science, so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin."} 
+      />
+      <Layout lightMode={lightMode} changeDarkMode={changeDarkMode} >
+        <div>
+          <Hero lightMode={lightMode} />
+        </div>
+      </Layout>
+    </>
+    
   )
 }
 

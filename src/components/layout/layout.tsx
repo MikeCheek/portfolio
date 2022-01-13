@@ -14,17 +14,21 @@ import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
 import Toggle from '../../atoms/toggle/toggle'
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children, lightMode, changeDarkMode }: LayoutProps): JSX.Element => {
     const [browser, setBrowser] = useState<string>('Safari')
-    const [lightMode, setLightMode] = useState<boolean>(false)
-
-    const changeDarkMode = () => {
-        setLightMode(!lightMode)
-    }
 
     useEffect(() => {
         setBrowser(detectBrowser())
     }, [])
+
+    useEffect(() => {
+        if(lightMode){
+            document.getElementsByTagName("html")[0].style.backgroundColor = "var(--grey)";
+            document.getElementsByTagName("html")[0].style.color = "var(--black)";
+        }
+        else
+            document.getElementsByTagName("html")[0].style.cssText = "none";
+    }, [lightMode])
 
     return (
         <div id="top" className={styles.layout}>

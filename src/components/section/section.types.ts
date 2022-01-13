@@ -10,5 +10,6 @@ export type SectionProps = {
         fill?: string,
         stroke?: string
     },
-    paragraph?: boolean
+    paragraph?: boolean,
+    lightMode: boolean
 }

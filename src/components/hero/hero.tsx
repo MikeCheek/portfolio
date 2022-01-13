@@ -12,8 +12,9 @@ import HSkills from '../../assets/skills.svg'
 import Teaching from '../../assets/teaching.svg'
 import Things from '../../assets/things.svg'
 import Others from '../others/others'
+import { HeroProps } from './hero.types'
 
-const Hero = (): JSX.Element => {
+const Hero = ({lightMode}: HeroProps): JSX.Element => {
 
     const color = "#FD76CB88";
 
@@ -21,19 +22,19 @@ const Hero = (): JSX.Element => {
         <div className={styles.wrapper}>
             <Whoami />
             <div className={styles.sectionWrap}>
-                <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
+                <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} lightMode={lightMode} >
                     <p>{about}</p>
                 </Section>
-                <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
+                <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} lightMode={lightMode} reversed>
                     <p>{works}</p>
                 </Section>
-                <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} >
+                <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} lightMode={lightMode} >
                     <Skills />
                 </Section>
-                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }}>
+                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} lightMode={lightMode}>
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} reversed>
+                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} lightMode={lightMode} reversed>
                     <Others />
                 </Section>
             </div>
