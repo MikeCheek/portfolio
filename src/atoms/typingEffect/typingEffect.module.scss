@@ -5,10 +5,10 @@
 }
 
 .text::after{
-    content: '|';
+    content: '█';
     width: 5px;
-    margin-left: 3px;
-    background-color: var(--white);
+    background-color: inherit;
+    font-weight: bolder;
     -webkit-animation: blink-animation 1s step-start 0s infinite;
     animation: blink-animation 1s step-start 0s infinite;
 }
