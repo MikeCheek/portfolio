@@ -23,7 +23,9 @@ const BarDiv = styled.div`
 
 const Bar = ({name, percentage, lightMode}) => {
     const barRef = useRef(null)
-    const isVisible = isOnScreen(barRef, false)
+    const check = isOnScreen(barRef, false)
+
+    const [isVisible, setIsVisible] = useState(false)
 
     const [perc, setPerc] = useState("0%");
     const [rand, setRand] = useState(2);
@@ -40,6 +42,11 @@ const Bar = ({name, percentage, lightMode}) => {
         calcRand();
         changePerc();
     }, [])
+
+    useEffect(() => {
+        if(check)
+            setIsVisible(true)
+    }, [check])
 
     return (
         <div className={styles.wrap} >
