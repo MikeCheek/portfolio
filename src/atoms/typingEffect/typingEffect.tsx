@@ -4,7 +4,7 @@ import sleep from '../../utilities/sleep';
 import * as styles from './typingEffect.module.scss'
 import { TypingEffectProps } from './typingEffect.types';
 
-const alphabet = Array.from("abcdefghijklmnopqrstuvz");
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 
 const TypingEffect = ({initialText, heading = false, fast = true}: TypingEffectProps): JSX.Element => {
@@ -59,8 +59,6 @@ const TypingEffect = ({initialText, heading = false, fast = true}: TypingEffectP
                 <p className={styles.paragraphText} >
                     {text}
                 </p>
-
-
         }
         </>
         
