@@ -53,6 +53,9 @@ const programming: SkillsType = [
         name: 'Assembly MIPS', percentage: "70%"
     },
     {
+        name: 'Bash (Unix shell)', percentage: "70%"
+    },
+    {
         name: 'PHP', percentage: "30%"
     },
 ]
