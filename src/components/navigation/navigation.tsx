@@ -27,7 +27,7 @@ const items = [
     },
 ]
 
-const Navigation = ({onClick, darkMode}: NavigationProps): JSX.Element => {
+const Navigation = ({onClick, lightMode = false}: NavigationProps): JSX.Element => {
     return (
         <>
             <div className={styles.navDesktop}>
@@ -35,7 +35,7 @@ const Navigation = ({onClick, darkMode}: NavigationProps): JSX.Element => {
                     return <NavItem text={item.text} path={item.path} isHref={item.isHref} key={item.text} />
                 })}
             </div>
-            <div className={darkMode? styles.navMobileDark : styles.navMobile}>
+            <div className={lightMode? styles.navMobileLight : styles.navMobile}>
                 {items.map((item) => {
                     return <NavItem text={item.text} path={item.path} onClick={onClick} isHref={item.isHref} key={item.text} />
                 })}

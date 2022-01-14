@@ -67,7 +67,7 @@ $breakpoints: (
     }
 }
 
-.navMobileDark{
+.navMobileLight{
     @extend .navMobile;
-    background-color: var(--white) !important;
+    background-color: var(--white);
 }
