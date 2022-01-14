@@ -16,7 +16,7 @@ import { HeroProps } from './hero.types'
 
 const Hero = ({lightMode}: HeroProps): JSX.Element => {
 
-    const color = "#FD76CB88";
+    const color = lightMode? "var(--strong-pink)" : "var(--transparent-pink)";
 
     return (
         <div className={styles.wrapper}>
@@ -29,7 +29,7 @@ const Hero = ({lightMode}: HeroProps): JSX.Element => {
                     <p>{works}</p>
                 </Section>
                 <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} lightMode={lightMode} >
-                    <Skills />
+                    <Skills lightMode />
                 </Section>
                 <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} lightMode={lightMode}>
                     <p>{education}</p>

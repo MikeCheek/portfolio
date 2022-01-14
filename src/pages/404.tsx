@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo/seo"
+import Layout from "../components/layout/layout"
 
 // styles
 const pageStyles = {
@@ -28,6 +29,7 @@ const codeStyles = {
 // markup
 const NotFoundPage = (): JSX.Element => {
   return (
+    <Layout lightMode={false} changeDarkMode={() => {}}>
     <main style={pageStyles}>
       <SEO title={"Not found"} />
       <h1 style={headingStyles}>Page not found</h1>
@@ -49,6 +51,7 @@ const NotFoundPage = (): JSX.Element => {
         <Link to="/">Go home</Link>.
       </p>
     </main>
+    </Layout>
   )
 }
 

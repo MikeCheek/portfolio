@@ -6,6 +6,8 @@
 
     --green: #00c400;
     --grey: #9d9d9d;
+    --strong-pink: #ff00a1;
+    --strong-orange: #fd9800;
 
     --transparent-black: #00000088;
     --transparent-pink: #FD76CB88;
@@ -29,4 +31,25 @@
 
 body {
     background-attachment: fixed;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--transparent-orange);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
 }

@@ -21,7 +21,7 @@ const BarDiv = styled.div`
         transition: width ${(props) => props.rand || 2}s ease-in-out;
     `
 
-const Bar = ({name, percentage}) => {
+const Bar = ({name, percentage, lightMode}) => {
     const barRef = useRef(null)
     const isVisible = isOnScreen(barRef, false)
 
@@ -47,7 +47,7 @@ const Bar = ({name, percentage}) => {
                 <span>{name}</span>
                 <span>{percentage}</span>
             </div>
-            <div className={styles.barWrap} ref={barRef}>
+            <div className={`${styles.barWrap} ${lightMode? styles.light : null}`} ref={barRef}>
                 <BarDiv percentage={isVisible? perc : "0%"} rand={rand} />
             </div>
         </div>
