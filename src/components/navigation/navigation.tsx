@@ -1,5 +1,6 @@
 import React from 'react'
 import NavItem from '../../atoms/navItem/navItem'
+import { useThemeContext } from '../../utilities/themeContext'
 import * as styles from './navigation.module.scss'
 import { NavigationProps } from './navigation.type'
 
@@ -27,7 +28,10 @@ const items = [
     },
 ]
 
-const Navigation = ({onClick, lightMode = false}: NavigationProps): JSX.Element => {
+const Navigation = ({onClick}: NavigationProps): JSX.Element => {
+
+    const theme = useThemeContext()
+
     return (
         <>
             <div className={styles.navDesktop}>
@@ -35,7 +39,7 @@ const Navigation = ({onClick, lightMode = false}: NavigationProps): JSX.Element 
                     return <NavItem text={item.text} path={item.path} isHref={item.isHref} key={item.text} />
                 })}
             </div>
-            <div className={lightMode? styles.navMobileLight : styles.navMobile}>
+            <div className={theme === "dark" ? styles.navMobile : styles.navMobileLight}>
                 {items.map((item) => {
                     return <NavItem text={item.text} path={item.path} onClick={onClick} isHref={item.isHref} key={item.text} />
                 })}

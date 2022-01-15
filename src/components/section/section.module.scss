@@ -110,5 +110,9 @@
 }
 
 .light{
-    background-color: var(--very-transparent-black);
+    box-shadow: 0 0 10px 10px var(--very-transparent-black);
+}
+
+.titleLight{
+    color: var(--strong-orange);
 }

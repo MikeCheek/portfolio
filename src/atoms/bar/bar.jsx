@@ -7,6 +7,7 @@ import * as styles from './bar.module.scss'
 import styled, { keyframes } from 'styled-components';
 
 import isOnScreen from '../../utilities/isOnScreen';
+import { useThemeContext } from '../../utilities/themeContext'
 
 //const fill = keyframes`100%{width: ${(props) => props.percentage || "0%"};}`
 
@@ -21,9 +22,11 @@ const BarDiv = styled.div`
         transition: width ${(props) => props.rand || 2}s ease-in-out;
     `
 
-const Bar = ({name, percentage, lightMode}) => {
+const Bar = ({name, percentage}) => {
     const barRef = useRef(null)
     const check = isOnScreen(barRef, false)
+
+    const theme = useThemeContext()
 
     const [isVisible, setIsVisible] = useState(false)
 
@@ -54,7 +57,7 @@ const Bar = ({name, percentage, lightMode}) => {
                 <span>{name}</span>
                 <span>{percentage}</span>
             </div>
-            <div className={`${styles.barWrap} ${lightMode? styles.light : null}`} ref={barRef}>
+            <div className={`${styles.barWrap} ${theme === "dark" ? null : styles.light}`} ref={barRef}>
                 <BarDiv percentage={isVisible? perc : "0%"} rand={rand} />
             </div>
         </div>

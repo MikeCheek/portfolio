@@ -41,7 +41,7 @@ $breakpoints: (
     width: 100vw;
     height: auto;
     left: 0;
-    top: 75px;
+    top: var(--nav-bar-height);
     align-items: center;
     justify-content: flex-start;
     background-color: var(--black);

@@ -1,6 +1,6 @@
 .wrap{
     border-radius: 20px;
-    border: var(--transparent-white) 2px solid;
+    //border: var(--transparent-white) 2px solid;
     width: 50px;
     height: 25px;
     display: flex;
@@ -14,12 +14,18 @@
     width: 20px;
     height: 20px;
     margin: 5px;
+    
+}
+.circle:hover{
+    background-color: var(--white)
 }
 
 .circleToggled{
     @extend .circle;
-    background-color: var(--transparent-black);
     animation: untoggled 500ms forwards ease-in-out;
+}
+.circleToggled:hover{
+    background-color: var(--black)
 }
 
 .circleUntoggled{
@@ -31,10 +37,12 @@
     0%{
         margin-left: 25px;
         margin-right: 5px;
+        background-color: var(--transparent-black);
     }
     100%{
         margin-left: 5px;
         margin-right: 25px;
+        background-color: var(--transparent-white);
     }
 }
 
@@ -42,9 +50,11 @@
     0%{
         margin-left: 5px;
         margin-right: 25px;
+        background-color: var(--transparent-white);
     }
     100%{
         margin-left: 25px;
         margin-right: 5px;
+        background-color: var(--transparent-black);
     }
 }

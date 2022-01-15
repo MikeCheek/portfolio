@@ -6,7 +6,7 @@ import * as styles from './footer.module.scss'
 import Email from '../../assets/email.svg'
 import Linkedin from '../../assets/linkedin.svg'
 import Github from '../../assets/github.svg'
-import { FooterProps } from './footer.types'
+import { useThemeContext } from '../../utilities/themeContext'
 
 //const phone: number = 1111111111
 const email: string = "michele00.pulvirenti@gmail.com";
@@ -16,9 +16,11 @@ const github: string = "https://github.com/Mike-cheek";
 const heigth: string = "100%";
 
 
-const Footer = ({ lightMode }: FooterProps):JSX.Element => {
+const Footer = ():JSX.Element => {
 
-    const color: string = lightMode? "#000000" : "#FFFEFD"
+    const theme = useThemeContext();
+
+    const color: string = theme === "dark" ? "#FFFEFD" : "#000000"
 
     return (
         <div className={styles.footer} id={"contacts"}>

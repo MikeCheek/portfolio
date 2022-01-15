@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import detectBrowser from '../../utilities/detectBrowser'
+import { ThemeContext } from '../../utilities/themeContext'
 
 import * as styles from "./layout.module.scss"
 
@@ -12,10 +13,15 @@ import ArrowUp from '../../atoms/arrowUp/arrowUp'
 
 import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
-import Toggle from '../../atoms/toggle/toggle'
 
-const Layout = ({ children, lightMode, changeDarkMode }: LayoutProps): JSX.Element => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
     const [browser, setBrowser] = useState<string>('Safari')
+
+    const [lightMode, setLightMode] = useState<boolean>(false)
+
+    const changeDarkMode = () => {
+        setLightMode(!lightMode)
+    }
 
     useEffect(() => {
         setBrowser(detectBrowser())
@@ -27,26 +33,27 @@ const Layout = ({ children, lightMode, changeDarkMode }: LayoutProps): JSX.Eleme
             document.getElementsByTagName("html")[0].style.color = "var(--black)";
         }
         else
-            document.getElementsByTagName("html")[0].style.cssText = "none";
+            document.getElementsByTagName("html")[0].style.cssText = "";
     }, [lightMode])
 
     return (
-        <div id="top" className={styles.layout}>
-            <NavBar lightMode={lightMode} />
-            {
-                browser === 'Safari' ?
-                    <Ball BallSvg={BallStill} fastAnimation />
-                    :
-                    <Ball BallSvg={BallMoving} />
-            }
-            <Toggle toggled={lightMode} changeToggle={changeDarkMode} />
+        <ThemeContext.Provider value={lightMode? "light" : "dark"}>
+            <div id="top" className={styles.layout}>
+                <NavBar changeToggle={changeDarkMode} />
+                {
+                    browser === 'Safari' ?
+                        <Ball BallSvg={BallStill} fastAnimation />
+                        :
+                        <Ball BallSvg={BallMoving} />
+                }
+                
+                {children}
 
-            {children}
-
-            <Separator />
-            <Footer lightMode={lightMode} />
-            <ArrowUp />
-        </div>
+                <Separator />
+                <Footer />
+                <ArrowUp />
+            </div>
+        </ThemeContext.Provider>
 
     )
 }

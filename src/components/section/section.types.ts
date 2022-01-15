@@ -11,5 +11,4 @@ export type SectionProps = {
         stroke?: string
     },
     paragraph?: boolean,
-    lightMode: boolean
 }

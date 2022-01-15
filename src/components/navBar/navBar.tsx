@@ -3,13 +3,17 @@ import React, { useState, useEffect } from 'react'
 import * as styles from './navBar.module.scss'
 import { NavBarProps } from './navBar.types'
 
-import Logo from '../../atoms/logo/logo'
+//import Logo from '../../atoms/logo/logo'
 import Navigation from '../navigation/navigation'
 import Hamburger from '../../atoms/hamburger/hamburger'
+import Toggle from '../../atoms/toggle/toggle'
+import { useThemeContext } from '../../utilities/themeContext'
 
-const NavBar = ({lightMode}: NavBarProps): JSX.Element => {
+const NavBar = ({changeToggle}: NavBarProps): JSX.Element => {
 
     const [navBarOpen, setNavBarOpen] = useState<boolean>(false);
+
+    const theme = useThemeContext()
 
     useEffect(() => {
         let prevScrollpos = window.pageYOffset;
@@ -38,15 +42,15 @@ const NavBar = ({lightMode}: NavBarProps): JSX.Element => {
     useEffect(() => {
         let tmp =  document.getElementById("navBar");
         if(tmp){
-            lightMode? tmp.style.backgroundColor = "var(--transparent-white)" : tmp.style.cssText = "none";
+            theme === "dark" ? tmp.style.cssText = "none" : tmp.style.backgroundColor = "var(--transparent-white)";
         }
-    }, [lightMode])
+    }, [theme])
 
     const closeNavBar = () => {
         setNavBarOpen(false);
         let tmp =  document.getElementById("navBar");
         if(tmp){
-            tmp.style.backgroundColor = lightMode? "var(--transparent-white)" : "var(--transparent-black)";
+            tmp.style.backgroundColor = theme === "dark" ? "var(--transparent-black)" : "var(--transparent-white)";
         }
         document.body.style.overflowY = "scroll";
         document.body.style.height = "auto";
@@ -57,7 +61,7 @@ const NavBar = ({lightMode}: NavBarProps): JSX.Element => {
         setNavBarOpen(true);
         let tmp =  document.getElementById("navBar");
         if(tmp){
-            tmp.style.backgroundColor = lightMode? "var(--white)" : "var(--black)";
+            tmp.style.backgroundColor = theme === "dark"? "var(--black)" : "var(--white)";
         }
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";
@@ -65,26 +69,27 @@ const NavBar = ({lightMode}: NavBarProps): JSX.Element => {
     }
 
     return (
-        <div className={lightMode? styles.navBarDark: styles.navBar} id="navBar">
+        <div className={theme === "dark"? styles.navBar: styles.navBarLight} id="navBar">
             <div className={styles.logo}>
-                <Logo lightMode={lightMode}/>
+                {/*<Logo/>*/}
+                <Toggle changeToggle={changeToggle} />
             </div>
 
                 <div className={styles.navigationDesktop}>
-                    <Navigation lightMode={lightMode} />
+                    <Navigation />
                 </div>
 
             {
                 navBarOpen?
                     <div className={styles.navigationMobile}>
-                        <Navigation onClick={closeNavBar} lightMode={lightMode} />
+                        <Navigation onClick={closeNavBar} />
                     </div>
                     :
                     null
             }
 
                     <div className={styles.hamburger}>
-                        <Hamburger onClick={navBarOpen ? closeNavBar : openNavBar} navBarOpen={navBarOpen} lightMode={lightMode} />
+                        <Hamburger onClick={navBarOpen ? closeNavBar : openNavBar} navBarOpen={navBarOpen} />
                     </div>
         </div>
     )

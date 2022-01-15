@@ -12,29 +12,31 @@ import HSkills from '../../assets/skills.svg'
 import Teaching from '../../assets/teaching.svg'
 import Things from '../../assets/things.svg'
 import Others from '../others/others'
-import { HeroProps } from './hero.types'
+import { useThemeContext } from '../../utilities/themeContext'
 
-const Hero = ({lightMode}: HeroProps): JSX.Element => {
+const Hero = (): JSX.Element => {
 
-    const color = lightMode? "var(--strong-pink)" : "var(--transparent-pink)";
+    const theme = useThemeContext();
+
+    const color = theme === "dark" ? "var(--transparent-pink)" : "var(--strong-pink)";
 
     return (
         <div className={styles.wrapper}>
             <Whoami />
             <div className={styles.sectionWrap}>
-                <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} lightMode={lightMode} >
+                <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
                     <p>{about}</p>
                 </Section>
-                <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} lightMode={lightMode} reversed>
+                <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
                     <p>{works}</p>
                 </Section>
-                <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} lightMode={lightMode} >
-                    <Skills lightMode />
+                <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} >
+                    <Skills />
                 </Section>
-                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} lightMode={lightMode}>
+                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} >
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} lightMode={lightMode} reversed>
+                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} reversed>
                     <Others />
                 </Section>
             </div>

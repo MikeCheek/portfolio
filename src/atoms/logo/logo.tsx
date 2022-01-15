@@ -4,10 +4,13 @@ import * as styles from './logo.module.scss'
 import { LogoProps } from './logo.types'
 
 import Mlogo from '../../assets/logo.svg'
+import { useThemeContext } from '../../utilities/themeContext'
 
-const Logo = ({ width = 50, to = '/', title = 'Go to Home Page', lightMode }: LogoProps): JSX.Element => {
+const Logo = ({ width = 50, to = '/', title = 'Go to Home Page' }: LogoProps): JSX.Element => {
 
-    const color: string = lightMode? "#000000" : "#FFFEFD"
+    const theme = useThemeContext()
+
+    const color: string = theme === "dark" ? "#FFFEFD" : "#000000"
 
     return (
         <a href={to} title={title} className={styles.logo}>

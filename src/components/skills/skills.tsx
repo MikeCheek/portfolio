@@ -1,11 +1,11 @@
 import React from 'react'
 //@ts-ignore
 import Bar from '../../atoms/bar/bar'
-import { SkillsProps, SkillsType } from './skills.types'
+import { SkillsType } from './skills.types'
 
 import * as styles from './skills.module.scss'
 
-const Skills = ({lightMode}: SkillsProps): JSX.Element => {
+const Skills = (): JSX.Element => {
 
     return (
         <div className={styles.wrap}>
@@ -14,19 +14,19 @@ const Skills = ({lightMode}: SkillsProps): JSX.Element => {
                 <h3>Programming Languages</h3>
                 {
                     programming.map((skill) => {
-                        return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} lightMode={lightMode} />
+                        return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
                     })
                 }
                 <h3>Framework</h3>
                 {
                     frameworks.map((skill) => {
-                        return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} lightMode={lightMode} />
+                        return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
                     })
                 }
                 <h3>Other</h3>
                 {
                     others.map((skill) => {
-                        return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} lightMode={lightMode} />
+                        return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
                     })
                 }
                 <h3>Languages</h3>

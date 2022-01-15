@@ -1,3 +1,3 @@
 export type NavBarProps = {
-    lightMode?: boolean
+    changeToggle: React.MouseEventHandler<Element>
 }
