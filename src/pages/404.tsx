@@ -3,55 +3,41 @@ import { Link } from "gatsby"
 import SEO from "../components/seo/seo"
 import Layout from "../components/layout/layout"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import Rocket from '../assets/rocket.svg'
+import { useThemeContext } from "../utilities/themeContext"
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
 const NotFoundPage = (): JSX.Element => {
+
+  const theme = useThemeContext()
+
   return (
-    <Layout lightMode={false} changeDarkMode={() => {}}>
-    <main style={pageStyles}>
+    <>
       <SEO title={"Not found"} />
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn't find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
+      <Layout>
+        <>
+          <h1>Page not found</h1>
+          <p>
+            Sorry{" "}
+            <span role="img" aria-label="Pensive emoji">
+              😔
+            </span>{" "}
+            we couldn't find what you were looking for.
+            <Rocket width={"200px"} fill={theme === "dark" ? "var(--orange)" : "var(--black)"} />
             <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
+            {process.env.NODE_ENV === "development" ? (
+              <>
+                <br />
+                Try creating a page in <code>src/pages/</code>.
+                <br />
+              </>
+            ) : null}
             <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-    </Layout>
+            <Link to="/">Go home</Link>.
+          </p>
+        </>
+      </Layout>
+    </>
+  
   )
 }
 
