@@ -1,0 +1,56 @@
+.wrap{
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    height: 300px;
+}
+
+.svg{
+    position: absolute;
+}
+
+.rocket{
+    @extend .svg;
+    z-index: 1;
+    left: 40%;
+    top: -5%;
+    animation: flying 3s infinite linear//, go-and-back 7s infinite;
+}
+
+.wind{
+    @extend .svg;
+    z-index: 2;
+    top: 20%;
+    left: 30%;
+    opacity: 0.5;
+}
+
+@keyframes flying {
+    0%{
+        transform: rotateZ(-20deg);
+    }
+    20%{
+        transform: rotateZ(0) translateY(-50px);
+    }
+    40%{
+        transform: rotateZ(20deg);
+    }
+    60%{
+        transform: translateY(50px);
+    }
+    80%{
+        transform: rotateZ(-20deg) translateY(50px);
+    }
+    100%{
+        transform: rotateZ(-20deg);
+    }
+}
+
+@keyframes go-and-back {
+    from{
+        transform: translateX(-500px);
+    }
+    to{
+        transform: translateX(500px);
+    }
+}

@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 import SEO from "../components/seo/seo"
 import Layout from "../components/layout/layout"
 
-import Rocket from '../assets/rocket.svg'
 import { useThemeContext } from "../utilities/themeContext"
+import Rocket from "../components/rocket/rocket"
 
 const NotFoundPage = (): JSX.Element => {
 
@@ -22,7 +22,7 @@ const NotFoundPage = (): JSX.Element => {
               😔
             </span>{" "}
             we couldn't find what you were looking for.
-            <Rocket width={"200px"} fill={theme === "dark" ? "var(--orange)" : "var(--black)"} />
+            <Rocket />
             <br />
             {process.env.NODE_ENV === "development" ? (
               <>
