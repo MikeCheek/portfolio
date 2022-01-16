@@ -17,6 +17,15 @@
     border-radius: 20px;
 }
 
+.bar{
+    position: relative;
+    height: 9px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    will-change: width;
+}
+
 .light{
     border: 2px solid var(--transparent-black);
 }
+
