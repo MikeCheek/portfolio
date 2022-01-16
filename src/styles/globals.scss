@@ -27,6 +27,13 @@
     font-size: 15px;
     
     scroll-behavior: smooth;
+    transition: color 500ms ease-out, background-color 500ms ease-out;
+    >*{
+        transition: color 500ms ease-out, background-color 500ms ease-out;
+        >*{
+            transition: color 500ms ease-out, background-color 500ms ease-out;
+        }
+    }
 }
 
 body {

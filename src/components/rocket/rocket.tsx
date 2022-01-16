@@ -11,8 +11,10 @@ const Rocket = () => {
 
     return (
         <div className={styles.wrap}>
-            <div className={styles.rocket}>
-                <RocketSvg width={"200px"} fill={theme === "dark" ? "var(--orange)" : "var(--black)"} />
+            <div className={styles.rocketWrap}>
+                <div className={styles.rocket}>
+                    <RocketSvg width={"200px"} fill={theme === "dark" ? "var(--orange)" : "var(--black)"} />
+                </div>
             </div>
             <div className={styles.wind}>
                 <WindSvg width={"400px"} height={"200px"} fill={"var(--grey)"} />
