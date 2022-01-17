@@ -5,7 +5,7 @@
     flex-direction: column;
     text-align: center;
     border-radius: 50px;
-    background-color: var(--very-transparent-white);
+    background-color: var(--sect-bg-dark);
 
     @media screen and (min-width: "768px") {
         text-align: left;  
@@ -44,7 +44,7 @@
 
 .title{
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--title-dark);
 
     @media screen and (min-width: "768px") {
         margin: 0 5% 5%;
@@ -83,7 +83,7 @@
 }
 
 .titleParagraph{
-    color: var(--orange);
+    color: var(--title-dark);
 }
 
 .contentParagraph{
@@ -110,9 +110,9 @@
 }
 
 .light{
-    box-shadow: 0 0 10px 10px var(--very-transparent-black);
+    box-shadow: 0 0 10px 10px var(--sect-box-shad-light);
 }
 
 .titleLight{
-    color: var(--strong-orange);
+    color: var(--title-light);
 }

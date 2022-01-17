@@ -29,8 +29,8 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 
     useEffect(() => {
         if(lightMode){
-            document.getElementsByTagName("html")[0].style.backgroundColor = "var(--grey)";
-            document.getElementsByTagName("html")[0].style.color = "var(--black)";
+            document.getElementsByTagName("html")[0].style.backgroundColor = "var(--bg-light)";
+            document.getElementsByTagName("html")[0].style.color = "var(--col-light)";
         }
         else
             document.getElementsByTagName("html")[0].style.cssText = "";

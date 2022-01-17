@@ -8,8 +8,8 @@ const Hamburger = ({onClick, navBarOpen}: HamburgerProps): JSX.Element => {
 
     const theme = useThemeContext()
 
-    const darkStyle: React.CSSProperties = {"backgroundColor": "var(--white)"}
-    const lightStyle: React.CSSProperties = {"backgroundColor": "var(--black)"}
+    const darkStyle: React.CSSProperties = {"backgroundColor": "var(--ham-bg-dark)"}
+    const lightStyle: React.CSSProperties = {"backgroundColor": "var(--ham-bg-light)"}
 
     return (
         <div className={styles.hamburger} onClick={onClick} /*onKeyDown={onClick}*/ role={"button"} tabIndex={0}>

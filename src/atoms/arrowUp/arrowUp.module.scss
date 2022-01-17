@@ -6,9 +6,9 @@
     will-change: bottom;
     -webkit-transition: bottom 1s cubic-bezier(0.51, 1, 0.36, 1.3);
     transition: bottom 1s cubic-bezier(0.51, 1, 0.36, 1.3);
-    fill: var(--transparent-orange);
+    fill: var(--cta-dark);
 }
 
 .arrowUp:hover{
-    fill: var(--orange);
+    fill: var(--cta-hov-dark);
 }

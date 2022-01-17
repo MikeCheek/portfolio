@@ -25,11 +25,32 @@
         --light-blue: #80b7ec;
         --black-l: #222222;
         --white-l: #ffffff; 
+    
+    //dark mode
+        --bg-dark: var(--black);
+        --col-dark: var(--white);
+        --svg-dark: var(--transparent-pink);
+        --sect-bg-dark: var(--very-transparent-white);
+        --title-dark: var(--orange);
+        --cta-dark: var(--transparent-orange);
+        --cta-hov-dark: var(--orange);
+        --bar-border-dark: var(--transparent-white);
+        --bar-bg1-dark: var(--orange);
+        --ham-bg-dark: var(--white);
+
+    //light mode
+        --bg-light: var(--grey);
+        --col-light: var(--black);
+        --svg-light: var(--purple);
+        --sect-box-shad-light: var(--very-transparent-black);
+        --title-light: var(--strong-orange);
+        --bar-border-light: var(--transparent-black);
+        --ham-bg-light: var(--black);
 
     --nav-bar-height: 60px;
 
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--bg-dark);
+    color: var(--col-dark);
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
     

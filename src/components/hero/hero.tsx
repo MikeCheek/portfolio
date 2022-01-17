@@ -18,7 +18,7 @@ const Hero = (): JSX.Element => {
 
     const theme = useThemeContext();
 
-    const color = theme === "dark" ? "var(--transparent-pink)" : "var(--strong-pink)";
+    const color = theme === "dark" ? "var(--svg-dark)" : "var(--svg-light)";
 
     return (
         <div className={styles.wrapper}>
