@@ -42,7 +42,7 @@ const NavBar = ({changeToggle}: NavBarProps): JSX.Element => {
     useEffect(() => {
         let tmp =  document.getElementById("navBar");
         if(tmp){
-            theme === "dark" ? tmp.style.cssText = "none" : tmp.style.backgroundColor = "var(--transparent-white)";
+            theme === "dark" ? tmp.style.cssText = "none" : tmp.style.backgroundColor = "var(--navbar-bg-light)";
         }
     }, [theme])
 
@@ -50,7 +50,7 @@ const NavBar = ({changeToggle}: NavBarProps): JSX.Element => {
         setNavBarOpen(false);
         let tmp =  document.getElementById("navBar");
         if(tmp){
-            tmp.style.backgroundColor = theme === "dark" ? "var(--transparent-black)" : "var(--transparent-white)";
+            tmp.style.backgroundColor = theme === "dark" ? "var(--navbar-bg-dark)" : "var(--navbar-bg-light)";
         }
         document.body.style.overflowY = "scroll";
         document.body.style.height = "auto";
@@ -61,7 +61,7 @@ const NavBar = ({changeToggle}: NavBarProps): JSX.Element => {
         setNavBarOpen(true);
         let tmp =  document.getElementById("navBar");
         if(tmp){
-            tmp.style.backgroundColor = theme === "dark"? "var(--black)" : "var(--white)";
+            tmp.style.backgroundColor = theme === "dark"? "var(--navig-bg-dark)" : "var(--navig-bg-light)";
         }
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";

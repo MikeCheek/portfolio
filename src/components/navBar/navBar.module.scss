@@ -16,7 +16,7 @@ $breakpoints: (
   right: 0;
   left: 0;
   justify-content: space-between;
-  background-color: var(--transparent-black);
+  background-color: var(--navbar-bg-dark);
   > * {
     padding: 8px;
   }
@@ -56,5 +56,5 @@ $breakpoints: (
 
 .navBarLight{
   @extend .navBar;
-  background-color: var(--transparent-white);
+  background-color: var(--navbar-bg-light);
 }

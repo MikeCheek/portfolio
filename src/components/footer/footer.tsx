@@ -20,7 +20,7 @@ const Footer = ():JSX.Element => {
 
     const theme = useThemeContext();
 
-    const color: string = theme === "dark" ? "#FFFEFD" : "#000000"
+    const color: string = theme === "dark" ? "var(--icon-dark)" : "var(--icon-light)"
 
     return (
         <div className={styles.footer} id={"contacts"}>

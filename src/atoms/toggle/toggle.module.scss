@@ -10,22 +10,16 @@
 
 .circle{
     border-radius: 50%;
-    background-color: var(--transparent-white);
+    background-color: var(--toggle-bg-dark);
     width: 20px;
     height: 20px;
     margin: 5px;
     
 }
-.circle:hover{
-    background-color: var(--white)
-}
 
 .circleToggled{
     @extend .circle;
     animation: untoggled 500ms forwards ease-in-out;
-}
-.circleToggled:hover{
-    background-color: var(--black)
 }
 
 .circleUntoggled{
@@ -37,12 +31,12 @@
     0%{
         margin-left: 25px;
         margin-right: 5px;
-        background-color: var(--transparent-black);
+        background-color: var(--toggle-bg-light);
     }
     100%{
         margin-left: 5px;
         margin-right: 25px;
-        background-color: var(--transparent-white);
+        background-color: var(--toggle-bg-dark);
     }
 }
 
@@ -50,11 +44,11 @@
     0%{
         margin-left: 5px;
         margin-right: 25px;
-        background-color: var(--transparent-white);
+        background-color: var(--toggle-bg-dark);
     }
     100%{
         margin-left: 25px;
         margin-right: 5px;
-        background-color: var(--transparent-black);
+        background-color: var(--toggle-bg-light);
     }
 }

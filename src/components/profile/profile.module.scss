@@ -15,28 +15,19 @@
     margin-top: 20px;
     background-color: none;
     border: 3px groove;
-    border-color: var(--orange);
+    border-color: var(--cta-dark);
     padding: 10px 15px 10px;
     text-decoration: none;
-    color: var(--orange);
+    color: var(--cta-dark);
     text-transform: uppercase;
     font-weight: bolder;
 }
 
 .cvButton:hover{
-    -webkit-animation: hov 200ms ease-in-out forwards;
-    animation: hov 200ms ease-in-out forwards;
+    border-color: var(--cta-hov-dark);
+    color: var(--cta-hov-dark);
+    transform: scale(1.1);
   }
-  
-@keyframes hov{
-    0%{
-        transform: scale(1);
-    }
-    100%{
-        transform: scale(1.1);
-        color:var(--orange);
-    }
-} 
 
 @keyframes slideRight {
     0%{
@@ -45,4 +36,15 @@
     100%{
         transform: translateX(0);
     }
+}
+
+.light{
+    @extend .cvButton;
+    color: var(--cta-light);
+    border-color: var(--cta-light);
+}
+
+.light:hover{
+    color: var(--cta-hov-light);
+    border-color: var(--cta-hov-light);
 }

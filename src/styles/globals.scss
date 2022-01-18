@@ -14,17 +14,17 @@
     --transparent-orange: #FFAC3088;
     --transparent-white: #FFFEFD88;
 
-    --transparent-green: #00aa0088;
-
     --very-transparent-white: #fffefd0e;
     --very-transparent-black: #0000000e;
 
     //light
-        --purple: #3d308b;
-        --violet: #7767D9;
-        --light-blue: #80b7ec;
-        --black-l: #222222;
-        --white-l: #ffffff; 
+        --blue: #141850;
+        --violet: #303179;
+        --peach: #f5cac2;
+        --strong-peach: #ed7966;
+        --black-l: #0d0d0d;
+        --white-l: #fae5df;
+
     
     //dark mode
         --bg-dark: var(--black);
@@ -36,16 +36,33 @@
         --cta-hov-dark: var(--orange);
         --bar-border-dark: var(--transparent-white);
         --bar-bg1-dark: var(--orange);
+        --bar-bg2-dark: var(--pink);
         --ham-bg-dark: var(--white);
+        --prof-box-shad-dark: var(--transparent-pink);
+        --sep-bg-dark: var(--pink);
+        --toggle-bg-dark: var(--transparent-white);
+        --icon-dark: var(--white);
+        --navbar-bg-dark: var(--transparent-black);
+        --navig-bg-dark: var(--black);
+        --rocket-dark: var(--orange);
+        --wind-dark: var(--grey);
 
     //light mode
-        --bg-light: var(--grey);
-        --col-light: var(--black);
-        --svg-light: var(--purple);
+        --bg-light: var(--white-l);
+        --col-light: var(--black-l);
+        --svg-light: var(--strong-peach);
         --sect-box-shad-light: var(--very-transparent-black);
-        --title-light: var(--strong-orange);
-        --bar-border-light: var(--transparent-black);
-        --ham-bg-light: var(--black);
+        --title-light: var(--blue);
+        --cta-light: var(--violet);
+        --cta-hov-light: var(--blue);
+        --bar-border-light: var(--peach);
+        --ham-bg-light: var(--black-l);
+        --toggle-bg-light: var(--black-l);
+        --icon-light: var(--black-l);
+        --navbar-bg-light: var(--peach);
+        --navig-bg-light: var(--strong-peach);
+        --rocket-light: var(--blue);
+        --wind-light: var(--grey);
 
     --nav-bar-height: 60px;
 
@@ -80,11 +97,11 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--transparent-orange);
+    background: var(--transparent-white);
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--orange);
+    background: var(--white);
 }

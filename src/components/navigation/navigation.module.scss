@@ -44,7 +44,7 @@ $breakpoints: (
     top: var(--nav-bar-height);
     align-items: center;
     justify-content: flex-start;
-    background-color: var(--black);
+    background-color: var(--navig-bg-dark);
     -webkit-animation: rotateMenu 600ms ease-in-out forwards;
     animation: rotateMenu 600ms ease-in-out forwards;
 
@@ -69,5 +69,5 @@ $breakpoints: (
 
 .navMobileLight{
     @extend .navMobile;
-    background-color: var(--white);
+    background-color: var(--navig-bg-light);
 }

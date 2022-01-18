@@ -13,11 +13,11 @@ const Rocket = () => {
         <div className={styles.wrap}>
             <div className={styles.rocketWrap}>
                 <div className={styles.rocket}>
-                    <RocketSvg width={"200px"} fill={theme === "dark" ? "var(--orange)" : "var(--black)"} />
+                    <RocketSvg width={"200px"} fill={theme === "dark" ? "var(--rocket-dark)" : "var(--rocket-light)"} />
                 </div>
             </div>
             <div className={styles.wind}>
-                <WindSvg width={"400px"} height={"200px"} fill={"var(--grey)"} />
+                <WindSvg width={"400px"} height={"200px"} fill={theme === "dark" ? "var(--wind-dark)" : "var(--wind-light)"} />
             </div>
         </div>
     )

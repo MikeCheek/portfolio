@@ -12,3 +12,12 @@
 .arrowUp:hover{
     fill: var(--cta-hov-dark);
 }
+
+.arrowUpLight{
+    @extend .arrowUp;
+    fill: var(--cta-light);
+}
+
+.arrowUpLight:hover{
+    fill: var(--cta-hov-light);
+}
