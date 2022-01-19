@@ -28,7 +28,7 @@ const Hero = (): JSX.Element => {
                     <p>{about}</p>
                 </Section>
                 <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
-                    <p>{works}</p>
+                    <div dangerouslySetInnerHTML={{__html: works}} />
                 </Section>
                 <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} >
                     <Skills />
@@ -53,13 +53,13 @@ const works: string = (
     `JEToP - Junior Enterprise of Politecnico di Torino 
     -> From October 2019 to today
     -> Role: IT Consultant
-    -> Working in teams on both internal and external
-          projects, I have expanded my knowledge of web
-          programming by developing sites with
-          frameworks like React and Gatsby and through
-          trainings I trained backend skills.
+    -> Working in <strong>teams</strong> on both internal and external
+          projects, <strong>I have expanded my knowledge of web
+          programming</strong> by developing sites with
+          frameworks like <strong>React</strong> and <strong>Gatsby</strong> and through
+          trainings I improved backend skills.
           For example, I developed the Blog section of the
-          association's website (https://jetop.com/blog)`
+          association's website (<a href="https://jetop.com/blog" style="text-decoration: none; color: inherit;">https://jetop.com/blog</a>)`
 )
 
 const education: string = (
