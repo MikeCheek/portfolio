@@ -20,11 +20,11 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
     }
     
     return (
-        <div className={`${reversed? styles.sectionReversed : styles.section} ${theme === "dark" ? null : styles.light}`} id={id? id : title}>
+        <div className={`${reversed? styles.sectionReversed : styles.section} ${theme === "dark" ? "" : styles.light}`} id={id? id : title}>
             {
                 paragraph?
                 <>
-                <h2 className={`${styles.titleParagraph} ${styles.titleLight}`} >{title}</h2>
+                <h2 className={`${styles.titleParagraph} ${ theme === "dark" ? "" : styles.titleLight}`} >{title}</h2>
                 <div className={styles.contentParagraph}>
                     {
                         Svg? 
@@ -49,7 +49,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                 </>
                 :
                 <>
-            <h2 className={`${reversed? styles.titleReversed : styles.title} ${theme === "dark" ? null : styles.titleLight}`} >{title}</h2>
+            <h2 className={`${reversed? styles.titleReversed : styles.title} ${theme === "dark" ? "" : styles.titleLight}`} >{title}</h2>
             <div className={reversed? styles.contentReversed : styles.content}>
                 {
                     Svg? 
