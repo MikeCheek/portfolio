@@ -13,7 +13,8 @@ const email: string = "michele00.pulvirenti@gmail.com";
 const linkedin: string = "https://www.linkedin.com/in/michele-pulvirenti";
 const github: string = "https://github.com/Mike-cheek";
 
-const width: string = "100px";
+const width: string = "50px";
+const height: string = "50px";
 
 
 const Footer = ():JSX.Element => {
@@ -28,13 +29,13 @@ const Footer = ():JSX.Element => {
             <div className={styles.icons}>
                 {/*<Phone width={width} fill={color} />*/}
                 <a href={'mailto:'+email} title={"Send me an email"} >
-                    <Email width={width} fill={color}/>
+                    <Email width={width} height={height} fill={color}/>
                 </a>
                 <a href={linkedin} title={"Linkedin profile"} >
-                    <Linkedin width={width} fill={color}/>
+                    <Linkedin width={width} height={height} fill={color}/>
                 </a>
                 <a href={github} title={"GitHub profile"} >
-                    <Github width={width} fill={color}/>
+                    <Github width={width} height={height} fill={color}/>
                 </a>
             </div>
         </div>
