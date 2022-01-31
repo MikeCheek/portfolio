@@ -33,10 +33,10 @@ const Hero = (): JSX.Element => {
                 <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} >
                     <Skills />
                 </Section>
-                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} >
+                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} reversed>
                     <p>{education}</p>
                 </Section>
-                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} reversed>
+                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} >
                     <Others />
                 </Section>
             </div>
@@ -50,9 +50,9 @@ const about: string = (
 )
 
 const works: string = (
-    `JEToP - Junior Enterprise of Politecnico di Torino 
-    -> From October 2019 to today
-    -> Role: IT Consultant
+    `<strong>JEToP - Junior Enterprise of Politecnico di Torino</strong><br/><br/>
+    -> From October 2019 to today<br/><br/>
+    -> Role: IT Consultant<br/><br/>
     -> Working in <strong>teams</strong> on both internal and external
           projects, <strong>I have expanded my knowledge of web
           programming</strong> by developing sites with
