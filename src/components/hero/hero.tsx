@@ -13,6 +13,7 @@ import Teaching from '../../assets/teaching.svg'
 import Things from '../../assets/things.svg'
 import Others from '../others/others'
 import { useThemeContext } from '../../utilities/themeContext'
+import Timeline from '../../atoms/timeline/timeline'
 
 const Hero = (): JSX.Element => {
 
@@ -34,7 +35,7 @@ const Hero = (): JSX.Element => {
                     <Skills />
                 </Section>
                 <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} reversed>
-                    <p>{education}</p>
+                    <Timeline events={events} />
                 </Section>
                 <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} >
                     <Others />
@@ -62,15 +63,20 @@ const works: string = (
           association's website (<a href="https://jetop.com/blog" style="text-decoration: none; color: inherit;">https://jetop.com/blog</a>)`
 )
 
-const education: string = (
-    `Politecnico di Torino 
-    -> From September 2019 to today
-    -> Bachelor's degree
-    -> Ingegneria Informatica
-  
-  High school "Archimede" - Acireale 
-   -> From September 2013 to June 2019
-   -> High school diploma`
-)
+const events = [
+    {
+        name: "Politecnico di Torino",
+        dateStart: "2019/09",
+        dateEnd: "Today",
+        text: ` -> Bachelor's degree<br/>
+                -> Ingegneria Informatica`
+    },
+    {
+        name: `High school "Archimede" - Acireale`,
+        dateStart: "2013/09",
+        dateEnd: "2019/06",
+        text: ` -> High school diploma`
+    }
+]
 
 export default Hero
