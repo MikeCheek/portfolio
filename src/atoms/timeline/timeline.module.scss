@@ -1,16 +1,18 @@
-$border-color: var(--transparent-pink);
+$border-color: var(--pink);
 
 .wrapper{
     display: flex;
     flex-direction: column;
     border-left: 5px solid $border-color;
     padding: 50px 0 50px;
+    box-shadow: -10px 0 10px -10px var(--transparent-white);
 
     @media screen and (min-width: "768px"){
         flex-direction: row;
         border-left: 0;
         border-bottom: 5px solid $border-color;
         padding: 0 50px 0;
+        box-shadow: 0 10px 10px -10px $border-color;
     }
 }
 

@@ -15,7 +15,7 @@ const Timeline = ({events}: TimelineProps): JSX.Element => {
                    <div className={styles.line}/>
                     <p className={styles.date}>{event.dateStart}</p>
                     <div className={styles.text}>
-                      <p>{event.name}</p>
+                      <p><strong>{event.name}</strong></p>
                       <div dangerouslySetInnerHTML={{__html: event.text}}/>
                     </div>
                     <p className={styles.date}>{event.dateEnd}</p>

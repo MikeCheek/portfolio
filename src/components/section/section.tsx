@@ -31,6 +31,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                             <div 
                                 className={styles.svg}
                                 onClick={setClicked}
+                                onMouseEnter={setClicked}
                             >
                                 <Svg.svg 
                                     width={"100px"} 
@@ -56,6 +57,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                         <div 
                             className={styles.svg}
                             onClick={setClicked}
+                            onMouseEnter={setClicked}
                         >
                             <Svg.svg 
                                 width={"100px"} 
