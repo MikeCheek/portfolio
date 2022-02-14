@@ -11,7 +11,7 @@ const PhotoProfile = (): JSX.Element => {
                 alt="Michele Pulvirenti"
                 placeholder="tracedSVG"
                 layout="constrained"
-                style={{zIndex: 2}} //for safari
+                style={{zIndex: 1}} //for safari
                 quality={100}
                 width={200}
                 height={200}
