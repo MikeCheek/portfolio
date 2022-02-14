@@ -8,7 +8,7 @@ $breakpoints: (
 .navBar {
   height: var(--nav-bar-height);
   width: 100vw;
-  z-index: 1;
+  z-index: 5;
   position: fixed;
   display: flex;
   align-items: center;
