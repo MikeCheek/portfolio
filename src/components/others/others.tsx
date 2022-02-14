@@ -24,12 +24,12 @@ const others = [
         text: `// Event between Italian Junior Enterprises<br/><br/>
                 // Location: Gabicce, Marche<br/><br/>
                 // Duration: 3 days<br/><br/>
-                /* It was a <strong>great opportunity</strong> to discuss with guys
+                /*<br/> It was a <strong>great opportunity</strong> to discuss with guys
                     from <strong>different</strong> Junior Enterprises and for getting
                     to know the <strong>partner companies</strong> of the event
-                    through daily workshops.
+                    through daily workshops.<br/>
                     A stimulating workshop was organized by Open
-                    Marketplace on the theme of Open Innovation */`
+                    Marketplace on the theme of Open Innovation <br/>*/`
     },
     { 
         title: "SysE2021 - Summer School (2021)", 
@@ -39,8 +39,8 @@ const others = [
                         Blanc and carried out in English */<br/><br/>
                 // Location: Imperia, Liguria<br/><br/>
                 // Duration: 5 days<br/><br/>
-                /* Thanks to the <strong>Hackathon</strong> held during the event,
+                /*<br/> Thanks to the <strong>Hackathon</strong> held during the event,
                     I <strong>improved my knowledge skills</strong> of scientific
-                    calculation language such as Matlab and Simulink */`
+                    calculation language such as Matlab and Simulink <br/>*/`
     },
 ]

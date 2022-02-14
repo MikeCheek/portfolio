@@ -26,7 +26,7 @@ const Hero = (): JSX.Element => {
             <Whoami />
             <div className={styles.sectionWrap}>
                 <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
-                    <p>{about}</p>
+                    <div dangerouslySetInnerHTML={{__html: about}}/>
                 </Section>
                 <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
                     <div dangerouslySetInnerHTML={{__html: works}} />
@@ -46,7 +46,8 @@ const Hero = (): JSX.Element => {
 }
 
 const about: string = (
-    `Since I was a child I have always had a passion for everything there is computer science, so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin.
+    `Since I was a child I have always had a passion for everything there is computer science,<br/>
+    so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin.<br/><br/>
     In my spare time I like to draw both on paper and digitally and I do acrobatic gymnastics`
 )
 
@@ -54,11 +55,11 @@ const works: string = (
     `<strong>JEToP - Junior Enterprise of Politecnico di Torino</strong><br/><br/>
     -> From October 2019 to today<br/><br/>
     -> Role: IT Consultant<br/><br/>
-    -> Working in <strong>teams</strong> on both internal and external
+    Working in <strong>teams</strong> on both internal and external
           projects, <strong>I have expanded my knowledge of web
           programming</strong> by developing sites with
           frameworks like <strong>React</strong> and <strong>Gatsby</strong> and through
-          trainings I improved backend skills.
+          trainings I improved backend skills.<br/>
           For example, I developed the Blog section of the
           association's website (<a href="https://jetop.com/blog" style="text-decoration: none; color: inherit;">https://jetop.com/blog</a>)`
 )

@@ -9,8 +9,10 @@ const PhotoProfile = (): JSX.Element => {
             <StaticImage 
                 src="../../images/profescional.png"
                 alt="Michele Pulvirenti"
-                placeholder="blurred"
-                layout="fixed"
+                placeholder="tracedSVG"
+                layout="constrained"
+                style={{zIndex: 2}} //for safari
+                quality={100}
                 width={200}
                 height={200}
                 className={styles.profescional}
