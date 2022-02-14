@@ -12,6 +12,7 @@ const PhotoProfile = (): JSX.Element => {
                 placeholder="tracedSVG"
                 layout="constrained"
                 style={{zIndex: 1}} //for safari
+                tracedSVGOptions={{color: "dimGrey"}}
                 quality={100}
                 width={200}
                 height={200}
