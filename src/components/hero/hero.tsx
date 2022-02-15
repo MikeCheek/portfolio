@@ -26,7 +26,7 @@ const Hero = (): JSX.Element => {
             <Whoami />
             <div className={styles.sectionWrap}>
                 <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
-                    <div dangerouslySetInnerHTML={{__html: about}}/>
+                    <div className={styles.about} dangerouslySetInnerHTML={{__html: about}}/>
                 </Section>
                 <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
                     <div dangerouslySetInnerHTML={{__html: works}} />
@@ -46,9 +46,9 @@ const Hero = (): JSX.Element => {
 }
 
 const about: string = (
-    `Since I was a child I have always had a passion for everything there is computer science,<br/>
-    so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin.<br/><br/>
-    In my spare time I like to draw both on paper and digitally and I do acrobatic gymnastics`
+    `<p>Since I was a child I have always had a passion for everything there is computer science,<br/>
+    so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin.</p>
+    <p>In my spare time I like to draw both on paper and digitally and I do acrobatic gymnastics</p>`
 )
 
 const works: string = (

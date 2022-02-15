@@ -29,7 +29,10 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
     }
 
     return (
-        <div className={`${reversed? styles.sectionReversed : styles.section} ${theme === "dark" ? "" : styles.light}`} id={id? id : title}>
+        <div className={`${reversed? styles.sectionReversed : styles.section} ${theme === "dark" ? "" : styles.light}`} 
+            style={{backgroundColor: theme === "dark" ? "var(--sect-bg-dark)" : "var(--sect-bg-light)"}} 
+            id={id? id : title}
+        >
             {
                 paragraph?
                 <>

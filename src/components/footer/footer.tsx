@@ -25,7 +25,7 @@ const Footer = ():JSX.Element => {
 
     return (
         <div className={styles.footer} id={"contacts"}>
-            <h2 className={styles.contacts}>Contacts</h2>
+            <h2 className={styles.contacts}>My contacts</h2>
             <div className={styles.icons}>
                 {/*<Phone width={width} fill={color} />*/}
                 <a href={'mailto:'+email} title={"Send me an email"} >

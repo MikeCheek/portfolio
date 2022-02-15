@@ -18,12 +18,15 @@
     --very-transparent-black: #0000000e;
 
     //light
-        --blue: #141850;
-        --violet: #303179;
-        --peach: #f5cac2;
-        --strong-peach: #ed7966;
-        --black-l: #0d0d0d;
-        --white-l: #fae5df;
+        --blue: #4775a0;
+        --light-blue: #5dabf4;
+        --transparent-light-blue: #5dabf488;
+        --brown: #be7434;
+        --silver: #bbbbbb;
+        --transparent-silver: #bbbbbb88;
+        --very-transparent-silver: #bbbbbb29;
+        --black-l: #434343;
+        --white-l: #ffffff;
 
     
     //dark mode
@@ -50,17 +53,18 @@
     //light mode
         --bg-light: var(--white-l);
         --col-light: var(--black-l);
-        --svg-light: var(--strong-peach);
-        --sect-box-shad-light: var(--very-transparent-black);
+        --svg-light: var(--brown);
+        --sect-bg-light: var(--very-transparent-silver);
+        --sect-box-shad-light: none;
         --title-light: var(--blue);
-        --cta-light: var(--violet);
+        --cta-light: var(--light-blue);
         --cta-hov-light: var(--blue);
-        --bar-border-light: var(--peach);
+        --bar-border-light: var(--light-blue);
         --ham-bg-light: var(--black-l);
         --toggle-bg-light: var(--black-l);
         --icon-light: var(--black-l);
-        --navbar-bg-light: var(--peach);
-        --navig-bg-light: var(--strong-peach);
+        --navbar-bg-light: var(--light-blue);
+        --navig-bg-light: var(--blue);
         --rocket-light: var(--blue);
         --wind-light: var(--grey);
 
