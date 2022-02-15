@@ -10,6 +10,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
     const theme = useThemeContext()
 
     const [isClicked, setIsClicked] = useState(false);
+    const [isMouseOn, setIsMouseOn] = useState(false);
 
     const setClicked = async () => {
         if(!isClicked){
@@ -19,6 +20,14 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
         }
     }
     
+    const setMouseOn = async () => {
+        if(!isMouseOn){
+            setIsMouseOn(true);
+            await sleep(2000);
+            setIsMouseOn(false)
+        }
+    }
+
     return (
         <div className={`${reversed? styles.sectionReversed : styles.section} ${theme === "dark" ? "" : styles.light}`} id={id? id : title}>
             {
@@ -31,12 +40,13 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                             <div 
                                 className={styles.svg}
                                 onClick={setClicked}
-                                onMouseEnter={setClicked}
+                                onMouseEnter={setMouseOn}
+                                onMouseDown={setClicked}
                             >
                                 <Svg.svg 
                                     width={"100px"} 
                                     height={"100px"} 
-                                    className={isClicked? styles.trebbling : null} 
+                                    className={isMouseOn? styles.trebbling : null || isClicked? styles.move : null} 
                                     fill={Svg.fill? Svg.fill : "none"}
                                     stroke={Svg.stroke? Svg.stroke : "none"}
                                 />
@@ -57,12 +67,13 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                         <div 
                             className={styles.svg}
                             onClick={setClicked}
-                            onMouseEnter={setClicked}
+                            onMouseEnter={setMouseOn}
+                            onMouseDown={setClicked}
                         >
                             <Svg.svg 
                                 width={"100px"} 
                                 height={"100px"} 
-                                className={isClicked? styles.trebbling : null} 
+                                className={isMouseOn? styles.trebbling : null || isClicked? styles.move : null} 
                                 fill={Svg.fill? Svg.fill : "none"}
                                 stroke={Svg.stroke? Svg.stroke : "none"}
                             />
