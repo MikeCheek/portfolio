@@ -6,10 +6,10 @@
         </filter>
         <style>
             .circle-white{
-                animation: moveLeftRight 20s infinite alternate-reverse ease-in-out;
+                animation: moveLeftRight 35s infinite alternate ease-in-out;
             }
             .circle-orange{
-                animation: moveLeftRight 30s infinite alternate ease-in-out;
+                animation: moveRightLeft 30s infinite alternate ease-in-out;
             }
             .circle-pink{
                 animation: moveUpDown 40s infinite alternate ease-in-out;
@@ -35,6 +35,17 @@
                 }
                 100%{
                     transform: translateX(-50%);
+                }
+            }
+            @keyframes moveRightLeft{
+                0%{
+                    transform: translateX(0);
+                }
+                50%{
+                    transform: translateX(-50%);
+                }
+                100%{
+                    transform: translateX(50%);
                 }
             }
         </style>
