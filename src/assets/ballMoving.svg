@@ -20,10 +20,10 @@
                     transform: translateY(0);
                 }
                 50%{
-                    transform: translateY(20%);
+                    transform: translateY(50%);
                 }
                 100%{
-                    transform: translateY(-20%);
+                    transform: translateY(-50%);
                 }
             }
             @keyframes moveLeftRight{
@@ -31,16 +31,16 @@
                     transform: translateX(0);
                 }
                 50%{
-                    transform: translateX(20%);
+                    transform: translateX(50%);
                 }
                 100%{
-                    transform: translateX(-20%);
+                    transform: translateX(-50%);
                 }
             }
         </style>
     </defs>
     
-    <circle transform="matrix(.67256 0 0 .67256 29.903 16.511)" cx="128.76" cy="109" r="30" fill="#fffefd88" filter="url(#a)" height="100%" class="circle-white" />
+    <circle transform="matrix(.67256 0 0 .67256 29.903 16.511)" cx="128.76" cy="109" r="30" fill="#bbbbbb88" filter="url(#a)" height="100%" class="circle-white" />
     <circle transform="matrix(.88279 0 0 .88279 -5.5728 22.265)" cx="105" cy="100" r="30" fill="#ffac3088" filter="url(#a)" height="100%" class="circle-orange" />
     <circle transform="matrix(1.1925 0 0 1.1925 -17.21 -18.753)" cx="100" cy="100" r="30" fill="#fd76cb88" filter="url(#a)" height="100%" class="circle-pink" />
 </svg>
