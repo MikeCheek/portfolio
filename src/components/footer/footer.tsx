@@ -7,11 +7,7 @@ import Email from '../../assets/email.svg'
 import Linkedin from '../../assets/linkedin.svg'
 import Github from '../../assets/github.svg'
 import { useThemeContext } from '../../utilities/themeContext'
-
-//const phone: number = 1111111111
-const email: string = "michele00.pulvirenti@gmail.com";
-const linkedin: string = "https://www.linkedin.com/in/michele-pulvirenti";
-const github: string = "https://github.com/Mike-cheek";
+import { email, github, linkedin } from '../../utilities/info'
 
 const width: string = "50px";
 const height: string = "50px";

@@ -51,7 +51,7 @@ const Bar = ({name, percentage}: BarProps) => {
                 <span>{percentage}</span>
             </div>
             <div className={`${styles.barWrap} ${theme === "dark" ? null : styles.light}`} ref={barRef}>
-                <div className={styles.bar} style={BarStyle} />
+                <div className={theme === "dark" ? styles.bar : styles.barLight} style={BarStyle} />
             </div>
         </div>
     )

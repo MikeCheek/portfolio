@@ -1,16 +1,19 @@
 import React from 'react'
 //@ts-ignore
 import Bar from '../../atoms/bar/bar'
-import { SkillsType } from './skills.types'
+import { programming, frameworks, others, languages } from '../../utilities/info'
 
 import * as styles from './skills.module.scss'
+import { useThemeContext } from '../../utilities/themeContext'
 
 const Skills = (): JSX.Element => {
+
+    const theme = useThemeContext();
 
     return (
         <div className={styles.wrap}>
 
-            <div className={styles.skills} >
+            <div className={theme === "dark" ? styles.skills : styles.skillsLight} >
                 <h3>Programming Languages</h3>
                 {
                     programming.map((skill) => {
@@ -29,66 +32,10 @@ const Skills = (): JSX.Element => {
                         return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
                     })
                 }
-                <h3>Languages</h3>
-                <p>Italian (mothertongue)</p>
-                <p>English (B2 Cambridge First Certificate)</p>
+                <div dangerouslySetInnerHTML={{__html: languages}} />
             </div>
         </div>
     )
 }
 
 export default Skills
-
-const programming: SkillsType = [
-    {
-        name: 'C', percentage: "90%"
-    },
-    {
-        name: 'Java', percentage: "80%"
-    },
-    {
-        name: 'Javascript', percentage: "90%"
-    },
-    {
-        name: 'Assembly MIPS', percentage: "70%"
-    },
-    {
-        name: 'Bash (Unix shell)', percentage: "70%"
-    },
-    {
-        name: 'PHP', percentage: "30%"
-    },
-]
-
-const frameworks: SkillsType = [
-    {
-        name: 'React', percentage: "90%"
-    },
-    {
-        name: 'Gatsby', percentage: "80%"
-    },
-    {
-        name: 'NextJs', percentage: "50%"
-    },
-]
-
-const others: SkillsType = [
-    {
-        name: 'HTML', percentage: "90%"
-    },
-    {
-        name: 'CSS', percentage: "90%"
-    },
-    {
-        name: 'Linux', percentage: "80%"
-    },
-    {
-        name: 'SQL', percentage: "80%"
-    },
-    {
-        name: 'MatLab', percentage: "50%"
-    },
-    {
-        name: 'Simulink', percentage: "50%"
-    },
-]

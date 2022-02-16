@@ -25,6 +25,11 @@
     will-change: width;
 }
 
+.barLight{
+    @extend .bar;
+    background-color: var(--bar-bg1-light);
+}
+
 .light{
     border: 2px solid var(--bar-border-light);
 }
