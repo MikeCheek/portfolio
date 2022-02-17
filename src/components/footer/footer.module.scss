@@ -21,9 +21,16 @@
         width: 40%;
     }
 
-    >*{
+    .icon{
         height: 40px;
+        :nth-child(1){
+            transition: fill 100ms;
+            &:hover{
+                fill: var(--cta-hov-dark)
+            }
+        } 
     }
+
 }
 
 .contacts{

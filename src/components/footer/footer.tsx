@@ -24,13 +24,13 @@ const Footer = ():JSX.Element => {
             <h2 className={styles.contacts}>My contacts</h2>
             <div className={styles.icons}>
                 {/*<Phone width={width} fill={color} />*/}
-                <a href={'mailto:'+email} title={"Send me an email"} >
+                <a className={styles.icon} href={'mailto:'+email} title={"Send me an email"} >
                     <Email width={width} height={height} fill={color}/>
                 </a>
-                <a href={linkedin} title={"Linkedin profile"} >
+                <a className={styles.icon} href={linkedin} title={"Linkedin profile"} >
                     <Linkedin width={width} height={height} fill={color}/>
                 </a>
-                <a href={github} title={"GitHub profile"} >
+                <a className={styles.icon} href={github} title={"GitHub profile"} >
                     <Github width={width} height={height} fill={color}/>
                 </a>
             </div>

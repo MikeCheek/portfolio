@@ -40,9 +40,23 @@ $breakpoints: (
   margin-bottom: auto;
 }
 
+
 .item:hover{
   -webkit-animation: hov 200ms ease-in-out forwards;
   animation: hov 200ms ease-in-out forwards;
+}
+
+.itemOn{
+  @extend .item;
+
+  animation: none;
+  transform: scale(1.05);
+  color:var(--cta-hov-dark);
+
+  &::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes hov{
