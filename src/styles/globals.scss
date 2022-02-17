@@ -92,6 +92,29 @@
 
 body {
     background-attachment: fixed;
+    #link{
+        text-decoration: none;
+        color: inherit;
+        background:
+            linear-gradient(
+                to right,
+                var(--very-transparent-white),
+                var(--very-transparent-white)
+            ),
+            linear-gradient(
+                to right,
+                var(--orange),
+                var(--pink)
+                
+            );
+        background-size: 100% 2px, 0 2px;
+        background-position: 100% 100%, 0 100%;
+        background-repeat: no-repeat;
+        transition: background-size 400ms;
+    }
+    #link:hover {
+        background-size: 0 2px, 100% 2px;
+    }
 }
 
 /* width */

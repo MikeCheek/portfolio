@@ -47,7 +47,7 @@ export const works: string = `<strong>JEToP - Junior Enterprise of Politecnico d
           frameworks like <strong>React</strong> and <strong>Gatsby</strong> and through
           trainings I improved backend skills.<br/>
           For example, I developed the Blog section of the
-          association's website (<a href="https://jetop.com/blog" style="text-decoration: none; color: inherit;">https://jetop.com/blog</a>)`
+          association's website (<a id="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)`
 
 //education
 export const events = [
