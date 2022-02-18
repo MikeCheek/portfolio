@@ -6,10 +6,11 @@ import sleep from '../../utilities/sleep'
 const WordGame = ({word}: WordGameProps): JSX.Element => {
 
     const [chars, setChars] = useState<string[]>([])
-    const [answer, setAnswer] = useState<string[]>([])
+    const [victory, setVictory] = useState<boolean>(false)
 
     useEffect(() => {
         setChars(Array.from(word))
+        console.log(word)
         
         if(document.getElementById("input0"))  
             document.getElementById("input0")?.focus()
@@ -19,32 +20,62 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
 
     }, [word])
 
-    useEffect(() => {
-        console.log(answer)
-    }, [answer])
-
     const handleEnter = (event:any) => {
         const form = event.target.form;
         const index = [...form].indexOf(event.target);
 
-        if (event.code.toLowerCase() === "enter" || event.code.toLowerCase() === "space" || event.code.toLowerCase() === "arrowright") {
+        if (event.code.toLowerCase() === "enter" || event.code.toLowerCase() === "arrowright") {
             if(form.elements[index + 1].value != "Check")
                 form.elements[index + 1]?.focus();
             event.preventDefault();
         } else if(event.code.toLowerCase() === "arrowleft"){
             form.elements[index - 1]?.focus();
             event.preventDefault();
+        } else if(event.code.toLowerCase() === "backspace" && event.target.value === ''){
+            form.elements[index - 1]?.focus();
+            event.preventDefault();
+        }
+    };
+
+    const handleChange = (event:any) => {
+        const form = event.target.form;
+        const index = [...form].indexOf(event.target);
+
+        if (event.target.value == " " || event.target.value == "" || !event.target.value.match('^([a-z]|[A-Z])*$')) {
+            event.target.value = '';
+        } else {
+            if(form.elements[index + 1].value != "Check")
+                form.elements[index + 1]?.focus();
+            event.preventDefault();
         }
     };
 
     const check = (event:any) => {
         const form = event.target.form;
-        const tmp = []
+        const tmpArray = []
+        let tmpString = ''
 
         for(let i=0; i < form.length -1; i++){
-            tmp.push(form.elements[i].value)
+            tmpArray.push(form.elements[i].value)
+            tmpString += form.elements[i].value;
         }
-        console.log(tmp)
+
+        for(let i=0; i < tmpArray.length; i++){
+            if(word.includes(tmpArray[i]) && tmpArray[i] != ''){
+                document.getElementById("input"+i)!.style.backgroundColor = "var(--orange)";
+            } else{
+                document.getElementById("input"+i)!.style.backgroundColor = "";
+            }
+
+            if(tmpArray[i] === chars[i]){
+                document.getElementById("input"+i)!.style.backgroundColor = "var(--pink)";
+                document.getElementById("input"+i)!.setAttribute("disabled", "disabled")
+            }
+        }
+
+        if(word === tmpString){
+            setVictory(true);
+        }
     }
 
     return (
@@ -61,10 +92,13 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
                                 enterKeyHint={"next"}
                                 maxLength={1}
                                 onKeyDown={handleEnter}
+                                onChange={handleChange}
+                                pattern={"^([a-z]|[A-Z])*$"}
                             />
                 })}
             </div>
             <button id={"button"} type={"button"} value={"Check"} onClick={check}>CHECK</button>
+            {victory? <h3>YOU HAVE GUESSED THE WORD!!</h3> : <p>Try to guess the word...</p>}
         </form>
     )
 }
