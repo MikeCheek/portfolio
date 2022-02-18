@@ -5,6 +5,7 @@ import { WordGameProps } from './wordGame.types'
 
 import containsChar from '../../utilities/containsChar'
 import sleep from '../../utilities/sleep'
+import { getDefinition } from '../../utilities/word'
 
 
 const WordGame = ({word}: WordGameProps): JSX.Element => {
@@ -123,7 +124,10 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
                 })}
             </div>
             {victory? 
-                <h2>YOU HAVE GUESSED THE WORD '{word.toUpperCase()}' IN {attempts} ATTEMPTS!!</h2> 
+                <>
+                    <h2>YOU HAVE GUESSED THE WORD <span style={{color: "var(--pink)"}}>{word.toUpperCase()}</span> IN {attempts} ATTEMPTS!!</h2> 
+                    <p><span style={{color: "var(--pink)"}}>{word}</span>: {getDefinition(word)}</p>
+                </>
             : 
                 <>
                     <button className={styles.check} type={"button"} value={"Check"} onClick={check}>CHECK</button>

@@ -4,7 +4,7 @@ import * as styles from './gameHero.module.scss'
 
 import Loading from '../../atoms/loading/loading';
 import WordGame from '../../atoms/wordGame/wordGame';
-import randomWord from '../../utilities/randomWord';
+import randomWord from '../../utilities/word';
 
 const GameHero = () => {
     const [fetched, setFetched] = useState<boolean>(false);
