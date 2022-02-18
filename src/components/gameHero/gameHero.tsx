@@ -4,6 +4,7 @@ import * as styles from './gameHero.module.scss'
 
 import Loading from '../../atoms/loading/loading';
 import WordGame from '../../atoms/wordGame/wordGame';
+import randomWord from '../../utilities/randomWord';
 
 const GameHero = () => {
     const [fetched, setFetched] = useState<boolean>(false);
@@ -11,7 +12,7 @@ const GameHero = () => {
     const [started, setStarted] = useState<boolean>(false);
     const [length, setLength] = useState<number>(7);
 
-    const fetchData = async () => {
+    /*const fetchData = async () => {
         setFetched(false);
         setStarted(true);
         const response = await fetch('https://random-word-api.herokuapp.com/word?number=1&swear=0');
@@ -23,6 +24,21 @@ const GameHero = () => {
                 setFetched(true);
             }
         }
+    } */
+
+    const fetchRightWord = async (length: number): Promise<string> => {
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        const data = randomWord(length);
+        return data
+    }
+
+    const fetchData = async () => {
+        setFetched(false);
+        setStarted(true);
+        const data = fetchRightWord(length)
+        setWord(await data);
+        setFetched(true);
+            
     }
 
     const increase = () => setLength(length*1 + 1);
