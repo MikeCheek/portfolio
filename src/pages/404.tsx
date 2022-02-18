@@ -32,7 +32,7 @@ const NotFoundPage = (): JSX.Element => {
               </>
             ) : null}
             <br />
-            <Link to="/">Go home</Link>.
+            <Link to="/" id="link">Go home</Link>.
           </p>
         </>
       </Layout>

@@ -115,6 +115,19 @@ body {
     #link:hover {
         background-size: 0 2px, 100% 2px;
     }
+
+    #button{
+        padding: 10px;
+        margin: 5px;
+        background: none;
+        border: 5px groove var(--cta-dark);
+        color: var(--cta-dark);
+
+        &:hover{
+            border: 5px groove var(--cta-hov-dark);
+            color: var(--cta-hov-dark);
+        }
+    }
 }
 
 /* width */
