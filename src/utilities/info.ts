@@ -11,10 +11,10 @@ export const otherExperiences = [
         text: `// Event between Italian Junior Enterprises<br/><br/>
                 // Location: Gabicce, Marche<br/><br/>
                 // Duration: 3 days<br/><br/>
-                /*<br/> It was a <strong>great opportunity</strong> to discuss with guys
-                    from <strong>different</strong> Junior Enterprises and for getting
-                    to know the <strong>partner companies</strong> of the event
-                    through daily workshops.<br/>
+                /*<br/>The event provided an <strong>excellent opportunity</strong> 
+                    for discussion with guys from <strong>different</strong> Junior Enterprises, 
+                    as well as getting to know the <strong>partner companies</strong> of the event through daily workshops.
+                <br/>
                     A stimulating workshop was organized by Open
                     Marketplace on the theme of Open Innovation <br/>*/`,
     },
@@ -33,21 +33,19 @@ export const otherExperiences = [
 ]
 
 //about
-export const about: string = `<p>Since I was a child I have always had a passion for everything there is computer science,<br/>
-    so I'm attending the third year of studies in Computer Engineering at the Polytechnic of Turin.</p>
-    <p>In my spare time I like to draw both on paper and digitally and I do acrobatic gymnastics</p>`
+export const about: string = `<p>Having been fascinated with computers since I was a child,<br/>
+    I am currently studying computer engineering at the Polytechnic of Turin.</p>
+    <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics</p>`
 
 //work experiences
 export const works: string = `<strong>JEToP - Junior Enterprise of Politecnico di Torino</strong><br/><br/>
     -> From October 2019 to today<br/><br/>
     -> Role: IT Consultant<br/><br/>
-    Working in <strong>teams</strong> on both internal and external
-          projects, <strong>I have expanded my knowledge of web
-          programming</strong> by developing sites with
-          frameworks like <strong>React</strong> and <strong>Gatsby</strong> and through
-          trainings I improved backend skills.<br/>
-          For example, I developed the Blog section of the
-          association's website (<a id="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)`
+        As a member of <strong>teams</strong> on both internal and external projects, 
+        <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
+        like <strong>React, Gatsby and NextJS</strong> and have improved my backend skills through training.<br/>
+        As an example, I developed the Blog section of the association's website 
+        (<a id="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)`
 
 //education
 export const events = [
