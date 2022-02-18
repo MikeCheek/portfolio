@@ -77,7 +77,7 @@ const NavBar = ({ changeToggle, noMenu = false }: NavBarProps): JSX.Element => {
             </div>
 
             {
-                noMenu ? <div style={{marginRight: "20px"}} ><NavItem path={"/"} text={"Go home"} /></div>
+                noMenu ? <div style={{marginRight: "20px"}} ><NavItem path={"/"} text={"Home"} /></div>
                     :
                     <>
                         <div className={styles.navigationDesktop}>

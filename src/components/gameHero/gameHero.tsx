@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import Loading from '../../atoms/loading/loading';
-import WordGame from '../../atoms/wordGame/wordGame';
 
 import * as styles from './gameHero.module.scss'
+
+import Loading from '../../atoms/loading/loading';
+import WordGame from '../../atoms/wordGame/wordGame';
 
 const GameHero = () => {
     const [fetched, setFetched] = useState<boolean>(false);
@@ -43,9 +44,29 @@ const GameHero = () => {
                     <button onClick={decrease}>{`<`}</button>
                 </div>
             </div>
-            <button onClick={fetchData} className={styles.button}>
-                {started ? `RESTART` : `START`}
-            </button>
+            {
+                started?
+                    <div className={styles.restart}>
+                        <p>Guess the word or </p>
+                        <button onClick={fetchData} className={styles.buttonRestart}>
+                            RESTART
+                        </button>
+                    </div>
+                :
+                    <>
+                        <h3>RULES</h3>
+                        <h4>Game is easy. You have to guess the secret word putting letters in boxes.<br/><br/>
+                                <li>If you guess a letter of the word, the box will became <span style={{color: "var(--orange)"}}>orange</span></li>
+                                <li>If you guess both letter and position in word, the box will became <span style={{color: "var(--pink)"}}>pink</span></li><br/>
+                            On the top you can change the MAX length of the hidden word <br/>(if you set 4 or 3 as length, you might wait a long time)<br/><br/>
+                            That's all! Enjoy the game!
+                        </h4>
+                        <button onClick={fetchData} className={styles.buttonStart}>
+                            START
+                        </button>
+                    </>
+            }
+            
             {fetched ? <WordGame word={word} /> : started ? <Loading /> : null}
         </div>
     )

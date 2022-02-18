@@ -3,12 +3,12 @@ import { Link } from "gatsby"
 import SEO from "../components/seo/seo"
 import Layout from "../components/layout/layout"
 
-import { useThemeContext } from "../utilities/themeContext"
+//import { useThemeContext } from "../utilities/themeContext"
 import Rocket from "../components/rocket/rocket"
 
 const NotFoundPage = (): JSX.Element => {
 
-  const theme = useThemeContext()
+  //const theme = useThemeContext()
 
   return (
     <>

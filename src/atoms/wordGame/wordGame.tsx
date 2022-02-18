@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { WordGameProps } from './wordGame.types'
+
 import * as styles from './wordGame.module.scss'
-import sleep from '../../utilities/sleep'
+import { WordGameProps } from './wordGame.types'
+
 import containsChar from '../../utilities/containsChar'
+import sleep from '../../utilities/sleep'
+
 
 const WordGame = ({word}: WordGameProps): JSX.Element => {
 
@@ -57,7 +60,7 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
     };
 
     const check = (event:any) => {
-        const form = event.target.form;
+        const form = event.target.form || document.getElementById("form");
         const tmpArray = []
         let tmpString = ''
 
@@ -66,13 +69,12 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
 
         setAttempts(attempts*1 + 1)
 
-        for(let i=0; i < form.length -1; i++){
+        for(let i=0; i < word.length; i++){
             tmpArray.push(form.elements[i].value)
             tmpString += form.elements[i].value;
         }
 
         for(let i=0; i < tmpArray.length; i++){
-            
             if(!containsChar(tmpIn, tmpArray[i]))
                 tmpIn+=tmpArray[i];
 
@@ -81,17 +83,18 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
                 
                 if(!containsChar(tmpOk, tmpArray[i]))
                     tmpOk+=tmpArray[i];
+
             } else{
                 document.getElementById("input"+i)!.style.backgroundColor = "";
             }
 
-            if(tmpArray[i] === chars[i]){
+            if(tmpArray[i].toUpperCase() === chars[i].toUpperCase()){
                 document.getElementById("input"+i)!.style.backgroundColor = "var(--pink)";
                 document.getElementById("input"+i)!.setAttribute("disabled", "disabled")
             }
         }
 
-        if(word === tmpString){
+        if(word.toUpperCase() === tmpString.toUpperCase()){
             setVictory(true);
         }
 
@@ -103,7 +106,7 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
     return (
         <form id={"form"} className={styles.form}>
             <div>
-                {chars.map((char, key) => {
+                {chars.map((_char, key) => {
                     return <input 
                                 type={"text"} 
                                 key={key} 
@@ -119,24 +122,30 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
                             />
                 })}
             </div>
-            <button id={"button"} type={"button"} value={"Check"} onClick={check}>CHECK</button>
-            {victory? <h2>YOU HAVE GUESSED THE WORD IN {attempts} ATTEMPTS!!</h2> : <p>Attempts: {attempts}</p>}
+            {victory? 
+                <h2>YOU HAVE GUESSED THE WORD '{word.toUpperCase()}' IN {attempts} ATTEMPTS!!</h2> 
+            : 
+                <>
+                    <button className={styles.check} type={"button"} value={"Check"} onClick={check}>CHECK</button>
+                    <p>Attempts: {attempts}</p>
+                </>
+            }
             <div className={styles.lettersWrapper}>
                 <div className={styles.letters}>
-                    <p>Letters used</p>
-                    <div className={styles.charList}>
+                    <p>Letters of the word</p>
+                    <div className={styles.charListOrange}>
                         {
-                            Array.from(inLetters).map((letter, key) => {
+                            Array.from(okLetters).map((letter, key) => {
                                 return <p key={key} >{letter}</p>
                             })
                         }
                     </div>
                 </div>
                 <div className={styles.letters}>
-                    <p>Letters of the word</p>
-                    <div className={styles.charListOrange}>
+                    <p>Letters used</p>
+                    <div className={styles.charList}>
                         {
-                            Array.from(okLetters).map((letter, key) => {
+                            Array.from(inLetters).map((letter, key) => {
                                 return <p key={key} >{letter}</p>
                             })
                         }

@@ -8,6 +8,7 @@ import Linkedin from '../../assets/linkedin.svg'
 import Github from '../../assets/github.svg'
 import { useThemeContext } from '../../utilities/themeContext'
 import { email, github, linkedin } from '../../utilities/info'
+import { Link } from 'gatsby'
 
 const width: string = "50px";
 const height: string = "50px";
@@ -19,7 +20,7 @@ const Footer = ():JSX.Element => {
 
     const color: string = theme === "dark" ? "var(--icon-dark)" : "var(--icon-light)"
 
-    return (
+    return (<>
         <div className={styles.footer} id={"contacts"}>
             <h2 className={styles.contacts}>My contacts</h2>
             <div className={styles.icons}>
@@ -35,6 +36,10 @@ const Footer = ():JSX.Element => {
                 </a>
             </div>
         </div>
+        <Link to={"game"} id={"link"} >
+            Wanna play a game?
+        </Link>
+        </>
     )
 }
 

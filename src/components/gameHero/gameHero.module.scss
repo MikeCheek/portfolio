@@ -8,9 +8,22 @@
     @media screen and (min-width: "768px") {
         width: 70%;      
     }
+
+    h4{
+        padding: 10px;
+        background-color: var(--very-transparent-white);
+        border-radius: 20px;
+    }
 }
 
-.button{
+.restart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonStart{
     padding: 10px;
     margin: 5px;
     background: none;
@@ -23,18 +36,32 @@
     }
 }
 
+.buttonRestart{
+    @extend .buttonStart;
+
+    border: none;
+    &:hover{
+        border: none;
+        color: var(--cta-hov-dark);
+    }
+}
+
 .max{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
     margin-bottom: 50px;
+    @media screen and (min-width: "768px"){
+        width: 50%;
+    }
 }
 
 .text{
     display: flex;
     flex-direction: row;
+    text-align: center;
 
     @media screen and (min-width: "768px"){
         height: 2rem;
@@ -55,17 +82,27 @@
     display: flex;
     flex-direction: row-reverse;
 
+    :nth-child(1){
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+
+    :nth-child(2){
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+
     button{
-        color: inherit;
-        padding: 15px 20px 15px;
+        color: var(--cta-dark);
+        padding: 5px 10px 5px;
         font-size: 1.2rem;
         margin: 10px;
-        border-radius: 100%;
-        background-color: var(--cta-dark);
-        border: none;
-        box-shadow: 0 0 10px 0 var(--cta-dark);
+        background: none;
+        border: 5px groove var(--cta-dark);
+        //box-shadow: 0 0 10px 0 var(--cta-dark);
         &:hover{
-            background-color: var(--cta-hov-dark);
+            border: 5px groove var(--cta-hov-dark);
+            color: var(--cta-hov-dark);
         }
     }
 }
