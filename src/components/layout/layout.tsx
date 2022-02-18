@@ -14,7 +14,7 @@ import ArrowUp from '../../atoms/arrowUp/arrowUp'
 import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children, noMenu = false }: LayoutProps): JSX.Element => {
     const [browser, setBrowser] = useState<string>('Safari')
 
     const [lightMode, setLightMode] = useState<boolean>(false)
@@ -39,7 +39,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     return (
         <ThemeContext.Provider value={lightMode? "light" : "dark"}>
             <div id="top" className={styles.layout}>
-                <NavBar changeToggle={changeDarkMode} />
+                <NavBar changeToggle={changeDarkMode} noMenu={noMenu} />
                 {
                     browser === 'Safari' ?
                         <Ball BallSvg={BallStill} fastAnimation />

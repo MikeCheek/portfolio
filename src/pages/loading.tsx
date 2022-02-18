@@ -7,7 +7,7 @@ const LoadingPage = () => {
   return (
     <>
         <SEO title='Loading' description='Just a loading animation test' />
-        <Layout>
+        <Layout noMenu={true}>
             <Loading/>
         </Layout>
     </>

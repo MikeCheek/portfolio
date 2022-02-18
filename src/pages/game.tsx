@@ -11,7 +11,7 @@ const Game = () => {
                 title={"Word Game"} 
                 description={"Play this word game"} 
             />
-            <Layout>
+            <Layout noMenu={true}>
                 <GameHero />
             </Layout>
             
