@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { WordGameProps } from './wordGame.types'
 import * as styles from './wordGame.module.scss'
 import sleep from '../../utilities/sleep'
+import containsChar from '../../utilities/containsChar'
 
 const WordGame = ({word}: WordGameProps): JSX.Element => {
 
     const [chars, setChars] = useState<string[]>([])
     const [victory, setVictory] = useState<boolean>(false)
+
+    const [inLetters, setInLetters] = useState<string>('');
+    const [okLetters, setOkLetters] = useState<string>('');
+    
+    const [attempts, setAttempts] = useState<number>(0);
 
     useEffect(() => {
         setChars(Array.from(word))
@@ -55,14 +61,26 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
         const tmpArray = []
         let tmpString = ''
 
+        let tmpIn = inLetters;
+        let tmpOk = okLetters;
+
+        setAttempts(attempts*1 + 1)
+
         for(let i=0; i < form.length -1; i++){
             tmpArray.push(form.elements[i].value)
             tmpString += form.elements[i].value;
         }
 
         for(let i=0; i < tmpArray.length; i++){
-            if(word.includes(tmpArray[i]) && tmpArray[i] != ''){
+            
+            if(!containsChar(tmpIn, tmpArray[i]))
+                tmpIn+=tmpArray[i];
+
+            if(containsChar(word, tmpArray[i]) && tmpArray[i] != ''){
                 document.getElementById("input"+i)!.style.backgroundColor = "var(--orange)";
+                
+                if(!containsChar(tmpOk, tmpArray[i]))
+                    tmpOk+=tmpArray[i];
             } else{
                 document.getElementById("input"+i)!.style.backgroundColor = "";
             }
@@ -76,6 +94,10 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
         if(word === tmpString){
             setVictory(true);
         }
+
+        setInLetters(tmpIn);
+        setOkLetters(tmpOk);
+
     }
 
     return (
@@ -98,7 +120,30 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
                 })}
             </div>
             <button id={"button"} type={"button"} value={"Check"} onClick={check}>CHECK</button>
-            {victory? <h3>YOU HAVE GUESSED THE WORD!!</h3> : <p>Try to guess the word...</p>}
+            {victory? <h2>YOU HAVE GUESSED THE WORD IN {attempts} ATTEMPTS!!</h2> : <p>Attempts: {attempts}</p>}
+            <div className={styles.lettersWrapper}>
+                <div className={styles.letters}>
+                    <p>Letters used</p>
+                    <div className={styles.charList}>
+                        {
+                            Array.from(inLetters).map((letter, key) => {
+                                return <p key={key} >{letter}</p>
+                            })
+                        }
+                    </div>
+                </div>
+                <div className={styles.letters}>
+                    <p>Letters of the word</p>
+                    <div className={styles.charListOrange}>
+                        {
+                            Array.from(okLetters).map((letter, key) => {
+                                return <p key={key} >{letter}</p>
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+            
         </form>
     )
 }
