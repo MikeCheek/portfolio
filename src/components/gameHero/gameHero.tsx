@@ -55,11 +55,12 @@ const GameHero = () => {
                 :
                     <>
                         <h3>RULES</h3>
-                        <h4>Game is easy. You have to guess the secret word putting letters in boxes.<br/><br/>
-                                <li>If you guess a letter of the word, the box will became <span style={{color: "var(--orange)"}}>orange</span></li>
-                                <li>If you guess both letter and position in word, the box will became <span style={{color: "var(--pink)"}}>pink</span></li><br/>
-                            On the top you can change the MAX length of the hidden word <br/>(if you set 4 or 3 as length, you might wait a long time)<br/><br/>
-                            That's all! Enjoy the game!
+                        <h4>The game is easy. You guess the secret word by placing letters in boxes.<br/><br/>
+                                <li>When you guess a letter, the box turns <span style={{color: "var(--orange)"}}>orange</span></li>
+                                <li>When you guess both the letter and the position in the word, the box turns <span style={{color: "var(--pink)"}}>pink</span></li><br/>
+                                You can change the MAX length of the hidden word at the top. <br/>
+                                (if you set 4 or 3, you may have to wait a long time)<br/><br/>
+                                That's all! Enjoy the game!
                         </h4>
                         <button onClick={fetchData} className={styles.buttonStart}>
                             START
