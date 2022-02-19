@@ -36,7 +36,7 @@ const Footer = ():JSX.Element => {
                 </a>
             </div>
         </div>
-        <Link to={"game"} id={"link"} >
+        <Link to={"/game"} id={"link"} >
             Wanna play a game?
         </Link>
         </>

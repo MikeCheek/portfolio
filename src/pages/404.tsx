@@ -13,7 +13,7 @@ const NotFoundPage = (): JSX.Element => {
   return (
     <>
       <SEO title={"Not found"} />
-      <Layout>
+      <Layout noMenu={true}>
         <>
           <h1>Page not found</h1>
           <p>
