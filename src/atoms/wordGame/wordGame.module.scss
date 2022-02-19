@@ -80,3 +80,38 @@
         background-color: var(--orange);
     }
 }
+
+.victory{
+    margin: 20px 0 20px;
+}
+
+.ctaDefinition{
+    padding: 10px;
+    margin: 5px;
+    background: none;
+    color: var(--cta-dark);
+    border: none;
+    font-size: 1.1rem;
+
+    &:hover{
+        color: var(--cta-hov-dark);
+    }
+}
+
+@keyframes trebble {
+    0%{
+
+    }
+    25%{
+        transform: translateX(10px) rotateZ(10deg);
+    }
+    50%{
+        transform: translateX(-10px) rotateZ(10deg);
+    }
+    75%{
+        transform: translateX(10px) rotateZ(-10deg);
+    }
+    100%{
+        transform: translateX(-10px) rotateZ(-10deg);
+    }
+}

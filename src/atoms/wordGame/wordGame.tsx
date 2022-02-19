@@ -18,9 +18,16 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
     
     const [attempts, setAttempts] = useState<number>(0);
 
+    const [definition, setDefinition] = useState<boolean>(false);
+
     useEffect(() => {
         setChars(Array.from(word))
-        console.log(word)
+        console.log(`
+Oh you've arrived here...
+What are you looking for? 
+What do you expect to find here?
+I'm having fun with ${word}... 
+Go somewhere else or try to guess the word `)
         
         if(document.getElementById("input0"))  
             document.getElementById("input0")?.focus()
@@ -30,20 +37,35 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
 
     }, [word])
 
+    const nextInput = (form: any, index: number) => {
+        if(form.elements[index + 1].value == "Check")
+            return;
+
+        if(form.elements[index + 1].disabled)
+            nextInput(form, index + 1);
+        else
+            form.elements[index + 1]?.focus();
+    }
+
+    const previousInput = (form: any, index: number) => {
+        if(form.elements[index - 1] && form.elements[index - 1].disabled)
+            previousInput(form, index -1)
+        else
+            form.elements[index - 1]?.focus();
+    }
+
     const handleEnter = (event:any) => {
         const form = event.target.form;
-        const index = [...form].indexOf(event.target);
+        const index = [...form].indexOf(event.target)
 
-        if (event.code.toLowerCase() === "enter" || event.code.toLowerCase() === "arrowright") {
-            if(form.elements[index + 1].value != "Check")
-                form.elements[index + 1]?.focus();
+        if (event.key.toLowerCase() === "enter" || event.key.toLowerCase() === "arrowright") {
+            nextInput(form, index)
             event.preventDefault();
-        } else if(event.code.toLowerCase() === "arrowleft"){
-            form.elements[index - 1]?.focus();
+        } else if(event.key.toLowerCase() === "arrowleft"){
+            previousInput(form, index)
             event.preventDefault();
-        } else if(event.code.toLowerCase() === "backspace" && event.target.value === ''){
-            form.elements[index - 1]?.focus();
-            event.preventDefault();
+        } else if(event.key.toLowerCase() === "backspace" && event.target.value === ''){
+            previousInput(form, index)
         }
     };
 
@@ -54,8 +76,7 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
         if (event.target.value == " " || event.target.value == "" || !event.target.value.match('^([a-z]|[A-Z])*$')) {
             event.target.value = '';
         } else {
-            if(form.elements[index + 1].value != "Check")
-                form.elements[index + 1]?.focus();
+            nextInput(form, index);
             event.preventDefault();
         }
     };
@@ -95,18 +116,38 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
             }
         }
 
-        if(word.toUpperCase() === tmpString.toUpperCase()){
+        if(word.toUpperCase() === tmpString.toUpperCase())
             setVictory(true);
-        }
+        else
+            document.getElementById("trebbling")!.animate(
+                [
+                    {transform: 'none'},
+                    {transform: 'translateX(10px) rotateZ(1deg)'},
+                    {transform: 'translateX(-10px) rotateZ(1deg)'},
+                    {transform: 'translateX(10px) rotateZ(-1deg)'},
+                    {transform: 'translateX(-10px) rotateZ(-1deg)'},
+                    {transform: 'none'},
+                ],
+                {
+                    duration: 300,
+                    easing: "linear"
+                }
+
+            )
 
         setInLetters(tmpIn);
         setOkLetters(tmpOk);
 
+        
+
     }
+
+    const toggleDefinition = () => setDefinition(!definition);
+    
 
     return (
         <form id={"form"} className={styles.form}>
-            <div>
+            <div id={"trebbling"}>
                 {chars.map((_char, key) => {
                     return <input 
                                 type={"text"} 
@@ -124,10 +165,13 @@ const WordGame = ({word}: WordGameProps): JSX.Element => {
                 })}
             </div>
             {victory? 
-                <>
+                <div className={styles.victory}>
                     <h2>YOU HAVE GUESSED THE WORD <span style={{color: "var(--pink)"}}>{word.toUpperCase()}</span> IN {attempts} ATTEMPTS!!</h2> 
-                    <p><span style={{color: "var(--pink)"}}>{word}</span>: {getDefinition(word)}</p>
-                </>
+                    <button type={"button"} className={styles.ctaDefinition} onClick={toggleDefinition}>
+                        {definition? `HIDE` : `SHOW`} DEFINITION
+                    </button>
+                    {definition? <p><span style={{color: "var(--pink)"}}>{word}</span>: {getDefinition(word)}</p> : null}
+                </div>
             : 
                 <>
                     <button className={styles.check} type={"button"} value={"Check"} onClick={check}>CHECK</button>
