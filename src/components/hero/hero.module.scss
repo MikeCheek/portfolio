@@ -10,14 +10,16 @@
 
 .about{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    >*{
+        width: 100%;
+    }
 
     @media screen and (min-width: "768px"){
-        flex-direction: row;
         justify-content: space-between;
-        :nth-child(1){
-            margin-right: 5%;
+        >*{
+            width: 45%;
         }
-        
     }
 }

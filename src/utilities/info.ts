@@ -26,9 +26,9 @@ export const otherExperiences = [
                         Blanc and carried out in English */<br/><br/>
                 // Location: Imperia, Liguria<br/><br/>
                 // Duration: 5 days<br/><br/>
-                /*<br/> Thanks to the <strong>Hackathon</strong> held during the event,
-                    I <strong>improved my knowledge skills</strong> of scientific
-                    calculation language such as Matlab and Simulink <br/>*/`,
+                /*<br/> Thanks to the <strong>Hackathon</strong> during the event, 
+                        I <strong>gained experience</strong> with scientific calculation 
+                        languages such as Matlab and Simulink <br/>*/`,
     },
 ]
 

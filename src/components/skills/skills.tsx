@@ -32,7 +32,7 @@ const Skills = (): JSX.Element => {
                         return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
                     })
                 }
-                <div dangerouslySetInnerHTML={{__html: languages}} />
+                <div dangerouslySetInnerHTML={{ __html: languages }} />
             </div>
         </div>
     )

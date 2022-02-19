@@ -1,66 +1,66 @@
-.wrap{
-    position: relative;
-    align-self: center;
-    justify-self: center;
-    height: 300px;
-    width: 100vw;
-    overflow: hidden;
-    left: -5px;
+.wrap {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  height: 300px;
+  width: 100vw;
+  overflow: hidden;
+  left: -5px;
 }
 
-.rocketWrap{
-    animation: go-and-back 7s infinite linear;
+.rocketWrap {
+  animation: go-and-back 7s infinite linear;
 }
 
-.svg{
-    position: absolute;
+.svg {
+  position: absolute;
 }
 
-.rocket{
-    @extend .svg;
-    z-index: 1;
-    left: 40%;
-    top: -5%;
-    animation: flying 3s infinite linear;
+.rocket {
+  @extend .svg;
+  z-index: 1;
+  left: 40%;
+  top: -5%;
+  animation: flying 3s infinite linear;
 }
 
-.wind{
-    @extend .svg;
-    z-index: 2;
-    top: 20%;
-    left: 0;
-    opacity: 0.5;
-    @media screen and (min-width: "768px") {
-        left: 30%;
-    }
+.wind {
+  @extend .svg;
+  z-index: 2;
+  top: 20%;
+  left: 0;
+  opacity: 0.5;
+  @media screen and (min-width: '768px') {
+    left: 30%;
+  }
 }
 
 @keyframes flying {
-    0%{
-        transform: rotateZ(-20deg);
-    }
-    20%{
-        transform: rotateZ(0) translateY(-50px);
-    }
-    40%{
-        transform: rotateZ(20deg);
-    }
-    60%{
-        transform: translateY(50px);
-    }
-    80%{
-        transform: rotateZ(-20deg) translateY(50px);
-    }
-    100%{
-        transform: rotateZ(-20deg);
-    }
+  0% {
+    transform: rotateZ(-20deg);
+  }
+  20% {
+    transform: rotateZ(0) translateY(-50px);
+  }
+  40% {
+    transform: rotateZ(20deg);
+  }
+  60% {
+    transform: translateY(50px);
+  }
+  80% {
+    transform: rotateZ(-20deg) translateY(50px);
+  }
+  100% {
+    transform: rotateZ(-20deg);
+  }
 }
 
 @keyframes go-and-back {
-    from{
-        transform: translateX(-350px);
-    }
-    to{
-        transform: translateX(300px);
-    }
+  from {
+    transform: translateX(-350px);
+  }
+  to {
+    transform: translateX(300px);
+  }
 }

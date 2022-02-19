@@ -12,11 +12,11 @@ const Profile = (): JSX.Element => {
 
     return (
         <div className={styles.profile}>
-            <PhotoProfile/>
-            <a 
-                rel="noopener noreferrer" 
-                href={cv} 
-                target="_blank" 
+            <PhotoProfile />
+            <a
+                rel="noopener noreferrer"
+                href={cv}
+                target="_blank"
                 title="Download my CV"
                 download="CV Michele Pulvirenti"
                 className={`${styles.cvButton} ${theme === "dark" ? null : styles.light}`}

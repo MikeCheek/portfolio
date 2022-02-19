@@ -1,49 +1,49 @@
-.wrap{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+.wrap {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.skills{
-    > *{
-        padding: 10px 0 10px;
+.skills {
+  > * {
+    padding: 10px 0 10px;
+  }
+  width: 90%;
+  -webkit-animation: fade-in 1s ease-in-out;
+  animation: fade-in 1s ease-in-out;
+
+  :where(h3) {
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+
+  :nth-child(odd) {
+    :nth-child(2) {
+      > * {
+        background-color: var(--bar-bg2-dark);
+      }
     }
-    width: 90%;
-    -webkit-animation: fade-in 1s ease-in-out;
-    animation: fade-in 1s ease-in-out;
-    
-    :where(h3){
-        text-transform: uppercase;
-        margin-top: 50px;
-    }
-    
-    :nth-child(odd){
-        :nth-child(2){
-            > * {
-                background-color: var(--bar-bg2-dark) ;
-            }
-        }
-    }
+  }
 }
 
-.skillsLight{
-    @extend .skills;
+.skillsLight {
+  @extend .skills;
 
-    :nth-child(odd){
-        :nth-child(2){
-            > * {
-                background-color: var(--bar-bg2-light) ;
-            }
-        }
+  :nth-child(odd) {
+    :nth-child(2) {
+      > * {
+        background-color: var(--bar-bg2-light);
+      }
     }
+  }
 }
 
-@keyframes fade-in{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
