@@ -1,152 +1,142 @@
-:root{
-    --pink: #FD76CB;
-    --orange: #FFAC30;
-    --black: #000000;
-    --white: #FFFEFD;
+:root {
+  --pink: #fd76cb;
+  --orange: #ffac30;
+  --black: #000000;
+  --white: #fffefd;
 
-    --green: #00c400;
-    --grey: #9d9d9d;
-    --strong-pink: #ff00a1;
-    --strong-orange: #b16a00;
+  --green: #00c400;
+  --grey: #9d9d9d;
+  --strong-pink: #ff00a1;
+  --strong-orange: #b16a00;
 
-    --transparent-black: #00000088;
-    --transparent-pink: #FD76CB88;
-    --transparent-orange: #FFAC3088;
-    --transparent-white: #FFFEFD88;
+  --transparent-black: #00000088;
+  --transparent-pink: #fd76cb88;
+  --transparent-orange: #ffac3088;
+  --transparent-white: #fffefd88;
 
-    --very-transparent-white: #fffefd0e;
-    --very-transparent-black: #0000000e;
+  --very-transparent-white: #fffefd0e;
+  --very-transparent-black: #0000000e;
+  --very-transparent-pink: #fd76cb0e;
 
-    //light
-        --blue: #4775a0;
-        --light-blue: #5dabf4;
-        --transparent-light-blue: #5dabf488;
-        --brown: #be7434;
-        --silver: #bbbbbb;
-        --transparent-silver: #bbbbbb88;
-        --very-transparent-silver: #bbbbbb29;
-        --black-l: #434343;
-        --white-l: #ffffff;
+  //light
+  --blue: #4775a0;
+  --light-blue: #5dabf4;
+  --transparent-light-blue: #5dabf488;
+  --brown: #be7434;
+  --silver: #bbbbbb;
+  --transparent-silver: #bbbbbb88;
+  --very-transparent-silver: #bbbbbb29;
+  --black-l: #434343;
+  --white-l: #ffffff;
 
-    
-    //dark mode
-        --bg-dark: var(--black);
-        --col-dark: var(--white);
-        --svg-dark: var(--transparent-pink);
-        --sect-bg-dark: var(--very-transparent-white);
-        --title-dark: var(--orange);
-        --cta-dark: var(--transparent-orange);
-        --cta-hov-dark: var(--orange);
-        --bar-border-dark: var(--transparent-white);
-        --bar-bg1-dark: var(--orange);
-        --bar-bg2-dark: var(--pink);
-        --ham-bg-dark: var(--white);
-        --prof-box-shad-dark: var(--transparent-pink);
-        --sep-bg-dark: var(--pink);
-        --toggle-bg-dark: var(--transparent-white);
-        --icon-dark: var(--white);
-        --navbar-bg-dark: var(--transparent-black);
-        --navig-bg-dark: var(--black);
-        --rocket-dark: var(--orange);
-        --wind-dark: var(--grey);
-        --timeline-dark: var(--transparent-white);
+  //dark mode
+  --bg-dark: var(--black);
+  --col-dark: var(--white);
+  --svg-dark: var(--transparent-pink);
+  --sect-bg-dark: var(--very-transparent-white);
+  --title-dark: var(--orange);
+  --cta-dark: var(--transparent-orange);
+  --cta-hov-dark: var(--orange);
+  --bar-border-dark: var(--transparent-white);
+  --bar-bg1-dark: var(--orange);
+  --bar-bg2-dark: var(--pink);
+  --ham-bg-dark: var(--white);
+  --prof-box-shad-dark: var(--transparent-pink);
+  --sep-bg-dark: var(--pink);
+  --toggle-bg-dark: var(--transparent-white);
+  --icon-dark: var(--white);
+  --navbar-bg-dark: var(--transparent-black);
+  --navig-bg-dark: var(--black);
+  --rocket-dark: var(--orange);
+  --wind-dark: var(--grey);
+  --timeline-dark: var(--transparent-white);
 
-    //light mode
-        --bg-light: var(--white-l);
-        --col-light: var(--black-l);
-        --svg-light: var(--brown);
-        --sect-bg-light: var(--very-transparent-silver);
-        --sect-box-shad-light: none;
-        --title-light: var(--blue);
-        --cta-light: var(--light-blue);
-        --cta-hov-light: var(--blue);
-        --bar-border-light: var(--light-blue);
-        --bar-bg1-light: var(--blue);
-        --bar-bg2-light: var(--brown);
-        --ham-bg-light: var(--black-l);
-        --toggle-bg-light: var(--black-l);
-        --icon-light: var(--black-l);
-        --navbar-bg-light: var(--light-blue);
-        --navig-bg-light: var(--blue);
-        --rocket-light: var(--blue);
-        --wind-light: var(--grey);
-        --timeline-light: var(--black-l);
+  //light mode
+  --bg-light: var(--white-l);
+  --col-light: var(--black-l);
+  --svg-light: var(--brown);
+  --sect-bg-light: var(--very-transparent-silver);
+  --sect-box-shad-light: none;
+  --title-light: var(--blue);
+  --cta-light: var(--light-blue);
+  --cta-hov-light: var(--blue);
+  --bar-border-light: var(--light-blue);
+  --bar-bg1-light: var(--blue);
+  --bar-bg2-light: var(--brown);
+  --ham-bg-light: var(--black-l);
+  --toggle-bg-light: var(--black-l);
+  --icon-light: var(--black-l);
+  --navbar-bg-light: var(--light-blue);
+  --navig-bg-light: var(--blue);
+  --rocket-light: var(--blue);
+  --wind-light: var(--grey);
+  --timeline-light: var(--black-l);
 
-    --nav-bar-height: 60px;
+  --nav-bar-height: 60px;
 
-    background-color: var(--bg-dark);
-    color: var(--col-dark);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-    line-height: 1.5rem;
-    
-    scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+  color: var(--col-dark);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.5rem;
+
+  scroll-behavior: smooth;
+  transition: color 500ms ease-out, background-color 500ms ease-out;
+  > * {
     transition: color 500ms ease-out, background-color 500ms ease-out;
-    >*{
-        transition: color 500ms ease-out, background-color 500ms ease-out;
-        >*{
-            transition: color 500ms ease-out, background-color 500ms ease-out;
-        }
+    > * {
+      transition: color 500ms ease-out, background-color 500ms ease-out;
     }
+  }
 }
 
 body {
-    background-attachment: fixed;
-    #link{
-        text-decoration: none;
-        color: inherit;
-        background:
-            linear-gradient(
-                to right,
-                var(--very-transparent-white),
-                var(--very-transparent-white)
-            ),
-            linear-gradient(
-                to right,
-                var(--orange),
-                var(--pink)
-                
-            );
-        background-size: 100% 2px, 0 2px;
-        background-position: 100% 100%, 0 100%;
-        background-repeat: no-repeat;
-        transition: background-size 400ms;
-    }
-    #link:hover {
-        background-size: 0 2px, 100% 2px;
-    }
+  background-attachment: fixed;
+  #link {
+    text-decoration: none;
+    color: inherit;
+    background: linear-gradient(to right, var(--very-transparent-white), var(--very-transparent-white)),
+      linear-gradient(to right, var(--orange), var(--pink));
+    background-size: 100% 2px, 0 2px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  #link:hover {
+    background-size: 0 2px, 100% 2px;
+  }
 
-    #button{
-        padding: 10px;
-        margin: 5px;
-        background: none;
-        border: 5px groove var(--cta-dark);
-        color: var(--cta-dark);
+  #button {
+    padding: 10px;
+    margin: 5px;
+    background: none;
+    border: 5px groove var(--cta-dark);
+    color: var(--cta-dark);
 
-        &:hover{
-            border: 5px groove var(--cta-hov-dark);
-            color: var(--cta-hov-dark);
-        }
+    &:hover {
+      border: 5px groove var(--cta-hov-dark);
+      color: var(--cta-hov-dark);
     }
+  }
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: none;
+  background: none;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--transparent-white);
-    border-radius: 10px;
+  background: var(--transparent-white);
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--white);
+  background: var(--white);
 }

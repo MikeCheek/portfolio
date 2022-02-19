@@ -1,3 +1,4 @@
 export type WordGameProps = {
-    word: string
+  word: string
+  language: string
 }

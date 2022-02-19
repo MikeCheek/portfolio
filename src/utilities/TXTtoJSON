@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if test $# -ne 1; then
+	echo "Usage: $0 fileIn"
+	exit -1
+fi
+
+echo "{" 
+
+while read word
+do
+	str='"'
+	str+=$word
+	str+='"'
+	str+=': "1",'
+	echo "$str"
+done < $1 
+
+echo "}"
+
+exit 0
