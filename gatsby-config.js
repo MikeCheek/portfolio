@@ -66,15 +66,5 @@ module.exports = {
         path: "./assets/",
       },
     },
-    {
-			resolve: 'gatsby-plugin-pdf',
-			options: {
-				allPages: true,
-        outputPath: '/public/exports',
-				//styleTagOptions: {
-				//	content: 'header{display:none;} footer{display:none;} .cookie-bar{display:none;}'
-				//}
-			},
-		},
   ],
 };
