@@ -15,7 +15,7 @@ import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
 
 const Layout = ({ children, noMenu = false }: LayoutProps): JSX.Element => {
-    const [browser, setBrowser] = useState<string>('Safari')
+    const [browser, setBrowser] = useState<string>('waiting')
 
     const [lightMode, setLightMode] = useState<boolean>(false)
 
@@ -28,7 +28,7 @@ const Layout = ({ children, noMenu = false }: LayoutProps): JSX.Element => {
     }, [])
 
     useEffect(() => {
-        if(lightMode){
+        if (lightMode) {
             document.getElementsByTagName("html")[0].style.backgroundColor = "var(--bg-light)";
             document.getElementsByTagName("html")[0].style.color = "var(--col-light)";
         }
@@ -37,16 +37,17 @@ const Layout = ({ children, noMenu = false }: LayoutProps): JSX.Element => {
     }, [lightMode])
 
     return (
-        <ThemeContext.Provider value={lightMode? "light" : "dark"}>
+        <ThemeContext.Provider value={lightMode ? "light" : "dark"}>
             <div id="top" className={styles.layout}>
                 <NavBar changeToggle={changeDarkMode} noMenu={noMenu} />
                 {
-                    browser === 'Safari' ?
-                        <Ball BallSvg={BallStill} fastAnimation />
-                        :
-                        <Ball BallSvg={BallMoving} />
+                    browser === "waiting" ? null :
+                        browser === 'Safari' ?
+                            <Ball BallSvg={BallStill} />
+                            :
+                            <Ball BallSvg={BallMoving} />
                 }
-                
+
                 {children}
 
                 <Separator />
