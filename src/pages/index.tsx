@@ -31,6 +31,11 @@ const IndexPage = ():JSX.Element => {
   useEffect(() => {
     document.addEventListener('keydown', animateKeyDown);
     document.addEventListener('keyup', animateKeyUp);
+
+    return () => {
+      document.removeEventListener('keydown', animateKeyDown);
+      document.removeEventListener('keyup', animateKeyUp);
+    }
   }, [])
 
   return (

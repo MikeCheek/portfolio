@@ -15,6 +15,9 @@ const Parallax = (): JSX.Element => {
 
     useEffect(() => {
         document.addEventListener("mousemove", parallax);
+        return () => {
+            document.removeEventListener("mousemove", parallax);
+        }
     }, [])
 
     return (
