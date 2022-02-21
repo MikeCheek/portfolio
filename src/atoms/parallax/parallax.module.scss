@@ -1,0 +1,39 @@
+.parallaxWrap {
+  position: absolute;
+  width: 70%;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+.parallaxWrap span {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: none;
+}
+.parallaxWrap span:nth-child(1) {
+  top: 70%;
+  left: 80%;
+  background: var(--transparent-white);
+  //box-shadow: 0 0 50px 50px var(--transparent-white);
+  z-index: 3;
+}
+.parallaxWrap span:nth-child(2) {
+  top: 70%;
+  left: 40%;
+  background: var(--transparent-orange);
+  //box-shadow: 0 0 50px 50px var(--transparent-orange);
+  z-index: 3;
+}
+.parallaxWrap span:nth-child(3) {
+  top: 40%;
+  left: 30%;
+  background: var(--transparent-pink);
+  //box-shadow: 0 0 50px 50px var(--transparent-pink);
+  z-index: 3;
+}

@@ -15,6 +15,7 @@ import Others from '../others/others'
 import { useThemeContext } from '../../utilities/themeContext'
 import Timeline from '../../atoms/timeline/timeline'
 import { about, events, works } from '../../utilities/info'
+import Parallax from '../../atoms/parallax/parallax'
 
 const Hero = (): JSX.Element => {
 
@@ -26,6 +27,9 @@ const Hero = (): JSX.Element => {
         <div className={styles.wrapper}>
             <Whoami />
             <div className={styles.sectionWrap}>
+                <div className={styles.parallax}>
+                    <Parallax/>
+                </div>
                 <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
                     <div className={styles.about} dangerouslySetInnerHTML={{__html: about}}/>
                 </Section>
