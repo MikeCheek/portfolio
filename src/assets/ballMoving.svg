@@ -20,10 +20,10 @@
                     transform: translateY(0);
                 }
                 50%{
-                    transform: translateY(50%);
+                    transform: translateY(50%) translateX(20%);
                 }
                 100%{
-                    transform: translateY(-50%);
+                    transform: translateY(-50%) translateX(-20%);
                 }
             }
             @keyframes moveLeftRight{
@@ -31,10 +31,10 @@
                     transform: translateX(0);
                 }
                 50%{
-                    transform: translateX(50%);
+                    transform: translateX(50%) translateY(-40%);
                 }
                 100%{
-                    transform: translateX(-50%);
+                    transform: translateX(-50%) translateY(40%);
                 }
             }
             @keyframes moveRightLeft{
