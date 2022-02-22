@@ -6,9 +6,9 @@ import * as styles from './navigation.module.scss'
 import { NavigationProps } from './navigation.type'
 
 
-const Navigation = ({onClick}: NavigationProps): JSX.Element => {
+const Navigation = ({ onClick }: NavigationProps): JSX.Element => {
 
-    const theme = useThemeContext()
+    const theme: string = useThemeContext()
 
     return (
         <>

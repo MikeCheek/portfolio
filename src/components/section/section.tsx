@@ -7,10 +7,10 @@ import { useThemeContext } from '../../utilities/themeContext';
 
 const Section = ({ title, children, id, reversed = false, Svg, paragraph = false }: SectionProps): JSX.Element => {
 
-    const theme = useThemeContext()
+    const theme: string = useThemeContext()
 
-    const [isClicked, setIsClicked] = useState(false);
-    const [isMouseOn, setIsMouseOn] = useState(false);
+    const [isClicked, setIsClicked] = useState<boolean>(false);
+    const [isMouseOn, setIsMouseOn] = useState<boolean>(false);
 
     const setClicked = async () => {
         if (!isClicked) {

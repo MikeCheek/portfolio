@@ -5,9 +5,9 @@ import WindSvg from '../../assets/wind.svg'
 
 import * as styles from './rocket.module.scss'
 
-const Rocket = () => {
+const Rocket = (): JSX.Element => {
 
-    const theme = useThemeContext();
+    const theme: string = useThemeContext();
 
     return (
         <div className={styles.wrap}>

@@ -4,20 +4,20 @@ import sleep from '../../utilities/sleep';
 import * as styles from './typingEffect.module.scss'
 import { TypingEffectProps } from './typingEffect.types';
 
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const alphabet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 
-const TypingEffect = ({initialText, heading = false, fast = true}: TypingEffectProps): JSX.Element => {
+const TypingEffect = ({ initialText, heading = false, fast = true }: TypingEffectProps): JSX.Element => {
     const array: string[] = Array.from(initialText);
     const [text, setText] = useState<string>('');
 
     let tmpString: string = '';
-    const min = 0;
-    const max = fast? 10 : 100;
+    const min: number = 0;
+    const max: number = fast ? 10 : 100;
 
     const write = async (): Promise<void> => {
         await sleep(500);
-        for(let i = 0; i < array.length; i++){
+        for (let i = 0; i < array.length; i++) {
             tmpString += alphabet[randomLetter()]
             setText(tmpString);
             await sleep(randomTime())
@@ -50,18 +50,18 @@ const TypingEffect = ({initialText, heading = false, fast = true}: TypingEffectP
 
     return (
         <>
-        {
-            heading?
-                <h1 className={styles.headingText} >
-                    {text}
-                </h1>
-            :
-                <p className={styles.paragraphText} >
-                    {text}
-                </p>
-        }
+            {
+                heading ?
+                    <h1 className={styles.headingText} >
+                        {text}
+                    </h1>
+                    :
+                    <p className={styles.paragraphText} >
+                        {text}
+                    </p>
+            }
         </>
-        
+
     )
 }
 

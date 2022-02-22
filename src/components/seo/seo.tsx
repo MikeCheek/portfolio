@@ -11,9 +11,9 @@ const SEO = ({
 }: SEOProps): JSX.Element => {
   //const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery)
 
-  const metaDescription = description //|| site.siteMetadata.description
+  const metaDescription: string = description //|| site.siteMetadata.description
   //const defaultTitle = site.siteMetadata?.title
-  const defaultTitle = "Portfolio"
+  const defaultTitle: string = "Portfolio"
   return (
     <Helmet
       htmlAttributes={{

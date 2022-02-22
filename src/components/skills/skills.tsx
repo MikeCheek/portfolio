@@ -8,7 +8,7 @@ import { useThemeContext } from '../../utilities/themeContext'
 
 const Skills = (): JSX.Element => {
 
-    const theme = useThemeContext();
+    const theme: string = useThemeContext();
 
     return (
         <div className={styles.wrap}>

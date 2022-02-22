@@ -8,7 +8,7 @@ import { useThemeContext } from '../../utilities/themeContext'
 
 const Profile = (): JSX.Element => {
 
-    const theme = useThemeContext();
+    const theme: string = useThemeContext();
 
     return (
         <div className={styles.profile}>

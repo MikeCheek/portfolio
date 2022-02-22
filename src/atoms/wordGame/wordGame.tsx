@@ -40,7 +40,7 @@ Go somewhere else or try to guess the word `)
 
     }, [word])
 
-    const nextInput = (form: any, index: number) => {
+    const nextInput = (form: any, index: number): void => {
         if (form.elements[index + 1].value == "Check")
             return;
 
@@ -50,14 +50,14 @@ Go somewhere else or try to guess the word `)
             form.elements[index + 1]?.focus();
     }
 
-    const previousInput = (form: any, index: number) => {
+    const previousInput = (form: any, index: number): void => {
         if (form.elements[index - 1] && form.elements[index - 1].disabled)
             previousInput(form, index - 1)
         else
             form.elements[index - 1]?.focus();
     }
 
-    const handleEnter = (event: any) => {
+    const handleEnter = (event: any): void => {
         const form = event.target.form;
         const index = [...form].indexOf(event.target)
 

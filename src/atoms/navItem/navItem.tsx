@@ -5,28 +5,27 @@ import { NavItemProps } from "./navItem.type";
 
 import { Link } from "gatsby";
 
-const NavItem = ({isHref, path, onClick, text}: NavItemProps): JSX.Element => {
+const NavItem = ({ isHref, path, onClick, text }: NavItemProps): JSX.Element => {
 
-  const [ on, setOn ] = useState(false);
+  const [on, setOn] = useState<boolean>(false);
 
-  const filteredPath = path.slice(1)
+  const filteredPath: string = path.slice(1)
 
   const getElementRect = () => {
-    let rect, windowTop, windowBottom, rectTop, rectBottom;
-    
-    if(document.getElementById(filteredPath)){
-      rect = document.getElementById(filteredPath)!.getBoundingClientRect();
-      windowTop = window.scrollY;
-      windowBottom = windowTop + window.innerHeight;
-      rectTop = rect.top + windowTop;
-      rectBottom = rect.bottom + windowTop;
 
-      if( rectTop >= windowTop && rectBottom <= windowBottom || rectTop <= windowTop && rectBottom >= windowBottom || rectTop >= windowTop && rectTop+250 <= windowBottom && rectBottom >= windowBottom ) {
+    if (document.getElementById(filteredPath)) {
+      const rect: DOMRect = document.getElementById(filteredPath)!.getBoundingClientRect();
+      const windowTop: number = window.scrollY;
+      const windowBottom: number = windowTop + window.innerHeight;
+      const rectTop: number = rect.top + windowTop;
+      const rectBottom: number = rect.bottom + windowTop;
+
+      if (rectTop >= windowTop && rectBottom <= windowBottom || rectTop <= windowTop && rectBottom >= windowBottom || rectTop >= windowTop && rectTop + 250 <= windowBottom && rectBottom >= windowBottom) {
         setOn(true)
       }
       else setOn(false)
     }
-    
+
   }
 
   useEffect(() => {
@@ -38,7 +37,7 @@ const NavItem = ({isHref, path, onClick, text}: NavItemProps): JSX.Element => {
       {isHref ? (
         <a
           href={path}
-          className={on? styles.itemOn : styles.item}
+          className={on ? styles.itemOn : styles.item}
           onClick={onClick}
           title={"Go to " + text + " section"}
         >

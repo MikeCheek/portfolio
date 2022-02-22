@@ -14,7 +14,7 @@ const NavBar = ({ changeToggle, noMenu = false }: NavBarProps): JSX.Element => {
 
     const [navBarOpen, setNavBarOpen] = useState<boolean>(false);
 
-    const theme = useThemeContext()
+    const theme: string = useThemeContext()
 
     useEffect(() => {
         let prevScrollpos = window.pageYOffset;
@@ -77,7 +77,7 @@ const NavBar = ({ changeToggle, noMenu = false }: NavBarProps): JSX.Element => {
             </div>
 
             {
-                noMenu ? <div style={{marginRight: "20px"}} ><NavItem path={"/"} text={"Home"} /></div>
+                noMenu ? <div style={{ marginRight: "20px" }} ><NavItem path={"/"} text={"Home"} /></div>
                     :
                     <>
                         <div className={styles.navigationDesktop}>

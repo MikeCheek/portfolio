@@ -6,7 +6,7 @@ import Loading from '../../atoms/loading/loading';
 import WordGame from '../../atoms/wordGame/wordGame';
 import randomWord from '../../utilities/word';
 
-const GameHero = () => {
+const GameHero = (): JSX.Element => {
     const [fetched, setFetched] = useState<boolean>(false);
     const [word, setWord] = useState<string>('');
     const [started, setStarted] = useState<boolean>(false);

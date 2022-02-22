@@ -1,7 +1,7 @@
 import React from 'react'
 import * as styles from './loading.module.scss'
 
-const Loading = () => {
+const Loading = (): JSX.Element => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.circle1} />

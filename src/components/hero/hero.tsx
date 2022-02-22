@@ -19,7 +19,7 @@ import Parallax from '../../atoms/parallax/parallax'
 
 const Hero = (): JSX.Element => {
 
-    const theme = useThemeContext();
+    const theme: string = useThemeContext();
 
     const color = theme === "dark" ? "var(--svg-dark)" : "var(--svg-light)";
 
@@ -28,21 +28,21 @@ const Hero = (): JSX.Element => {
             <Whoami />
             <div className={styles.sectionWrap}>
                 <div className={styles.parallax}>
-                    <Parallax/>
+                    <Parallax />
                 </div>
-                <Section title={"About me"} id={"about"} Svg={{ svg:Account, stroke:color }} >
-                    <div className={styles.about} dangerouslySetInnerHTML={{__html: about}}/>
+                <Section title={"About me"} id={"about"} Svg={{ svg: Account, stroke: color }} >
+                    <div className={styles.about} dangerouslySetInnerHTML={{ __html: about }} />
                 </Section>
-                <Section title={"Work Experiences"} id={"works"} Svg={{ svg:Coding, fill:color }} reversed>
-                    <div dangerouslySetInnerHTML={{__html: works}} />
+                <Section title={"Work Experiences"} id={"works"} Svg={{ svg: Coding, fill: color }} reversed>
+                    <div dangerouslySetInnerHTML={{ __html: works }} />
                 </Section>
-                <Section title={"Hard skills"} id={"skills"} Svg={{ svg:HSkills, fill:color }} >
+                <Section title={"Hard skills"} id={"skills"} Svg={{ svg: HSkills, fill: color }} >
                     <Skills />
                 </Section>
-                <Section title={"Education"} id={"education"} Svg={{ svg:Teaching, fill:color }} reversed>
+                <Section title={"Education"} id={"education"} Svg={{ svg: Teaching, fill: color }} reversed>
                     <Timeline events={events} />
                 </Section>
-                <Section title={"Other experiences"} id={"others"} Svg={{ svg:Things, fill:color }} >
+                <Section title={"Other experiences"} id={"others"} Svg={{ svg: Things, fill: color }} >
                     <Others />
                 </Section>
             </div>

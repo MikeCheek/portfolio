@@ -4,12 +4,12 @@ import { useThemeContext } from '../../utilities/themeContext'
 import * as styles from './hamburger.module.scss'
 import { HamburgerProps } from './hamburger.types'
 
-const Hamburger = ({onClick, navBarOpen}: HamburgerProps): JSX.Element => {
+const Hamburger = ({ onClick, navBarOpen }: HamburgerProps): JSX.Element => {
 
-    const theme = useThemeContext()
+    const theme: string = useThemeContext()
 
-    const darkStyle: React.CSSProperties = {"backgroundColor": "var(--ham-bg-dark)"}
-    const lightStyle: React.CSSProperties = {"backgroundColor": "var(--ham-bg-light)"}
+    const darkStyle: React.CSSProperties = { backgroundColor: "var(--ham-bg-dark)" }
+    const lightStyle: React.CSSProperties = { backgroundColor: "var(--ham-bg-light)" }
 
     return (
         <div className={styles.hamburger} onClick={onClick} /*onKeyDown={onClick}*/ role={"button"} tabIndex={0}>
@@ -17,7 +17,7 @@ const Hamburger = ({onClick, navBarOpen}: HamburgerProps): JSX.Element => {
             <div className={navBarOpen ? styles.crossLine2 : styles.hamLine2} style={theme === "dark" ? darkStyle : lightStyle} ></div>
             <div className={navBarOpen ? styles.crossLine3 : styles.hamLine3} style={theme === "dark" ? darkStyle : lightStyle} ></div>
         </div>
-        
+
     )
 }
 
