@@ -7,9 +7,10 @@ import { TypingEffectProps } from './typingEffect.types';
 const alphabet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 
-const TypingEffect = ({ initialText, heading = false, fast = true }: TypingEffectProps): JSX.Element => {
+const TypingEffect = ({ initialText, heading = false, fast = true, blinkAfter = true, then = () => null }: TypingEffectProps): JSX.Element => {
     const array: string[] = Array.from(initialText);
     const [text, setText] = useState<string>('');
+    const [noBlink, setNoBlink] = useState<boolean>(false);
 
     let tmpString: string = '';
     const min: number = 0;
@@ -30,6 +31,13 @@ const TypingEffect = ({ initialText, heading = false, fast = true }: TypingEffec
             setText(tmpString);
             await sleep(randomTime());
         }
+
+        if (!blinkAfter) {
+            await sleep(randomTime());
+            setNoBlink(true);
+        }
+
+        then();
     }
 
     const randomTime = (): number => {
@@ -52,11 +60,11 @@ const TypingEffect = ({ initialText, heading = false, fast = true }: TypingEffec
         <>
             {
                 heading ?
-                    <h1 className={styles.headingText} >
+                    <h1 id={"typing"} className={styles.headingText} >
                         {text}
                     </h1>
                     :
-                    <p className={styles.paragraphText} >
+                    <p id={"typing"} className={noBlink && !blinkAfter ? styles.paragraphTextNoBlink : styles.paragraphText} >
                         {text}
                     </p>
             }

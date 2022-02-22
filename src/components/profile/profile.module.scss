@@ -1,50 +1,51 @@
-.profile{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-    @media screen and (min-width: "768px") {
-        -webkit-animation: slideRight 1.5s cubic-bezier(1,-0.37, 0.27, 1.01);
-        animation: slideRight 1.5s cubic-bezier(1,-0.37, 0.27, 1.01);
-    }
-    
-}
-
-.cvButton{
-    margin-top: 20px;
-    background-color: none;
-    border: 5px groove;
-    border-color: var(--cta-dark);
-    padding: 10px 15px 10px;
-    text-decoration: none;
-    color: var(--cta-dark);
-    text-transform: uppercase;
-    font-weight: bolder;
-}
-
-.cvButton:hover{
-    border-color: var(--cta-hov-dark);
-    color: var(--cta-hov-dark);
-    transform: scale(1.1);
+  @media screen and (min-width: '768px') {
+    -webkit-animation: slideRight 1.5s cubic-bezier(1, -0.37, 0.27, 1.01);
+    animation: slideRight 1.5s cubic-bezier(1, -0.37, 0.27, 1.01);
   }
+}
+
+.cvButton {
+  margin-top: 20px;
+  background-color: none;
+  border: 5px groove;
+  border-color: var(--cta-dark);
+  padding: 10px 15px 10px;
+  text-decoration: none;
+  color: var(--cta-dark);
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.cvButton:hover {
+  border-color: var(--cta-hov-dark);
+  color: var(--cta-hov-dark);
+  transform: scale(1.1);
+}
 
 @keyframes slideRight {
-    0%{
-        transform: translateX(-150%);
-    }
-    100%{
-        transform: translateX(0);
-    }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.light{
-    @extend .cvButton;
-    color: var(--cta-light);
-    border-color: var(--cta-light);
+.light {
+  @extend .cvButton;
+  color: var(--cta-light);
+  border-color: var(--cta-light);
 }
 
-.light:hover{
-    color: var(--cta-hov-light);
-    border-color: var(--cta-hov-light);
+.light:hover {
+  color: var(--cta-hov-light);
+  border-color: var(--cta-hov-light);
 }

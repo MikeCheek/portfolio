@@ -1,36 +1,46 @@
-.text{
-    margin-left: 20px;
-    line-height: 3rem;
-    height: 6rem;
-    text-align: center;
+:root {
+  --content: '█';
 }
 
-.text::after{
-    content: '█';
-    width: 5px;
-    background-color: inherit;
-    font-weight: bolder;
-    -webkit-animation: blink-animation 1s step-start 0s infinite;
-    animation: blink-animation 1s step-start 0s infinite;
+.text {
+  font-size: 1rem;
 }
 
-.headingText{
-    @extend .text;
+.text::after {
+  content: var(--content);
+  width: 5px;
+  background-color: inherit;
+  font-weight: bolder;
+  -webkit-animation: blink-animation 1s step-start 0s infinite;
+  animation: blink-animation 1s step-start 0s infinite;
 }
 
-.paragraphText{
-    @extend .text;
+.headingText {
+  @extend .text;
+  margin-left: 20px;
+  line-height: 3rem;
+  height: 6rem;
+  text-align: center;
+}
+
+.paragraphText {
+  @extend .text;
+}
+
+.paragraphTextNoBlink {
+  @extend .paragraphText;
+}
+.paragraphTextNoBlink::after {
+  content: '';
 }
 
 @keyframes blink-animation {
-    50% {
-        opacity: 0.0;
-      }
-    
+  50% {
+    opacity: 0;
+  }
 }
 @-webkit-keyframes blink-animation {
-    50% {
-        opacity: 0.0;
-      }
-    
+  50% {
+    opacity: 0;
+  }
 }
