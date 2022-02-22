@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 
 import * as styles from './photoProfile.module.scss'
+import detectBrowser from '../../utilities/detectBrowser'
 
 const PhotoProfile = (): JSX.Element => {
 
@@ -13,11 +14,11 @@ const PhotoProfile = (): JSX.Element => {
         const x: number = (middleX - event.pageX) / 10;
         const y: number = -(middleY - event.pageY) / 10;
 
-        shift.style.transform = ` perspective(300px) rotateX(${y}deg) rotateY(${x}deg)`;
+        shift.style.transform = ` perspective(300px) rotateX(${y}deg) rotateY(${x}deg) scale(1.05)`;
 
     }
 
-    const addListener = (): void => document.addEventListener("mousemove", parallax);
+    const addListener = (): void | null => detectBrowser() != "Safari" ? document.addEventListener("mousemove", parallax) : null;
     const removeListener = (): void => {
         document.removeEventListener("mousemove", parallax);
         const shift: HTMLElement = document.getElementById("profile")!
