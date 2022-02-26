@@ -26,3 +26,12 @@
     margin-left: 10%;
   }
 }
+
+.command {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  :nth-child(1) {
+    margin-right: 1rem;
+  }
+}

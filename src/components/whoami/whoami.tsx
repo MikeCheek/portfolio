@@ -10,6 +10,7 @@ import sleep from '../../utilities/sleep'
 
 const Whoami = (): JSX.Element => {
     const [show, setShow] = useState<number>(0);
+    const [inputOn, setInputOn] = useState<boolean>(false);
 
     const next = async () => {
         await sleep(500)
@@ -26,16 +27,23 @@ const Whoami = (): JSX.Element => {
             <div className={styles.profileWrap}>
                 <Profile />
             </div>
-            <div className={styles.typeWrap}>
+            <div className={styles.typeWrap} onClick={() => setInputOn(true)}>
                 <BashWindow>
-                    <TypingEffect initialText={typing} heading={false} fast={false} blinkAfter={false} then={next} />
+                    <div className={styles.command}>
+                        <p>$</p>
+                        <TypingEffect initialText={typing} heading={false} fast={false} blinkAfter={false} then={next} />
+                    </div>
                     {
                         show > 0 ?
                             <p>{typingOutput}</p> : <></>
                     }
                     {
                         show > 1 ?
-                            <TypingEffect initialText={'$ '} /> : <></>
+                            <div className={styles.command}>
+                                <p>$</p>
+                                <TypingEffect initialText={' '} blinkAfter={inputOn} />
+                            </div>
+                            : <></>
                     }
                 </BashWindow>
             </div>
