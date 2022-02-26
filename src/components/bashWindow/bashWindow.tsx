@@ -60,7 +60,6 @@ const BashWindow = ({ children }: BashWindowProps): JSX.Element => {
 
     const handleTwoTouchesMove = (event: TouchEvent) => {
         event.preventDefault();
-        calculateDim()
         const first: Touch = event.touches.item(0)!;
         const second: Touch = event.touches.item(1)!;
         const offXAfter: number = first.clientX > second.clientX ? first.clientX - second.clientX : second.clientX - first.clientX;
@@ -71,6 +70,7 @@ const BashWindow = ({ children }: BashWindowProps): JSX.Element => {
             elmnt.style.width = `${startW + (offXAfter - startX) / 2}px`
             elmnt.style.height = `${startH + (offYAfter - startY) / 2}px`
         }
+        calculateDim()
         event.preventDefault();
     }
 
