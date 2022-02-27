@@ -5,3 +5,5 @@ gh-pages
 gh-pages.pub
 .history
 package-lock.json
+yarn-error.log
+yarn.lock
