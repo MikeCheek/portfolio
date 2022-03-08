@@ -7,6 +7,7 @@ import containsChar from '../../utilities/containsChar'
 import sleep from '../../utilities/sleep'
 import { getDefinition } from '../../utilities/word'
 
+const alphabet: string[] = Array.from("abcdefghijklmnopqrstuvwxyz");
 
 const WordGame = ({ word, language }: WordGameProps): JSX.Element => {
 
@@ -15,12 +16,15 @@ const WordGame = ({ word, language }: WordGameProps): JSX.Element => {
 
     const [inLetters, setInLetters] = useState<string>('');
     const [okLetters, setOkLetters] = useState<string>('');
+    const [remainings, setRemainings] = useState<string[]>(alphabet)
 
     const [attempts, setAttempts] = useState<number>(0);
 
     const [definition, setDefinition] = useState<boolean>(false);
 
     const [lan, setLan] = useState<string>(language)
+
+    const [hint, setHint] = useState<boolean>(false)
 
     useEffect(() => {
         setLan(language)
@@ -86,11 +90,12 @@ Go somewhere else or try to guess the word `)
 
     const check = (event: any) => {
         const form = event.target.form || document.getElementById("form");
-        const tmpArray = []
+        const tmpArray: string[] = []
         let tmpString = ''
 
         let tmpIn = inLetters;
         let tmpOk = okLetters;
+        let tmpRem = remainings;
 
         setAttempts(attempts * 1 + 1)
 
@@ -100,6 +105,9 @@ Go somewhere else or try to guess the word `)
         }
 
         for (let i = 0; i < tmpArray.length; i++) {
+            tmpRem = tmpRem.filter((value, _index, _arr) => {
+                return value != tmpArray[i]
+            })
             if (!containsChar(tmpIn, tmpArray[i]))
                 tmpIn += tmpArray[i];
 
@@ -140,9 +148,11 @@ Go somewhere else or try to guess the word `)
 
         setInLetters(tmpIn);
         setOkLetters(tmpOk);
+        setRemainings(tmpRem);
     }
 
     const toggleDefinition = () => setDefinition(!definition);
+    const toggleHint = () => setHint(!hint)
 
 
     return (
@@ -206,6 +216,23 @@ Go somewhere else or try to guess the word `)
                     </div>
                 </div>
             </div>
+            <button type='button' className={styles.buttonHint} onClick={toggleHint}>
+                {hint ? "HIDE" : "SHOW"} HINT
+            </button>
+            {
+                hint ?
+                    <div className={styles.letters}>
+                        <p>Remaining letters</p>
+                        <div className={styles.charList}>
+                            {
+                                remainings.map((letter, key) => {
+                                    return <p key={key} >{letter}</p>
+                                })
+                            }
+                        </div>
+                    </div>
+                    : null
+            }
 
         </form>
     )

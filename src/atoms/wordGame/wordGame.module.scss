@@ -45,16 +45,18 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
-  .letters {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 30px 20px;
-    background-color: var(--very-transparent-white);
-    border-radius: 20px;
-    padding: 10px;
+}
+.letters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px 20px;
+  background-color: var(--very-transparent-white);
+  border-radius: 20px;
+  padding: 10px;
+  @media screen and (min-width: '768px') {
+    max-width: 300px;
   }
 }
 
@@ -100,6 +102,18 @@
   font-size: 1.1rem;
 
   &:hover {
+    color: var(--cta-hov-dark);
+  }
+}
+
+.buttonHint {
+  padding: 10px;
+  margin: 5px;
+  background: none;
+  color: var(--cta-dark);
+  border: none;
+  &:hover {
+    border: none;
     color: var(--cta-hov-dark);
   }
 }

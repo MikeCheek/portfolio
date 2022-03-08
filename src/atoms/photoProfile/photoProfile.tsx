@@ -3,8 +3,11 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import * as styles from './photoProfile.module.scss'
 import detectBrowser from '../../utilities/detectBrowser'
+import { useThemeContext } from '../../utilities/themeContext'
 
 const PhotoProfile = (): JSX.Element => {
+
+    const theme: String = useThemeContext();
 
     const parallax = (event: MouseEvent): void => {
         const shift: HTMLElement = document.getElementById("profile")!
@@ -33,18 +36,34 @@ const PhotoProfile = (): JSX.Element => {
             onMouseOver={addListener}
             onMouseOut={removeListener}
         >
-            <StaticImage
-                src="../../images/profescional.png"
-                alt="Michele Pulvirenti"
-                placeholder="tracedSVG"
-                layout="constrained"
-                style={{ zIndex: 1 }} //for safari
-                tracedSVGOptions={{ color: "dimGrey" }}
-                quality={100}
-                width={200}
-                height={200}
-                className={styles.profescional}
-            />
+            {
+                theme === "dark" ?
+                    <StaticImage
+                        src={"../../images/profescional.png"}
+                        alt="Michele Pulvirenti"
+                        placeholder="tracedSVG"
+                        layout="constrained"
+                        style={{ zIndex: 1 }} //for safari
+                        tracedSVGOptions={{ color: "dimGrey" }}
+                        quality={100}
+                        width={200}
+                        height={200}
+                        className={styles.profescional}
+                    />
+                    :
+                    <StaticImage
+                        src={"../../images/profescional-light.png"}
+                        alt="Michele Pulvirenti"
+                        placeholder="tracedSVG"
+                        layout="constrained"
+                        style={{ zIndex: 1 }} //for safari
+                        tracedSVGOptions={{ color: "dimGrey" }}
+                        quality={100}
+                        width={200}
+                        height={200}
+                        className={styles.profescional}
+                    />
+            }
         </div>
     )
 }

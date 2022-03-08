@@ -144,9 +144,9 @@ const BashWindow = ({ children }: BashWindowProps): JSX.Element => {
                 <div className={styles.top} onMouseDown={dragMouseDown}>
                     <div className={styles.title}>bash{compact ? `` : `: ~ ${dim.height}x${dim.width}`}</div>
                     <div className={styles.buttons}>
-                        <span className={styles.circleYellow} onClick={minimize}></span>
-                        <span className={styles.circleGreen} onClick={expand}></span>
                         <span className={styles.circleRed} onClick={close}></span>
+                        <span className={styles.circleYellow} onClick={expand}></span>
+                        <span className={styles.circleGreen} onClick={minimize}></span>
                     </div>
                 </div>
                 <pre id={"content"} className={styles.content}>
