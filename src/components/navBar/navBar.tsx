@@ -6,11 +6,11 @@ import { NavBarProps } from './navBar.types'
 //import Logo from '../../atoms/logo/logo'
 import Navigation from '../navigation/navigation'
 import Hamburger from '../../atoms/hamburger/hamburger'
-import Toggle from '../../atoms/toggle/toggle'
+//import Toggle from '../../atoms/toggle/toggle'
 import { useThemeContext } from '../../utilities/themeContext'
 import NavItem from '../../atoms/navItem/navItem'
 
-const NavBar = ({ changeToggle, noMenu = false }: NavBarProps): JSX.Element => {
+const NavBar = ({ /*changeToggle,*/ noMenu = false }: NavBarProps): JSX.Element => {
 
     const [navBarOpen, setNavBarOpen] = useState<boolean>(false);
 
@@ -73,7 +73,9 @@ const NavBar = ({ changeToggle, noMenu = false }: NavBarProps): JSX.Element => {
         <div className={theme === "dark" ? styles.navBar : styles.navBarLight} id="navBar">
             <div className={styles.logo}>
                 {/*<Logo/>*/}
+                {/*
                 <Toggle changeToggle={changeToggle} />
+                */}
             </div>
 
             {
