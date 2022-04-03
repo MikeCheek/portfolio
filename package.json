@@ -1,61 +1,60 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Portfolio",
-  "author": "Mike-cheek",
-  "homepage": "https://mike-cheek.github.io/portfolio",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "UNLICENSED",
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public",
-    "deploygh": "gatsby build --prefix-paths && gh-pages -d public",
-    "push": "git add . && git commit && git push"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.9.0",
-    "@typescript-eslint/parser": "^5.9.0",
-    "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "gatsby": "^4.3.0",
-    "gatsby-plugin-image": "^2.3.0",
-    "gatsby-plugin-manifest": "^4.4.0",
-    "gatsby-plugin-react-helmet": "^5.4.0",
-    "gatsby-plugin-react-svg": "^3.1.0",
-    "gatsby-plugin-sass": "^5.8.0",
-    "gatsby-plugin-sharp": "^4.3.0",
-    "gatsby-plugin-sitemap": "^5.3.0",
-    "gatsby-plugin-typescript": "^4.3.0",
-    "gatsby-source-filesystem": "^4.3.0",
-    "gatsby-transformer-sharp": "^4.3.0",
-    "n": "^8.0.1",
-    "prettier": "^2.5.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "sass": "^1.49.9",
-    "stable": "^0.1.8"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.12",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-helmet": "^6.1.4",
-    "@types/styled-components": "^5.1.19",
-    "uuid": "^8.3.2"
-  },
-  "peerDependencies": {
-    "babel-eslint": "^10.1.0",
-    "typescript": "^4.5.5",
-    "webpack": "^5.0.0",
-    "@babel/core": "^7.12.3"
-  }
+    "name": "portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Portfolio",
+    "author": "Mike-cheek",
+    "homepage": "https://mike-cheek.github.io/portfolio",
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "UNLICENSED",
+    "scripts": {
+        "develop": "gatsby develop",
+        "start": "gatsby develop",
+        "build": "gatsby build",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean",
+        "deploy": "gatsby build && gh-pages -d public",
+        "deploygh": "gatsby build --prefix-paths && gh-pages -d public",
+        "push": "git add . && git commit && git push"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.9.0",
+        "@typescript-eslint/parser": "^5.9.0",
+        "eslint": "^8.10.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "gatsby": "^4.3.0",
+        "gatsby-plugin-image": "^2.3.0",
+        "gatsby-plugin-manifest": "^4.4.0",
+        "gatsby-plugin-react-helmet": "^5.4.0",
+        "gatsby-plugin-react-svg": "^3.1.0",
+        "gatsby-plugin-sass": "^5.8.0",
+        "gatsby-plugin-sharp": "^4.3.0",
+        "gatsby-plugin-sitemap": "^5.3.0",
+        "gatsby-plugin-typescript": "^4.3.0",
+        "gatsby-source-filesystem": "^4.3.0",
+        "gatsby-transformer-sharp": "^4.3.0",
+        "prettier": "^2.5.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-helmet": "^6.1.0",
+        "sass": "^1.49.9",
+        "stable": "^0.1.8"
+    },
+    "devDependencies": {
+        "@types/node": "^16.11.12",
+        "@types/react": "^17.0.37",
+        "@types/react-dom": "^17.0.11",
+        "@types/react-helmet": "^6.1.4",
+        "@types/styled-components": "^5.1.19",
+        "uuid": "^8.3.2"
+    },
+    "peerDependencies": {
+        "babel-eslint": "^10.1.0",
+        "typescript": "^4.5.5",
+        "webpack": "^5.0.0",
+        "@babel/core": "^7.12.3"
+    }
 }

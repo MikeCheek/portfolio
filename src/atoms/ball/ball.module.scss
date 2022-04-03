@@ -1,4 +1,4 @@
-.ball{
+.ball {
     position: fixed;
     height: 200vw;
     width: 100vw;
@@ -9,12 +9,10 @@
     animation: fadeIn 5s ease-in-out;
     top: 0;
     left: 0;
-
     @media screen and (min-width: "768px") {
         height: 50vw;
     }
-
-    :first-child{
+     :first-child {
         transform: scale(1.5);
         @media screen and (min-width: "768px") {
             transform: scale(1);
@@ -22,17 +20,16 @@
     }
 }
 
-.ballFast{
+.ballFast {
     @extend .ball;
-
     animation: fadeIn 1s ease-in-out;
 }
 
 @keyframes fadeIn {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+    100% {
         opacity: 1;
     }
 }
