@@ -176,7 +176,7 @@ Go somewhere else or try to guess the word `)
             </div>
             {victory ?
                 <div className={styles.victory}>
-                    <h2>YOU HAVE GUESSED THE WORD <span style={{ color: "var(--pink)" }}>{word.toUpperCase()}</span> IN {attempts} ATTEMPTS!!</h2>
+                    <h2>YOU HAVE GUESSED THE WORD <span style={{ color: "var(--pink)" }}>{word.toUpperCase()}</span> IN {attempts} {attempts==1? "ATTEMPT" : "ATTEMPTS"}!!</h2>
                     {
                         lan === "en" ?
                             <>

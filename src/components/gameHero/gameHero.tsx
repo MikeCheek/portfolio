@@ -56,23 +56,7 @@ const GameHero = (): JSX.Element => {
 
     return (
         <div className={styles.game}>
-            <div className={styles.head}>
-                <div className={styles.max}>
-                    <div className={styles.text}>
-                        <p>Max word length is {length}</p>
-                    </div>
-
-                    <div className={styles.buttons}>
-                        <button onClick={increase}>{`>`}</button>
-                        <button onClick={decrease}>{`<`}</button>
-                    </div>
-                </div>
-                <div className={styles.language}>
-                    <p>Language </p>
-                    <button onClick={changeLanguage}>{language.toUpperCase()}</button>
-                </div>
-            </div>
-            {
+             {
                 started ?
                     <div className={styles.restart}>
                         <p>Guess the word or </p>
@@ -89,10 +73,34 @@ const GameHero = (): JSX.Element => {
                             You can change the MAX length and the language of the hidden word at the top. <br /><br />
                             That's all! Enjoy the game!
                         </h4>
-                        <button onClick={fetchData} className={styles.buttonStart}>
-                            START
-                        </button>
                     </>
+            }
+            <div className={styles.head}>
+                <div className={styles.max}>
+                    <div className={styles.text}>
+                        <p>Max word length is</p>
+                    </div>
+
+                    <div className={styles.buttons}>
+                        <button onClick={increase}>{`>`}</button>
+                        <div>{length}</div>
+                        <button onClick={decrease}>{`<`}</button>
+                    </div>
+                </div>
+                <div className={styles.language}>
+                    <p>Language </p>
+                    <button onClick={changeLanguage} className={language.toUpperCase()=="EN"? styles.buttonOn : ""}>ENGLISH</button>
+                    <button onClick={changeLanguage} className={language.toUpperCase()=="IT"? styles.buttonOn : ""}>ITALIAN</button>
+                </div>
+            </div>
+
+            {
+                !started ?
+                    <button onClick={fetchData} className={styles.buttonStart}>
+                        START
+                    </button>
+                    : <></>
+                
             }
 
             {fetched ? <WordGame word={word} language={language} /> : started ? <Loading /> : null}

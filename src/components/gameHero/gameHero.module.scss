@@ -1,131 +1,137 @@
 .game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-
-  @media screen and (min-width: '768px') {
-    width: 70%;
-  }
-
-  h4 {
-    padding: 10px;
-    background-color: var(--very-transparent-white);
-    border-radius: 20px;
-    font-weight: 100;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    @media screen and (min-width: '768px') {
+        width: 70%;
+    }
+    h4 {
+        padding: 10px;
+        background-color: var(--very-transparent-white);
+        border-radius: 20px;
+        font-weight: 100;
+    }
 }
 
 .head {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 20px;
+    >* {
+        margin-top: 20px;
+    }
 }
 
 .language {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  :nth-child(1) {
-    margin-right: 10px;
-  }
-  button {
-    background-color: var(--cta-dark);
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-  }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+     :nth-child(1) {
+        margin-right: 10px;
+    }
+     :nth-child(2) {
+        margin-right: 10px;
+    }
+    button {
+        background-color: var(--cta-dark);
+        padding: 10px 15px 10px;
+        border-radius: 5px;
+    }
+    .buttonOn {
+        background-color: var(--cta-hov-dark);
+    }
 }
 
 .restart {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttonStart {
-  padding: 10px;
-  margin: 5px;
-  background: none;
-  border: 5px groove var(--cta-dark);
-  color: var(--cta-dark);
-
-  &:hover {
-    border: 5px groove var(--cta-hov-dark);
-    color: var(--cta-hov-dark);
-  }
+    padding: 10px;
+    margin: 5px;
+    background: none;
+    border: 5px groove var(--cta-dark);
+    color: var(--cta-dark);
+    &:hover {
+        border: 5px groove var(--cta-hov-dark);
+        color: var(--cta-hov-dark);
+    }
 }
 
 .buttonRestart {
-  @extend .buttonStart;
-
-  border: none;
-  &:hover {
+    @extend .buttonStart;
     border: none;
-    color: var(--cta-hov-dark);
-  }
+    &:hover {
+        border: none;
+        color: var(--cta-hov-dark);
+    }
 }
 
 .max {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .text {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-
-  @media screen and (min-width: '768px') {
-    height: 2rem;
-  }
-
-  p {
-    margin: auto 0 auto;
-  }
-  abbr {
-    color: red;
-    text-decoration: none;
-    padding: 2px 10px 2px 10px;
-    font-size: 1.5rem;
-  }
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    @media screen and (min-width: '768px') {
+        height: 2rem;
+    }
+    p {
+        margin: auto 0 auto;
+    }
+    abbr {
+        color: red;
+        text-decoration: none;
+        padding: 2px 10px 2px 10px;
+        font-size: 1.5rem;
+    }
 }
 
 .buttons {
-  display: flex;
-  flex-direction: row-reverse;
-
-  :nth-child(1) {
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-  }
-
-  :nth-child(2) {
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-  }
-
-  button {
-    color: var(--cta-dark);
-    padding: 5px 10px 5px;
-    font-size: 1.2rem;
-    margin: 10px;
-    background: none;
-    border: 5px groove var(--cta-dark);
-    //box-shadow: 0 0 10px 0 var(--cta-dark);
-    &:hover {
-      border: 5px groove var(--cta-hov-dark);
-      color: var(--cta-hov-dark);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+     :nth-child(1) {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
     }
-  }
+     :nth-child(3) {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+     :nth-child(2) {
+        margin: 10px;
+        padding: 5px 10px 5px;
+        color: var(--cta-dark);
+        font-weight: 900;
+    }
+    button {
+        color: var(--cta-dark);
+        padding: 5px 10px 5px;
+        font-size: 1.2rem;
+        margin: 10px;
+        background: none;
+        border: 5px groove var(--cta-dark);
+        //box-shadow: 0 0 10px 0 var(--cta-dark);
+        &:hover {
+            border: 5px groove var(--cta-hov-dark);
+            color: var(--cta-hov-dark);
+        }
+    }
 }
