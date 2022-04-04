@@ -1,14 +1,9 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import {Helmet} from "react-helmet"
 //import { useStaticQuery, graphql } from "gatsby"
-import { SEOProps, /*QueryTypes*/ } from './seo.types'
+import {SEOProps /*QueryTypes*/} from "./seo.types"
 
-const SEO = ({
-  description = "",
-  lang = "en",
-  meta = [],
-  title,
-}: SEOProps): JSX.Element => {
+const SEO = ({description = "", lang = "en", meta = [], title}: SEOProps): JSX.Element => {
   //const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery)
 
   const metaDescription: string = description //|| site.siteMetadata.description
@@ -42,10 +37,12 @@ const SEO = ({
           name: `twitter:card`,
           content: `summary`,
         },
-        {/*
+        {
+          /*
           name: `twitter:creator`,
           content: site.siteMetadata?.author || ``,
-        */},
+        */
+        },
         {
           name: `twitter:title`,
           content: title,
@@ -74,4 +71,4 @@ const SEOStaticQuery = graphql`
 `
 */
 
-export default SEO;
+export default SEO

@@ -5,18 +5,18 @@ $breakpoints: (
   desktop: 1440px,
 );
 
-.navDesktop{
-    display: none;
-    @media (min-width: 768px) {
-        display: flex;
-        justify-content: space-around;
-        margin-right: 20px;
-        //animation: slideIn 1000ms ease-out;
-        align-items: center;
-        > * {
-            margin: 0 10px 0;
-        }
+.navDesktop {
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 20px;
+    //animation: slideIn 1000ms ease-out;
+    align-items: center;
+    > * {
+      margin: 0 10px 0;
     }
+  }
 }
 /*
 @keyframes slideIn{
@@ -30,45 +30,45 @@ $breakpoints: (
     }
 }
 */
-.navMobile{
-    @media (min-width: 768px) {
-        display: none;
-    }
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    z-index: 5;
-    width: 100vw;
-    height: auto;
-    left: 0;
-    top: var(--nav-bar-height);
-    align-items: center;
-    justify-content: flex-start;
-    background-color: var(--navig-bg-dark);
-    -webkit-animation: rotateMenu 600ms ease-in-out forwards;
-    animation: rotateMenu 600ms ease-in-out forwards;
+.navMobile {
+  @media (min-width: 768px) {
+    display: none;
+  }
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  z-index: 5;
+  width: 100vw;
+  height: auto;
+  left: 0;
+  top: var(--nav-bar-height);
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--navig-bg-dark);
+  -webkit-animation: rotateMenu 600ms ease-in-out forwards;
+  animation: rotateMenu 600ms ease-in-out forwards;
 
-    transform-origin: top center;
+  transform-origin: top center;
 
-    > *{
-        padding: 10px;
-        margin: 20px;
-    }
-} 
-
-@keyframes rotateMenu {
-    0% {
-        transform: rotateX(-90deg);
-    }
-    70% {
-        transform: rotateX(20deg);
-    }
-    100% {
-        transform: rotateX(0deg);
-    }
+  > * {
+    padding: 10px;
+    margin: 20px;
+  }
 }
 
-.navMobileLight{
-    @extend .navMobile;
-    background-color: var(--navig-bg-light);
+@keyframes rotateMenu {
+  0% {
+    transform: rotateX(-90deg);
+  }
+  70% {
+    transform: rotateX(20deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.navMobileLight {
+  @extend .navMobile;
+  background-color: var(--navig-bg-light);
 }

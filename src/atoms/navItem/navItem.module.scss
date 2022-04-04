@@ -5,13 +5,13 @@ $breakpoints: (
   desktop: 1440px,
 );
 
-.link{
+.link {
   text-decoration: none;
   color: inherit;
 }
 
 .item::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
@@ -21,7 +21,7 @@ $breakpoints: (
   left: 0;
   transform-origin: right;
   transform: scaleX(0);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .item:hover::before {
@@ -40,18 +40,17 @@ $breakpoints: (
   margin-bottom: auto;
 }
 
-
-.item:hover{
+.item:hover {
   -webkit-animation: hov 200ms ease-in-out forwards;
   animation: hov 200ms ease-in-out forwards;
 }
 
-.itemOn{
+.itemOn {
   @extend .item;
 
   animation: none;
   transform: scale(1.05);
-  color:var(--cta-hov-dark);
+  color: var(--cta-hov-dark);
 
   &::before {
     transform-origin: left;
@@ -59,12 +58,12 @@ $breakpoints: (
   }
 }
 
-@keyframes hov{
-  0%{
+@keyframes hov {
+  0% {
     transform: scale(1);
   }
-  100%{
+  100% {
     transform: scale(1.05);
-    color:var(--cta-hov-dark);
+    color: var(--cta-hov-dark);
   }
-} 
+}

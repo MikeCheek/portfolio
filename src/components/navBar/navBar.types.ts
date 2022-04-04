@@ -1,4 +1,4 @@
 export type NavBarProps = {
-    changeToggle: React.MouseEventHandler<Element>,
-    noMenu?: boolean
+  changeToggle: React.MouseEventHandler<Element>
+  noMenu?: boolean
 }

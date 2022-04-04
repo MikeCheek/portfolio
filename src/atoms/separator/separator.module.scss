@@ -6,13 +6,13 @@ $breakpoints: (
 );
 
 .separator {
-    border: 0;
-    height: 2px;
-    background-color: var(--sep-bg-dark); 
-    border-radius: 80%;
-    margin: 5% 10% 5%;
-    align-self: center;
-    justify-self: center;
-    opacity: 0.5;
-    width: 80%;
+  border: 0;
+  height: 2px;
+  background-color: var(--sep-bg-dark);
+  border-radius: 80%;
+  margin: 5% 10% 5%;
+  align-self: center;
+  justify-self: center;
+  opacity: 0.5;
+  width: 80%;
 }

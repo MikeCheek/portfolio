@@ -5,9 +5,9 @@ $breakpoints: (
   desktop: 1440px,
 );
 
-.logo{
-    height: auto;
-    @media(min-width: 768px){
-        //width: 50px;
-    }
+.logo {
+  height: auto;
+  @media (min-width: 768px) {
+    //width: 50px;
+  }
 }

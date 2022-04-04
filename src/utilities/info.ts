@@ -1,4 +1,4 @@
-import {SkillsType} from './info.types'
+import {SkillsType} from "./info.types"
 
 //head
 export const introduce = `/*let me introduce myself*/`
@@ -8,7 +8,7 @@ export const typingOutput = `Hi, I'm Michele Pulvirenti`
 //other experiences
 export const otherExperiences = [
   {
-    title: 'JEISM - JE Italy Summer Meeting (2021)',
+    title: "JEISM - JE Italy Summer Meeting (2021)",
     text: `// Event between Italian Junior Enterprises<br/><br/>
                 // Location: Gabicce, Marche<br/><br/>
                 // Duration: 3 days<br/><br/>
@@ -20,7 +20,7 @@ export const otherExperiences = [
                     Marketplace on the theme of Open Innovation <br/>*/`,
   },
   {
-    title: 'SysE2021 - Summer School (2021)',
+    title: "SysE2021 - Summer School (2021)",
     text: `/* Orientation event on the Master's degree
                         organized by the University of Genova in
                         collaboration with University of Savoie Mont
@@ -52,91 +52,91 @@ export const works: string = `<strong>JEToP - Junior Enterprise of Politecnico d
 //education
 export const events = [
   {
-    name: 'Politecnico di Torino',
-    dateStart: '2019/09',
-    dateEnd: 'Today',
+    name: "Politecnico di Torino",
+    dateStart: "2019/09",
+    dateEnd: "Today",
     text: ` -> Bachelor's degree<br/>
                 -> Ingegneria Informatica`,
   },
   {
     name: `High school "Archimede" - Acireale`,
-    dateStart: '2013/09',
-    dateEnd: '2019/06',
+    dateStart: "2013/09",
+    dateEnd: "2019/06",
     text: ` -> High school diploma`,
   },
 ]
 
 //Contacts
 //export const phone: number = 1111111111
-export const email: string = 'michele00.pulvirenti@gmail.com'
-export const linkedin: string = 'https://www.linkedin.com/in/michele-pulvirenti'
-export const github: string = 'https://github.com/Mike-cheek'
+export const email: string = "michele00.pulvirenti@gmail.com"
+export const linkedin: string = "https://www.linkedin.com/in/michele-pulvirenti"
+export const github: string = "https://github.com/Mike-cheek"
 
 //skills
 export const programming: SkillsType = [
   {
-    name: 'C',
-    percentage: '90%',
+    name: "C",
+    percentage: "90%",
   },
   {
-    name: 'Java',
-    percentage: '80%',
+    name: "Java",
+    percentage: "80%",
   },
   {
-    name: 'Javascript',
-    percentage: '90%',
+    name: "Javascript",
+    percentage: "90%",
   },
   {
-    name: 'Assembly MIPS',
-    percentage: '70%',
+    name: "Assembly MIPS",
+    percentage: "70%",
   },
   {
-    name: 'Bash (Unix shell)',
-    percentage: '70%',
+    name: "Bash (Unix shell)",
+    percentage: "70%",
   },
   {
-    name: 'PHP',
-    percentage: '30%',
+    name: "PHP",
+    percentage: "30%",
   },
 ]
 export const frameworks: SkillsType = [
   {
-    name: 'React',
-    percentage: '90%',
+    name: "React",
+    percentage: "90%",
   },
   {
-    name: 'Gatsby',
-    percentage: '80%',
+    name: "Gatsby",
+    percentage: "80%",
   },
   {
-    name: 'NextJs',
-    percentage: '50%',
+    name: "NextJs",
+    percentage: "50%",
   },
 ]
 export const others: SkillsType = [
   {
-    name: 'HTML',
-    percentage: '90%',
+    name: "HTML",
+    percentage: "90%",
   },
   {
-    name: 'CSS',
-    percentage: '90%',
+    name: "CSS",
+    percentage: "90%",
   },
   {
-    name: 'Linux',
-    percentage: '80%',
+    name: "Linux",
+    percentage: "80%",
   },
   {
-    name: 'SQL',
-    percentage: '80%',
+    name: "SQL",
+    percentage: "80%",
   },
   {
-    name: 'MatLab',
-    percentage: '50%',
+    name: "MatLab",
+    percentage: "50%",
   },
   {
-    name: 'Simulink',
-    percentage: '50%',
+    name: "Simulink",
+    percentage: "50%",
   },
 ]
 export const languages = `
@@ -151,33 +151,33 @@ export const navItems = [
   //    text: "Home", path: "/"
   //},
   {
-    text: 'About',
-    path: '#about',
+    text: "About",
+    path: "#about",
     isHref: true,
   },
   {
-    text: 'Works',
-    path: '#works',
+    text: "Works",
+    path: "#works",
     isHref: true,
   },
   {
-    text: 'Skills',
-    path: '#skills',
+    text: "Skills",
+    path: "#skills",
     isHref: true,
   },
   {
-    text: 'Education',
-    path: '#education',
+    text: "Education",
+    path: "#education",
     isHref: true,
   },
   {
-    text: 'Other',
-    path: '#others',
+    text: "Other",
+    path: "#others",
     isHref: true,
   },
   {
-    text: 'Contacts',
-    path: '#contacts',
+    text: "Contacts",
+    path: "#contacts",
     isHref: true,
   },
 ]

@@ -11,18 +11,18 @@
   flex-direction: column;
   width: 100%;
 
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     flex-direction: row-reverse;
   }
 }
 
 .profileWrap {
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     margin-right: 10%;
   }
 }
 .typeWrap {
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     margin-left: 10%;
   }
 }

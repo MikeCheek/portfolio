@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import {Link} from "gatsby"
 import SEO from "../components/seo/seo"
 import Layout from "../components/layout/layout"
 
@@ -7,7 +7,6 @@ import Layout from "../components/layout/layout"
 import Rocket from "../components/rocket/rocket"
 
 const NotFoundPage = (): JSX.Element => {
-
   //const theme = useThemeContext()
 
   return (
@@ -32,12 +31,14 @@ const NotFoundPage = (): JSX.Element => {
               </>
             ) : null}
             <br />
-            <Link to="/" id="link">Go home</Link>.
+            <Link to="/" id="link">
+              Go home
+            </Link>
+            .
           </p>
         </>
       </Layout>
     </>
-  
   )
 }
 

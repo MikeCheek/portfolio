@@ -1,4 +1,4 @@
-import {ReactElement} from 'react'
+import {ReactElement} from "react"
 
 export type BashWindowProps = {
   children: ReactElement<any, any> | ReactElement<any, any>[]

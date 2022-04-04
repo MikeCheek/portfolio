@@ -1,3 +1,3 @@
 export type ToggleProps = {
-    changeToggle: React.MouseEventHandler<Element>
+  changeToggle: React.MouseEventHandler<Element>
 }

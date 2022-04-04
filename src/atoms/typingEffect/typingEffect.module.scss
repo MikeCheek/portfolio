@@ -1,5 +1,5 @@
 :root {
-  --content: '█';
+  --content: "█";
 }
 
 .text {
@@ -31,7 +31,7 @@
   @extend .paragraphText;
 }
 .paragraphTextNoBlink::after {
-  content: '';
+  content: "";
 }
 
 @keyframes blink-animation {
