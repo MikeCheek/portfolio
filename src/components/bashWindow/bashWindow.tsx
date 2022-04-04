@@ -48,16 +48,14 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     event.preventDefault()
     document.ontouchmove = handleOneTouchMove
     document.ontouchend = handleTouchEnd
-    terminalRef.current!.style.transition = "none"
+    terminalRef.current!.style.removeProperty("transition")
   }
 
   const handleOneTouchMove = (event: TouchEvent) => {
     event.preventDefault()
     // calculate the new cursor position:
-    pos1 = pos3 - event.touches[0].clientX
-    pos2 = pos4 - event.touches[0].clientY
-    pos3 = event.touches[0].clientX
-    pos4 = event.touches[0].clientY
+    pos1 = event.touches[0].clientX
+    pos2 = event.touches[0].clientY
     // set the element's new position:
     const elmnt = terminalRef.current!
     elmnt.style.top = elmnt.offsetTop - pos2 + "px"
@@ -74,13 +72,13 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     startH = terminalRef.current!.getBoundingClientRect().height
     document.ontouchmove = handleTwoTouchesMove
     document.ontouchend = handleTouchEnd
-    terminalRef.current!.style.transition = "none"
+    terminalRef.current!.style.removeProperty("transition")
   }
 
   const handleTouchEnd = () => {
     document.ontouchmove = null
     document.ontouchend = null
-    terminalRef.current!.style.transition = ""
+    terminalRef.current!.style.removeProperty("transition")
   }
 
   const handleTwoTouchesMove = (event: TouchEvent) => {
@@ -130,7 +128,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     // stop moving when mouse button is released:
     document.onmouseup = null
     document.onmousemove = null
-    document.body.style.cursor = "default"
+    document.body.style.removeProperty("cursor")
   }
 
   const minimize = () => {
@@ -145,13 +143,8 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }
 
   const expand = () => {
-    terminalRef.current!.style.height = ""
-    terminalRef.current!.style.minHeight = ""
-    terminalRef.current!.style.width = ""
-    document.getElementById("content")!.style.height = ""
-    document.getElementById("content")!.style.width = ""
-    document.getElementById("content")!.style.padding = ""
-    document.getElementById("content")!.style.opacity = ""
+    terminalRef.current!.removeAttribute("style")
+    document.getElementById("content")!.removeAttribute("style")
     setCompact(false)
     calculateDim()
   }
@@ -160,8 +153,8 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     terminalRef.current!.style.transform = "scale(0)"
     terminalRef.current!.style.opacity = "0"
     sleep(2000).then(() => {
-      terminalRef.current!.style.transform = ""
-      terminalRef.current!.style.opacity = ""
+      terminalRef.current!.style.removeProperty("transform")
+      terminalRef.current!.style.removeProperty("opacity")
       calculateDim()
     })
   }
