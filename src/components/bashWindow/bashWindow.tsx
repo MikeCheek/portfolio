@@ -46,6 +46,8 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
 
   const handleOneTouch = (event: React.TouchEvent<HTMLDivElement>) => {
     event.preventDefault()
+    pos3 = event.touches[0].clientX
+    pos4 = event.touches[0].clientY
     document.ontouchmove = handleOneTouchMove
     document.ontouchend = handleTouchEnd
     terminalRef.current!.style.removeProperty("transition")
@@ -54,8 +56,10 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   const handleOneTouchMove = (event: TouchEvent) => {
     event.preventDefault()
     // calculate the new cursor position:
-    pos1 = event.touches[0].clientX
-    pos2 = event.touches[0].clientY
+    pos1 = pos3 - event.touches[0].clientX
+    pos2 = pos4 - event.touches[0].clientY
+    pos3 = event.touches[0].clientX
+    pos4 = event.touches[0].clientY
     // set the element's new position:
     const elmnt = terminalRef.current!
     elmnt.style.top = elmnt.offsetTop - pos2 + "px"
