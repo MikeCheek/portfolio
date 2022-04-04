@@ -1,7 +1,7 @@
 name: Gatsby Test Publish
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
