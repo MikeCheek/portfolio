@@ -98,7 +98,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     calculateDim()
   }
 
-  const dragMouseDown = (e: any) => {
+  const dragMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e = e || window.event
     e.preventDefault()
     document.body.style.cursor = "move"
@@ -110,7 +110,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     document.onmousemove = elementDrag
   }
 
-  const elementDrag = (e: any) => {
+  const elementDrag = (e: MouseEvent) => {
     e = e || window.event
     e.preventDefault()
     // calculate the new cursor position:

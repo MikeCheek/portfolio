@@ -6,7 +6,7 @@ import SEO from "../components/seo/seo"
 import "../styles/globals.scss"
 
 const IndexPage = (): JSX.Element => {
-  const animateKeyDown = (key: any) => {
+  const animateKeyDown = (key: KeyboardEvent) => {
     if (key.keyCode === 79)
       //o
       document.body.style.color = "var(--orange)"
@@ -28,8 +28,8 @@ const IndexPage = (): JSX.Element => {
       //t
       document.body.style.webkitTextStroke = "thick"
   }
-  const animateKeyUp = (/*key: any*/) => {
-    document.body.style.cssText = "none"
+  const animateKeyUp = () => {
+    document.body.removeAttribute("style")
   }
 
   useEffect(() => {
