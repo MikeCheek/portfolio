@@ -5,7 +5,7 @@ import {BashWindowProps, Dim} from "./bashWindow.types"
 
 const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   const [dim, setDim] = useState<Dim>({width: 70, height: 32})
-  const terminalRef = useRef<null>(null)
+  const terminalRef = useRef<HTMLDivElement>(null)
   const [compact, setCompact] = useState<boolean>(false)
   const [terminal, setTerminal] = useState<HTMLElement>()
 
@@ -17,7 +17,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
 
   const calculateDim = () => {
     if (document.getElementById("terminal")) {
-      const rect: DOMRect = document.getElementById("terminal")!.getBoundingClientRect()
+      const rect: DOMRect = terminalRef.current!.getBoundingClientRect()
       setDim({width: Math.floor(rect.width), height: Math.floor(rect.height)})
     }
   }
@@ -36,14 +36,32 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }, [terminal])
 
   const handleTouch = (event: TouchEvent) => {
+    event.preventDefault()
     switch (event.touches.length) {
-      case 1:
-        ;() => {}
-        break
       case 2:
         handleTwoTouches(event)
         break
     }
+  }
+
+  const handleOneTouch = (event: React.TouchEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    document.ontouchmove = handleOneTouchMove
+    document.ontouchend = handleTouchEnd
+    terminalRef.current!.style.transition = "none"
+  }
+
+  const handleOneTouchMove = (event: TouchEvent) => {
+    event.preventDefault()
+    // calculate the new cursor position:
+    pos1 = pos3 - event.touches[0].clientX
+    pos2 = pos4 - event.touches[0].clientY
+    pos3 = event.touches[0].clientX
+    pos4 = event.touches[0].clientY
+    // set the element's new position:
+    const elmnt = terminalRef.current!
+    elmnt.style.top = elmnt.offsetTop - pos2 + "px"
+    elmnt.style.left = elmnt.offsetLeft - pos1 + "px"
   }
 
   const handleTwoTouches = (event: TouchEvent) => {
@@ -52,17 +70,17 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     const second: Touch = event.touches.item(1)!
     startX = first.clientX > second.clientX ? first.clientX - second.clientX : second.clientX - first.clientX
     startY = first.clientY > second.clientY ? first.clientY - second.clientY : second.clientY - first.clientY
-    startW = document.getElementById("terminal")!.getBoundingClientRect().width
-    startH = document.getElementById("terminal")!.getBoundingClientRect().height
+    startW = terminalRef.current!.getBoundingClientRect().width
+    startH = terminalRef.current!.getBoundingClientRect().height
     document.ontouchmove = handleTwoTouchesMove
     document.ontouchend = handleTouchEnd
-    document.getElementById("terminal")!.style.transition = "none"
+    terminalRef.current!.style.transition = "none"
   }
 
   const handleTouchEnd = () => {
     document.ontouchmove = null
     document.ontouchend = null
-    document.getElementById("terminal")!.style.transition = ""
+    terminalRef.current!.style.transition = ""
   }
 
   const handleTwoTouchesMove = (event: TouchEvent) => {
@@ -75,17 +93,17 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
       first.clientY > second.clientY ? first.clientY - second.clientY : second.clientY - first.clientY
     console.log(startX, offXAfter)
     if (offXAfter != startX || offYAfter != startY) {
-      const elmnt = document.getElementById("terminal")!
+      const elmnt = terminalRef.current!
       elmnt.style.width = `${startW + (offXAfter - startX) / 2}px`
       elmnt.style.height = `${startH + (offYAfter - startY) / 2}px`
     }
     calculateDim()
-    event.preventDefault()
   }
 
   const dragMouseDown = (e: any) => {
     e = e || window.event
     e.preventDefault()
+    document.body.style.cursor = "move"
     // get the mouse cursor position at startup:
     pos3 = e.clientX
     pos4 = e.clientY
@@ -103,7 +121,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     pos3 = e.clientX
     pos4 = e.clientY
     // set the element's new position:
-    const elmnt = document.getElementById("terminal")!
+    const elmnt = terminalRef.current!
     elmnt.style.top = elmnt.offsetTop - pos2 + "px"
     elmnt.style.left = elmnt.offsetLeft - pos1 + "px"
   }
@@ -112,12 +130,13 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     // stop moving when mouse button is released:
     document.onmouseup = null
     document.onmousemove = null
+    document.body.style.cursor = "default"
   }
 
   const minimize = () => {
-    document.getElementById("terminal")!.style.height = "0"
-    document.getElementById("terminal")!.style.minHeight = "0"
-    document.getElementById("terminal")!.style.width = "auto"
+    terminalRef.current!.style.height = "0"
+    terminalRef.current!.style.minHeight = "0"
+    terminalRef.current!.style.width = "auto"
     document.getElementById("content")!.style.height = "0"
     document.getElementById("content")!.style.width = "auto"
     document.getElementById("content")!.style.padding = "0"
@@ -126,9 +145,9 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }
 
   const expand = () => {
-    document.getElementById("terminal")!.style.height = ""
-    document.getElementById("terminal")!.style.minHeight = ""
-    document.getElementById("terminal")!.style.width = ""
+    terminalRef.current!.style.height = ""
+    terminalRef.current!.style.minHeight = ""
+    terminalRef.current!.style.width = ""
     document.getElementById("content")!.style.height = ""
     document.getElementById("content")!.style.width = ""
     document.getElementById("content")!.style.padding = ""
@@ -138,19 +157,19 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }
 
   const close = () => {
-    document.getElementById("terminal")!.style.transform = "scale(0)"
-    document.getElementById("terminal")!.style.opacity = "0"
+    terminalRef.current!.style.transform = "scale(0)"
+    terminalRef.current!.style.opacity = "0"
     sleep(2000).then(() => {
-      document.getElementById("terminal")!.style.transform = ""
-      document.getElementById("terminal")!.style.opacity = ""
+      terminalRef.current!.style.transform = ""
+      terminalRef.current!.style.opacity = ""
       calculateDim()
     })
   }
 
   return (
     <div className={styles.terminalWrap}>
-      <div id={"terminal"} className={styles.terminal} ref={terminalRef}>
-        <div className={styles.top} onMouseDown={dragMouseDown}>
+      <div className={styles.terminal} ref={terminalRef}>
+        <div className={styles.top} onMouseDown={(e) => dragMouseDown(e)} onTouchStart={(e) => handleOneTouch(e)}>
           <div className={styles.title}>bash{compact ? `` : `: ~ ${dim.height}x${dim.width}`}</div>
           <div className={styles.buttons}>
             <span className={styles.circleRed} onClick={close}></span>
