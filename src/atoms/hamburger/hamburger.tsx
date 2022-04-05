@@ -29,3 +29,4 @@ const Hamburger = ({onClick, navBarOpen}: HamburgerProps): JSX.Element => {
 }
 
 export default Hamburger
+
