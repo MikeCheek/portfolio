@@ -6,6 +6,7 @@ import {BashWindowProps, Dim} from "./bashWindow.types"
 const BashWindow = ({children}: BashWindowProps): JSX.Element => {
  const [dim, setDim] = useState<Dim>({width: 70, height: 32})
  const terminalRef = useRef<HTMLDivElement>(null)
+ const topRef = useRef<HTMLDivElement>(null)
  const [compact, setCompact] = useState<boolean>(false)
  const [terminal, setTerminal] = useState<HTMLElement>()
 
@@ -106,7 +107,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
  const dragMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
   e = e || window.event
   e.preventDefault()
-  document.body.style.cursor = "move"
+  topRef.current!.style.cursor = "grabbing"
   // get the mouse cursor position at startup:
   pos3 = e.clientX
   pos4 = e.clientY
@@ -133,7 +134,8 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   // stop moving when mouse button is released:
   document.onmouseup = null
   document.onmousemove = null
-  document.body.style.removeProperty("cursor")
+  topRef.current!.style.removeProperty("cursor")
+  terminalRef.current!.style.removeProperty("transition")
  }
 
  const minimize = () => {
@@ -164,10 +166,62 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   })
  }
 
+ const cornerMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, corner: string) => {
+  e.preventDefault()
+  e = e || window.event
+  pos3 = e.clientX
+  pos4 = e.clientY
+  terminalRef.current!.style.transition = "none"
+  document.onmouseup = closeDragElement
+  // call a function whenever the cursor moves:
+  document.onmousemove = elementResize(corner)
+ }
+
+ const elementResize = (corner: string) => (e: MouseEvent) => {
+  e = e || window.event
+  e.preventDefault()
+  // calculate the new cursor position:
+  pos1 = pos3 - e.clientX
+  pos2 = pos4 - e.clientY
+  pos3 = e.clientX
+  pos4 = e.clientY
+  // set the element's new position:
+  const elmnt = terminalRef.current!
+  const rect: DOMRect = elmnt.getBoundingClientRect()
+  let th: number = 0,
+   tw: number = 0
+  switch (corner) {
+   case "br":
+    tw = rect.width - pos1 * 2
+    th = rect.height - pos2 * 2
+    break
+   case "bl":
+    tw = rect.width + pos1 * 2
+    th = rect.height - pos2 * 2
+    break
+   case "tr":
+    tw = rect.width - pos1 * 2
+    th = rect.height + pos2 * 2
+    break
+   case "tl":
+    tw = rect.width + pos1 * 2
+    th = rect.height + pos2 * 2
+    break
+  }
+  elmnt.style.width = tw + "px"
+  elmnt.style.height = th + "px"
+  calculateDim()
+ }
+
  return (
   <div className={styles.terminalWrap}>
    <div className={styles.terminal} ref={terminalRef}>
-    <div className={styles.top} onMouseDown={(e) => dragMouseDown(e)} onTouchStart={(e) => handleOneTouch(e)}>
+    <div
+     ref={topRef}
+     className={styles.top}
+     onMouseDown={(e) => dragMouseDown(e)}
+     onTouchStart={(e) => handleOneTouch(e)}
+    >
      <div className={styles.title}>bash{compact ? `` : `: ~ ${dim.height}x${dim.width}`}</div>
      <div className={styles.buttons}>
       <span className={styles.circleRed} onClick={close}></span>
@@ -178,6 +232,10 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     <pre id={"content"} className={styles.content}>
      {children}
     </pre>
+    <div className={styles.brCorner} onMouseDown={(e) => cornerMouseDown(e, "br")} />
+    <div className={styles.blCorner} onMouseDown={(e) => cornerMouseDown(e, "bl")} />
+    <div className={styles.trCorner} onMouseDown={(e) => cornerMouseDown(e, "tr")} />
+    <div className={styles.tlCorner} onMouseDown={(e) => cornerMouseDown(e, "tl")} />
    </div>
   </div>
  )
