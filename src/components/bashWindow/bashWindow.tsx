@@ -77,7 +77,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     startH = terminalRef.current!.getBoundingClientRect().height
     document.ontouchmove = handleTwoTouchesMove
     document.ontouchend = handleTouchEnd
-    terminalRef.current!.style.removeProperty("transition")
+    terminalRef.current!.style.transition = "none" 
   }
 
   const handleTouchEnd = () => {
