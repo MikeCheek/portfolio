@@ -1,94 +1,94 @@
 .terminalWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 80vw;
+  height: 40vh;
+  margin: 25px;
+  @media screen and (min-width: "768px") {
+    width: 40vw;
     height: 40vh;
-    margin: 25px;
-    @media screen and (min-width: "768px") {
-        width: 40vw;
-        height: 40vh;
-        margin: 25px 25px 0;
-    }
+    margin: 25px 25px 0;
+  }
 }
 
 .terminal {
-    border-radius: 5px 5px 5px 5px;
-    min-width: max-content;
-    min-height: -webkit-fill-available;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0px 0px 10px var(--black);
-    background: #000000dd;
-    transition: transform 300ms ease-in-out, height 300ms ease-in-out, width 300ms ease-in-out, opacity 300ms ease-in-out;
+  border-radius: 5px 5px 5px 5px;
+  min-width: max-content;
+  min-height: -webkit-fill-available;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 10px var(--black);
+  background: #000000dd;
+  transition: transform 300ms ease-in-out, height 300ms ease-in-out, width 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 
 .top {
-    background: var(--transparent-white);
-    color: var(--black);
-    padding: 5px;
-    border-radius: 5px 5px 0 0;
-    touch-action: none;
+  background: var(--transparent-white);
+  color: var(--black);
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+  touch-action: none;
 }
 
 .buttons {
-    position: absolute;
-    top: 7px;
-    left: 5px;
+  position: absolute;
+  top: 7px;
+  left: 5px;
 }
 
 .circle {
-    width: 12px;
-    height: 12px;
-    display: inline-block;
-    border-radius: 15px;
-    margin-right: 4px;
-    border-width: 1px;
-    border-style: solid;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 15px;
+  margin-right: 4px;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .circleRed {
-    @extend .circle;
-    background: #ec6a5f;
-    border-color: #d04e42;
-    cursor: pointer;
-    &:hover {
-        background: #d04e42;
-    }
+  @extend .circle;
+  background: #ec6a5f;
+  border-color: #d04e42;
+  cursor: pointer;
+  &:hover {
+    background: #d04e42;
+  }
 }
 
 .circleGreen {
-    @extend .circle;
-    background: #64cc57;
-    border-color: #4ea73b;
-    cursor: pointer;
-    &:hover {
-        background: #4ea73b;
-    }
+  @extend .circle;
+  background: #64cc57;
+  border-color: #4ea73b;
+  cursor: pointer;
+  &:hover {
+    background: #4ea73b;
+  }
 }
 
 .circleYellow {
-    @extend .circle;
-    background: #f5c04f;
-    border-color: #d6a13d;
-    cursor: pointer;
-    &:hover {
-        background: #d6a13d;
-    }
+  @extend .circle;
+  background: #f5c04f;
+  border-color: #d6a13d;
+  cursor: pointer;
+  &:hover {
+    background: #d6a13d;
+  }
 }
 
 .content {
-    padding: 8px;
-    width: max-content;
-    height: max-content;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    transition: height 300ms ease-in-out, opacity 300ms ease-in-out, width 300ms ease-in-out;
+  padding: 8px;
+  width: max-content;
+  height: max-content;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: height 300ms ease-in-out, opacity 300ms ease-in-out, width 300ms ease-in-out;
 }
