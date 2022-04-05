@@ -15,17 +15,23 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     pos4 = 0
   let startX: number, startY: number, startW: number, startH: number
 
+  const updatePosition = (px: number, py: number) => {
+    pos1 = pos3 - px
+    pos2 = pos4 - py
+    pos3 = px
+    pos4 = py
+  }
+
   const calculateDim = () => {
-    if (terminalRef) {
-      const rect: DOMRect = terminalRef.current!.getBoundingClientRect()
+    if (terminalRef.current) {
+      const rect: DOMRect = terminalRef.current.getBoundingClientRect()
       setDim({width: Math.floor(rect.width), height: Math.floor(rect.height)})
     }
   }
 
   useEffect(() => {
     calculateDim()
-    window.addEventListener("resize", calculateDim)
-  }, [])
+  }, [terminalRef])
 
   useEffect(() => {
     terminalRef.current!.addEventListener("touchstart", handleTouch, {passive: true})
@@ -52,19 +58,6 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     terminalRef.current!.style.removeProperty("transition")
   }
 
-  const handleOneTouchMove = (event: TouchEvent) => {
-    event.preventDefault()
-    // calculate the new cursor position:
-    pos1 = pos3 - event.touches[0].clientX
-    pos2 = pos4 - event.touches[0].clientY
-    pos3 = event.touches[0].clientX
-    pos4 = event.touches[0].clientY
-    // set the element's new position:
-    const elmnt = terminalRef.current!
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px"
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px"
-  }
-
   const handleTwoTouches = (event: TouchEvent) => {
     event.preventDefault()
     const first: Touch = event.touches.item(0)!
@@ -78,11 +71,14 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     terminalRef.current!.style.transition = "none"
   }
 
-  const handleTouchEnd = () => {
-    document.ontouchmove = null
-    document.ontouchend = null
-    terminalRef.current!.style.removeProperty("transition")
-    calculateDim()
+  const handleOneTouchMove = (event: TouchEvent) => {
+    event.preventDefault()
+    // calculate the new cursor position:
+    updatePosition(event.touches[0].clientX, event.touches[0].clientY)
+    // set the element's new position:
+    const elmnt = terminalRef.current!
+    elmnt.style.top = elmnt.offsetTop - pos2 + "px"
+    elmnt.style.left = elmnt.offsetLeft - pos1 + "px"
   }
 
   const handleTwoTouchesMove = (event: TouchEvent) => {
@@ -102,6 +98,13 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     calculateDim()
   }
 
+  const handleTouchEnd = () => {
+    document.ontouchmove = null
+    document.ontouchend = null
+    terminalRef.current!.style.removeProperty("transition")
+    calculateDim()
+  }
+
   const dragMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e = e || window.event
     e.preventDefault()
@@ -118,10 +121,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     e = e || window.event
     e.preventDefault()
     // calculate the new cursor position:
-    pos1 = pos3 - e.clientX
-    pos2 = pos4 - e.clientY
-    pos3 = e.clientX
-    pos4 = e.clientY
+    updatePosition(e.clientX, e.clientY)
     // set the element's new position:
     const elmnt = terminalRef.current!
     elmnt.style.top = elmnt.offsetTop - pos2 + "px"
@@ -136,14 +136,41 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     terminalRef.current!.style.removeProperty("transition")
   }
 
+  const elementResize = (dimension: string) => (e: MouseEvent) => {
+    e = e || window.event
+    e.preventDefault()
+    // calculate the new cursor position:
+    updatePosition(e.clientX, e.clientY)
+    // set the element's new position:
+    const elmnt = terminalRef.current!
+    const rect: DOMRect = elmnt.getBoundingClientRect()
+    if (dimension === "width") {
+      elmnt.style.width = rect.width - pos1 + "px"
+    } else if (dimension === "height") {
+      elmnt.style.height = rect.height - pos2 + "px"
+    } else if (dimension === "both") {
+      elmnt.style.width = rect.width - pos1 + "px"
+      elmnt.style.height = rect.height - pos2 + "px"
+    }
+    calculateDim()
+  }
+
+  const resizeMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, type: string) => {
+    e.preventDefault()
+    e = e || window.event
+    pos3 = e.clientX
+    pos4 = e.clientY
+    terminalRef.current!.style.transition = "none"
+    document.onmouseup = closeDragElement
+    // call a function whenever the cursor moves:
+    if (type === "r") document.onmousemove = elementResize("width")
+    else if (type === "b") document.onmousemove = elementResize("height")
+    else if (type === "rb") document.onmousemove = elementResize("both")
+  }
+
   const minimize = () => {
-    terminalRef.current!.style.height = "0"
-    terminalRef.current!.style.minHeight = "0"
-    terminalRef.current!.style.width = "auto"
-    document.getElementById("content")!.style.height = "0"
-    document.getElementById("content")!.style.width = "auto"
-    document.getElementById("content")!.style.padding = "0"
-    document.getElementById("content")!.style.opacity = "0"
+    terminalRef.current!.style.cssText = "height: 0; min-height: 0; width: auto"
+    document.getElementById("content")!.style.cssText = "height: 0; width: auto; padding: 0; opacity: 0"
     setCompact(true)
   }
 
@@ -160,53 +187,10 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     sleep(2000).then(() => {
       terminalRef.current!.style.removeProperty("transform")
       terminalRef.current!.style.removeProperty("opacity")
-      calculateDim()
+      sleep(500).then(() => {
+        calculateDim()
+      })
     })
-  }
-
-  const cornerMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.preventDefault()
-    e = e || window.event
-    pos3 = e.clientX
-    pos4 = e.clientY
-    terminalRef.current!.style.transition = "none"
-    document.onmouseup = closeDragElement
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementResize("both")
-  }
-
-  const elementResize = (dimension: string) => (e: MouseEvent) => {
-    e = e || window.event
-    e.preventDefault()
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX
-    pos2 = pos4 - e.clientY
-    pos3 = e.clientX
-    pos4 = e.clientY
-    // set the element's new position:
-    const elmnt = terminalRef.current!
-    const rect: DOMRect = elmnt.getBoundingClientRect()
-    if (dimension === "width") {
-      elmnt.style.width = rect.width - pos1 + "px"
-    } else if (dimension === "height") {
-      elmnt.style.height = rect.height - pos2 + "px"
-    } else if (dimension === "both") {
-      elmnt.style.width = rect.width - pos1 + "px"
-      elmnt.style.height = rect.height - pos2 + "px"
-    }
-    calculateDim()
-  }
-
-  const lineMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, line: string) => {
-    e.preventDefault()
-    e = e || window.event
-    pos3 = e.clientX
-    pos4 = e.clientY
-    terminalRef.current!.style.transition = "none"
-    document.onmouseup = closeDragElement
-    // call a function whenever the cursor moves:
-    if (line === "r") document.onmousemove = elementResize("width")
-    else document.onmousemove = elementResize("height")
   }
 
   return (
@@ -228,9 +212,9 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
         <pre id={"content"} className={styles.content}>
           {children}
         </pre>
-        <div className={styles.brCorner} onMouseDown={(e) => cornerMouseDown(e)} />
-        <div className={styles.rLine} onMouseDown={(e) => lineMouseDown(e, "r")} />
-        <div className={styles.bLine} onMouseDown={(e) => lineMouseDown(e, "b")} />
+        <div className={styles.brCorner} onMouseDown={(e) => resizeMouseDown(e, "rb")} />
+        <div className={styles.rLine} onMouseDown={(e) => resizeMouseDown(e, "r")} />
+        <div className={styles.bLine} onMouseDown={(e) => resizeMouseDown(e, "b")} />
       </div>
     </div>
   )
