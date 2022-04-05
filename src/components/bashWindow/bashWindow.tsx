@@ -16,7 +16,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
  let startX: number, startY: number, startW: number, startH: number
 
  const calculateDim = () => {
-  if (document.getElementById("terminal")) {
+  if (terminalRef) {
    const rect: DOMRect = terminalRef.current!.getBoundingClientRect()
    setDim({width: Math.floor(rect.width), height: Math.floor(rect.height)})
   }
