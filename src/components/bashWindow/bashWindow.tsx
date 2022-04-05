@@ -39,6 +39,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     event.preventDefault()
     switch (event.touches.length) {
       case 2:
+        terminalRef.current!.style.touchAction = "none" 
         handleTwoTouches(event)
         break
     }
@@ -68,7 +69,6 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
 
   const handleTwoTouches = (event: TouchEvent) => {
     event.preventDefault()
-    terminalRef.current!.style.touchAction = "none" 
     const first: Touch = event.touches.item(0)!
     const second: Touch = event.touches.item(1)!
     startX = first.clientX > second.clientX ? first.clientX - second.clientX : second.clientX - first.clientX
