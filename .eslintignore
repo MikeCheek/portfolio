@@ -1,2 +1,5 @@
 *.js
 .cache
+public
+package.json
+package-lock.json
