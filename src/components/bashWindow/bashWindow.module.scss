@@ -23,6 +23,7 @@
     box-shadow: 0px 0px 10px var(--black);
     background: #000000dd;
     transition: transform 300ms ease-in-out, height 300ms ease-in-out, width 300ms ease-in-out, opacity 300ms ease-in-out;
+    touch-action: pan-x pan-y;
 }
 
 .top {
