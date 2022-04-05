@@ -1,4 +1,4 @@
-$dimCorner: 10px;
+$dimCorner: 5px;
 .terminalWrap {
     display: flex;
     align-items: center;
@@ -14,13 +14,6 @@ $dimCorner: 10px;
     }
 }
 
-.corner {
-    position: absolute;
-    width: $dimCorner;
-    height: $dimCorner;
-    z-index: 0;
-}
-
 .terminal {
     border-radius: 5px 5px 5px 5px;
     min-width: max-content;
@@ -33,30 +26,29 @@ $dimCorner: 10px;
     transition: transform 300ms ease-in-out, height 300ms ease-in-out, width 300ms ease-in-out, opacity 300ms ease-in-out;
     touch-action: pan-x pan-y;
     .brCorner {
-        @extend .corner;
+        position: absolute;
+        width: $dimCorner;
+        height: $dimCorner;
+        z-index: 1;
         bottom: 0;
         right: 0;
         cursor: nwse-resize;
     }
-    .blCorner {
-        @extend .corner;
+    .rLine {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: $dimCorner;
+        cursor: ew-resize;
+    }
+    .bLine {
+        position: absolute;
         bottom: 0;
         left: 0;
-        cursor: nesw-resize;
-    }
-    .trCorner {
-        @extend .corner;
-        top: 0;
-        right: 0;
-        cursor: nesw-resize;
-    }
-    .tlCorner {
-        @extend .corner;
-        top: 0;
-        left: 0;
-        width: 5px;
-        height: 5px;
-        cursor: nwse-resize;
+        width: 100%;
+        height: $dimCorner;
+        cursor: ns-resize;
     }
 }
 
