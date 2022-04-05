@@ -1,5 +1,5 @@
 export type HistoryType = {
-  command: string
-  output: string
-  blink: boolean
+ command: string
+ output: string
+ blink: boolean
 }

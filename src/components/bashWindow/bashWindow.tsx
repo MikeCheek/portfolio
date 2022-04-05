@@ -85,6 +85,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   document.ontouchend = null
   terminalRef.current!.style.removeProperty("transition")
   terminalRef.current!.style.removeProperty("touchAction")
+  calculateDim()
  }
 
  const handleTwoTouchesMove = (event: TouchEvent) => {

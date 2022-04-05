@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: portfolio
-  labels:
-    app: portfolio
+ name: portfolio
+ labels:
+  app: portfolio
 spec:
-  selector:
-    matchLabels:
-      app: portfolio
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: portfolio
-    spec:
-      containers:
-        - name: portfolio
-          image: docker.io/mikecheek/portfolio:1.0.2
-          resources:
-            requests:
-              cpu: 1m
-              memory: 10Mi
-            limits:
-              cpu: 10m
-              memory: 100Mi
+ selector:
+  matchLabels:
+   app: portfolio
+ replicas: 1
+ template:
+  metadata:
+   labels:
+    app: portfolio
+  spec:
+   containers:
+    - name: portfolio
+      image: docker.io/mikecheek/portfolio:1.0.2
+      resources:
+       requests:
+        cpu: 1m
+        memory: 10Mi
+       limits:
+        cpu: 10m
+        memory: 100Mi

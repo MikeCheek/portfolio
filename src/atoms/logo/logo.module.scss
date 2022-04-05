@@ -1,13 +1,13 @@
 $breakpoints: (
-  phone: 480px,
-  tablet: 768px,
-  big-tablet: 1024px,
-  desktop: 1440px,
+ phone: 480px,
+ tablet: 768px,
+ big-tablet: 1024px,
+ desktop: 1440px,
 );
 
 .logo {
-  height: auto;
-  @media (min-width: 768px) {
-    //width: 50px;
-  }
+ height: auto;
+ @media (min-width: 768px) {
+  //width: 50px;
+ }
 }

@@ -1,136 +1,136 @@
 .section {
-  margin: 10% 4% 10%;
-  padding: 3%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  border-radius: 50px;
+ margin: 10% 4% 10%;
+ padding: 3%;
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+ border-radius: 50px;
 
-  @media screen and (min-width: "768px") {
-    text-align: left;
-    margin: 5% 4% 5%;
-  }
+ @media screen and (min-width: "768px") {
+  text-align: left;
+  margin: 5% 4% 5%;
+ }
 }
 
 .sectionReversed {
-  @extend .section;
-  background: none;
+ @extend .section;
+ background: none;
 
-  @media screen and (min-width: "768px") {
-    //text-align: right;
-  }
+ @media screen and (min-width: "768px") {
+  //text-align: right;
+ }
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ font-size: 1rem;
 
-  @media screen and (min-width: "768px") {
-    flex-direction: row;
-    justify-content: space-around;
-  }
+ @media screen and (min-width: "768px") {
+  flex-direction: row;
+  justify-content: space-around;
+ }
 }
 
 .contentReversed {
-  @extend .content;
+ @extend .content;
 
-  @media screen and (min-width: "768px") {
-    flex-direction: row-reverse;
-  }
+ @media screen and (min-width: "768px") {
+  flex-direction: row-reverse;
+ }
 }
 
 .title {
-  text-transform: uppercase;
-  color: var(--title-dark);
+ text-transform: uppercase;
+ color: var(--title-dark);
 
-  @media screen and (min-width: "768px") {
-    margin: 0 5% 5%;
-  }
+ @media screen and (min-width: "768px") {
+  margin: 0 5% 5%;
+ }
 }
 
 .titleReversed {
-  @extend .title;
+ @extend .title;
 
-  @media screen and (min-width: "768px") {
-    text-align: right;
-  }
+ @media screen and (min-width: "768px") {
+  text-align: right;
+ }
 }
 
 .children {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  @media screen and (min-width: "768px") {
-    width: 80%;
-  }
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ @media screen and (min-width: "768px") {
+  width: 80%;
+ }
 }
 
 .svg {
-  @media screen and (min-width: "768px") {
-    align-self: start;
-    align-self: flex-start;
-    align-self: self-start;
-  }
+ @media screen and (min-width: "768px") {
+  align-self: start;
+  align-self: flex-start;
+  align-self: self-start;
+ }
 }
 
 .trebbling {
-  -webkit-animation: trebble 1s ease-in-out 2 alternate;
-  animation: trebble 1s ease-in-out 2 alternate;
+ -webkit-animation: trebble 1s ease-in-out 2 alternate;
+ animation: trebble 1s ease-in-out 2 alternate;
 }
 
 .move {
-  -webkit-animation: moving 1s ease-in-out 2 alternate;
-  animation: moving 1s ease-in-out 2 alternate;
+ -webkit-animation: moving 1s ease-in-out 2 alternate;
+ animation: moving 1s ease-in-out 2 alternate;
 }
 
 .titleParagraph {
-  color: var(--title-dark);
+ color: var(--title-dark);
 }
 
 .contentParagraph {
-  @extend .content;
+ @extend .content;
 }
 
 .childrenParagraph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
 }
 
 @keyframes trebble {
-  0% {
-    transform: rotateZ(0);
-  }
-  50% {
-    transform: rotateZ(5deg) translateY(-10px);
-  }
-  100% {
-    transform: rotateZ(-5deg) translateY(-10px);
-  }
+ 0% {
+  transform: rotateZ(0);
+ }
+ 50% {
+  transform: rotateZ(5deg) translateY(-10px);
+ }
+ 100% {
+  transform: rotateZ(-5deg) translateY(-10px);
+ }
 }
 
 @keyframes moving {
-  0% {
-  }
-  50% {
-    transform: scale(2);
-    opacity: 0;
-  }
-  100% {
-    transform: none;
-    opacity: 1;
-  }
+ 0% {
+ }
+ 50% {
+  transform: scale(2);
+  opacity: 0;
+ }
+ 100% {
+  transform: none;
+  opacity: 1;
+ }
 }
 
 .light {
-  box-shadow: 0 0 10px 10px var(--sect-box-shad-light);
+ box-shadow: 0 0 10px 10px var(--sect-box-shad-light);
 }
 
 .titleLight {
-  color: var(--title-light);
+ color: var(--title-light);
 }

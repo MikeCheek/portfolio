@@ -1,54 +1,54 @@
 .parallaxWrap {
-  position: absolute;
-  width: 90%;
-  height: 90vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  @media screen and (min-width: "768px") {
-    width: 70%;
-  }
+ position: absolute;
+ width: 90%;
+ height: 90vh;
+ overflow: hidden;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ top: 0;
+ left: 0;
+ @media screen and (min-width: "768px") {
+  width: 70%;
+ }
 }
 .parallaxWrap span {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  border: none;
+ position: absolute;
+ height: 50px;
+ width: 50px;
+ border-radius: 100%;
+ border: none;
 }
 .parallaxWrap span:nth-child(1) {
-  top: 30%;
+ top: 30%;
+ left: 80%;
+ background: var(--transparent-white);
+ //box-shadow: 0 0 50px 50px var(--transparent-white);
+ z-index: 3;
+ @media screen and (min-width: "768px") {
+  top: 60%;
   left: 80%;
-  background: var(--transparent-white);
-  //box-shadow: 0 0 50px 50px var(--transparent-white);
-  z-index: 3;
-  @media screen and (min-width: "768px") {
-    top: 60%;
-    left: 80%;
-  }
+ }
 }
 .parallaxWrap span:nth-child(2) {
-  top: 40%;
-  left: 30%;
-  background: var(--transparent-orange);
-  //box-shadow: 0 0 50px 50px var(--transparent-orange);
-  z-index: 3;
-  @media screen and (min-width: "768px") {
-    top: 70%;
-    left: 40%;
-  }
+ top: 40%;
+ left: 30%;
+ background: var(--transparent-orange);
+ //box-shadow: 0 0 50px 50px var(--transparent-orange);
+ z-index: 3;
+ @media screen and (min-width: "768px") {
+  top: 70%;
+  left: 40%;
+ }
 }
 .parallaxWrap span:nth-child(3) {
-  top: 20%;
-  left: 20%;
-  background: var(--transparent-pink);
-  //box-shadow: 0 0 50px 50px var(--transparent-pink);
-  z-index: 3;
-  @media screen and (min-width: "768px") {
-    top: 40%;
-    left: 25%;
-  }
+ top: 20%;
+ left: 20%;
+ background: var(--transparent-pink);
+ //box-shadow: 0 0 50px 50px var(--transparent-pink);
+ z-index: 3;
+ @media screen and (min-width: "768px") {
+  top: 40%;
+  left: 25%;
+ }
 }

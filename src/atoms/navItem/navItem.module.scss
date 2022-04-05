@@ -1,69 +1,69 @@
 $breakpoints: (
-  phone: 480px,
-  tablet: 768px,
-  big-tablet: 1024px,
-  desktop: 1440px,
+ phone: 480px,
+ tablet: 768px,
+ big-tablet: 1024px,
+ desktop: 1440px,
 );
 
 .link {
-  text-decoration: none;
-  color: inherit;
+ text-decoration: none;
+ color: inherit;
 }
 
 .item::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 4px;
-  background-color: var(--cta-hov-dark);
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
+ content: "";
+ position: absolute;
+ width: 100%;
+ height: 2px;
+ border-radius: 4px;
+ background-color: var(--cta-hov-dark);
+ bottom: 0;
+ left: 0;
+ transform-origin: right;
+ transform: scaleX(0);
+ transition: transform 0.3s ease-in-out;
 }
 
 .item:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
+ transform-origin: left;
+ transform: scaleX(1);
 }
 
 .item {
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: inherit;
-  background-color: transparent;
-  border: none;
-  margin-top: auto;
-  margin-bottom: auto;
+ position: relative;
+ text-decoration: none;
+ text-transform: uppercase;
+ color: inherit;
+ background-color: transparent;
+ border: none;
+ margin-top: auto;
+ margin-bottom: auto;
 }
 
 .item:hover {
-  -webkit-animation: hov 200ms ease-in-out forwards;
-  animation: hov 200ms ease-in-out forwards;
+ -webkit-animation: hov 200ms ease-in-out forwards;
+ animation: hov 200ms ease-in-out forwards;
 }
 
 .itemOn {
-  @extend .item;
+ @extend .item;
 
-  animation: none;
-  transform: scale(1.05);
-  color: var(--cta-hov-dark);
+ animation: none;
+ transform: scale(1.05);
+ color: var(--cta-hov-dark);
 
-  &::before {
-    transform-origin: left;
-    transform: scaleX(1);
-  }
+ &::before {
+  transform-origin: left;
+  transform: scaleX(1);
+ }
 }
 
 @keyframes hov {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.05);
-    color: var(--cta-hov-dark);
-  }
+ 0% {
+  transform: scale(1);
+ }
+ 100% {
+  transform: scale(1.05);
+  color: var(--cta-hov-dark);
+ }
 }

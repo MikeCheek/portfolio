@@ -1,35 +1,35 @@
 .wrap {
-  width: 100%;
+ width: 100%;
 }
 
 .details {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 10px;
 }
 
 .barWrap {
-  position: relative;
-  height: 9px;
-  border: 2px solid var(--bar-border-dark);
-  width: 100%;
-  border-radius: 20px;
+ position: relative;
+ height: 9px;
+ border: 2px solid var(--bar-border-dark);
+ width: 100%;
+ border-radius: 20px;
 }
 
 .bar {
-  position: relative;
-  height: 9px;
-  border-radius: 10px;
-  background-color: var(--bar-bg1-dark);
-  will-change: width;
+ position: relative;
+ height: 9px;
+ border-radius: 10px;
+ background-color: var(--bar-bg1-dark);
+ will-change: width;
 }
 
 .barLight {
-  @extend .bar;
-  background-color: var(--bar-bg1-light);
+ @extend .bar;
+ background-color: var(--bar-bg1-light);
 }
 
 .light {
-  border: 2px solid var(--bar-border-light);
+ border: 2px solid var(--bar-border-light);
 }

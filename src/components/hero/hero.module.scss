@@ -1,28 +1,28 @@
 .parallax {
-  z-index: -1;
+ z-index: -1;
 }
 .sectionWrap {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10%;
+ display: flex;
+ flex-direction: column;
+ margin-top: 10%;
 }
 
 .wrapper {
-  padding-top: 1%;
+ padding-top: 1%;
 }
 
 .about {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  > * {
-    width: 100%;
-  }
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ > * {
+  width: 100%;
+ }
 
-  @media screen and (min-width: "768px") {
-    justify-content: space-between;
-    > * {
-      width: 45%;
-    }
+ @media screen and (min-width: "768px") {
+  justify-content: space-between;
+  > * {
+   width: 45%;
   }
+ }
 }

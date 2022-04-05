@@ -1,4 +1,4 @@
 export type SkillsType = {
-  name: string
-  percentage: string
+ name: string
+ percentage: string
 }[]

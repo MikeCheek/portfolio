@@ -1,124 +1,124 @@
 $breakpoints: (
-  phone: 480px,
-  tablet: 768px,
-  big-tablet: 1024px,
-  desktop: 1440px,
+ phone: 480px,
+ tablet: 768px,
+ big-tablet: 1024px,
+ desktop: 1440px,
 );
 
 .line {
-  width: 35px;
-  height: 3px;
-  border-radius: 30%;
-  position: absolute;
+ width: 35px;
+ height: 3px;
+ border-radius: 30%;
+ position: absolute;
 }
 
 .hamburger {
-  width: 35px;
-  height: 30px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    width: 50px;
-  }
+ width: 35px;
+ height: 30px;
+ padding: 5px;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+ flex-direction: column;
+ @media (min-width: 768px) {
+  width: 50px;
+ }
 }
 .hamLine1 {
-  @extend .line;
-  -webkit-animation: animateCrossLine1 1s ease-in-out forwards;
-  animation: animateCrossLine1 1s ease-in-out forwards;
+ @extend .line;
+ -webkit-animation: animateCrossLine1 1s ease-in-out forwards;
+ animation: animateCrossLine1 1s ease-in-out forwards;
 }
 .hamLine2 {
-  @extend .line;
-  -webkit-animation: animateCrossLine2 1s ease-in-out forwards;
-  animation: animateCrossLine2 1s ease-in-out forwards;
+ @extend .line;
+ -webkit-animation: animateCrossLine2 1s ease-in-out forwards;
+ animation: animateCrossLine2 1s ease-in-out forwards;
 }
 .hamLine3 {
-  @extend .line;
-  -webkit-animation: animateCrossLine3 1s ease-in-out forwards;
-  animation: animateCrossLine3 1s ease-in-out forwards;
+ @extend .line;
+ -webkit-animation: animateCrossLine3 1s ease-in-out forwards;
+ animation: animateCrossLine3 1s ease-in-out forwards;
 }
 
 .crossLine1 {
-  @extend .hamLine1;
-  -webkit-animation: animateHamLine1 1s ease-in-out forwards;
-  animation: animateHamLine1 1s ease-in-out forwards;
+ @extend .hamLine1;
+ -webkit-animation: animateHamLine1 1s ease-in-out forwards;
+ animation: animateHamLine1 1s ease-in-out forwards;
 }
 .crossLine2 {
-  @extend .hamLine2;
-  -webkit-animation: animateHamLine2 1s ease-in-out forwards;
-  animation: animateHamLine2 1s ease-in-out forwards;
+ @extend .hamLine2;
+ -webkit-animation: animateHamLine2 1s ease-in-out forwards;
+ animation: animateHamLine2 1s ease-in-out forwards;
 }
 .crossLine3 {
-  @extend .hamLine3;
-  -webkit-animation: animateHamLine3 1s ease-in-out forwards;
-  animation: animateHamLine3 1s ease-in-out forwards;
+ @extend .hamLine3;
+ -webkit-animation: animateHamLine3 1s ease-in-out forwards;
+ animation: animateHamLine3 1s ease-in-out forwards;
 }
 
 @keyframes animateHamLine1 {
-  0% {
-    margin-bottom: 25px;
-  }
-  50% {
-    margin: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    margin: 0;
-    transform: rotateZ(45deg);
-  }
+ 0% {
+  margin-bottom: 25px;
+ }
+ 50% {
+  margin: 0;
+  transform: translateY(20px);
+ }
+ 100% {
+  margin: 0;
+  transform: rotateZ(45deg);
+ }
 }
 
 @keyframes animateHamLine2 {
-  0% {
-    transform: none;
-  }
-  100% {
-    transform: translateX(200px);
-    opacity: 0;
-  }
+ 0% {
+  transform: none;
+ }
+ 100% {
+  transform: translateX(200px);
+  opacity: 0;
+ }
 }
 
 @keyframes animateHamLine3 {
-  0% {
-    margin-top: 25px;
-  }
-  50% {
-    margin: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    margin: 0;
-    transform: rotateZ(-45deg);
-  }
+ 0% {
+  margin-top: 25px;
+ }
+ 50% {
+  margin: 0;
+  transform: translateY(-20px);
+ }
+ 100% {
+  margin: 0;
+  transform: rotateZ(-45deg);
+ }
 }
 
 @keyframes animateCrossLine1 {
-  0% {
-    transform: rotateZ(45deg);
-  }
-  100% {
-    transform: none;
-    margin-bottom: 25px;
-  }
+ 0% {
+  transform: rotateZ(45deg);
+ }
+ 100% {
+  transform: none;
+  margin-bottom: 25px;
+ }
 }
 
 @keyframes animateCrossLine2 {
-  0% {
-    transform: translateX(200px);
-  }
-  100% {
-    transform: none;
-  }
+ 0% {
+  transform: translateX(200px);
+ }
+ 100% {
+  transform: none;
+ }
 }
 
 @keyframes animateCrossLine3 {
-  0% {
-    transform: rotateZ(-45deg);
-  }
-  100% {
-    transform: none;
-    margin-top: 25px;
-  }
+ 0% {
+  transform: rotateZ(-45deg);
+ }
+ 100% {
+  transform: none;
+  margin-top: 25px;
+ }
 }

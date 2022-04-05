@@ -1,53 +1,53 @@
 .wrap {
-  border-radius: 20px;
-  //border: var(--transparent-white) 2px solid;
-  width: 50px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+ border-radius: 20px;
+ //border: var(--transparent-white) 2px solid;
+ width: 50px;
+ height: 25px;
+ display: flex;
+ align-items: center;
+ flex-direction: row;
 }
 
 .circle {
-  border-radius: 50%;
-  background-color: var(--toggle-bg-dark);
-  width: 20px;
-  height: 20px;
-  margin: 5px;
+ border-radius: 50%;
+ background-color: var(--toggle-bg-dark);
+ width: 20px;
+ height: 20px;
+ margin: 5px;
 }
 
 .circleToggled {
-  @extend .circle;
-  animation: untoggled 500ms forwards ease-in-out;
+ @extend .circle;
+ animation: untoggled 500ms forwards ease-in-out;
 }
 
 .circleUntoggled {
-  @extend .circle;
-  animation: toggled 500ms forwards ease-in-out;
+ @extend .circle;
+ animation: toggled 500ms forwards ease-in-out;
 }
 
 @keyframes toggled {
-  0% {
-    margin-left: 25px;
-    margin-right: 5px;
-    background-color: var(--toggle-bg-light);
-  }
-  100% {
-    margin-left: 5px;
-    margin-right: 25px;
-    background-color: var(--toggle-bg-dark);
-  }
+ 0% {
+  margin-left: 25px;
+  margin-right: 5px;
+  background-color: var(--toggle-bg-light);
+ }
+ 100% {
+  margin-left: 5px;
+  margin-right: 25px;
+  background-color: var(--toggle-bg-dark);
+ }
 }
 
 @keyframes untoggled {
-  0% {
-    margin-left: 5px;
-    margin-right: 25px;
-    background-color: var(--toggle-bg-dark);
-  }
-  100% {
-    margin-left: 25px;
-    margin-right: 5px;
-    background-color: var(--toggle-bg-light);
-  }
+ 0% {
+  margin-left: 5px;
+  margin-right: 25px;
+  background-color: var(--toggle-bg-dark);
+ }
+ 100% {
+  margin-left: 25px;
+  margin-right: 5px;
+  background-color: var(--toggle-bg-light);
+ }
 }

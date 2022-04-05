@@ -1,4 +1,4 @@
 export type BarProps = {
-  name: string
-  percentage: string
+ name: string
+ percentage: string
 }
