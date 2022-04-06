@@ -1,15 +1,15 @@
-import React from "react"
-import {StaticImage} from "gatsby-plugin-image"
+import React from 'react'
+import {StaticImage} from 'gatsby-plugin-image'
 
-import * as styles from "./photoProfile.module.scss"
-import detectBrowser from "../../utilities/detectBrowser"
+import * as styles from './photoProfile.module.scss'
+import detectBrowser from '../../utilities/detectBrowser'
 //import { useThemeContext } from '../../utilities/themeContext'
 
 const PhotoProfile = (): JSX.Element => {
   //const theme: String = useThemeContext();
 
   const parallax = (event: MouseEvent): void => {
-    const shift: HTMLElement = document.getElementById("profile")!
+    const shift: HTMLElement = document.getElementById('profile')!
     const rect: DOMRect = shift.getBoundingClientRect()
     const middleY: number = rect.top + rect.height / 2
     const middleX: number = rect.left + rect.width / 2
@@ -20,10 +20,10 @@ const PhotoProfile = (): JSX.Element => {
   }
 
   const addListener = (): void | null =>
-    detectBrowser() != "Safari" ? document.addEventListener("mousemove", parallax) : null
+    detectBrowser() != 'Safari' ? document.addEventListener('mousemove', parallax) : null
   const removeListener = (): void => {
-    document.removeEventListener("mousemove", parallax)
-    const shift: HTMLElement = document.getElementById("profile")!
+    document.removeEventListener('mousemove', parallax)
+    const shift: HTMLElement = document.getElementById('profile')!
     shift.style.transform = `none`
   }
 
@@ -68,12 +68,12 @@ const PhotoProfile = (): JSX.Element => {
                     />
     */}
       <StaticImage
-        src={"../../images/profescional.png"}
+        src={'../../images/profescional.png'}
         alt="Michele Pulvirenti"
         placeholder="tracedSVG"
         layout="constrained"
         style={{zIndex: 1}} //for safari
-        tracedSVGOptions={{color: "dimGrey"}}
+        tracedSVGOptions={{color: 'dimGrey'}}
         quality={100}
         width={200}
         height={200}

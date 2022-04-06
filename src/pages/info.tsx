@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react"
-import Loading from "../atoms/loading/loading"
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
+import React, {useEffect, useState} from 'react'
+import Loading from '../atoms/loading/loading'
+import Layout from '../components/layout/layout'
+import SEO from '../components/seo/seo'
 
 const InfoPage = () => {
   const [data, setData] = useState<JSON>(JSON.parse(`{"loading": "data"}`))
   const [error, setError] = useState<boolean>(false)
 
   const fetchData = async () => {
-    const result: Response = await fetch("https://api.github.com/repos/mike-cheek/portfolio/languages")
+    const result: Response = await fetch('https://api.github.com/repos/mike-cheek/portfolio/languages')
     if (result.ok) {
       const d: JSON = await result.json()
       setData(d)

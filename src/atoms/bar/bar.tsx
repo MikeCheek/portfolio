@@ -1,12 +1,12 @@
-import React, {useState, useEffect, useRef} from "react"
+import React, {useState, useEffect, useRef} from 'react'
 
-import * as styles from "./bar.module.scss"
+import * as styles from './bar.module.scss'
 
-import {BarProps} from "./bar.types"
+import {BarProps} from './bar.types'
 
 //@ts-ignore
-import isOnScreen from "../../utilities/isOnScreen"
-import {useThemeContext} from "../../utilities/themeContext"
+import isOnScreen from '../../utilities/isOnScreen'
+import {useThemeContext} from '../../utilities/themeContext'
 
 //const fill = keyframes`100%{width: ${(props) => props.percentage || "0%"};}`
 
@@ -18,11 +18,11 @@ const Bar = ({name, percentage}: BarProps) => {
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
 
-  const [perc, setPerc] = useState<string>("0%")
+  const [perc, setPerc] = useState<string>('0%')
   const [rand, setRand] = useState<number>(2)
 
   const BarStyle: React.CSSProperties = {
-    width: isVisible ? perc : "0%",
+    width: isVisible ? perc : '0%',
     transition: `${rand}s ease-in-out`,
   }
 
@@ -45,8 +45,8 @@ const Bar = ({name, percentage}: BarProps) => {
         <span>{name}</span>
         <span>{percentage}</span>
       </div>
-      <div className={`${styles.barWrap} ${theme === "dark" ? null : styles.light}`} ref={barRef}>
-        <div className={theme === "dark" ? styles.bar : styles.barLight} style={BarStyle} />
+      <div className={`${styles.barWrap} ${theme === 'dark' ? null : styles.light}`} ref={barRef}>
+        <div className={theme === 'dark' ? styles.bar : styles.barLight} style={BarStyle} />
       </div>
     </div>
   )

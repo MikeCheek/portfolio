@@ -1,7 +1,7 @@
-import React, {useEffect, useState, useRef} from "react"
-import sleep from "../../utilities/sleep"
-import * as styles from "./bashWindow.module.scss"
-import {BashWindowProps, Dim} from "./bashWindow.types"
+import React, {useEffect, useState, useRef} from 'react'
+import sleep from '../../utilities/sleep'
+import * as styles from './bashWindow.module.scss'
+import {BashWindowProps, Dim} from './bashWindow.types'
 
 const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   const [dim, setDim] = useState<Dim>({width: 70, height: 32})
@@ -34,9 +34,9 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }, [terminalRef])
 
   useEffect(() => {
-    terminalRef.current!.addEventListener("touchstart", handleTouch, {passive: true})
+    terminalRef.current!.addEventListener('touchstart', handleTouch, {passive: true})
     return () => {
-      terminalRef.current!.removeEventListener("touchstart", handleTouch)
+      terminalRef.current!.removeEventListener('touchstart', handleTouch)
     }
   }, [terminalRef.current])
 
@@ -55,7 +55,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     pos4 = event.touches[0].clientY
     document.ontouchmove = handleOneTouchMove
     document.ontouchend = handleTouchEnd
-    terminalRef.current!.style.removeProperty("transition")
+    terminalRef.current!.style.removeProperty('transition')
   }
 
   const handleTwoTouches = (event: TouchEvent) => {
@@ -68,7 +68,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     startH = terminalRef.current!.getBoundingClientRect().height
     document.ontouchmove = handleTwoTouchesMove
     document.ontouchend = handleTouchEnd
-    terminalRef.current!.style.transition = "none"
+    terminalRef.current!.style.transition = 'none'
   }
 
   const handleOneTouchMove = (event: TouchEvent) => {
@@ -77,8 +77,8 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     updatePosition(event.touches[0].clientX, event.touches[0].clientY)
     // set the element's new position:
     const elmnt = terminalRef.current!
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px"
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px"
+    elmnt.style.top = elmnt.offsetTop - pos2 + 'px'
+    elmnt.style.left = elmnt.offsetLeft - pos1 + 'px'
   }
 
   const handleTwoTouchesMove = (event: TouchEvent) => {
@@ -101,14 +101,14 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   const handleTouchEnd = () => {
     document.ontouchmove = null
     document.ontouchend = null
-    terminalRef.current!.style.removeProperty("transition")
+    terminalRef.current!.style.removeProperty('transition')
     calculateDim()
   }
 
   const dragMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e = e || window.event
     e.preventDefault()
-    topRef.current!.style.cursor = "grabbing"
+    topRef.current!.style.cursor = 'grabbing'
     // get the mouse cursor position at startup:
     pos3 = e.clientX
     pos4 = e.clientY
@@ -124,17 +124,17 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     updatePosition(e.clientX, e.clientY)
     // set the element's new position:
     const elmnt = terminalRef.current!
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px"
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px"
+    elmnt.style.top = elmnt.offsetTop - pos2 + 'px'
+    elmnt.style.left = elmnt.offsetLeft - pos1 + 'px'
   }
 
   const closeDragElement = () => {
     // stop moving when mouse button is released:
     document.onmouseup = null
     document.onmousemove = null
-    topRef.current!.style.removeProperty("cursor")
-    terminalRef.current!.style.removeProperty("transition")
-    document.body.style.removeProperty("cursor")
+    topRef.current!.style.removeProperty('cursor')
+    terminalRef.current!.style.removeProperty('transition')
+    document.body.style.removeProperty('cursor')
   }
 
   const elementResize = (dimension: string) => (e: MouseEvent) => {
@@ -145,13 +145,13 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     // set the element's new position:
     const elmnt = terminalRef.current!
     const rect: DOMRect = elmnt.getBoundingClientRect()
-    if (dimension === "width") {
-      elmnt.style.width = rect.width - pos1 + "px"
-    } else if (dimension === "height") {
-      elmnt.style.height = rect.height - pos2 + "px"
-    } else if (dimension === "both") {
-      elmnt.style.width = rect.width - pos1 + "px"
-      elmnt.style.height = rect.height - pos2 + "px"
+    if (dimension === 'width') {
+      elmnt.style.width = rect.width - pos1 + 'px'
+    } else if (dimension === 'height') {
+      elmnt.style.height = rect.height - pos2 + 'px'
+    } else if (dimension === 'both') {
+      elmnt.style.width = rect.width - pos1 + 'px'
+      elmnt.style.height = rect.height - pos2 + 'px'
     }
     calculateDim()
   }
@@ -161,40 +161,40 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     e = e || window.event
     pos3 = e.clientX
     pos4 = e.clientY
-    terminalRef.current!.style.transition = "none"
+    terminalRef.current!.style.transition = 'none'
     document.onmouseup = closeDragElement
     // call a function whenever the cursor moves:
-    if (type === "r") {
-      document.onmousemove = elementResize("width")
-      document.body.style.cursor = "ew-resize"
-    } else if (type === "b") {
-      document.onmousemove = elementResize("height")
-      document.body.style.cursor = "ns-resize"
-    } else if (type === "rb") {
-      document.onmousemove = elementResize("both")
-      document.body.style.cursor = "nwse-resize"
+    if (type === 'r') {
+      document.onmousemove = elementResize('width')
+      document.body.style.cursor = 'ew-resize'
+    } else if (type === 'b') {
+      document.onmousemove = elementResize('height')
+      document.body.style.cursor = 'ns-resize'
+    } else if (type === 'rb') {
+      document.onmousemove = elementResize('both')
+      document.body.style.cursor = 'nwse-resize'
     }
   }
 
   const minimize = () => {
-    terminalRef.current!.style.cssText = "height: 0; min-height: 0; width: auto"
-    document.getElementById("content")!.style.cssText = "height: 0; width: auto; padding: 0; opacity: 0"
+    terminalRef.current!.style.cssText = 'height: 0; min-height: 0; width: auto'
+    document.getElementById('content')!.style.cssText = 'height: 0; width: auto; padding: 0; opacity: 0'
     setCompact(true)
   }
 
   const expand = () => {
-    terminalRef.current!.removeAttribute("style")
-    document.getElementById("content")!.removeAttribute("style")
+    terminalRef.current!.removeAttribute('style')
+    document.getElementById('content')!.removeAttribute('style')
     setCompact(false)
     calculateDim()
   }
 
   const close = () => {
-    terminalRef.current!.style.transform = "scale(0)"
-    terminalRef.current!.style.opacity = "0"
+    terminalRef.current!.style.transform = 'scale(0)'
+    terminalRef.current!.style.opacity = '0'
     sleep(2000).then(() => {
-      terminalRef.current!.style.removeProperty("transform")
-      terminalRef.current!.style.removeProperty("opacity")
+      terminalRef.current!.style.removeProperty('transform')
+      terminalRef.current!.style.removeProperty('opacity')
       sleep(500).then(() => {
         calculateDim()
       })
@@ -217,12 +217,12 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
             <span className={styles.circleGreen} onClick={minimize}></span>
           </div>
         </div>
-        <pre id={"content"} className={styles.content}>
+        <pre id={'content'} className={styles.content}>
           {children}
         </pre>
-        <div className={styles.brCorner} onMouseDown={(e) => resizeMouseDown(e, "rb")} />
-        <div className={styles.rLine} onMouseDown={(e) => resizeMouseDown(e, "r")} />
-        <div className={styles.bLine} onMouseDown={(e) => resizeMouseDown(e, "b")} />
+        <div className={styles.brCorner} onMouseDown={(e) => resizeMouseDown(e, 'rb')} />
+        <div className={styles.rLine} onMouseDown={(e) => resizeMouseDown(e, 'r')} />
+        <div className={styles.bLine} onMouseDown={(e) => resizeMouseDown(e, 'b')} />
       </div>
     </div>
   )

@@ -1,14 +1,14 @@
-import React from "react"
-import {Helmet} from "react-helmet"
+import React from 'react'
+import {Helmet} from 'react-helmet'
 //import { useStaticQuery, graphql } from "gatsby"
-import {SEOProps /*QueryTypes*/} from "./seo.types"
+import {SEOProps /*QueryTypes*/} from './seo.types'
 
-const SEO = ({description = "", lang = "en", meta = [], title}: SEOProps): JSX.Element => {
+const SEO = ({description = '', lang = 'en', meta = [], title}: SEOProps): JSX.Element => {
   //const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery)
 
   const metaDescription: string = description //|| site.siteMetadata.description
   //const defaultTitle = site.siteMetadata?.title
-  const defaultTitle: string = "Portfolio"
+  const defaultTitle: string = 'Portfolio'
   return (
     <Helmet
       htmlAttributes={{

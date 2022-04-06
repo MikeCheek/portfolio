@@ -1,17 +1,17 @@
-import React from "react"
+import React from 'react'
 //@ts-ignore
-import Bar from "../../atoms/bar/bar"
-import {programming, frameworks, others, languages} from "../../utilities/info"
+import Bar from '../../atoms/bar/bar'
+import {programming, frameworks, others, languages} from '../../utilities/info'
 
-import * as styles from "./skills.module.scss"
-import {useThemeContext} from "../../utilities/themeContext"
+import * as styles from './skills.module.scss'
+import {useThemeContext} from '../../utilities/themeContext'
 
 const Skills = (): JSX.Element => {
   const theme: string = useThemeContext()
 
   return (
     <div className={styles.wrap}>
-      <div className={theme === "dark" ? styles.skills : styles.skillsLight}>
+      <div className={theme === 'dark' ? styles.skills : styles.skillsLight}>
         <h3>Programming Languages</h3>
         {programming.map((skill) => {
           return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />

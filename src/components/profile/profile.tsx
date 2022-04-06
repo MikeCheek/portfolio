@@ -1,10 +1,10 @@
-import React from "react"
-import PhotoProfile from "../../atoms/photoProfile/photoProfile"
+import React from 'react'
+import PhotoProfile from '../../atoms/photoProfile/photoProfile'
 
-import cv from "../../assets/cv.pdf"
+import cv from '../../assets/cv.pdf'
 
-import * as styles from "./profile.module.scss"
-import {useThemeContext} from "../../utilities/themeContext"
+import * as styles from './profile.module.scss'
+import {useThemeContext} from '../../utilities/themeContext'
 
 const Profile = (): JSX.Element => {
   const theme: string = useThemeContext()
@@ -18,7 +18,7 @@ const Profile = (): JSX.Element => {
         target="_blank"
         title="Download my CV"
         download="CV Michele Pulvirenti"
-        className={`${styles.cvButton} ${theme === "dark" ? null : styles.light}`}
+        className={`${styles.cvButton} ${theme === 'dark' ? null : styles.light}`}
       >
         Download CV
       </a>
