@@ -134,6 +134,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     document.onmousemove = null
     topRef.current!.style.removeProperty("cursor")
     terminalRef.current!.style.removeProperty("transition")
+    document.body.style.removeProperty("cursor")
   }
 
   const elementResize = (dimension: string) => (e: MouseEvent) => {
@@ -163,9 +164,16 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
     terminalRef.current!.style.transition = "none"
     document.onmouseup = closeDragElement
     // call a function whenever the cursor moves:
-    if (type === "r") document.onmousemove = elementResize("width")
-    else if (type === "b") document.onmousemove = elementResize("height")
-    else if (type === "rb") document.onmousemove = elementResize("both")
+    if (type === "r") {
+      document.onmousemove = elementResize("width")
+      document.body.style.cursor = "ew-resize"
+    } else if (type === "b") {
+      document.onmousemove = elementResize("height")
+      document.body.style.cursor = "ns-resize"
+    } else if (type === "rb") {
+      document.onmousemove = elementResize("both")
+      document.body.style.cursor = "nwse-resize"
+    }
   }
 
   const minimize = () => {

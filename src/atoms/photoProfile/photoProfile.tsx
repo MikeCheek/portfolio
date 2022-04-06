@@ -27,6 +27,9 @@ const PhotoProfile = (): JSX.Element => {
     shift.style.transform = `none`
   }
 
+  //create the handleclick function
+  const handleClick = () => {}
+
   return (
     <div
       id="profile"
@@ -34,6 +37,7 @@ const PhotoProfile = (): JSX.Element => {
       onMouseLeave={removeListener}
       onMouseOver={addListener}
       onMouseOut={removeListener}
+      onClick={handleClick}
     >
       {/*
                 theme === "dark" ?
