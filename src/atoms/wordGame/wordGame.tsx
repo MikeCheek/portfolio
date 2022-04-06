@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from 'react'
 
-import * as styles from "./wordGame.module.scss"
-import {WordGameProps} from "./wordGame.types"
+import * as styles from './wordGame.module.scss'
+import {WordGameProps} from './wordGame.types'
 
-import containsChar from "../../utilities/containsChar"
-import sleep from "../../utilities/sleep"
-import {getDefinition} from "../../utilities/word"
+import containsChar from '../../utilities/containsChar'
+import sleep from '../../utilities/sleep'
+import {getDefinition} from '../../utilities/word'
 
-const alphabet: string[] = Array.from("abcdefghijklmnopqrstuvwxyz")
+const alphabet: string[] = Array.from('abcdefghijklmnopqrstuvwxyz')
 
 const WordGame = ({word, language}: WordGameProps): JSX.Element => {
   const [chars, setChars] = useState<string[]>([])
   const [victory, setVictory] = useState<boolean>(false)
 
-  const [inLetters, setInLetters] = useState<string>("")
-  const [okLetters, setOkLetters] = useState<string>("")
+  const [inLetters, setInLetters] = useState<string>('')
+  const [okLetters, setOkLetters] = useState<string>('')
   const [remainings, setRemainings] = useState<string[]>(alphabet)
 
   const [attempts, setAttempts] = useState<number>(0)
@@ -35,12 +35,12 @@ What do you expect to find here?
 I'm having fun with ${word}... 
 Go somewhere else or try to guess the word `)
 
-    if (document.getElementById("input0")) document.getElementById("input0")?.focus()
-    else sleep(1000).then(() => document.getElementById("input0")?.focus())
+    if (document.getElementById('input0')) document.getElementById('input0')?.focus()
+    else sleep(1000).then(() => document.getElementById('input0')?.focus())
   }, [word])
 
   const nextInput = (form: any, index: number): void => {
-    if (form.elements[index + 1].value == "Check") return
+    if (form.elements[index + 1].value == 'Check') return
 
     if (form.elements[index + 1].disabled) nextInput(form, index + 1)
     else form.elements[index + 1]?.focus()
@@ -55,13 +55,13 @@ Go somewhere else or try to guess the word `)
     const form = event.target.form
     const index = [...form].indexOf(event.target)
 
-    if (event.key.toLowerCase() === "enter" || event.key.toLowerCase() === "arrowright") {
+    if (event.key.toLowerCase() === 'enter' || event.key.toLowerCase() === 'arrowright') {
       nextInput(form, index)
       event.preventDefault()
-    } else if (event.key.toLowerCase() === "arrowleft") {
+    } else if (event.key.toLowerCase() === 'arrowleft') {
       previousInput(form, index)
       event.preventDefault()
-    } else if (event.key.toLowerCase() === "backspace" && event.target.value === "") {
+    } else if (event.key.toLowerCase() === 'backspace' && event.target.value === '') {
       previousInput(form, index)
     }
   }
@@ -70,8 +70,8 @@ Go somewhere else or try to guess the word `)
     const form = event.target.form
     const index = [...form].indexOf(event.target)
 
-    if (event.target.value == " " || event.target.value == "" || !event.target.value.match("^([a-z]|[A-Z])*$")) {
-      event.target.value = ""
+    if (event.target.value == ' ' || event.target.value == '' || !event.target.value.match('^([a-z]|[A-Z])*$')) {
+      event.target.value = ''
     } else {
       nextInput(form, index)
       event.preventDefault()
@@ -79,9 +79,9 @@ Go somewhere else or try to guess the word `)
   }
 
   const check = (event: any) => {
-    const form = event.target.form || document.getElementById("form")
+    const form = event.target.form || document.getElementById('form')
     const tmpArray: string[] = []
-    let tmpString = ""
+    let tmpString = ''
 
     let tmpIn = inLetters
     let tmpOk = okLetters
@@ -100,36 +100,36 @@ Go somewhere else or try to guess the word `)
       })
       if (!containsChar(tmpIn, tmpArray[i])) tmpIn += tmpArray[i]
 
-      if (containsChar(word, tmpArray[i]) && tmpArray[i] != "") {
-        document.getElementById("input" + i)!.style.backgroundColor = "var(--orange)"
+      if (containsChar(word, tmpArray[i]) && tmpArray[i] != '') {
+        document.getElementById('input' + i)!.style.backgroundColor = 'var(--orange)'
 
         if (!containsChar(tmpOk, tmpArray[i])) tmpOk += tmpArray[i]
       } else {
-        document.getElementById("input" + i)!.style.backgroundColor = ""
+        document.getElementById('input' + i)!.style.backgroundColor = ''
       }
 
       if (tmpArray[i].toUpperCase() === chars[i].toUpperCase()) {
-        document.getElementById("input" + i)!.style.backgroundColor = "var(--pink)"
-        document.getElementById("input" + i)!.setAttribute("disabled", "disabled")
+        document.getElementById('input' + i)!.style.backgroundColor = 'var(--pink)'
+        document.getElementById('input' + i)!.setAttribute('disabled', 'disabled')
       }
     }
 
     if (word.toUpperCase() === tmpString.toUpperCase()) setVictory(true)
     else
       document
-        .getElementById("trebbling")!
+        .getElementById('trebbling')!
         .animate(
           [
-            {transform: "none"},
-            {transform: "translateX(10px) rotateZ(1deg)"},
-            {transform: "translateX(-10px) rotateZ(1deg)"},
-            {transform: "translateX(10px) rotateZ(-1deg)"},
-            {transform: "translateX(-10px) rotateZ(-1deg)"},
-            {transform: "none"},
+            {transform: 'none'},
+            {transform: 'translateX(10px) rotateZ(1deg)'},
+            {transform: 'translateX(-10px) rotateZ(1deg)'},
+            {transform: 'translateX(10px) rotateZ(-1deg)'},
+            {transform: 'translateX(-10px) rotateZ(-1deg)'},
+            {transform: 'none'},
           ],
           {
             duration: 300,
-            easing: "linear",
+            easing: 'linear',
           }
         )
 
@@ -142,22 +142,22 @@ Go somewhere else or try to guess the word `)
   const toggleHint = () => setHint(!hint)
 
   return (
-    <form id={"form"} className={styles.form}>
-      <div id={"trebbling"}>
+    <form id={'form'} className={styles.form}>
+      <div id={'trebbling'}>
         {chars.map((_char, key) => {
           return (
             <input
-              type={"text"}
+              type={'text'}
               key={key}
               className={styles.input}
-              id={"input" + key}
-              name={"input" + key}
+              id={'input' + key}
+              name={'input' + key}
               tabIndex={key + 1}
-              enterKeyHint={"next"}
+              enterKeyHint={'next'}
               maxLength={1}
               onKeyDown={handleEnter}
               onChange={handleChange}
-              pattern={"^([a-z]|[A-Z])*$"}
+              pattern={'^([a-z]|[A-Z])*$'}
             />
           )
         })}
@@ -165,17 +165,17 @@ Go somewhere else or try to guess the word `)
       {victory ? (
         <div className={styles.victory}>
           <h2>
-            YOU HAVE GUESSED THE WORD <span style={{color: "var(--pink)"}}>{word.toUpperCase()}</span> IN {attempts}{" "}
-            {attempts == 1 ? "ATTEMPT" : "ATTEMPTS"}!!
+            YOU HAVE GUESSED THE WORD <span style={{color: 'var(--pink)'}}>{word.toUpperCase()}</span> IN {attempts}{' '}
+            {attempts == 1 ? 'ATTEMPT' : 'ATTEMPTS'}!!
           </h2>
-          {lan === "en" ? (
+          {lan === 'en' ? (
             <>
-              <button type={"button"} className={styles.ctaDefinition} onClick={toggleDefinition}>
+              <button type={'button'} className={styles.ctaDefinition} onClick={toggleDefinition}>
                 {definition ? `HIDE` : `SHOW`} DEFINITION
               </button>
               {definition ? (
                 <p>
-                  <span style={{color: "var(--pink)"}}>{word}</span>: {getDefinition(word)}
+                  <span style={{color: 'var(--pink)'}}>{word}</span>: {getDefinition(word)}
                 </p>
               ) : null}
             </>
@@ -183,7 +183,7 @@ Go somewhere else or try to guess the word `)
         </div>
       ) : (
         <>
-          <button className={styles.check} type={"button"} value={"Check"} onClick={check}>
+          <button className={styles.check} type={'button'} value={'Check'} onClick={check}>
             CHECK
           </button>
           <p>Attempts: {attempts}</p>
@@ -208,7 +208,7 @@ Go somewhere else or try to guess the word `)
         </div>
       </div>
       <button type="button" className={styles.buttonHint} onClick={toggleHint}>
-        {hint ? "HIDE" : "SHOW"} HINT
+        {hint ? 'HIDE' : 'SHOW'} HINT
       </button>
       {hint ? (
         <div className={styles.letters}>

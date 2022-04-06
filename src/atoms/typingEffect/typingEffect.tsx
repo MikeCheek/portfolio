@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react"
-import sleep from "../../utilities/sleep"
+import React, {useState, useEffect} from 'react'
+import sleep from '../../utilities/sleep'
 
-import * as styles from "./typingEffect.module.scss"
-import {TypingEffectProps} from "./typingEffect.types"
+import * as styles from './typingEffect.module.scss'
+import {TypingEffectProps} from './typingEffect.types'
 
-const alphabet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+const alphabet: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 const TypingEffect = ({
   initialText,
@@ -14,10 +14,10 @@ const TypingEffect = ({
   then = () => null,
 }: TypingEffectProps): JSX.Element => {
   const array: string[] = Array.from(initialText)
-  const [text, setText] = useState<string>("")
+  const [text, setText] = useState<string>('')
   const [noBlink, setNoBlink] = useState<boolean>(false)
 
-  let tmpString: string = ""
+  let tmpString: string = ''
   const min: number = 0
   const max: number = fast ? 10 : 100
 
@@ -64,11 +64,11 @@ const TypingEffect = ({
   return (
     <>
       {heading ? (
-        <h1 id={"typing"} className={styles.headingText}>
+        <h1 id={'typing'} className={styles.headingText}>
           {text}
         </h1>
       ) : (
-        <p id={"typing"} className={noBlink && !blinkAfter ? styles.paragraphTextNoBlink : styles.paragraphText}>
+        <p id={'typing'} className={noBlink && !blinkAfter ? styles.paragraphTextNoBlink : styles.paragraphText}>
           {text}
         </p>
       )}

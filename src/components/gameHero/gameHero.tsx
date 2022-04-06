@@ -1,18 +1,18 @@
-import React, {useState} from "react"
+import React, {useState} from 'react'
 
-import * as styles from "./gameHero.module.scss"
+import * as styles from './gameHero.module.scss'
 
-import Loading from "../../atoms/loading/loading"
-import WordGame from "../../atoms/wordGame/wordGame"
-import randomWord from "../../utilities/word"
+import Loading from '../../atoms/loading/loading'
+import WordGame from '../../atoms/wordGame/wordGame'
+import randomWord from '../../utilities/word'
 
 const GameHero = (): JSX.Element => {
   const [fetched, setFetched] = useState<boolean>(false)
-  const [word, setWord] = useState<string>("")
+  const [word, setWord] = useState<string>('')
   const [started, setStarted] = useState<boolean>(false)
   const [length, setLength] = useState<number>(7)
 
-  const [language, setLanguage] = useState<string>("en")
+  const [language, setLanguage] = useState<string>('en')
 
   /*const fetchData = async () => {
         setFetched(false);
@@ -48,8 +48,8 @@ const GameHero = (): JSX.Element => {
   }
 
   const changeLanguage = () => {
-    if (language === "en") setLanguage("it")
-    else setLanguage("en")
+    if (language === 'en') setLanguage('it')
+    else setLanguage('en')
   }
 
   return (
@@ -70,11 +70,11 @@ const GameHero = (): JSX.Element => {
             <br />
             <br />
             <li>
-              When you guess a letter, the box turns <span style={{color: "var(--orange)"}}>orange</span>
+              When you guess a letter, the box turns <span style={{color: 'var(--orange)'}}>orange</span>
             </li>
             <li>
-              When you guess both the letter and the position in the word, the box turns{" "}
-              <span style={{color: "var(--pink)"}}>pink</span>
+              When you guess both the letter and the position in the word, the box turns{' '}
+              <span style={{color: 'var(--pink)'}}>pink</span>
             </li>
             <br />
             You can change the MAX length and the language of the hidden word at the top. <br />
@@ -97,10 +97,10 @@ const GameHero = (): JSX.Element => {
         </div>
         <div className={styles.language}>
           <p>Language </p>
-          <button onClick={changeLanguage} className={language.toUpperCase() == "EN" ? styles.buttonOn : ""}>
+          <button onClick={changeLanguage} className={language.toUpperCase() == 'EN' ? styles.buttonOn : ''}>
             ENGLISH
           </button>
-          <button onClick={changeLanguage} className={language.toUpperCase() == "IT" ? styles.buttonOn : ""}>
+          <button onClick={changeLanguage} className={language.toUpperCase() == 'IT' ? styles.buttonOn : ''}>
             ITALIAN
           </button>
         </div>

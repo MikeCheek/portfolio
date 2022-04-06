@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 90%;
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     width: 70%;
   }
   h4 {
@@ -88,7 +88,7 @@
   display: flex;
   flex-direction: row;
   text-align: center;
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     height: 2rem;
   }
   p {

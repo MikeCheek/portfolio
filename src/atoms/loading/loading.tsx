@@ -1,5 +1,5 @@
-import React from "react"
-import * as styles from "./loading.module.scss"
+import React from 'react'
+import * as styles from './loading.module.scss'
 
 const Loading = (): JSX.Element => {
   return (

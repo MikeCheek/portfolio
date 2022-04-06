@@ -1,12 +1,12 @@
-import React, {useState} from "react"
-import TypingEffect from "../../atoms/typingEffect/typingEffect"
-import Profile from "../profile/profile"
+import React, {useState} from 'react'
+import TypingEffect from '../../atoms/typingEffect/typingEffect'
+import Profile from '../profile/profile'
 
-import {introduce, typing, typingOutput} from "../../utilities/info"
+import {introduce, typing, typingOutput} from '../../utilities/info'
 
-import * as styles from "./whoami.module.scss"
-import BashWindow from "../bashWindow/bashWindow"
-import sleep from "../../utilities/sleep"
+import * as styles from './whoami.module.scss'
+import BashWindow from '../bashWindow/bashWindow'
+import sleep from '../../utilities/sleep'
 
 const Whoami = (): JSX.Element => {
   const [show, setShow] = useState<number>(0)
@@ -36,7 +36,7 @@ const Whoami = (): JSX.Element => {
             {show > 1 ? (
               <div className={styles.command}>
                 <p>$</p>
-                <TypingEffect initialText={" "} blinkAfter={inputOn} />
+                <TypingEffect initialText={' '} blinkAfter={inputOn} />
               </div>
             ) : (
               <></>

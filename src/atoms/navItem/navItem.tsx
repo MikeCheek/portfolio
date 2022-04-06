@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from 'react'
 
-import * as styles from "./navItem.module.scss"
-import {NavItemProps} from "./navItem.type"
+import * as styles from './navItem.module.scss'
+import {NavItemProps} from './navItem.type'
 
-import {Link} from "gatsby"
+import {Link} from 'gatsby'
 
 const NavItem = ({isHref, path, onClick, text}: NavItemProps): JSX.Element => {
   const [on, setOn] = useState<boolean>(false)
@@ -29,7 +29,7 @@ const NavItem = ({isHref, path, onClick, text}: NavItemProps): JSX.Element => {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", getElementRect)
+    window.addEventListener('scroll', getElementRect)
   }, [])
 
   return (
@@ -39,13 +39,13 @@ const NavItem = ({isHref, path, onClick, text}: NavItemProps): JSX.Element => {
           href={path}
           className={on ? styles.itemOn : styles.item}
           onClick={onClick}
-          title={"Go to " + text + " section"}
+          title={'Go to ' + text + ' section'}
         >
           {text}
         </a>
       ) : (
         <div>
-          <Link className={styles.link} to={path} onClick={onClick} title={"Go to " + text + " page"}>
+          <Link className={styles.link} to={path} onClick={onClick} title={'Go to ' + text + ' page'}>
             <p className={styles.item}>{text}</p>
           </Link>
         </div>

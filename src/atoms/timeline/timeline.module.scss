@@ -20,7 +20,7 @@ $line-lenght: 15%;
   border-radius: 5px;
   margin-bottom: 50px;
 
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     flex-direction: row;
     border-left: 0;
     border-bottom: 5px solid;
@@ -37,7 +37,7 @@ $line-lenght: 15%;
   align-items: flex-start;
   flex-direction: inherit;
 
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     align-items: flex-end;
     margin: 0 10px 0;
 
@@ -54,7 +54,7 @@ $line-lenght: 15%;
   border: 2px solid;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 100%;
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     width: auto;
     height: $line-lenght;
     border-top-left-radius: 100%;
@@ -72,7 +72,7 @@ $line-lenght: 15%;
     color: var(--orange);
   }
 
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     margin-left: auto;
     margin-bottom: 50px;
   }
@@ -89,7 +89,7 @@ $line-lenght: 15%;
   margin: 0 5px 0;
   font-size: 0.8rem;
 
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     font-size: 0.9rem;
   }
 }
