@@ -11,6 +11,7 @@ const alphabet: string[] = Array.from('abcdefghijklmnopqrstuvwxyz')
 
 const WordGame = ({word, language}: WordGameProps): JSX.Element => {
   const [chars, setChars] = useState<string[]>([])
+  const [remChars, setRemChars] = useState<string[]>([])
   const [victory, setVictory] = useState<boolean>(false)
 
   const [inLetters, setInLetters] = useState<string>('')
@@ -28,6 +29,7 @@ const WordGame = ({word, language}: WordGameProps): JSX.Element => {
   useEffect(() => {
     setLan(language)
     setChars(Array.from(word))
+    setRemChars(Array.from(word))
     console.log(`
 Oh you've arrived here...
 What are you looking for? 
@@ -56,6 +58,10 @@ Go somewhere else or try to guess the word `)
     const index = [...form].indexOf(event.target)
 
     if (event.key.toLowerCase() === 'enter' || event.key.toLowerCase() === 'arrowright') {
+      //if form is full
+      if (form.elements[index + 1].value == 'Check' || form.elements[index + 1].disabled) {
+        check(event)
+      }
       nextInput(form, index)
       event.preventDefault()
     } else if (event.key.toLowerCase() === 'arrowleft') {
@@ -100,9 +106,18 @@ Go somewhere else or try to guess the word `)
       })
       if (!containsChar(tmpIn, tmpArray[i])) tmpIn += tmpArray[i]
 
-      if (containsChar(word, tmpArray[i]) && tmpArray[i] != '') {
+      if (containsChar(remChars.toString(), tmpArray[i]) && tmpArray[i] != '') {
         document.getElementById('input' + i)!.style.backgroundColor = 'var(--orange)'
-
+        let test = false
+        let xtmp = []
+        for (const value in remChars) {
+          if (value != tmpArray[i] || test) {
+            xtmp.push(value)
+            if (!test) test = true
+          }
+        }
+        setRemChars(xtmp)
+        console.log(remChars)
         if (!containsChar(tmpOk, tmpArray[i])) tmpOk += tmpArray[i]
       } else {
         document.getElementById('input' + i)!.style.backgroundColor = ''
