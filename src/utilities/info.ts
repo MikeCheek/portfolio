@@ -2,8 +2,10 @@ import {SkillsType} from './info.types'
 
 //head
 export const introduce = `/*let me introduce myself*/`
-export const typing = `cat introduction.txt`
-export const typingOutput = `Hi, I'm Michele Pulvirenti`
+export const commands = [
+  {auto: true, input: `cat introduction.txt`, output: `Hi, I'm Michele Pulvirenti`},
+  {auto: false, input: '', output: `Oh you got me! I'm still working on this feature`},
+]
 
 //other experiences
 export const otherExperiences = [
