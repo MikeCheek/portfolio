@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import TypingEffect from '../../atoms/typingEffect/typingEffect'
 import Profile from '../profile/profile'
 
-import {introduce, typing, typingOutput} from '../../utilities/info'
+import {introduce, commands} from '../../utilities/info'
 
 import * as styles from './whoami.module.scss'
 import BashWindow from '../bashWindow/bashWindow'
@@ -11,12 +11,33 @@ import sleep from '../../utilities/sleep'
 const Whoami = (): JSX.Element => {
   const [show, setShow] = useState<number>(0)
   const [inputOn, setInputOn] = useState<boolean>(false)
+  const inputRef = useRef<HTMLParagraphElement>(null)
 
   const next = async () => {
     await sleep(500)
-    setShow(1)
-    await sleep(500)
-    setShow(2)
+    setShow((show) => show + 1)
+  }
+
+  const handleClick = () => {
+    setInputOn(true)
+    if (inputRef.current) inputRef.current.focus()
+    document.addEventListener('keypress', handleKeyboard)
+  }
+
+  const handleKeyboard = (e: KeyboardEvent) => {
+    //change content of commandRef to the key pressed
+    if (inputRef.current) {
+      e.preventDefault()
+      if (e.key.toUpperCase() === 'ENTER') {
+        setInputOn(false)
+        window.removeEventListener('keypress', handleKeyboard)
+        next()
+      } else if (e.key.toUpperCase() === 'BACKSPACE') {
+        inputRef.current.innerHTML = inputRef.current.innerHTML.slice(0, -1)
+      } else {
+        inputRef.current.innerHTML += e.key
+      }
+    }
   }
 
   return (
@@ -26,21 +47,36 @@ const Whoami = (): JSX.Element => {
         <div className={styles.profileWrap}>
           <Profile />
         </div>
-        <div className={styles.typeWrap} onClick={() => setInputOn(true)}>
+        <div className={styles.typeWrap} onClick={handleClick}>
           <BashWindow>
-            <div className={styles.command}>
-              <p>$</p>
-              <TypingEffect initialText={typing} heading={false} fast={false} blinkAfter={false} then={next} />
-            </div>
-            {show > 0 ? <p>{typingOutput}</p> : <></>}
-            {show > 1 ? (
-              <div className={styles.command}>
-                <p>$</p>
-                <TypingEffect initialText={' '} blinkAfter={inputOn} />
-              </div>
-            ) : (
-              <></>
-            )}
+            <>
+              {commands.map((command, index) => {
+                return show >= index ? (
+                  <>
+                    <div className={styles.command}>
+                      <p>$</p>
+                      {command.auto ? (
+                        <TypingEffect
+                          initialText={command.input}
+                          heading={false}
+                          fast={false}
+                          blinkAfter={false}
+                          then={next}
+                        />
+                      ) : (
+                        <>
+                          <p ref={show == index ? inputRef : null}></p>
+                          <TypingEffect initialText={' '} blinkAfter={inputOn} />
+                        </>
+                      )}
+                    </div>
+                    {show > index ? <p>{command.output}</p> : <></>}
+                  </>
+                ) : (
+                  <></>
+                )
+              })}
+            </>
           </BashWindow>
         </div>
       </div>
