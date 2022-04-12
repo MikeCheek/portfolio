@@ -24,10 +24,22 @@ const Footer = (): JSX.Element => {
         <h2 className={styles.contacts}>My contacts</h2>
         <div className={styles.icons}>
           {/*<Phone width={width} fill={color} />*/}
-          <a className={styles.icon} href={'mailto:' + email} title={'Send me an email'} target={'_blank'} rel="noopener noreferrer">
+          <a
+            className={styles.icon}
+            href={'mailto:' + email}
+            title={'Send me an email'}
+            target={'_blank'}
+            rel="noopener noreferrer"
+          >
             <Email width={width} height={height} fill={color} />
           </a>
-          <a className={styles.icon} href={linkedin} title={'Linkedin profile'} target={'_blank'} rel="noopener noreferrer">
+          <a
+            className={styles.icon}
+            href={linkedin}
+            title={'Linkedin profile'}
+            target={'_blank'}
+            rel="noopener noreferrer"
+          >
             <Linkedin width={width} height={height} fill={color} />
           </a>
           <a className={styles.icon} href={github} title={'GitHub profile'} target={'_blank'} rel="noopener noreferrer">

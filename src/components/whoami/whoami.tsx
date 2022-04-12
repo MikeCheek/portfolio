@@ -20,7 +20,11 @@ const Whoami = (): JSX.Element => {
 
   const handleClick = () => {
     setInputOn(true)
-    if (inputRef.current) inputRef.current.focus()
+    if (inputRef.current) {
+      inputRef.current.focus()
+      inputRef.current.click()
+      prompt()
+    }
     document.addEventListener('keypress', handleKeyboard)
   }
 
