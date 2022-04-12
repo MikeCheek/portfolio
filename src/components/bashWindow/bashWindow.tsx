@@ -177,7 +177,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }
 
   const minimize = () => {
-    terminalRef.current!.style.cssText = 'height: 0; min-height: 0; width: auto'
+    terminalRef.current!.style.cssText = 'height: 35px; min-height: 0; width: auto'
     document.getElementById('content')!.style.cssText = 'height: 0; width: auto; padding: 0; opacity: 0'
     setCompact(true)
   }

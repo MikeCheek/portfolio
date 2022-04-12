@@ -23,7 +23,6 @@ const Whoami = (): JSX.Element => {
     if (inputRef.current) {
       inputRef.current.focus()
       inputRef.current.click()
-      prompt()
     }
     document.addEventListener('keypress', handleKeyboard)
   }
@@ -36,6 +35,7 @@ const Whoami = (): JSX.Element => {
         setInputOn(false)
         window.removeEventListener('keypress', handleKeyboard)
         next()
+        commands.push({auto: false, input: '', output: `Stop trying this ahahhahaha`})
       } else if (e.key.toUpperCase() === 'BACKSPACE') {
         inputRef.current.innerHTML = inputRef.current.innerHTML.slice(0, -1)
       } else {
