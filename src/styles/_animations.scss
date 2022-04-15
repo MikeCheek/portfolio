@@ -1,0 +1,76 @@
+@keyframes fadeIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(0.5);
+        background-color: var(--orange);
+    }
+    100% {
+        transform: translateY(-20px);
+        background-color: var(--pink);
+    }
+}
+
+@keyframes hov {
+    0% {}
+    100% {
+        color: var(--cta-hov-dark);
+    }
+}
+
+@keyframes rotateMenu {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    70% {
+        transform: rotateX(10deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes trebble {
+    0% {
+        transform: rotateZ(0);
+    }
+    50% {
+        transform: rotateZ(5deg) translateY(-10px);
+    }
+    100% {
+        transform: rotateZ(-5deg) translateY(-10px);
+    }
+}
+
+@keyframes moving {
+    0% {}
+    50% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
