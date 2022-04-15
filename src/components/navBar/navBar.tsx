@@ -52,9 +52,9 @@ const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element =>
     if (tmp) {
       tmp.style.backgroundColor = theme === 'dark' ? 'var(--navbar-bg-dark)' : 'var(--navbar-bg-light)'
     }
-    document.body.style.overflowY = 'scroll'
-    document.body.style.height = 'auto'
-    document.getElementsByTagName('html')[0].style.overflowY = 'scroll'
+    document.body.style.removeProperty('overflow')
+    document.body.style.removeProperty('height')
+    document.getElementsByTagName('html')[0].style.removeProperty('overflow')
   }
 
   const openNavBar = () => {
