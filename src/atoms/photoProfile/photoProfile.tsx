@@ -68,7 +68,7 @@ const PhotoProfile = (): JSX.Element => {
                     />
     */}
       <StaticImage
-        src={'../../images/profescional.png'}
+        src={'../../images/newProfescional.png'}
         alt="Michele Pulvirenti"
         placeholder="tracedSVG"
         layout="constrained"
