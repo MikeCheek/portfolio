@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as styles from './arrowUp.module.scss'
 
-import Arrow from '../../assets/arrow.svg'
+import Arrow from '../../assets/arrowUp.svg'
 import {useThemeContext} from '../../utilities/themeContext'
 
 const ArrowUp = (): JSX.Element => {
