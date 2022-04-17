@@ -1,69 +1,69 @@
-@import 'colors',
-'scrollbar';
+@import 'colors', 'scrollbar';
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,700;1,300&display=swap');
 html {
-    background-color: var(--bg-dark);
-    color: var(--col-dark);
-    font-family: 'Rubik', sans-serif;
-    font-size: 16px;
-    line-height: 1.5rem;
-    letter-spacing: 1px;
-    scroll-behavior: smooth;
-    /*
+  background-color: var(--bg-dark);
+  color: var(--col-dark);
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  scroll-behavior: smooth;
+  /*
   * {
       transition: color 500ms ease-out, background-color 500ms ease-out;
   }
   */
-    h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 body {
-    background-attachment: fixed;
-    overflow-x: hidden;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  margin: 0;
+  ul {
+    padding: 0;
     margin: 0;
+  }
+  @media screen and (min-width: '768px') {
     ul {
-        padding: 0;
-        margin: 0;
+      padding: initial;
+      margin: initial;
     }
-    @media screen and (min-width: '768px') {
-        ul {
-            padding: initial;
-            margin: initial;
-        }
+  }
+  li {
+    list-style-type: '💻';
+    padding-inline-start: 1ch;
+    width: fit-content;
+    margin-left: 2rem;
+    &::marker {
+      margin-left: 10%;
     }
-    li {
-        list-style-type: '💻';
-        padding-inline-start: 1ch;
-        width: fit-content;
-        margin-left: 2rem;
-        &::marker {
-            margin-left: 10%;
-        }
+  }
+  #link {
+    text-decoration: none;
+    color: inherit;
+    background: linear-gradient(to right, var(--very-transparent-white), var(--very-transparent-white)),
+      linear-gradient(to right, var(--orange), var(--pink));
+    background-size: 100% 2px, 0 2px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  #link:hover {
+    background-size: 0 2px, 100% 2px;
+  }
+  #button {
+    padding: 10px;
+    margin: 5px;
+    background: none;
+    border: 5px groove var(--cta-dark);
+    color: var(--cta-dark);
+    &:hover {
+      border: 5px groove var(--cta-hov-dark);
+      color: var(--cta-hov-dark);
     }
-    #link {
-        text-decoration: none;
-        color: inherit;
-        background: linear-gradient(to right, var(--very-transparent-white), var(--very-transparent-white)), linear-gradient(to right, var(--orange), var(--pink));
-        background-size: 100% 2px, 0 2px;
-        background-position: 100% 100%, 0 100%;
-        background-repeat: no-repeat;
-        transition: background-size 400ms;
-    }
-    #link:hover {
-        background-size: 0 2px, 100% 2px;
-    }
-    #button {
-        padding: 10px;
-        margin: 5px;
-        background: none;
-        border: 5px groove var(--cta-dark);
-        color: var(--cta-dark);
-        &:hover {
-            border: 5px groove var(--cta-hov-dark);
-            color: var(--cta-hov-dark);
-        }
-    }
+  }
 }

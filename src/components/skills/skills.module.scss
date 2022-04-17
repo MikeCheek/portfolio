@@ -1,38 +1,38 @@
 @import '../../styles/animations';
 .wrap {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .skills {
-    >* {
-        padding: 10px 0 10px;
+  > * {
+    padding: 10px 0 10px;
+  }
+  width: 90%;
+  -webkit-animation: appear 1s ease-in-out;
+  animation: appear 1s ease-in-out;
+  :where(h3) {
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+  :nth-child(odd) {
+    :nth-child(2) {
+      > * {
+        background-color: var(--bar-bg2-dark);
+      }
     }
-    width: 90%;
-    -webkit-animation: appear 1s ease-in-out;
-    animation: appear 1s ease-in-out;
-     :where(h3) {
-        text-transform: uppercase;
-        margin-top: 50px;
-    }
-     :nth-child(odd) {
-         :nth-child(2) {
-            >* {
-                background-color: var(--bar-bg2-dark);
-            }
-        }
-    }
+  }
 }
 
 .skillsLight {
-    @extend .skills;
-     :nth-child(odd) {
-         :nth-child(2) {
-            >* {
-                background-color: var(--bar-bg2-light);
-            }
-        }
+  @extend .skills;
+  :nth-child(odd) {
+    :nth-child(2) {
+      > * {
+        background-color: var(--bar-bg2-light);
+      }
     }
+  }
 }
