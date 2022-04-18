@@ -7,10 +7,12 @@
   -webkit-transition: bottom 1s cubic-bezier(0.51, 1, 0.36, 1.3);
   transition: bottom 1s cubic-bezier(0.51, 1, 0.36, 1.3);
   fill: var(--cta-dark);
+  stroke: var(--cta-dark);
 }
 
 .arrowUp:hover {
   fill: var(--cta-hov-dark);
+  stroke: var(--cta-hov-dark);
 }
 
 .arrowUpLight {
