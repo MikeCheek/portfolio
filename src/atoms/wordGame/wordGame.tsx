@@ -118,7 +118,7 @@ Go somewhere else or try to guess the word `)
         document.getElementById('input' + i)!.setAttribute('disabled', 'disabled')
 
         let tmpRemChars = remChars
-        tmpRemChars[i] = '0'
+        tmpRemChars[i] = '_'
         setRemChars(tmpRemChars)
         console.log(remChars)
       }
