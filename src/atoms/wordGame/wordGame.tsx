@@ -108,16 +108,6 @@ Go somewhere else or try to guess the word `)
 
       if (containsChar(remChars.toString(), tmpArray[i]) && tmpArray[i] != '') {
         document.getElementById('input' + i)!.style.backgroundColor = 'var(--orange)'
-        let test = false
-        let xtmp = []
-        for (const value in remChars) {
-          if (value != tmpArray[i] || test) {
-            xtmp.push(value)
-            if (!test) test = true
-          }
-        }
-        setRemChars(xtmp)
-        console.log(remChars)
         if (!containsChar(tmpOk, tmpArray[i])) tmpOk += tmpArray[i]
       } else {
         document.getElementById('input' + i)!.style.backgroundColor = ''
@@ -126,6 +116,11 @@ Go somewhere else or try to guess the word `)
       if (tmpArray[i].toUpperCase() === chars[i].toUpperCase()) {
         document.getElementById('input' + i)!.style.backgroundColor = 'var(--pink)'
         document.getElementById('input' + i)!.setAttribute('disabled', 'disabled')
+
+        let tmpRemChars = remChars
+        tmpRemChars[i] = '0'
+        setRemChars(tmpRemChars)
+        console.log(remChars)
       }
     }
 
