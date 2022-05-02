@@ -9,21 +9,12 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
   const theme: string = useThemeContext()
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
-  const [isMouseOn, setIsMouseOn] = useState<boolean>(false)
 
   const setClicked = async () => {
     if (!isClicked) {
       setIsClicked(true)
-      await sleep(2000)
+      await sleep(3000)
       setIsClicked(false)
-    }
-  }
-
-  const setMouseOn = async () => {
-    if (!isMouseOn) {
-      setIsMouseOn(true)
-      await sleep(2000)
-      setIsMouseOn(false)
     }
   }
 
@@ -38,11 +29,11 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
           <h2 className={`${styles.titleParagraph} ${theme === 'dark' ? '' : styles.titleLight}`}>{title}</h2>
           <div className={styles.contentParagraph}>
             {Svg ? (
-              <div className={styles.svg} onClick={setClicked} onMouseEnter={setMouseOn} onMouseDown={setClicked}>
+              <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
                 <Svg.svg
                   width={'100px'}
                   height={'100px'}
-                  className={isMouseOn ? styles.trebbling : null || isClicked ? styles.move : null}
+                  className={isClicked ? styles.move : null}
                   fill={Svg.fill ? Svg.fill : 'none'}
                   stroke={Svg.stroke ? Svg.stroke : 'none'}
                 />
@@ -60,11 +51,11 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
           </h2>
           <div className={reversed ? styles.contentReversed : styles.content}>
             {Svg ? (
-              <div className={styles.svg} onClick={setClicked} onMouseEnter={setMouseOn} onMouseDown={setClicked}>
+              <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
                 <Svg.svg
                   width={'100px'}
                   height={'100px'}
-                  className={isMouseOn ? styles.trebbling : null || isClicked ? styles.move : null}
+                  className={isClicked ? styles.jump : null}
                   fill={Svg.fill ? Svg.fill : 'none'}
                   stroke={Svg.stroke ? Svg.stroke : 'none'}
                 />
