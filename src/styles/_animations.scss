@@ -96,9 +96,12 @@
         transform: scaleX(1) scaleY(1) translateY(-80px) translateX(50px) rotate(360deg);
     }
     60% {
+        transform: scaleX(1) scaleY(1) translateX(50px) rotate(360deg) translateY(15px);
+    }
+    65% {
         transform: scaleX(1.2) scaleY(0.8) translateX(50px) rotate(360deg) translateY(15px);
     }
-    80% {
+    90% {
         transform: scaleX(1) scaleY(1) translateX(50px) rotate(360deg);
     }
     100% {
