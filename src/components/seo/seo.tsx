@@ -3,7 +3,7 @@ import {Helmet} from 'react-helmet'
 //import { useStaticQuery, graphql } from "gatsby"
 import {SEOProps /*QueryTypes*/} from './seo.types'
 
-const SEO = ({description = '', lang = 'en', meta = [], title}: SEOProps): JSX.Element => {
+const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerification}: SEOProps): JSX.Element => {
   //const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery)
 
   const metaDescription: string = description //|| site.siteMetadata.description
@@ -17,6 +17,10 @@ const SEO = ({description = '', lang = 'en', meta = [], title}: SEOProps): JSX.E
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
       meta={[
+        {
+          name: `google-site-verification`,
+          content: googleSiteVerification,
+        },
         {
           name: `description`,
           content: metaDescription,
