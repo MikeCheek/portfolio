@@ -23,8 +23,8 @@ const PhotoProfile = (): JSX.Element => {
     detectBrowser() != 'Safari' ? document.addEventListener('mousemove', parallax) : null
   const removeListener = (): void => {
     document.removeEventListener('mousemove', parallax)
-    const shift: HTMLElement = document.getElementById('profile')!
-    shift.style.transform = `none`
+    const shift = document.getElementById('profile')
+    if (shift) shift.style.removeProperty('transform')
   }
 
   //create the handleclick function
