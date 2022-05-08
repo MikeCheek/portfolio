@@ -120,7 +120,6 @@ Go somewhere else or try to guess the word `)
         let tmpRemChars = remChars
         tmpRemChars[i] = '_'
         setRemChars(tmpRemChars)
-        console.log(remChars)
       }
     }
 

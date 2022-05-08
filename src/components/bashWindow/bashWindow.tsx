@@ -89,7 +89,6 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
       first.clientX > second.clientX ? first.clientX - second.clientX : second.clientX - first.clientX
     const offYAfter: number =
       first.clientY > second.clientY ? first.clientY - second.clientY : second.clientY - first.clientY
-    console.log(startX, offXAfter)
     if (offXAfter != startX || offYAfter != startY) {
       const elmnt = terminalRef.current!
       elmnt.style.width = `${startW + (offXAfter - startX) / 2}px`
