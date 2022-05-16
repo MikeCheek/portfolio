@@ -16,7 +16,7 @@ module.exports = {
             options: {
                 name: 'Michele Pulvirenti | Portfolio',
                 short_name: 'Portfolio',
-                start_url: '/portfolio/',
+                start_url: '/',
                 lang: 'en',
                 background_color: '#000000',
                 theme_color: '#000000',
