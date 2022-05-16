@@ -14,7 +14,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: 'Michele Pulvirenti Portfolio',
+                name: 'Michele Pulvirenti | Portfolio',
                 short_name: 'Portfolio',
                 start_url: '/portfolio/',
                 lang: 'en',
