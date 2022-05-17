@@ -7,7 +7,7 @@ import containsChar from '../../utilities/containsChar'
 import sleep from '../../utilities/sleep'
 import {getDefinition} from '../../utilities/word'
 
-const alphabet: string[] = Array.from('abcdefghijklmnopqrstuvwxyz')
+const alphabet: string[] = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
 const WordGame = ({word, language}: WordGameProps): JSX.Element => {
   const [chars, setChars] = useState<string[]>([])
@@ -102,7 +102,7 @@ Go somewhere else or try to guess the word `)
 
     for (let i = 0; i < tmpArray.length; i++) {
       tmpRem = tmpRem.filter((value, _index, _arr) => {
-        return value != tmpArray[i]
+        return value.toUpperCase() != tmpArray[i].toUpperCase()
       })
       if (!containsChar(tmpIn, tmpArray[i])) tmpIn += tmpArray[i]
 
