@@ -14,9 +14,9 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: 'Michele Pulvirenti | Portfolio',
-                short_name: 'Portfolio',
-                start_url: '/',
+                name: 'Word Game | MP',
+                short_name: 'Word Game',
+                start_url: '/game',
                 lang: 'en',
                 background_color: '#000000',
                 theme_color: '#000000',
@@ -110,7 +110,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-offline`,
             options: {
-                precachePages: [`/*`, '*', '/game/', '/404/', '/'],
+                precachePages: ['/', '/game/'],
             },
         },
     ],
