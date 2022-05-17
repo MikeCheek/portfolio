@@ -34,9 +34,9 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
   }, [terminalRef])
 
   useEffect(() => {
-    terminalRef.current!.addEventListener('touchstart', handleTouch, {passive: true})
+    if (terminalRef.current) terminalRef.current.addEventListener('touchstart', handleTouch, {passive: true})
     return () => {
-      terminalRef.current!.removeEventListener('touchstart', handleTouch)
+      if (terminalRef.current) terminalRef.current.removeEventListener('touchstart', handleTouch)
     }
   }, [terminalRef.current])
 
