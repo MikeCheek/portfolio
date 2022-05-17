@@ -9,11 +9,12 @@ import Github from '../../assets/github.svg'
 import {useThemeContext} from '../../utilities/themeContext'
 import {email, github, linkedin} from '../../utilities/info'
 import {Link} from 'gatsby'
+import FooterProps from './footer.types'
 
 const width: string = '50px'
 const height: string = '50px'
 
-const Footer = (): JSX.Element => {
+const Footer = ({noGameLink = false}: FooterProps): JSX.Element => {
   const theme: string = useThemeContext()
 
   const color: string = theme === 'dark' ? 'var(--icon-dark)' : 'var(--icon-light)'
@@ -47,9 +48,11 @@ const Footer = (): JSX.Element => {
           </a>
         </div>
       </div>
-      <Link to={'/game'} id={'link'}>
-        Wanna play a game?
-      </Link>
+      {noGameLink ? null : (
+        <Link to={'/game'} id={'link'}>
+          Wanna play a game?
+        </Link>
+      )}
     </>
   )
 }

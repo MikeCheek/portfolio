@@ -14,7 +14,7 @@ import ArrowUp from '../../atoms/arrowUp/arrowUp'
 import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
 
-const Layout = ({children, noMenu = false}: LayoutProps): JSX.Element => {
+const Layout = ({children, noMenu = false, noGameLink = false}: LayoutProps): JSX.Element => {
   const [browser, setBrowser] = useState<string>('waiting')
 
   const [lightMode, setLightMode] = useState<boolean>(false)
@@ -47,7 +47,7 @@ const Layout = ({children, noMenu = false}: LayoutProps): JSX.Element => {
         {children}
 
         <Separator />
-        <Footer />
+        <Footer noGameLink={noGameLink} />
         <ArrowUp />
       </div>
     </ThemeContext.Provider>

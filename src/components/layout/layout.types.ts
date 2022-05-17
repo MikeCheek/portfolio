@@ -1,6 +1,7 @@
-import {ReactElement} from 'react'
+import {ReactNode} from 'react'
 
 export type LayoutProps = {
-  children: ReactElement<any, any>
+  children: ReactNode
   noMenu?: boolean
+  noGameLink?: boolean
 }
