@@ -13,17 +13,26 @@ const Skills = (): JSX.Element => {
     <div className={styles.wrap}>
       <div className={theme === 'dark' ? styles.skills : styles.skillsLight}>
         <h3>Programming Languages</h3>
-        {programming.map((skill) => {
-          return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-        })}
+        <div className={styles.list}>
+          {programming.map((skill) => {
+            //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+            return <p>{skill.name}</p>
+          })}
+        </div>
         <h3>Framework</h3>
-        {frameworks.map((skill) => {
-          return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-        })}
+        <div className={styles.list}>
+          {frameworks.map((skill) => {
+            //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+            return <p>{skill.name}</p>
+          })}
+        </div>
         <h3>Other</h3>
-        {others.map((skill) => {
-          return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-        })}
+        <div className={styles.list}>
+          {others.map((skill) => {
+            //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+            return <p>{skill.name}</p>
+          })}
+        </div>
         <div dangerouslySetInnerHTML={{__html: languages}} />
       </div>
     </div>
