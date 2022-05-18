@@ -6,6 +6,9 @@
     flex-direction: column;
     text-align: center;
     border-radius: 50px;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 1s ease, transform 1s ease;
     @media screen and (min-width: '768px') {
         text-align: left;
         margin: 5% 4% 5%;
@@ -15,9 +18,15 @@
 .sectionReversed {
     @extend .section;
     background: none;
+    transform: translateX(50%);
     @media screen and (min-width: '768px') {
         //text-align: right;
     }
+}
+
+.sectionView {
+    opacity: 1;
+    transform: none;
 }
 
 .content {
