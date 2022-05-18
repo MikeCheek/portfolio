@@ -7,7 +7,7 @@ export const commands = [
     auto: true,
     input: `cat introduction.txt`,
     output: `Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
-I'm a <span style="color: var(--pink)">developer</span> and I'm currently working on the <span style="color: var(--pink)">web</span>`,
+I'm a <span style="color: var(--pink)">developer</span> and <br/>I'm currently working on the <span style="color: var(--pink)">web</span>`,
   },
   {auto: false, input: '', output: `Oh you got me! I'm still working on this feature`},
 ]
