@@ -9,9 +9,9 @@ import {useInView} from 'react-intersection-observer'
 const Section = ({title, children, id, reversed = false, Svg, paragraph = false}: SectionProps): JSX.Element => {
   const theme: string = useThemeContext()
   const [ref, inView, _entry] = useInView({
-    threshold: 0.1,
+    threshold: 0,
     fallbackInView: true,
-    rootMargin: '-50px 0px -50px 0px',
+    rootMargin: '-10px 0px -10px 0px',
   })
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
