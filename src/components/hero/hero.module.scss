@@ -1,55 +1,55 @@
 @import '../../styles/animations';
 .parallax {
-    z-index: -1;
+  z-index: -1;
 }
 
 .goDownWrap {
-    position: relative;
-    bottom: 0;
-    display: none;
-    left: 0;
-    right: 0;
-    animation: downUp 2s linear infinite;
-    margin: auto;
-    @media screen and (min-width: '768px') {
-        display: block;
-    }
+  position: relative;
+  bottom: 0;
+  display: none;
+  left: 0;
+  right: 0;
+  animation: downUp 2s linear infinite;
+  margin: auto;
+  @media screen and (min-width: '768px') {
+    display: block;
+  }
 }
 
 .goDown {
-    transform: rotate(180deg) scaleX(1.5);
-    opacity: 0.5;
-    transition: stroke 1s ease-in-out;
-    cursor: pointer;
+  transform: rotate(180deg) scaleX(1.5);
+  opacity: 0.5;
+  transition: stroke 1s ease-in-out;
+  cursor: pointer;
 }
 
 .sectionWrap {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
 }
 
 .wrapper {
-    padding-top: 1%;
+  padding-top: 1%;
 }
 
 .about {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    >* {
-        width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  > * {
+    width: 100%;
+  }
+  @media screen and (min-width: '768px') {
+    justify-content: center;
+    ul {
+      padding: initial;
     }
-    @media screen and (min-width: '768px') {
-        justify-content: center;
-        ul {
-            padding: initial;
-        }
-        >* {
-            width: 45%;
-            margin-right: auto;
-            margin-left: auto;
-        }
+    > * {
+      width: 45%;
+      margin-right: auto;
+      margin-left: auto;
     }
+  }
 }

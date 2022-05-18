@@ -74,7 +74,7 @@ const Whoami = (): JSX.Element => {
                         </>
                       )}
                     </div>
-                    {show > index ? <p>{command.output}</p> : <></>}
+                    {show > index ? <div dangerouslySetInnerHTML={{__html: command.output}} /> : <></>}
                   </span>
                 ) : (
                   <span key={index}></span>
