@@ -10,7 +10,8 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
   const theme: string = useThemeContext()
   const [ref, inView, _entry] = useInView({
     threshold: 0.1,
-    //rootMargin: '-100px 0px -100px 0px',
+    fallbackInView: true,
+    rootMargin: '-50px 0px -50px 0px',
   })
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
