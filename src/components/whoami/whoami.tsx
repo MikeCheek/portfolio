@@ -74,7 +74,11 @@ const Whoami = (): JSX.Element => {
                         </>
                       )}
                     </div>
-                    {show > index ? <div dangerouslySetInnerHTML={{__html: command.output}} /> : <></>}
+                    {show > index ? (
+                      <div dangerouslySetInnerHTML={{__html: command.output}} className={styles.output} />
+                    ) : (
+                      <></>
+                    )}
                   </span>
                 ) : (
                   <span key={index}></span>
