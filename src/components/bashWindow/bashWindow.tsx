@@ -216,9 +216,9 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
             <span className={styles.circleGreen} onClick={minimize}></span>
           </div>
         </div>
-        <pre id={'content'} className={styles.content}>
+        <div id={'content'} className={styles.content}>
           {children}
-        </pre>
+        </div>
         <div className={styles.brCorner} onMouseDown={(e) => resizeMouseDown(e, 'rb')} />
         <div className={styles.rLine} onMouseDown={(e) => resizeMouseDown(e, 'r')} />
         <div className={styles.bLine} onMouseDown={(e) => resizeMouseDown(e, 'b')} />
