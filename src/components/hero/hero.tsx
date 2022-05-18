@@ -45,12 +45,14 @@ const Hero = (): JSX.Element => {
         <div className={styles.parallax}>
           <Parallax />
         </div>
-        <Arrow
-          width={50}
-          stroke={stroke}
-          className={styles.goDown}
-          onClick={() => window.scroll(0, window.innerHeight * 0.95)}
-        />
+        <div className={styles.goDownWrap}>
+          <Arrow
+            width={50}
+            stroke={stroke}
+            className={styles.goDown}
+            onClick={() => window.scroll(0, window.innerHeight * 0.95)}
+          />
+        </div>
         <Section title={'About me'} id={'about'} Svg={{svg: Account, stroke: color}}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
