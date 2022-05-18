@@ -56,7 +56,7 @@ const Whoami = (): JSX.Element => {
             <>
               {commands.map((command, index) => {
                 return show >= index ? (
-                  <>
+                  <span key={index}>
                     <div className={styles.command}>
                       <p>$</p>
                       {command.auto ? (
@@ -75,9 +75,9 @@ const Whoami = (): JSX.Element => {
                       )}
                     </div>
                     {show > index ? <p>{command.output}</p> : <></>}
-                  </>
+                  </span>
                 ) : (
-                  <></>
+                  <span key={index}></span>
                 )
               })}
             </>
