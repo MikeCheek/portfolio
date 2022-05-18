@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import * as styles from './hero.module.scss'
 
@@ -16,11 +16,27 @@ import {useThemeContext} from '../../utilities/themeContext'
 import Timeline from '../../atoms/timeline/timeline'
 import {about, events, works} from '../../utilities/info'
 import Parallax from '../../atoms/parallax/parallax'
+import Arrow from '../../assets/arrowUp.svg'
 
 const Hero = (): JSX.Element => {
   const theme: string = useThemeContext()
+  const [stroke, setStroke] = useState<string>('var(--orange)')
 
   const color = theme === 'dark' ? 'var(--svg-dark)' : 'var(--svg-light)'
+
+  useEffect(() => {
+    setInterval(() => {
+      setStroke((stroke) =>
+        stroke == 'var(--orange)'
+          ? 'var(--pink)'
+          : stroke == 'var(--pink)'
+          ? 'var(--white)'
+          : stroke == 'var(--white)'
+          ? 'var(--orange)'
+          : 'var(--orange)'
+      )
+    }, 2000)
+  }, [])
 
   return (
     <div className={styles.wrapper}>
@@ -29,6 +45,12 @@ const Hero = (): JSX.Element => {
         <div className={styles.parallax}>
           <Parallax />
         </div>
+        <Arrow
+          width={50}
+          stroke={stroke}
+          className={styles.goDown}
+          onClick={() => window.scroll(0, window.innerHeight * 0.95)}
+        />
         <Section title={'About me'} id={'about'} Svg={{svg: Account, stroke: color}}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
