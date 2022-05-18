@@ -28,42 +28,36 @@ const Skills = (): JSX.Element => {
       <div className={styles.skills}>
         <h3>Programming Languages</h3>
         <div className={styles.list} ref={pRef}>
-          {pInView
-            ? programming.map((skill, index) => {
-                //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                return (
-                  <p key={index} style={makeDelay(index)}>
-                    {skill.name}
-                  </p>
-                )
-              })
-            : null}
+          {programming.map((skill, index) => {
+            //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+            return (
+              <p key={index} className={pInView ? styles.pView : styles.pHidden} style={makeDelay(index)}>
+                {skill.name}
+              </p>
+            )
+          })}
         </div>
         <h3>Framework</h3>
         <div className={styles.list} ref={fRef}>
-          {fInView
-            ? frameworks.map((skill, index) => {
-                //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                return (
-                  <p key={index} style={makeDelay(index)}>
-                    {skill.name}
-                  </p>
-                )
-              })
-            : null}
+          {frameworks.map((skill, index) => {
+            //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+            return (
+              <p key={index} className={fInView ? styles.pView : styles.pHidden} style={makeDelay(index)}>
+                {skill.name}
+              </p>
+            )
+          })}
         </div>
         <h3>Other</h3>
         <div className={styles.list} ref={oRef}>
-          {oInView
-            ? others.map((skill, index) => {
-                //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
-                return (
-                  <p key={index} style={makeDelay(index)}>
-                    {skill.name}
-                  </p>
-                )
-              })
-            : null}
+          {others.map((skill, index) => {
+            //return <Bar name={skill.name} percentage={skill.percentage} key={skill.name} />
+            return (
+              <p key={index} className={oInView ? styles.pView : styles.pHidden} style={makeDelay(index)}>
+                {skill.name}
+              </p>
+            )
+          })}
         </div>
         <div dangerouslySetInnerHTML={{__html: languages}} />
       </div>

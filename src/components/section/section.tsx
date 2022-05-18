@@ -4,9 +4,14 @@ import {SectionProps} from './section.types'
 import * as styles from './section.module.scss'
 import sleep from '../../utilities/sleep'
 import {useThemeContext} from '../../utilities/themeContext'
+import {useInView} from 'react-intersection-observer'
 
 const Section = ({title, children, id, reversed = false, Svg, paragraph = false}: SectionProps): JSX.Element => {
   const theme: string = useThemeContext()
+  const [ref, inView, _entry] = useInView({
+    threshold: 0.1,
+    //rootMargin: '-100px 0px -100px 0px',
+  })
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
 
@@ -20,7 +25,10 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
 
   return (
     <div
-      className={`${reversed ? styles.sectionReversed : styles.section} ${theme === 'dark' ? '' : styles.light}`}
+      className={`${reversed ? styles.sectionReversed : styles.section} ${inView ? styles.sectionView : ''} ${
+        theme === 'dark' ? '' : styles.light
+      }`}
+      ref={ref}
       style={{backgroundColor: theme === 'dark' ? 'var(--sect-bg-dark)' : 'var(--sect-bg-light)'}}
       id={id ? id : title}
     >
