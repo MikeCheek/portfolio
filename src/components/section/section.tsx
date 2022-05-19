@@ -26,11 +26,14 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
 
   return (
     <div
-      className={`${reversed ? styles.sectionReversed : styles.section} ${inView ? styles.sectionView : ''} ${
-        theme === 'dark' ? '' : styles.light
-      }`}
+      className={`${reversed ? styles.sectionReversed : styles.section} ${
+        inView ? (reversed ? styles.sectionViewReversed : styles.sectionView) : ''
+      } ${theme === 'dark' ? '' : styles.light}`}
       ref={ref}
-      style={{backgroundColor: theme === 'dark' ? 'var(--sect-bg-dark)' : 'var(--sect-bg-light)'}}
+      style={{
+        backgroundColor: theme === 'dark' ? 'var(--sect-bg-dark)' : 'var(--sect-bg-light)',
+        transition: 'opacity 1s ease, left 1s ease, right 1s ease',
+      }}
       id={id ? id : title}
     >
       {paragraph ? (
