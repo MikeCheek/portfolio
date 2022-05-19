@@ -36,20 +36,20 @@ const Layout = ({children, noMenu = false, noGameLink = false}: LayoutProps): JS
 
   return (
     <ThemeContext.Provider value={lightMode ? 'light' : 'dark'}>
+      {browser === 'waiting' ? null : browser === 'Safari' ? (
+        <Ball BallSvg={BallStill} />
+      ) : (
+        <Ball BallSvg={BallMoving} />
+      )}
       <div id="top" className={styles.layout}>
         <NavBar changeToggle={changeDarkMode} noMenu={noMenu} />
-        {browser === 'waiting' ? null : browser === 'Safari' ? (
-          <Ball BallSvg={BallStill} />
-        ) : (
-          <Ball BallSvg={BallMoving} />
-        )}
 
         {children}
 
         <Separator />
         <Footer noGameLink={noGameLink} />
-        <ArrowUp />
       </div>
+      <ArrowUp />
     </ThemeContext.Provider>
   )
 }
