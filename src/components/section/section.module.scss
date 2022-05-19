@@ -16,12 +16,18 @@
 
 .section {
     @extend .structure;
-    left: -10vw;
+    left: -5vw;
+    @media screen and (min-width: '768px') {
+        left: -10vw;
+    }
 }
 
 .sectionReversed {
     @extend .structure;
-    right: -10vw;
+    right: -5vw;
+    @media screen and (min-width: '768px') {
+        right: -10vw;
+    }
 }
 
 @mixin check($left, $right) {
