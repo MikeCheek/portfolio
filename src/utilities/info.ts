@@ -58,7 +58,7 @@ export const works: string = `<strong><h3><a id="link" href="https://jetop.com">
         <br/><br/>
       </ul>
     </ul>
-    <ul><li>Role: AM Collaborator of IT<br/></li>
+    <ul><li>Role: Collaborator of IT Area<br/></li>
     </ul>
     <br/>
     
