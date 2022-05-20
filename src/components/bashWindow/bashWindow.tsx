@@ -209,7 +209,10 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
           onMouseDown={(e) => dragMouseDown(e)}
           onTouchStart={(e) => handleOneTouch(e)}
         >
-          <div className={styles.title}>bash{compact ? `` : `: ~ ${dim.height}x${dim.width}`}</div>
+          <div className={styles.title}>
+            <h1>Michele Pulvirenti</h1>
+            {compact ? `` : ` ~ ${dim.height}x${dim.width}`}
+          </div>
           <div className={styles.buttons}>
             <span className={styles.circleRed} onClick={close}></span>
             <span className={styles.circleYellow} onClick={expand}></span>
