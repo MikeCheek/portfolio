@@ -90,7 +90,7 @@ export const events = [
 //export const phone: number = 1111111111
 export const email: string = 'michele00.pulvirenti@gmail.com'
 export const linkedin: string = 'https://www.linkedin.com/in/michele-pulvirenti'
-export const github: string = 'https://github.com/Mike-cheek'
+export const github: string = 'https://github.com/Mikecheek'
 
 //skills
 export const programming: SkillsType = [
