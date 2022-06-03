@@ -1,4 +1,4 @@
-const url = 'https://mike-cheek.github.io/portfolio'
+const url = 'https://mikecheek.github.io/portfolio'
 module.exports = {
     siteMetadata: {
         siteUrl: url,
