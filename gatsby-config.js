@@ -10,7 +10,7 @@ module.exports = {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 host: url,
-                sitemap: url + '/sitemap/sitemap-index.xml',
+                sitemap: url + '/sitemap/sitemap-0.xml',
                 policy: [{ userAgent: '*', allow: '/' }],
             },
         },
