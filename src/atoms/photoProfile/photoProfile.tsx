@@ -74,7 +74,7 @@ const PhotoProfile = (): JSX.Element => {
         layout="constrained"
         style={{zIndex: 1}} //for safari
         tracedSVGOptions={{color: 'dimGrey'}}
-        quality={100}
+        quality={80}
         width={200}
         height={200}
         className={styles.profescional}
