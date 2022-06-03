@@ -8,7 +8,7 @@ const InfoPage = () => {
   const [error, setError] = useState<boolean>(false)
 
   const fetchData = async () => {
-    const result: Response = await fetch('https://api.github.com/repos/mike-cheek/portfolio/languages')
+    const result: Response = await fetch('https://api.github.com/repos/mikecheek/portfolio/languages')
     if (result.ok) {
       const d: JSON = await result.json()
       setData(d)
