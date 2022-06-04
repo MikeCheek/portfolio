@@ -12,10 +12,15 @@ const ArrowUp = (): JSX.Element => {
 
   return (
     <a
-      href={'#top'}
       className={theme === 'dark' ? styles.arrowUp : styles.arrowUpLight}
       id={'arrowUp'}
       title={'Go to top'}
+      onClick={() => {
+        window.scroll(0, 0)
+        typeof window !== 'undefined' &&
+          //@ts-ignore
+          window.gtag('event', 'click', {event_category: 'Navigation', event_label: 'Go to top'})
+      }}
     >
       <Arrow width={'50px'} height={'50px'} />
     </a>
