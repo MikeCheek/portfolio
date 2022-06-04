@@ -6,12 +6,9 @@ export const commands = [
   {
     auto: true,
     input: `cat introduction.txt`,
-    output: `<p>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> </p>
-    <p>I'm a <span style="color: var(--pink)">developer</span></p>
-    <p> and I'm currently working</p>
-    <p> on the <span style="color: var(--pink)">web</span></p>`,
+    output: `<p>Hi, this is a work in progress <br/>Try to interact with me (drag, close, resize)</p>`,
   },
-  {auto: false, input: '', output: `Oh you got me! I'm still working on this feature`},
+  {auto: false, input: '', output: `Nice try, but I'm still working on this feature`},
 ]
 
 //other experiences
@@ -43,7 +40,11 @@ export const otherExperiences = [
 ]
 
 //about
-export const about: string = `<p>Having been fascinated with computers since I was a child,<br/>
+export const about: string = `
+    <h4>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
+    I'm a <span style="color: var(--pink)">developer</span>
+    and I'm currently working on the <span style="color: var(--pink)">web</span></h4>
+    <p>Having been fascinated with computers since I was a child,<br/>
     I am currently studying computer engineering at the Polytechnic of Turin.</p>
     <p>I am currently working at <a id="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
     <br/>In my first year, I decided to work there because I wanted to immediately take advantage of the opportunities that the university offered</p>
