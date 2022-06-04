@@ -3,6 +3,7 @@ node_modules/
 public
 gh-pages
 gh-pages.pub
+.env
 .history
 yarn-error.log
 yarn.lock

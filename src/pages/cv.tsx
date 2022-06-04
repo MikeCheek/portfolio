@@ -4,7 +4,7 @@ import ReactGA from 'react-ga4'
 
 const CV = () => {
   useEffect(() => {
-    if (!ReactGA.isInitialized) ReactGA.initialize('G-TGB7YVN6K4')
+    if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
     ReactGA.send({hitType: 'pageview', page: '/game', title: 'CV'})
   }, [])
   return (

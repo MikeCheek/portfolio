@@ -34,7 +34,7 @@ const IndexPage = (): JSX.Element => {
   }
 
   useEffect(() => {
-    if (!ReactGA.isInitialized) ReactGA.initialize('G-TGB7YVN6K4')
+    if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
     ReactGA.send({hitType: 'pageview', page: '/', title: 'Home'})
     document.addEventListener('keydown', animateKeyDown)
     document.addEventListener('keyup', animateKeyUp)
