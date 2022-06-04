@@ -41,17 +41,17 @@ export const otherExperiences = [
 
 //about
 export const about: string = `
-    <h4>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
+    <h3>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
     I'm a <span style="color: var(--pink)">developer</span>
-    and I'm currently working on the <span style="color: var(--pink)">web</span></h4>
+    and I'm currently working on the <span style="color: var(--pink)">web</span></h3>
     <p>Having been fascinated with computers since I was a child,<br/>
     I am currently studying computer engineering at the Polytechnic of Turin.</p>
-    <p>I am currently working at <a id="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
+    <p>I am currently working at <a title="JEToP" id="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
     <br/>In my first year, I decided to work there because I wanted to immediately take advantage of the opportunities that the university offered</p>
     <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics</p>`
 
 //work experiences
-export const works: string = `<strong><h3><a id="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Today)<br/><br/>
+export const works: string = `<strong><h3><a title="JEToP" id="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Today)<br/><br/>
     <ul><li>Role: IT Consultant</li><br/>
       <ul>As a member of <strong>teams</strong> on both internal and external projects, 
         <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
@@ -65,8 +65,8 @@ export const works: string = `<strong><h3><a id="link" href="https://jetop.com">
     
     <strong>[Examples of things I've contributed to develop]</strong>
     <ul>
-      <li>Blog section of the association's website (<a id="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)</li>
-      <li>Web Dev Challenge landing page (<a id="link" href="https://wdc.jetop.com">https://wdc.jetop.com</a>)</li>
+      <li>Blog section of the association's website (<a title="JEToP Blog" id="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)</li>
+      <li>Web Dev Challenge landing page (<a  title="JEToP WDC" id="link" href="https://wdc.jetop.com">https://wdc.jetop.com</a>)</li>
     </ul>
     `
 
