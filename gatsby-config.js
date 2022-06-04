@@ -121,21 +121,21 @@ module.exports = {
                 precachePages: ['/', '/game/'],
             },
         },
-        {
-            resolve: `gatsby-plugin-google-gtag`,
-            options: {
-                trackingIds: [process.env.MEASUREMENT_ID],
-                gtagConfig: {
-                    optimize_id: 'OPT_CONTAINER_ID',
-                    anonymize_ip: true,
-                    cookie_expires: 0,
-                },
-                pluginConfig: {
-                    head: false,
-                    respectDNT: true,
-                    //exclude: ['/preview/**', '/do-not-track/me/too/'],
-                },
-            },
-        },
+        // {
+        //   resolve: `gatsby-plugin-google-gtag`,
+        //   options: {
+        //     trackingIds: [process.env.MEASUREMENT_ID],
+        //     gtagConfig: {
+        //       optimize_id: 'OPT_CONTAINER_ID',
+        //       anonymize_ip: true,
+        //       cookie_expires: 0,
+        //     },
+        //     pluginConfig: {
+        //       head: false,
+        //       respectDNT: true,
+        //       //exclude: ['/preview/**', '/do-not-track/me/too/'],
+        //     },
+        //   },
+        // },
     ],
 }
