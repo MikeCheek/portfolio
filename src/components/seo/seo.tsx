@@ -74,7 +74,9 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="icon" href="/favicon.ico" />
+    </Helmet>
   )
 }
 
