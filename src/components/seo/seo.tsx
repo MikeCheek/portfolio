@@ -2,7 +2,6 @@ import React from 'react'
 import {Helmet} from 'react-helmet'
 //import { useStaticQuery, graphql } from "gatsby"
 import {SEOProps /*QueryTypes*/} from './seo.types'
-import logo from '../../images/maskableIcons/maskable_icon.png'
 
 const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerification}: SEOProps): JSX.Element => {
   //const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery)
@@ -10,7 +9,8 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
   const metaDescription: string = description //|| site.siteMetadata.description
   //const defaultTitle = site.siteMetadata?.title
   const defaultTitle: string = 'Portfolio'
-  const image: string = logo
+  const url: string = 'https://mikecheek.github.io/portfolio'
+  const image: string = url + '/logo.png'
   return (
     <Helmet
       htmlAttributes={{
@@ -38,6 +38,14 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:url`,
+          content: url,
+        },
+        {
+          property: `og:site_name`,
+          content: title,
         },
         {
           property: `og:image`,
