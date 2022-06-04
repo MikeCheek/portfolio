@@ -9,7 +9,7 @@ import Rocket from '../components/rocket/rocket'
 
 const NotFoundPage = (): JSX.Element => {
   useEffect(() => {
-    if (!ReactGA.isInitialized) ReactGA.initialize('G-TGB7YVN6K4')
+    if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
 
     ReactGA.send({hitType: 'pageview', page: '/game'})
   }, [])
