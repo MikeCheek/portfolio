@@ -46,7 +46,7 @@ const Whoami = (): JSX.Element => {
 
   return (
     <div>
-      <p className={styles.introduce}>{introduce}</p>
+      <h2 className={styles.introduce}>{introduce}</h2>
       <div className={styles.wrap}>
         <div className={styles.profileWrap}>
           <Profile />

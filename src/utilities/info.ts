@@ -1,7 +1,7 @@
 import {SkillsType} from './info.types'
 
 //head
-export const introduce = `/*let me introduce myself*/`
+export const introduce = `/*let me introduce you to my portfolio*/`
 export const commands = [
   {
     auto: true,
