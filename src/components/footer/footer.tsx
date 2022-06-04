@@ -49,7 +49,7 @@ const Footer = ({noGameLink = false}: FooterProps): JSX.Element => {
         </div>
       </div>
       {noGameLink ? null : (
-        <Link to={'/game'} id={'link'}>
+        <Link to={'/game'} id={'link'} title="Play Word Game">
           Wanna play a game?
         </Link>
       )}
