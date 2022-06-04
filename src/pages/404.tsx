@@ -1,18 +1,18 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Link} from 'gatsby'
 import SEO from '../components/seo/seo'
 import Layout from '../components/layout/layout'
-import ReactGA from 'react-ga4'
+// import ReactGA from 'react-ga4'
 
 //import { useThemeContext } from "../utilities/themeContext"
 import Rocket from '../components/rocket/rocket'
 
 const NotFoundPage = (): JSX.Element => {
-  useEffect(() => {
-    if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
+  // useEffect(() => {
+  //   if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
 
-    ReactGA.send({hitType: 'pageview', page: '/game'})
-  }, [])
+  //   ReactGA.send({hitType: 'pageview', page: '/game'})
+  // }, [])
   //const theme = useThemeContext()
 
   return (
