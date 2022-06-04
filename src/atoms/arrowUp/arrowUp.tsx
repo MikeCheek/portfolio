@@ -17,9 +17,9 @@ const ArrowUp = (): JSX.Element => {
       title={'Go to top'}
       onClick={() => {
         window.scroll(0, 0)
-        typeof window !== 'undefined' &&
-          //@ts-ignore
-          window.gtag('event', 'click', {event_category: 'Navigation', event_label: 'Go to top'})
+        // typeof window !== 'undefined' &&
+        //   //@ts-ignore
+        //   window.gtag('event', 'click', {event_category: 'Navigation', event_label: 'Go to top'})
       }}
     >
       <Arrow width={'50px'} height={'50px'} />

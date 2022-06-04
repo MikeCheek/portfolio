@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo/seo'
-import ReactGA from 'react-ga4'
+// import ReactGA from 'react-ga4'
 
 import '../styles/globals.scss'
 
@@ -34,8 +34,8 @@ const IndexPage = (): JSX.Element => {
   }
 
   useEffect(() => {
-    if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
-    ReactGA.send({hitType: 'pageview', page: '/', title: 'Home'})
+    // if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
+    // ReactGA.send({hitType: 'pageview', page: '/', title: 'Home'})
     document.addEventListener('keydown', animateKeyDown)
     document.addEventListener('keyup', animateKeyUp)
   }, [])
