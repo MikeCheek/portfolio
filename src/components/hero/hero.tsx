@@ -25,7 +25,7 @@ const Hero = (): JSX.Element => {
   const color = theme === 'dark' ? 'var(--svg-dark)' : 'var(--svg-light)'
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setStroke((stroke) =>
         stroke == 'var(--orange)'
           ? 'var(--pink)'
@@ -36,6 +36,7 @@ const Hero = (): JSX.Element => {
           : 'var(--orange)'
       )
     }, 2000)
+    return () => clearInterval(interval)
   }, [])
 
   return (

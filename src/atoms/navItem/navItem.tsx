@@ -30,6 +30,9 @@ const NavItem = ({isHref, path, onClick, text}: NavItemProps): JSX.Element => {
 
   useEffect(() => {
     window.addEventListener('scroll', getElementRect)
+    return () => {
+      window.removeEventListener('scroll', getElementRect)
+    }
   }, [])
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from 'gatsby'
 import SEO from '../components/seo/seo'
 import Layout from '../components/layout/layout'
@@ -6,14 +6,21 @@ import Layout from '../components/layout/layout'
 
 //import { useThemeContext } from "../utilities/themeContext"
 import Rocket from '../components/rocket/rocket'
+import {collection, doc, updateDoc, increment} from 'firebase/firestore'
+import {database} from '../../firebaseConfig'
 
 const NotFoundPage = (): JSX.Element => {
-  // useEffect(() => {
-  //   if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
+  const dbInstance = collection(database, 'pages')
+  const fs = doc(dbInstance, '404')
+  const update = async () => {
+    await updateDoc(fs, {
+      times: increment(1),
+    })
+  }
 
-  //   ReactGA.send({hitType: 'pageview', page: '/game'})
-  // }, [])
-  //const theme = useThemeContext()
+  useEffect(() => {
+    update()
+  }, [])
 
   return (
     <>
