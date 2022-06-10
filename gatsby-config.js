@@ -1,4 +1,5 @@
 const url = 'https://mikecheek.github.io/portfolio'
+require('dotenv').config({ path: `./.env.local` })
 module.exports = {
     siteMetadata: {
         siteUrl: url,
@@ -121,21 +122,19 @@ module.exports = {
                 precachePages: ['/', '/game/'],
             },
         },
-        // {
-        //   resolve: `gatsby-plugin-google-gtag`,
-        //   options: {
-        //     trackingIds: [process.env.MEASUREMENT_ID],
-        //     gtagConfig: {
-        //       optimize_id: 'OPT_CONTAINER_ID',
-        //       anonymize_ip: true,
-        //       cookie_expires: 0,
-        //     },
-        //     pluginConfig: {
-        //       head: false,
-        //       respectDNT: true,
-        //       //exclude: ['/preview/**', '/do-not-track/me/too/'],
-        //     },
-        //   },
-        // },
+        {
+            resolve: 'gatsby-plugin-firebase',
+            options: {
+                credentials: {
+                    apiKey: process.env.API_KEY,
+                    authDomain: process.env.AUTH_DOMAIN,
+                    databaseURL: process.env.DATABASE_URL,
+                    projectId: process.env.PROJECT_ID,
+                    storageBucket: process.env.STORAGE_BUCKET,
+                    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+                    appId: process.env.APP_ID,
+                },
+            },
+        },
     ],
 }

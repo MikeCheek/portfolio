@@ -75,7 +75,7 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
         },
       ].concat(meta)}
     >
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/portfolio/favicon.ico" />
     </Helmet>
   )
 }
