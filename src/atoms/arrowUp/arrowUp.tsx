@@ -11,7 +11,7 @@ const ArrowUp = (): JSX.Element => {
   const theme: string = useThemeContext()
 
   return (
-    <a
+    <div
       className={theme === 'dark' ? styles.arrowUp : styles.arrowUpLight}
       id={'arrowUp'}
       title={'Go to top'}
@@ -23,7 +23,7 @@ const ArrowUp = (): JSX.Element => {
       }}
     >
       <Arrow width={'50px'} height={'50px'} />
-    </a>
+    </div>
   )
 }
 
