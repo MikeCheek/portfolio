@@ -4,6 +4,7 @@ public
 gh-pages
 gh-pages.pub
 .env
+.env.local
 .history
 yarn-error.log
 yarn.lock
