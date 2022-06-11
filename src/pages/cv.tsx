@@ -1,21 +1,21 @@
-import {collection, doc, updateDoc, increment} from 'firebase/firestore'
-import React, {useEffect} from 'react'
-import {database} from '../../firebaseConfig'
+import React from 'react'
+// import {collection, doc, updateDoc, increment} from 'firebase/firestore'
+// import {database} from '../../firebaseConfig'
 import cv from '../assets/cv.pdf'
 // import ReactGA from 'react-ga4'
 
 const CV = () => {
-  const dbInstance = collection(database, 'pages')
-  const fs = doc(dbInstance, 'cv')
-  const update = async () => {
-    await updateDoc(fs, {
-      times: increment(1),
-    })
-  }
+  // const dbInstance = collection(database, 'pages')
+  // const fs = doc(dbInstance, 'cv')
+  // const update = async () => {
+  //   await updateDoc(fs, {
+  //     times: increment(1),
+  //   })
+  // }
 
-  useEffect(() => {
-    update()
-  }, [])
+  // useEffect(() => {
+  //   update()
+  // }, [])
   return (
     <iframe
       style={{position: 'absolute', top: 0, left: 0, right: 0}}
