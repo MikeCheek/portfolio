@@ -3,14 +3,14 @@ import Hero from '../components/hero/hero'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo/seo'
 // import ReactGA from 'react-ga4'
-import {collection, doc, increment, updateDoc} from 'firebase/firestore'
-import {database} from '../../firebaseConfig'
+// import {collection, doc, increment, updateDoc} from 'firebase/firestore'
+// import {database} from '../../firebaseConfig'
 
 import '../styles/globals.scss'
 
 const IndexPage = (): JSX.Element => {
-  const dbInstance = collection(database, 'pages')
-  const fs = doc(dbInstance, 'home')
+  // const dbInstance = collection(database, 'pages')
+  // const fs = doc(dbInstance, 'home')
 
   const animateKeyDown = (key: KeyboardEvent) => {
     if (key.keyCode === 79)
@@ -38,14 +38,14 @@ const IndexPage = (): JSX.Element => {
     document.body.removeAttribute('style')
   }
 
-  const update = async () => {
-    await updateDoc(fs, {
-      times: increment(1),
-    })
-  }
+  // const update = async () => {
+  //   await updateDoc(fs, {
+  //     times: increment(1),
+  //   })
+  // }
 
   useEffect(() => {
-    update()
+    // update()
 
     // if (!ReactGA.isInitialized) ReactGA.initialize(process.env.MEASUREMENT_ID as string)
     // ReactGA.send({hitType: 'pageview', page: '/', title: 'Home'})

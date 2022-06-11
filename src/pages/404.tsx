@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Link} from 'gatsby'
 import SEO from '../components/seo/seo'
 import Layout from '../components/layout/layout'
@@ -6,21 +6,21 @@ import Layout from '../components/layout/layout'
 
 //import { useThemeContext } from "../utilities/themeContext"
 import Rocket from '../components/rocket/rocket'
-import {collection, doc, updateDoc, increment} from 'firebase/firestore'
-import {database} from '../../firebaseConfig'
+// import {collection, doc, updateDoc, increment} from 'firebase/firestore'
+// import {database} from '../../firebaseConfig'
 
 const NotFoundPage = (): JSX.Element => {
-  const dbInstance = collection(database, 'pages')
-  const fs = doc(dbInstance, '404')
-  const update = async () => {
-    await updateDoc(fs, {
-      times: increment(1),
-    })
-  }
+  // const dbInstance = collection(database, 'pages')
+  // const fs = doc(dbInstance, '404')
+  // const update = async () => {
+  //   await updateDoc(fs, {
+  //     times: increment(1),
+  //   })
+  // }
 
-  useEffect(() => {
-    update()
-  }, [])
+  // useEffect(() => {
+  //   update()
+  // }, [])
 
   return (
     <>
