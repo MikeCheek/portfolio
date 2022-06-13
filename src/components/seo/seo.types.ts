@@ -5,6 +5,7 @@ export type SEOProps = {
   meta?: Meta
   title: string
   googleSiteVerification?: string
+  pathname?: string
 }
 
 export type Meta = ConcatArray<PropertyMetaObj | NameMetaObj>

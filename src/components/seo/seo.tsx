@@ -2,15 +2,39 @@ import React from 'react'
 import {Helmet} from 'react-helmet'
 //import { useStaticQuery, graphql } from "gatsby"
 import {SEOProps /*QueryTypes*/} from './seo.types'
+import {useStaticQuery, graphql} from 'gatsby'
 
-const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerification}: SEOProps): JSX.Element => {
-  //const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery)
+const SEO = ({
+  description = '',
+  lang = 'en',
+  meta = [],
+  title,
+  pathname,
+  googleSiteVerification,
+}: SEOProps): JSX.Element => {
+  const {site} = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            keywords
+            siteUrl
+          }
+        }
+      }
+    `
+  )
 
-  const metaDescription: string = description //|| site.siteMetadata.description
+  const metaDescription: string = description || site.siteMetadata.description
   //const defaultTitle = site.siteMetadata?.title
   const defaultTitle: string = 'Portfolio'
   const url: string = 'https://mikecheek.github.io/portfolio'
   const image: string = url + '/logo.png'
+  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
+
   return (
     <Helmet
       htmlAttributes={{
@@ -18,6 +42,16 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
+      link={
+        canonical
+          ? [
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]
+          : []
+      }
       meta={[
         {
           name: `google-site-verification`,
@@ -26,6 +60,10 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: 'keywords',
+          content: site.siteMetadata.keywords.join(','),
         },
         {
           property: `og:title`,
@@ -48,10 +86,6 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
           content: title,
         },
         {
-          property: `og:image`,
-          content: image,
-        },
-        {
           property: `twitter:image`,
           content: image,
         },
@@ -60,10 +94,8 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
           content: `summary`,
         },
         {
-          /*
           name: `twitter:creator`,
           content: site.siteMetadata?.author || ``,
-        */
         },
         {
           name: `twitter:title`,
@@ -73,7 +105,35 @@ const SEO = ({description = '', lang = 'en', meta = [], title, googleSiteVerific
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          image
+            ? [
+                {
+                  property: 'og:image',
+                  content: image,
+                },
+                {
+                  property: 'og:image:width',
+                  content: '200px',
+                },
+                {
+                  property: 'og:image:height',
+                  content: '200px',
+                },
+                {
+                  name: 'twitter:card',
+                  content: 'summary_large_image',
+                },
+              ]
+            : [
+                {
+                  name: 'twitter:card',
+                  content: 'summary',
+                },
+              ]
+        )
+        .concat(meta)}
     >
       <link rel="icon" href="/portfolio/favicon.ico" />
     </Helmet>

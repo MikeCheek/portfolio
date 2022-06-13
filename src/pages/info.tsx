@@ -23,7 +23,7 @@ const InfoPage = () => {
 
   return (
     <>
-      <SEO title="Loading" description="Just a loading animation test" />
+      <SEO title="Loading" description="Just multiple test" pathname="/info/" />
       <Layout noMenu={true}>
         <>
           <Loading />

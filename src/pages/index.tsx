@@ -61,6 +61,7 @@ const IndexPage = (): JSX.Element => {
           "Since I was a child I have always had a passion for everything there is computer science, so I'm studying Computer Engineering."
         }
         googleSiteVerification={'I4IPeMDb8LK64z0WfFe8k8Ep4XWwHih824Fu6F8fy64'}
+        pathname={'/'}
       />
       <Layout>
         <div>
