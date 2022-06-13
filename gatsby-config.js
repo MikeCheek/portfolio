@@ -4,8 +4,10 @@ module.exports = {
     siteMetadata: {
         siteUrl: url,
         title: 'Portfolio',
+        description: `Hi, I'm Michele Pulvirenti and I'm a web developer.`,
         url: url,
         keywords: ['michele', 'pulvirenti', 'portfolio', 'mikecheek', 'developer', 'web'],
+        author: 'Michele Pulvirenti',
     },
     pathPrefix: '/portfolio',
     plugins: [{
