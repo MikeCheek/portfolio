@@ -136,6 +136,7 @@ const SEO = ({
         .concat(meta)}
     >
       <link rel="icon" href="/portfolio/favicon.ico" />
+      {pathname ? <link rel="canonical" href={`${canonical}`} /> : <></>}
     </Helmet>
   )
 }
