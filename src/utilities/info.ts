@@ -122,16 +122,16 @@ export const programming: SkillsType = [
 ]
 export const frameworks: SkillsType = [
   {
-    name: 'React',
-    percentage: '90%',
+    name: 'React Js',
+    link: 'https://it.reactjs.org',
   },
   {
-    name: 'Gatsby',
-    percentage: '80%',
+    name: 'Gatsby Js',
+    link: 'https://www.gatsbyjs.com',
   },
   {
-    name: 'NextJs',
-    percentage: '50%',
+    name: 'Next Js',
+    link: 'https://nextjs.org',
   },
 ]
 export const others: SkillsType = [
@@ -142,6 +142,10 @@ export const others: SkillsType = [
   {
     name: 'CSS',
     percentage: '90%',
+  },
+  {
+    name: 'Sass',
+    link: 'https://sass-lang.com',
   },
   {
     name: 'Linux',
