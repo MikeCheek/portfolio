@@ -157,11 +157,11 @@ export const others: SkillsType = [
   },
   {
     name: 'MatLab',
-    percentage: '50%',
+    link: 'https://it.mathworks.com/products/matlab.html',
   },
   {
     name: 'Simulink',
-    percentage: '50%',
+    link: 'https://it.mathworks.com/products/simulink.html',
   },
 ]
 export const languages = `
