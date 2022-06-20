@@ -19,6 +19,25 @@ const Footer = ({noGameLink = false}: FooterProps): JSX.Element => {
 
   const color: string = theme === 'dark' ? 'var(--icon-dark)' : 'var(--icon-light)'
 
+  const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const x: number = event.clientX
+    const y: number = event.clientY
+    const element = event.currentTarget
+    const rect = element.getBoundingClientRect()
+    const middleX: number = rect.left + rect.width / 2
+    const middleY: number = rect.top + rect.height / 2
+    const xOffset = x - middleX
+    const yOffset = y - middleY
+    element.style.transform = `translate(${xOffset}px, ${yOffset}px)`
+  }
+
+  const handleMouseLeave = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const element = event.currentTarget
+    setTimeout(() => {
+      element.style.removeProperty('transform')
+    }, 150)
+  }
+
   return (
     <>
       <div className={styles.footer} id={'contacts'}>
@@ -26,25 +45,37 @@ const Footer = ({noGameLink = false}: FooterProps): JSX.Element => {
         <div className={styles.icons}>
           {/*<Phone width={width} fill={color} />*/}
           <a
-            className={styles.icon}
+            onMouseMove={(event) => handleMouseMove(event)}
+            onMouseLeave={(event) => handleMouseLeave(event)}
+            className={styles.iconWrap}
             href={'mailto:' + email}
             title={'Send me an email'}
             target={'_blank'}
             rel="noopener noreferrer"
           >
-            <Email width={width} height={height} fill={color} />
+            <Email width={width} height={height} fill={color} className={styles.icon} />
           </a>
           <a
-            className={styles.icon}
+            onMouseMove={(event) => handleMouseMove(event)}
+            onMouseLeave={(event) => handleMouseLeave(event)}
+            className={styles.iconWrap}
             href={linkedin}
             title={'Linkedin profile'}
             target={'_blank'}
             rel="noopener noreferrer"
           >
-            <Linkedin width={width} height={height} fill={color} />
+            <Linkedin width={width} height={height} fill={color} className={styles.icon} />
           </a>
-          <a className={styles.icon} href={github} title={'GitHub profile'} target={'_blank'} rel="noopener noreferrer">
-            <Github width={width} height={height} fill={color} />
+          <a
+            onMouseMove={(event) => handleMouseMove(event)}
+            onMouseLeave={(event) => handleMouseLeave(event)}
+            className={styles.iconWrap}
+            href={github}
+            title={'GitHub profile'}
+            target={'_blank'}
+            rel="noopener noreferrer"
+          >
+            <Github width={width} height={height} fill={color} className={styles.icon} />
           </a>
         </div>
       </div>
