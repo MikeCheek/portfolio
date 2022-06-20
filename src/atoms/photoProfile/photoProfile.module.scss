@@ -1,4 +1,42 @@
 .profescional {
-  border-radius: 50%;
-  box-shadow: 0px 50px 100px -50px var(--prof-box-shad-dark);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.profile {
+    position: relative;
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    @for $i from 1 through 4 {
+         :nth-child(#{$i}) {
+            position: absolute;
+            width: calc(200px * $i);
+            height: calc(200px * $i);
+            left: calc(-100px * ($i - 1));
+            top: calc(-100px * ($i - 1));
+            opacity: calc(0.4 - $i / 12);
+            border-radius: 50%;
+            border: solid 1px var(--prof-box-shad-dark);
+            z-index: -1;
+            border-bottom: 0;
+            border-right: 0;
+            animation-duration: calc(5s * $i/2);
+            animation-name: rotating;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
