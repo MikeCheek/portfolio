@@ -2,6 +2,7 @@
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    cursor: pointer;
 }
 
 .profile {
@@ -11,14 +12,15 @@
 .circles {
     position: absolute;
     top: 0;
-    @for $i from 1 through 4 {
+    z-index: -10;
+    @for $i from 1 through 5 {
          :nth-child(#{$i}) {
             position: absolute;
             width: calc(200px * $i);
             height: calc(200px * $i);
             left: calc(-100px * ($i - 1));
             top: calc(-100px * ($i - 1));
-            opacity: calc(0.4 - $i / 12);
+            opacity: calc(0.6 - $i / 13);
             border-radius: 50%;
             border: solid 1px var(--prof-box-shad-dark);
             z-index: -1;
@@ -28,6 +30,7 @@
             animation-name: rotating;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
+            transition: all 0.2s ease-in-out;
         }
     }
 }
