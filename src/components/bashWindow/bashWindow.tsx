@@ -211,7 +211,7 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
         >
           <div className={styles.title}>
             <h1>Michele Pulvirenti {compact ? '' : 'Portfolio'}</h1>
-            {compact ? `` : ` ~ ${dim.height}x${dim.width}`}
+            {compact ? `` : dim.width >= 470 ? ` ~ ${dim.height}x${dim.width}` : ''}
           </div>
           <div className={styles.buttons}>
             <span className={styles.circleGreen} onClick={minimize}>
