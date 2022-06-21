@@ -1,26 +1,7 @@
 @import '../../styles/animations';
 .parallax {
-  z-index: -1;
-}
-
-.goDownWrap {
-  animation: downUp 2s linear infinite;
-  bottom: 0;
-  display: none;
-  left: 0;
-  margin: auto;
   position: relative;
-  right: 0;
-  @media screen and (min-width: '768px') {
-    display: block;
-  }
-}
-
-.goDown {
-  cursor: pointer;
-  opacity: 0.5;
-  transform: rotate(180deg) scaleX(1.5);
-  transition: stroke 1s ease-in-out;
+  z-index: -1;
 }
 
 .sectionWrap {

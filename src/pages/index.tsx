@@ -51,6 +51,10 @@ const IndexPage = (): JSX.Element => {
     // ReactGA.send({hitType: 'pageview', page: '/', title: 'Home'})
     document.addEventListener('keydown', animateKeyDown)
     document.addEventListener('keyup', animateKeyUp)
+    return () => {
+      document.removeEventListener('keydown', animateKeyDown)
+      document.removeEventListener('keyup', animateKeyUp)
+    }
   }, [])
 
   return (
