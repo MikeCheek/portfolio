@@ -214,9 +214,16 @@ const BashWindow = ({children}: BashWindowProps): JSX.Element => {
             {compact ? `` : ` ~ ${dim.height}x${dim.width}`}
           </div>
           <div className={styles.buttons}>
-            <span className={styles.circleGreen} onClick={minimize}></span>
-            <span className={styles.circleYellow} onClick={expand}></span>
-            <span className={styles.circleRed} onClick={close}></span>
+            <span className={styles.circleGreen} onClick={minimize}>
+              <span></span>
+            </span>
+            <span className={styles.circleYellow} onClick={expand}>
+              <span></span>
+            </span>
+            <span className={styles.circleRed} onClick={close}>
+              <span></span>
+              <span></span>
+            </span>
           </div>
         </div>
         <div id={'content'} className={styles.content}>
