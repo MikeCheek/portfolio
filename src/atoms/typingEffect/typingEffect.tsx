@@ -24,17 +24,23 @@ const TypingEffect = ({
   const write = async (): Promise<void> => {
     await sleep(fast ? 100 : 500)
     for (let i = 0; i < array.length; i++) {
-      tmpString += alphabet[randomLetter()]
-      setText(tmpString)
-      await sleep(fast ? 10 : randomTime())
-      tmpString = tmpString.slice(0, -1)
-      tmpString += alphabet[randomLetter()]
-      setText(tmpString)
-      await sleep(fast ? 10 : randomTime())
-      tmpString = tmpString.slice(0, -1)
-      tmpString += array[i]
-      setText(tmpString)
-      await sleep(fast ? 10 : randomTime())
+      if (fast) {
+        tmpString += array[i]
+        setText(tmpString)
+        await sleep(10)
+      } else {
+        tmpString += alphabet[randomLetter()]
+        setText(tmpString)
+        await sleep(randomTime())
+        tmpString = tmpString.slice(0, -1)
+        tmpString += alphabet[randomLetter()]
+        setText(tmpString)
+        await sleep(randomTime())
+        tmpString = tmpString.slice(0, -1)
+        tmpString += array[i]
+        setText(tmpString)
+        await sleep(randomTime())
+      }
     }
 
     if (!blinkAfter) {
