@@ -1,61 +1,61 @@
 @import '../../styles/animations';
 .parallax {
-  z-index: -1;
+    z-index: -1;
 }
 
 .goDownWrap {
-  position: relative;
-  bottom: 0;
-  display: none;
-  left: 0;
-  right: 0;
-  animation: downUp 2s linear infinite;
-  margin: auto;
-  @media screen and (min-width: '768px') {
-    display: block;
-  }
+    animation: downUp 2s linear infinite;
+    bottom: 0;
+    display: none;
+    left: 0;
+    margin: auto;
+    position: relative;
+    right: 0;
+    @media screen and (min-width: '768px') {
+        display: block;
+    }
 }
 
 .goDown {
-  transform: rotate(180deg) scaleX(1.5);
-  opacity: 0.5;
-  transition: stroke 1s ease-in-out;
-  cursor: pointer;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: rotate(180deg) scaleX(1.5);
+    transition: stroke 1s ease-in-out;
 }
 
 .sectionWrap {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
 }
 
 .wrapper {
-  padding-top: 1%;
+    padding-top: 1%;
 }
 
 .about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  > * {
-    font-size: 1rem;
-    width: fit-content;
-  }
-  @media screen and (min-width: '768px') {
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    ul {
-      padding: initial;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    >* {
+        font-size: 1rem;
+        width: fit-content;
     }
-    :first-child {
-      flex: 1 1 80%;
+    @media screen and (min-width: '768px') {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        ul {
+            padding: initial;
+        }
+         :first-child {
+            flex: 1 1 80%;
+        }
+        >* {
+            flex: 1 1 30%;
+            margin-left: 3%;
+            margin-right: 3%;
+            width: 50%;
+        }
     }
-    > * {
-      width: 50%;
-      margin-right: 3%;
-      margin-left: 3%;
-      flex: 1 1 30%;
-    }
-  }
 }
