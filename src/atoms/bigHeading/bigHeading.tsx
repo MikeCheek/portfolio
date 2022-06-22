@@ -9,17 +9,23 @@ const BigHeading = () => {
       <h2>
         I'm a{' '}
         <HoverPopUp>
-          <span className={styles.colored}>developer</span>
+          <a href="#skills" title="" className={styles.colored}>
+            developer
+          </a>
           <span>See my skills!</span>
         </HoverPopUp>{' '}
         and I'm currently{' '}
-        <HoverPopUp>
-          <span className={styles.colored}>working</span>
+        <HoverPopUp down>
+          <a href="#works" title="" className={styles.colored}>
+            working
+          </a>
           <span>See my work experiences!</span>
         </HoverPopUp>{' '}
         on the{' '}
-        <HoverPopUp>
-          <span className={styles.colored}>web</span>
+        <HoverPopUp down>
+          <a href="#none" title="" className={styles.colored}>
+            web
+          </a>
           <span>See my works!</span>
         </HoverPopUp>
       </h2>

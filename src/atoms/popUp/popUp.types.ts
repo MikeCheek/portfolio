@@ -1,5 +1,6 @@
 export interface PopUpProps {
   children: React.ReactNode
   top: number
-  left: number
+  left: number | string
+  right: number | string
 }

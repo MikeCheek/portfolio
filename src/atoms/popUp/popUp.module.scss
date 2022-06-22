@@ -1,10 +1,18 @@
 .popUp {
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 20px;
-  position: absolute;
-  z-index: 20;
-  top: 0;
+    background: var(--very-transparent-white);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    // backdrop-filter: blur(5px);
+    // -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    color: var(--orange);
+    font-size: 1rem;
+    @media screen and (min-width: '768px') {
+        font-size: 2rem;
+    }
+    @media screen and (min-width: '1024px') {
+        font-size: 3rem;
+    }
 }
