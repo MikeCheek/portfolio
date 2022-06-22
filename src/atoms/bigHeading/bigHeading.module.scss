@@ -1,92 +1,92 @@
 @import '../../styles/animations';
 .heading {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Montserrat';
-    height: calc(100vh - var(--nav-bar-height));
-    justify-content: space-evenly;
-    margin: auto;
-    margin-top: 20px;
-    mix-blend-mode: difference;
-    text-align: center;
-    width: 80vw;
-    >* {
-        font-size: 1.8rem;
-        font-weight: 700;
-        line-height: 3rem;
-        @media screen and (min-width: '768px') {
-            font-size: 2.8rem;
-            line-height: 4rem;
-        }
-        @media screen and (min-width: '1024px') {
-            font-size: 3.8rem;
-            line-height: 5rem;
-        }
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat';
+  height: calc(100vh - var(--nav-bar-height));
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 20px;
+  mix-blend-mode: difference;
+  text-align: center;
+  width: 80vw;
+  > * {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 3rem;
+    @media screen and (min-width: '768px') {
+      font-size: 2.8rem;
+      line-height: 4rem;
     }
+    @media screen and (min-width: '1024px') {
+      font-size: 3.8rem;
+      line-height: 5rem;
+    }
+  }
 }
 
 .colored {
-    animation: gradient 10s ease infinite;
-    background: linear-gradient(-45deg, var(--orange), var(--pink), var(--orange), var(--pink));
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  background: linear-gradient(-45deg, var(--orange), var(--pink), var(--orange), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 400% 400%;
+  text-decoration: none;
+  -webkit-text-fill-color: transparent;
+  &a {
     text-decoration: none;
-    -webkit-text-fill-color: transparent;
-    &a {
-        text-decoration: none;
-    }
+  }
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .goDownWrap {
-    animation: downUp 2s linear infinite;
-    bottom: 20px;
-    left: 0;
-    margin: auto;
-    position: relative;
-    right: 0;
+  animation: downUp 2s linear infinite;
+  bottom: 20px;
+  left: 0;
+  margin: auto;
+  position: relative;
+  right: 0;
 }
 
 .goDown {
-    animation: changeColor 1s ease-in-out infinite alternate;
-    border: 3px solid;
+  animation: changeColor 1s ease-in-out infinite alternate;
+  border: 3px solid;
+  border-left: none;
+  border-top: none;
+  cursor: pointer;
+  height: 50px;
+  opacity: 0.5;
+  transform: rotate(45deg);
+  width: 50px;
+  @media screen and (min-width: 768px) {
+    border: 5px solid;
     border-left: none;
     border-top: none;
-    cursor: pointer;
-    height: 50px;
-    opacity: 0.5;
-    transform: rotate(45deg);
-    width: 50px;
-    @media screen and (min-width: 768px) {
-        border: 5px solid;
-        border-left: none;
-        border-top: none;
-        height: 80px;
-        width: 80px;
-    }
+    height: 80px;
+    width: 80px;
+  }
 }
 
 @keyframes changeColor {
-    0% {
-        border-color: var(--orange);
-    }
-    50% {
-        border-color: var(--white);
-    }
-    100% {
-        border-color: var(--pink);
-    }
+  0% {
+    border-color: var(--orange);
+  }
+  50% {
+    border-color: var(--white);
+  }
+  100% {
+    border-color: var(--pink);
+  }
 }
