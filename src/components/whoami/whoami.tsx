@@ -65,7 +65,7 @@ const Whoami = (): JSX.Element => {
                         <TypingEffect
                           initialText={command.input}
                           heading={false}
-                          fast={true}
+                          // fast={true}
                           blinkAfter={false}
                           then={next}
                         />
