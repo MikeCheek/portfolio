@@ -1,22 +1,22 @@
 .popUp {
-    background: var(--very-transparent-white);
-    border: 2px solid rgba(255, 255, 255, 0.18);
-    // backdrop-filter: blur(5px);
-    // -webkit-backdrop-filter: blur(5px);
-    border-radius: 10px;
-    position: absolute;
-    z-index: 20;
-    top: 0;
-    color: var(--orange);
-    font-size: 1rem;
-    @media screen and (max-width: '768px') {
-        display: none;
-        z-index: -20;
-    }
-    @media screen and (min-width: '768px') {
-        font-size: 2rem;
-    }
-    @media screen and (min-width: '1024px') {
-        font-size: 3rem;
-    }
+  background: var(--very-transparent-white);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  // backdrop-filter: blur(5px);
+  // -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  color: var(--orange);
+  font-size: 1rem;
+  @media screen and (max-width: '768px') {
+    display: none;
+    z-index: -20;
+  }
+  @media screen and (min-width: '768px') {
+    font-size: 2rem;
+  }
+  @media screen and (min-width: '1024px') {
+    font-size: 3rem;
+  }
 }
