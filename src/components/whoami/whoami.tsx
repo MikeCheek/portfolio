@@ -7,7 +7,7 @@ import {commands} from '../../utilities/info'
 import * as styles from './whoami.module.scss'
 import BashWindow from '../bashWindow/bashWindow'
 import sleep from '../../utilities/sleep'
-import BigHeading from '../../atoms/bigHeading/bigHeading'
+import BigHeading from '../bigHeading/bigHeading'
 
 const Whoami = (): JSX.Element => {
   const [show, setShow] = useState<number>(0)
