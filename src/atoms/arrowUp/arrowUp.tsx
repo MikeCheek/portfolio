@@ -6,8 +6,16 @@ import Arrow from '../../assets/arrowUp.svg'
 const ArrowUp = (): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
 
-  let prevScrollpos = window.pageYOffset
+  let prevScrollpos = 0
   let currentScrollPos: number
+
+  const setListener = () => {
+    if (typeof window !== 'undefined') window.onscroll = handleScroll
+  }
+
+  const removeListener = () => {
+    if (typeof window !== 'undefined') window.onscroll = null
+  }
 
   const handleScroll = () => {
     currentScrollPos = window.pageYOffset
@@ -23,10 +31,8 @@ const ArrowUp = (): JSX.Element => {
   }
 
   useEffect(() => {
-    window.onscroll = handleScroll
-    return () => {
-      window.onscroll = null
-    }
+    setListener()
+    return removeListener
   }, [])
 
   return (
