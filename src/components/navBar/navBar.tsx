@@ -7,13 +7,10 @@ import {NavBarProps} from './navBar.types'
 import Navigation from '../navigation/navigation'
 import Hamburger from '../../atoms/hamburger/hamburger'
 //import Toggle from '../../atoms/toggle/toggle'
-import {useThemeContext} from '../../utilities/themeContext'
 import NavItem from '../../atoms/navItem/navItem'
 
 const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element => {
   const [navBarOpen, setNavBarOpen] = useState<boolean>(false)
-
-  const theme: string = useThemeContext()
 
   useEffect(() => {
     let prevScrollpos = window.pageYOffset
@@ -39,18 +36,11 @@ const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element =>
     }
   })
 
-  useEffect(() => {
-    let tmp = document.getElementById('navBar')
-    if (tmp) {
-      theme === 'dark' ? (tmp.style.cssText = 'none') : (tmp.style.backgroundColor = 'var(--navbar-bg-light)')
-    }
-  }, [theme])
-
   const closeNavBar = () => {
     setNavBarOpen(false)
     let tmp = document.getElementById('navBar')
     if (tmp) {
-      tmp.style.backgroundColor = theme === 'dark' ? 'var(--navbar-bg-dark)' : 'var(--navbar-bg-light)'
+      tmp.style.backgroundColor = 'var(--navbar-bg-dark)'
     }
     document.body.style.removeProperty('overflow')
     document.body.style.removeProperty('height')
@@ -61,7 +51,7 @@ const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element =>
     setNavBarOpen(true)
     let tmp = document.getElementById('navBar')
     if (tmp) {
-      tmp.style.backgroundColor = theme === 'dark' ? 'var(--navig-bg-dark)' : 'var(--navig-bg-light)'
+      tmp.style.backgroundColor = 'var(--navig-bg-dark)'
     }
     document.body.style.overflow = 'hidden'
     document.body.style.height = '100%'
@@ -69,7 +59,7 @@ const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element =>
   }
 
   return (
-    <div className={theme === 'dark' ? styles.navBar : styles.navBarLight} id="navBar">
+    <div className={styles.navBar} id="navBar">
       {/* <div className={styles.logo}>
         <Logo/>
          <Toggle changeToggle={changeToggle} />        

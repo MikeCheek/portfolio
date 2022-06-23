@@ -24,7 +24,7 @@ const InfoPage = () => {
   return (
     <>
       <SEO title="Loading" description="Just multiple test" pathname="/info/" />
-      <Layout noMenu={true}>
+      <Layout>
         <>
           <Loading />
           {!error ? (

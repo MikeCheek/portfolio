@@ -5,7 +5,15 @@ import * as styles from './bigHeading.module.scss'
 const BigHeading = () => {
   return (
     <div className={styles.heading}>
-      <h1>Hi, I'm Michele Pulvirenti</h1>
+      <h1>
+        Hi, I'm{' '}
+        <HoverPopUp down>
+          <a href="#about" title="" className={styles.colored}>
+            Michele Pulvirenti
+          </a>
+          <span>See my background!</span>
+        </HoverPopUp>
+      </h1>
       <h2>
         I'm a{' '}
         <HoverPopUp>
@@ -30,8 +38,13 @@ const BigHeading = () => {
         </HoverPopUp> */}
         web
       </h2>
-      <div className={styles.goDownWrap}>
-        <div className={styles.goDown} onClick={() => window.scroll(0, window.innerHeight * 0.95)}></div>
+      <div className={styles.arrowWrap} onClick={() => window.scroll(0, window.innerHeight)}>
+        <div className={styles.arrow1}>
+          <div className={styles.arrow}></div>
+        </div>
+        <div className={styles.arrow2}>
+          <div className={styles.arrow}></div>
+        </div>
       </div>
     </div>
   )

@@ -6,7 +6,6 @@ import * as styles from './footer.module.scss'
 import Email from '../../assets/email.svg'
 import Linkedin from '../../assets/linkedin.svg'
 import Github from '../../assets/github.svg'
-import {useThemeContext} from '../../utilities/themeContext'
 import {email, github, linkedin} from '../../utilities/info'
 import {Link} from 'gatsby'
 import FooterProps from './footer.types'
@@ -15,9 +14,7 @@ const width: string = '50px'
 const height: string = '50px'
 
 const Footer = ({noGameLink = false}: FooterProps): JSX.Element => {
-  const theme: string = useThemeContext()
-
-  const color: string = theme === 'dark' ? 'var(--icon-dark)' : 'var(--icon-light)'
+  const color: string = 'var(--icon-dark)'
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     const x: number = event.clientX
