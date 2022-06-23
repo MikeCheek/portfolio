@@ -23,7 +23,7 @@ const Layout = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
   return (
     <>
       {browser === 'waiting' ? null : browser === 'Safari' ? (
-        <Ball BallSvg={BallMoving} />
+        <Ball BallSvg={BallStill} />
       ) : (
         <Ball BallSvg={BallMoving} />
       )}
