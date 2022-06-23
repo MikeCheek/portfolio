@@ -24,7 +24,8 @@ const Hero = (): JSX.Element => {
   const color = theme === 'dark' ? 'var(--svg-dark)' : 'var(--svg-light)'
 
   return (
-    <div className={styles.wrapper}>
+    // <div className={styles.wrapper}>
+    <div>
       <BigHeading />
       {/* <Whoami /> */}
       <div className={styles.sectionWrap}>
