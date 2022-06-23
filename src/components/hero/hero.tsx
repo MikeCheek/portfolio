@@ -3,7 +3,7 @@ import React from 'react'
 import * as styles from './hero.module.scss'
 
 import Section from '../section/section'
-import Whoami from '../whoami/whoami'
+// import Whoami from '../whoami/whoami'
 import Skills from '../skills/skills'
 
 import Account from '../../assets/account.svg'
@@ -15,7 +15,7 @@ import Others from '../others/others'
 import {useThemeContext} from '../../utilities/themeContext'
 import Timeline from '../../atoms/timeline/timeline'
 import {about, events, works} from '../../utilities/info'
-import Parallax from '../../atoms/parallax/parallax'
+// import Parallax from '../../atoms/parallax/parallax'
 
 const Hero = (): JSX.Element => {
   const theme: string = useThemeContext()
@@ -24,11 +24,11 @@ const Hero = (): JSX.Element => {
 
   return (
     <div className={styles.wrapper}>
-      <Whoami />
+      {/* <Whoami /> */}
       <div className={styles.sectionWrap}>
-        <div className={styles.parallax}>
+        {/* <div className={styles.parallax}>
           <Parallax />
-        </div>
+        </div> */}
         <Section title={'About me'} id={'about'} Svg={{svg: Account, stroke: color}}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
