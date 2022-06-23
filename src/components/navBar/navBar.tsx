@@ -34,7 +34,7 @@ const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element =>
 
       prevScrollpos = currentScrollPos
     }
-  })
+  }, [])
 
   const closeNavBar = () => {
     setNavBarOpen(false)
