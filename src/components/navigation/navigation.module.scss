@@ -40,8 +40,3 @@ $breakpoints: (
     padding: 10px;
   }
 }
-
-.navMobileLight {
-  @extend .navMobile;
-  background-color: var(--navig-bg-light);
-}

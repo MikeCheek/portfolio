@@ -4,11 +4,6 @@ $line-lenght: 15%;
   box-shadow: var(--timeline-dark);
 }
 
-.containerLight {
-  border-color: var(--timeline-light);
-  box-shadow: var(--timeline-light);
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -72,13 +67,6 @@ $line-lenght: 15%;
   @media screen and (min-width: '768px') {
     margin-left: auto;
     margin-bottom: 50px;
-  }
-}
-
-.textLight {
-  @extend .text;
-  :nth-child(1) {
-    color: var(--brown);
   }
 }
 

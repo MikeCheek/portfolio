@@ -46,8 +46,3 @@ $breakpoints: (
     display: none;
   }
 }
-
-.navBarLight {
-  @extend .navBar;
-  background-color: var(--navbar-bg-light);
-}

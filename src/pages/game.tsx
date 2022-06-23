@@ -21,7 +21,7 @@ const Game = () => {
   return (
     <>
       <SEO title={'Word Game'} description={'Play this word game'} pathname={'/game/'} />
-      <Layout noMenu={true} noGameLink={true}>
+      <Layout noGameLink={true}>
         <GameHero />
       </Layout>
     </>

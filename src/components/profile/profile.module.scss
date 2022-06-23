@@ -27,14 +27,3 @@
   color: var(--cta-hov-dark);
   transform: scale(1.1);
 }
-
-.light {
-  @extend .cvButton;
-  color: var(--cta-light);
-  border-color: var(--cta-light);
-}
-
-.light:hover {
-  color: var(--cta-hov-light);
-  border-color: var(--cta-hov-light);
-}

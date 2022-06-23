@@ -12,16 +12,13 @@ import HSkills from '../../assets/skills.svg'
 import Teaching from '../../assets/teaching.svg'
 import Things from '../../assets/things.svg'
 import Others from '../others/others'
-import {useThemeContext} from '../../utilities/themeContext'
 import Timeline from '../../atoms/timeline/timeline'
 import {about, events, works} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 // import Parallax from '../../atoms/parallax/parallax'
 
 const Hero = (): JSX.Element => {
-  const theme: string = useThemeContext()
-
-  const color = theme === 'dark' ? 'var(--svg-dark)' : 'var(--svg-light)'
+  const color = 'var(--svg-dark)'
 
   return (
     // <div className={styles.wrapper}>
