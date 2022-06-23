@@ -15,6 +15,7 @@ import Others from '../others/others'
 import {useThemeContext} from '../../utilities/themeContext'
 import Timeline from '../../atoms/timeline/timeline'
 import {about, events, works} from '../../utilities/info'
+import BigHeading from '../bigHeading/bigHeading'
 // import Parallax from '../../atoms/parallax/parallax'
 
 const Hero = (): JSX.Element => {
@@ -24,6 +25,7 @@ const Hero = (): JSX.Element => {
 
   return (
     <div className={styles.wrapper}>
+      <BigHeading />
       {/* <Whoami /> */}
       <div className={styles.sectionWrap}>
         {/* <div className={styles.parallax}>

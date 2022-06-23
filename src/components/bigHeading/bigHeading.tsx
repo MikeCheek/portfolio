@@ -1,5 +1,5 @@
 import React from 'react'
-import HoverPopUp from '../../components/hoverPopUp/hoverPopUp'
+import HoverPopUp from '../hoverPopUp/hoverPopUp'
 import * as styles from './bigHeading.module.scss'
 
 const BigHeading = () => {
