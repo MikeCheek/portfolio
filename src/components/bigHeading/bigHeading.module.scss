@@ -90,6 +90,7 @@ $ani-delay: 1s;
 .arrow2 {
   position: absolute;
   top: 0;
+  opacity: 0;
   animation: arrow-movement $ani-speed $ani-delay ease-in-out infinite;
   :first-child {
     border-color: var(--pink);
