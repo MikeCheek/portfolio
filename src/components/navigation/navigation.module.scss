@@ -8,14 +8,12 @@ $breakpoints: (
 .navDesktop {
   display: none;
   @media (min-width: 768px) {
-    display: flex;
-    justify-content: space-around;
-    margin-right: 20px;
     //animation: slideIn 1000ms ease-out;
     align-items: center;
-    > * {
-      margin: 0 10px 0;
-    }
+    display: flex;
+    font-size: 1.2rem;
+    gap: 30px;
+    justify-content: space-evenly;
   }
 }
 
@@ -23,23 +21,23 @@ $breakpoints: (
   @media (min-width: 768px) {
     display: none;
   }
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  z-index: 5;
-  width: 100vw;
-  height: auto;
-  left: 0;
-  top: var(--nav-bar-height);
   align-items: center;
-  justify-content: flex-start;
-  background-color: var(--navig-bg-dark);
   -webkit-animation: rotateMenu 600ms ease-in-out forwards;
   animation: rotateMenu 600ms ease-in-out forwards;
+  background-color: var(--navig-bg-dark);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: flex-start;
+  left: 0;
+  position: absolute;
+  top: var(--nav-bar-height);
   transform-origin: top center;
+  width: 100vw;
+  z-index: 5;
   > * {
-    padding: 10px;
     margin: 20px;
+    padding: 10px;
   }
 }
 

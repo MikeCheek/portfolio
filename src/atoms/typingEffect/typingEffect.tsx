@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {useInView} from 'react-intersection-observer'
 import sleep from '../../utilities/sleep'
 
 import * as styles from './typingEffect.module.scss'
@@ -16,6 +17,12 @@ const TypingEffect = ({
   const array: string[] = Array.from(initialText)
   const [text, setText] = useState<string>('')
   const [noBlink, setNoBlink] = useState<boolean>(false)
+  const [ref, inView, _entry] = useInView({
+    threshold: 0,
+    fallbackInView: true,
+    rootMargin: '-10px 0px -10px 0px',
+    triggerOnce: true,
+  })
 
   let tmpString: string = ''
   const min: number = 0
@@ -64,11 +71,11 @@ const TypingEffect = ({
   }
 
   useEffect(() => {
-    write()
-  }, [])
+    if (inView) write()
+  }, [inView])
 
   return (
-    <>
+    <span ref={ref}>
       {heading ? (
         <h1 id={'typing'} className={styles.headingText}>
           {text}
@@ -78,7 +85,7 @@ const TypingEffect = ({
           {text}
         </p>
       )}
-    </>
+    </span>
   )
 }
 

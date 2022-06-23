@@ -2,11 +2,12 @@ import React, {useRef, useState} from 'react'
 import TypingEffect from '../../atoms/typingEffect/typingEffect'
 import Profile from '../profile/profile'
 
-import {introduce, commands} from '../../utilities/info'
+import {commands} from '../../utilities/info'
 
 import * as styles from './whoami.module.scss'
 import BashWindow from '../bashWindow/bashWindow'
 import sleep from '../../utilities/sleep'
+import BigHeading from '../../atoms/bigHeading/bigHeading'
 
 const Whoami = (): JSX.Element => {
   const [show, setShow] = useState<number>(0)
@@ -46,7 +47,8 @@ const Whoami = (): JSX.Element => {
 
   return (
     <div>
-      <p className={styles.introduce}>{introduce}</p>
+      {/* <p className={styles.introduce}>{introduce}</p> */}
+      <BigHeading />
       <div className={styles.wrap}>
         <div className={styles.profileWrap}>
           <Profile />
@@ -63,7 +65,7 @@ const Whoami = (): JSX.Element => {
                         <TypingEffect
                           initialText={command.input}
                           heading={false}
-                          fast={true}
+                          // fast={true}
                           blinkAfter={false}
                           then={next}
                         />

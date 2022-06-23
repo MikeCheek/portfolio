@@ -70,12 +70,10 @@ const NavBar = ({/*changeToggle,*/ noMenu = false}: NavBarProps): JSX.Element =>
 
   return (
     <div className={theme === 'dark' ? styles.navBar : styles.navBarLight} id="navBar">
-      <div className={styles.logo}>
-        {/*<Logo/>*/}
-        {/*
-                <Toggle changeToggle={changeToggle} />
-                */}
-      </div>
+      {/* <div className={styles.logo}>
+        <Logo/>
+         <Toggle changeToggle={changeToggle} />        
+      </div> */}
 
       {noMenu ? (
         <div style={{marginRight: '20px'}}>
