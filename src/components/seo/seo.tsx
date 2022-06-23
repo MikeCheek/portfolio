@@ -53,10 +53,12 @@ const SEO = ({
           : []
       }
       meta={[
-        {
-          name: `google-site-verification`,
-          content: googleSiteVerification,
-        },
+        googleSiteVerification
+          ? {
+              name: `google-site-verification`,
+              content: googleSiteVerification,
+            }
+          : {},
         {
           name: `description`,
           content: metaDescription,

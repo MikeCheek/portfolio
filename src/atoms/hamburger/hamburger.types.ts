@@ -1,4 +1,4 @@
 export type HamburgerProps = {
-  onClick: React.MouseEventHandler<HTMLDivElement>
+  onClick: React.MouseEventHandler<HTMLButtonElement>
   navBarOpen: Boolean
 }

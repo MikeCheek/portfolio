@@ -34,6 +34,7 @@ const HoverPopUp = ({children, down = false}: HoverPopUpProps) => {
       onMouseLeave={(e) => {
         handleMouseLeave(e)
       }}
+      onTouchStart={() => {}}
     >
       {show ? (
         <PopUp top={pos.top} left={pos.left} right={pos.right}>

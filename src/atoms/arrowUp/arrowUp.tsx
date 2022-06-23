@@ -3,16 +3,13 @@ import React from 'react'
 import * as styles from './arrowUp.module.scss'
 
 import Arrow from '../../assets/arrowUp.svg'
-import {useThemeContext} from '../../utilities/themeContext'
 
 const ArrowUp = (): JSX.Element => {
   //the logic of animation is on navBar.tsx
 
-  const theme: string = useThemeContext()
-
   return (
     <div
-      className={theme === 'dark' ? styles.arrowUp : styles.arrowUpLight}
+      className={styles.arrowUp}
       id={'arrowUp'}
       title={'Go to top'}
       onClick={() => {

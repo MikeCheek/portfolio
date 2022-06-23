@@ -3,11 +3,9 @@ import {SectionProps} from './section.types'
 
 import * as styles from './section.module.scss'
 import sleep from '../../utilities/sleep'
-import {useThemeContext} from '../../utilities/themeContext'
 import {useInView} from 'react-intersection-observer'
 
 const Section = ({title, children, id, reversed = false, Svg, paragraph = false}: SectionProps): JSX.Element => {
-  const theme: string = useThemeContext()
   const [ref, inView, _entry] = useInView({
     threshold: 0,
     fallbackInView: true,
@@ -28,17 +26,17 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
     <div
       className={`${reversed ? styles.sectionReversed : styles.section} ${
         inView ? (reversed ? styles.sectionViewReversed : styles.sectionView) : ''
-      } ${theme === 'dark' ? '' : styles.light}`}
+      }`}
       ref={ref}
       style={{
-        backgroundColor: theme === 'dark' ? 'var(--sect-bg-dark)' : 'var(--sect-bg-light)',
+        backgroundColor: 'var(--sect-bg-dark)',
         transition: 'opacity 1s ease, transform 1s ease',
       }}
       id={id ? id : title}
     >
       {paragraph ? (
         <>
-          <h2 className={`${styles.titleParagraph} ${theme === 'dark' ? '' : styles.titleLight}`}>{title}</h2>
+          <h2 className={`${styles.titleParagraph}`}>{title}</h2>
           <div className={styles.contentParagraph}>
             {Svg ? (
               <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
@@ -56,11 +54,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
         </>
       ) : (
         <>
-          <h2
-            className={`${reversed ? styles.titleReversed : styles.title} ${theme === 'dark' ? '' : styles.titleLight}`}
-          >
-            {title}
-          </h2>
+          <h2 className={`${reversed ? styles.titleReversed : styles.title}`}>{title}</h2>
           <div className={reversed ? styles.contentReversed : styles.content}>
             {Svg ? (
               <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
