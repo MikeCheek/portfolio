@@ -10,12 +10,14 @@ $desktop-dim: 200px;
     right: 0;
     width: $mobile-dim;
     height: $mobile-dim;
+    overflow-x: hidden;
     @media screen and (min-width: 768px) {
         width: $desktop-dim;
         height: $desktop-dim;
     }
     @for $i from 1 through 5 {
          :nth-child(#{$i}) {
+            overflow-x: hidden;
             position: absolute;
             width: calc($mobile-dim * $i);
             height: calc($mobile-dim * $i);
