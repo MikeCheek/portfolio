@@ -126,7 +126,7 @@ module.exports = {
       options: {
         precachePages: ['/', '/game/'],
         workboxConfig: {
-          maximumFileSizeToCacheInBytes: 10000000,
+          maximumFileSizeToCacheInBytes: 100000000,
         },
       },
     },
