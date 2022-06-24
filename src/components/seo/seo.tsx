@@ -137,7 +137,15 @@ const SEO = ({
         )
         .concat(meta)}
     >
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" />
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" as="style" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" />
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet" />
       <link rel="icon" href="/portfolio/favicon.ico" />
+
       {pathname ? <link rel="canonical" href={`${canonical}`} /> : <></>}
     </Helmet>
   )

@@ -125,15 +125,18 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: ['/', '/game/'],
+        workboxConfig: {
+          maximumFileSizeToCacheInBytes: 100000000,
+        },
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Montserrat\:700`, `Rubik\:300,700`],
-        display: 'swap',
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [`Montserrat\:700`, `Rubik\:300,700`],
+    //     display: 'swap',
+    //   },
+    // },
     // {
     //   resolve: 'gatsby-plugin-firebase',
     //   options: {
