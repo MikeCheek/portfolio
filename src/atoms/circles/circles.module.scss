@@ -1,0 +1,50 @@
+.circles {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -10;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    @media screen and (min-width: 768px) {
+        width: 200px;
+        height: 200px;
+    }
+    @for $i from 1 through 5 {
+         :nth-child(#{$i}) {
+            position: absolute;
+            width: calc(100px * $i);
+            height: calc(100px * $i);
+            left: calc(-50px * ($i - 1));
+            top: calc(-50px * ($i - 1));
+            opacity: calc(0.8 - $i / 13);
+            border-radius: 50%;
+            border: solid 1px var(--pink);
+            z-index: -1;
+            border-bottom: 0;
+            border-right: 0;
+            animation-duration: calc(5s * $i/2);
+            animation-name: rotating;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            transition: all 0.2s ease-in-out;
+            @media screen and (min-width: 768px) {
+                width: calc(200px * $i);
+                height: calc(200px * $i);
+                left: calc(-100px * ($i - 1));
+                top: calc(-100px * ($i - 1));
+            }
+        }
+    }
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
