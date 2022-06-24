@@ -1,3 +1,5 @@
+$mobile-dim: 100px;
+$desktop-dim: 200px;
 .circles {
     position: absolute;
     top: 0;
@@ -6,17 +8,17 @@
     margin: auto;
     left: 0;
     right: 0;
-    width: 100px;
-    height: 100px;
+    width: $mobile-dim;
+    height: $mobile-dim;
     @media screen and (min-width: 768px) {
-        width: 200px;
-        height: 200px;
+        width: $desktop-dim;
+        height: $desktop-dim;
     }
     @for $i from 1 through 5 {
          :nth-child(#{$i}) {
             position: absolute;
-            width: calc(100px * $i);
-            height: calc(100px * $i);
+            width: calc($mobile-dim * $i);
+            height: calc($mobile-dim * $i);
             left: calc(-50px * ($i - 1));
             top: calc(-50px * ($i - 1));
             opacity: calc(0.8 - $i / 13);
@@ -31,8 +33,8 @@
             animation-iteration-count: infinite;
             transition: all 0.2s ease-in-out;
             @media screen and (min-width: 768px) {
-                width: calc(200px * $i);
-                height: calc(200px * $i);
+                width: calc($desktop-dim * $i);
+                height: calc($desktop-dim * $i);
                 left: calc(-100px * ($i - 1));
                 top: calc(-100px * ($i - 1));
             }
