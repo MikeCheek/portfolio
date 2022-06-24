@@ -52,22 +52,18 @@ export const about: string = `
 
 //work experiences
 export const works: string = `<strong><h3><a title="JEToP" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Today)<br/><br/>
-    <ul><li>Role: IT Consultant</li><br/>
-      <ul>As a member of <strong>teams</strong> on both internal and external projects, 
-        <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
-        like <strong>React, Gatsby and NextJS</strong> and have improved my backend skills through training.<br/> 
-        <br/><br/>
-      </ul>
-    </ul>
-    <ul><li>Role: Collaborator of IT Area<br/></li>
-    </ul>
+    <h4>Role: IT Consultant</h4>
+    <p>As a member of <strong>teams</strong> on both internal and external projects, 
+      <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
+      like <strong>React, Gatsby and NextJS</strong> and have improved my backend skills through training.<br/> 
+      <br/><br/>
+    </p>
+    <h4>Role: Collaborator of IT Area</h4>
     <br/>
     
-    <strong>[Examples of things I've contributed to develop]</strong>
-    <ul>
-      <li>Blog section of the association's website (<a title="JEToP Blog" class="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)</li>
-      <li>Web Dev Challenge landing page (<a  title="JEToP WDC" class="link" href="https://wdc.jetop.com">https://wdc.jetop.com</a>)</li>
-    </ul>
+    <h4><strong>[Examples of things I've contributed to develop]</strong></h4>
+    <p>Blog section of the association's website (<a title="JEToP Blog" class="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)</p>
+    <p>Web Dev Challenge landing page (<a  title="JEToP WDC" class="link" href="https://wdc.jetop.com">https://wdc.jetop.com</a>)</p>
     `
 
 //education
