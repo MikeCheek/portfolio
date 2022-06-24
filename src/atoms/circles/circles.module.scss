@@ -3,63 +3,63 @@ $desktop-dim: 200px;
 $mobile-dis: calc($mobile-dim / -2);
 $desktop-dis: calc($desktop-dim / -2);
 .wrap {
-    position: absolute;
-    z-index: -10;
-    width: 100%;
-    height: 110%;
-    overflow-x: hidden;
-    overflow-y: clip;
-    @media screen and(min-width: 768px) {
-        height: 120%;
-    }
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 110%;
+  overflow-x: hidden;
+  overflow-y: clip;
+  @media screen and(min-width: 768px) {
+    height: 120%;
+  }
 }
 
 .circles {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    left: 0;
-    right: 0;
-    width: $mobile-dim;
-    height: $mobile-dim;
-    @media screen and (min-width: 768px) {
-        width: $desktop-dim;
-        height: $desktop-dim;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: $mobile-dim;
+  height: $mobile-dim;
+  @media screen and (min-width: 768px) {
+    width: $desktop-dim;
+    height: $desktop-dim;
+  }
+  @for $i from 1 through 5 {
+    :nth-child(#{$i}) {
+      position: absolute;
+      width: calc($mobile-dim * $i);
+      height: calc($mobile-dim * $i);
+      left: calc($mobile-dis * ($i - 1));
+      top: calc($mobile-dis * ($i - 1));
+      opacity: calc(0.5 - $i / 12);
+      border-radius: 50%;
+      border: solid 1px var(--pink);
+      z-index: -1;
+      border-bottom: 0;
+      border-right: 0;
+      animation-duration: calc(5s * $i/2);
+      animation-name: rotating;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      transition: all 0.2s ease-in-out;
+      @media screen and (min-width: 768px) {
+        width: calc($desktop-dim * $i);
+        height: calc($desktop-dim * $i);
+        left: calc($desktop-dis * ($i - 1));
+        top: calc($desktop-dis * ($i - 1));
+      }
     }
-    @for $i from 1 through 5 {
-         :nth-child(#{$i}) {
-            position: absolute;
-            width: calc($mobile-dim * $i);
-            height: calc($mobile-dim * $i);
-            left: calc($mobile-dis * ($i - 1));
-            top: calc($mobile-dis * ($i - 1));
-            opacity: calc(0.5 - $i / 12);
-            border-radius: 50%;
-            border: solid 1px var(--pink);
-            z-index: -1;
-            border-bottom: 0;
-            border-right: 0;
-            animation-duration: calc(5s * $i/2);
-            animation-name: rotating;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            transition: all 0.2s ease-in-out;
-            @media screen and (min-width: 768px) {
-                width: calc($desktop-dim * $i);
-                height: calc($desktop-dim * $i);
-                left: calc($desktop-dis * ($i - 1));
-                top: calc($desktop-dis * ($i - 1));
-            }
-        }
-    }
+  }
 }
 
 @keyframes rotating {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
