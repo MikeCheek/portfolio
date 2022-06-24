@@ -21,7 +21,7 @@ $desktop-dim: 200px;
             height: calc($mobile-dim * $i);
             left: calc(-50px * ($i - 1));
             top: calc(-50px * ($i - 1));
-            opacity: calc(0.8 - $i / 13);
+            opacity: calc(0.6 - $i / 13);
             border-radius: 50%;
             border: solid 1px var(--pink);
             z-index: -1;
