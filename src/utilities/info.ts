@@ -42,13 +42,13 @@ export const otherExperiences = [
 //about
 export const about: string = `
     <h3>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
-    I'm a <span style="color: var(--pink)">developer</span>
-    and I'm currently working on the <span style="color: var(--pink)">web</span></h3>
+    I'm a <span style="color: var(--pink)">developer</span></h3>
     <p>Having been fascinated with computers since I was a child,<br/>
-    I am currently studying computer engineering at the Polytechnic of Turin.</p>
+    I am studying computer engineering at the Polytechnic of Turin.</p>
     <p>I am currently working at <a title="JEToP" class="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
     <br/>In my first year, I decided to work there because I wanted to immediately take advantage of the opportunities that the university offered</p>
-    <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics</p>`
+    <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics</p>
+    <p>Try clicking on the section icon!</p>`
 
 //work experiences
 export const works: string = `<strong><h3><a title="JEToP" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Today)<br/><br/>
