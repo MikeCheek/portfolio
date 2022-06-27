@@ -31,7 +31,7 @@ const SEO = ({
   const metaDescription: string = description || site.siteMetadata.description
   //const defaultTitle = site.siteMetadata?.title
   const defaultTitle: string = 'Portfolio'
-  const url: string = 'https://mikecheek.github.io/portfolio'
+  const url: string = 'https://michelepulvirenti.gtsb.io'
   const image: string = url + '/logo.png'
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
 
@@ -144,7 +144,7 @@ const SEO = ({
       <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" as="style" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" />
       <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet" />
-      <link rel="icon" href="/portfolio/favicon.ico" />
+      <link rel="icon" href="/favicon.ico" />
 
       {pathname ? <link rel="canonical" href={`${canonical}`} /> : <></>}
     </Helmet>
