@@ -3,7 +3,7 @@ name: Gatsby Test Publish
 on:
   pull_request:
     branches:
-      - main
+      - never-deploy-to-gh-pages
 
 jobs:
   build:
