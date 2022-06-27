@@ -145,8 +145,6 @@ const SEO = ({
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" />
       <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet" />
       <link rel="icon" href="/favicon.ico" />
-      <meta name="robots" content="all" />
-
       {pathname ? <link rel="canonical" href={`${canonical}`} /> : <></>}
     </Helmet>
   )
