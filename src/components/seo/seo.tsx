@@ -53,12 +53,6 @@ const SEO = ({
           : []
       }
       meta={[
-        googleSiteVerification
-          ? {
-              name: `google-site-verification`,
-              content: googleSiteVerification,
-            }
-          : {},
         {
           name: `description`,
           content: metaDescription,
@@ -107,6 +101,12 @@ const SEO = ({
           name: `twitter:description`,
           content: metaDescription,
         },
+        googleSiteVerification
+          ? {
+              name: `google-site-verification`,
+              content: googleSiteVerification,
+            }
+          : {},
       ]
         .concat(
           image
