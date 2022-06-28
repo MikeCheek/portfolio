@@ -31,7 +31,7 @@ const SEO = ({
   const metaDescription: string = description || site.siteMetadata.description
   //const defaultTitle = site.siteMetadata?.title
   const defaultTitle: string = 'Portfolio'
-  const url: string = 'https://michelepulvirenti.gtsb.io'
+  const url: string = 'https://michelepulvirenti.gatsbyjs.io'
   const image: string = url + '/logo.png'
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
 
