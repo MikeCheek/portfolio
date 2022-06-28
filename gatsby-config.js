@@ -118,12 +118,15 @@ module.exports = {
                 path: './assets/',
             },
         },
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-                precachePages: ['/', '/game'],
-            },
-        },
+        // {
+        //   resolve: `gatsby-plugin-offline`,
+        //   options: {
+        //     precachePages: ['/', '/game'],
+        //     workboxConfig: {
+        //       maximumFileSizeToCacheInBytes: 100000000,
+        //     },
+        //   },
+        // },
         {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
