@@ -49,7 +49,7 @@ const SEO = ({
               href: canonical,
             }
           : {},
-        {rel: 'icon', href: '/favicon.ico'},
+        {rel: 'icon', href: '/portfolio/favicon.ico'},
       ]}
       meta={[
         {
