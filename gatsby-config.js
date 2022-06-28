@@ -1,4 +1,4 @@
-const url = 'https://michelepulvirenti.gatsbyjs.io'
+const url = 'https://mikecheek.github.io/portfolio'
 module.exports = {
     siteMetadata: {
         siteUrl: url,
@@ -8,6 +8,7 @@ module.exports = {
         keywords: ['michele', 'pulvirenti', 'portfolio', 'mikecheek', 'developer', 'web'],
         author: 'Michele Pulvirenti',
     },
+    pathPrefix: '/portfolio',
     plugins: [{
             resolve: 'gatsby-plugin-robots-txt',
             options: {
