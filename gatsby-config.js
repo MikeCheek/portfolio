@@ -34,6 +34,7 @@ module.exports = {
                 // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
                 // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
                 display: 'standalone',
+                cache_busting_mode: 'none',
                 icon: 'src/images/maskableIcons/maskable_icon_x48.png', // This path is relative to the root of the site.
                 icons: [{
                         src: 'src/images/maskableIcons/maskable_icon.png',
@@ -121,10 +122,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-offline`,
             options: {
-                precachePages: ['/', '/game'],
-                workboxConfig: {
-                    maximumFileSizeToCacheInBytes: 100000000,
-                },
+                precachePages: ['/game'],
             },
         },
         // {
