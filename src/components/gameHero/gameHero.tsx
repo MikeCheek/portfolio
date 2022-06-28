@@ -16,20 +16,6 @@ const GameHero = (): JSX.Element => {
 
   const [language, setLanguage] = useState<string>('en')
 
-  /*const fetchData = async () => {
-        setFetched(false);
-        setStarted(true);
-        const response = await fetch('https://random-word-api.herokuapp.com/word?number=1&swear=0');
-        if (response.ok) {
-            const data = await response.json();
-            if (data[0].length > length) fetchData();
-            else {
-                setWord(data[0]);
-                setFetched(true);
-            }
-        }
-    } */
-
   const fetchData = async () => {
     setFetched(false)
     setStarted(true)
