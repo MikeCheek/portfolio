@@ -42,16 +42,18 @@ const SEO = ({
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
-      link={
+      link={[
         canonical
-          ? [
-              {
-                rel: 'canonical',
-                href: canonical,
-              },
-            ]
-          : []
-      }
+          ? {
+              rel: 'canonical',
+              href: canonical,
+            }
+          : {},
+        {
+          rel: 'icon',
+          href: '/favicon.ico',
+        },
+      ]}
       meta={[
         {
           name: `description`,
@@ -137,17 +139,13 @@ const SEO = ({
         )
         .concat(meta)}
     >
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" />
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
       <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" as="style" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" />
-      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet" />
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="robots" content="all" />
-
-      {pathname ? <link rel="canonical" href={`${canonical}`} /> : <></>}
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet" /> */}
     </Helmet>
   )
 }
