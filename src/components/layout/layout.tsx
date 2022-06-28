@@ -28,14 +28,12 @@ const Layout = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
         <Ball BallSvg={BallMoving} />
       )}
       <div id="top" className={styles.layout}>
-        {/* <NavBar changeToggle={changeDarkMode} noMenu={noMenu} /> */}
-
         {children}
 
         <Separator />
         <Footer noGameLink={noGameLink} />
       </div>
-      <ArrowUp />
+      {noGameLink ? null : <ArrowUp />}
     </>
   )
 }
