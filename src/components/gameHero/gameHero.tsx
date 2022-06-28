@@ -4,6 +4,7 @@ import * as styles from './gameHero.module.scss'
 
 import Loading from '../../atoms/loading/loading'
 import WordGame from '../../atoms/wordGame/wordGame'
+import sleep from '../../utilities/sleep'
 import randomWord from '../../utilities/word'
 
 const GameHero = (): JSX.Element => {
@@ -11,34 +12,19 @@ const GameHero = (): JSX.Element => {
   const [word, setWord] = useState<string>('')
   const [started, setStarted] = useState<boolean>(false)
   const [length, setLength] = useState<number>(7)
+  const [time, setTime] = useState<number>(0)
 
   const [language, setLanguage] = useState<string>('en')
-
-  /*const fetchData = async () => {
-        setFetched(false);
-        setStarted(true);
-        const response = await fetch('https://random-word-api.herokuapp.com/word?number=1&swear=0');
-        if (response.ok) {
-            const data = await response.json();
-            if (data[0].length > length) fetchData();
-            else {
-                setWord(data[0]);
-                setFetched(true);
-            }
-        }
-    } */
-
-  const fetchRightWord = async (length: number): Promise<string> => {
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    const data = randomWord(length, language)
-    return data
-  }
 
   const fetchData = async () => {
     setFetched(false)
     setStarted(true)
-    const data = fetchRightWord(length)
-    setWord(await data)
+    await sleep(500)
+    const stime = performance.now()
+    const data = randomWord(length, language)
+    const etime = performance.now()
+    setTime(etime - stime)
+    setWord(data)
     setFetched(true)
   }
 
@@ -104,6 +90,7 @@ const GameHero = (): JSX.Element => {
             ITALIAN
           </button>
         </div>
+        {time > 0 ? <p>Word fetched in: {time.toPrecision(8)} ms</p> : null}
       </div>
 
       {!started ? (

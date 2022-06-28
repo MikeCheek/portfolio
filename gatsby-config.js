@@ -1,4 +1,4 @@
-const url = 'https://michelepulvirenti.gtsb.io'
+const url = 'https://michelepulvirenti.gatsbyjs.io'
 module.exports = {
     siteMetadata: {
         siteUrl: url,
@@ -8,7 +8,6 @@ module.exports = {
         keywords: ['michele', 'pulvirenti', 'portfolio', 'mikecheek', 'developer', 'web'],
         author: 'Michele Pulvirenti',
     },
-    pathPrefix: '/portfolio', //for gh-pages
     plugins: [{
             resolve: 'gatsby-plugin-robots-txt',
             options: {
