@@ -30,7 +30,7 @@ module.exports = {
                 start_url: '/game',
                 lang: 'en',
                 background_color: '#000000',
-                theme_color: '#ffac30',
+                theme_color: '#000000',
                 // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
                 // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
                 display: 'standalone',
