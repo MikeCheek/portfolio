@@ -9,14 +9,24 @@
   top: 0;
   color: var(--orange);
   font-size: 1rem;
-  @media screen and (max-width: '768px') {
-    display: none;
-    z-index: -20;
-  }
+  cursor: pointer;
+  padding: 0 10px;
+  animation: show 500ms ease;
+
   @media screen and (min-width: '768px') {
     font-size: 2rem;
+    padding: 0 20px;
   }
   @media screen and (min-width: '1024px') {
     font-size: 3rem;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

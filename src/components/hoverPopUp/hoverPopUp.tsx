@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PopUp from '../../atoms/popUp/popUp'
 import {HoverPopUpProps} from './hoverPopUp.types'
 
-const HoverPopUp = ({children, down = false}: HoverPopUpProps) => {
+const HoverPopUp = ({children, down = false, href}: HoverPopUpProps) => {
   const [show, setShow] = useState<boolean>(false)
   const [pos, setPos] = useState<{top: number; left: number | string; right: number | string}>({
     top: 0,
@@ -28,16 +28,19 @@ const HoverPopUp = ({children, down = false}: HoverPopUpProps) => {
     setShow(false)
   }
 
+  const onClick = () => {
+    if (href) window.location.href = href
+  }
+
   return (
     <span
       onMouseEnter={(e) => handleMouseEnter(e)}
       onMouseLeave={(e) => {
         handleMouseLeave(e)
       }}
-      onTouchStart={() => {}}
     >
       {show ? (
-        <PopUp top={pos.top} left={pos.left} right={pos.right}>
+        <PopUp top={pos.top} left={pos.left} right={pos.right} onClick={onClick}>
           {children[1]}
         </PopUp>
       ) : null}

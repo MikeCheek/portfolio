@@ -3,4 +3,5 @@ export interface PopUpProps {
   top: number
   left: number | string
   right: number | string
+  onClick?: () => void
 }

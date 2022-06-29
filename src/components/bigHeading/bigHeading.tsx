@@ -8,26 +8,26 @@ const BigHeading = () => {
     <div className={styles.heading}>
       <h1>
         Hi, I'm{' '}
-        <HoverPopUp down>
-          <a href="#about" title="" className={styles.colored}>
+        <HoverPopUp href="#about" down>
+          <span title="" className={styles.colored}>
             Michele Pulvirenti
-          </a>
+          </span>
           <span>See my background!</span>
         </HoverPopUp>
       </h1>
       <h2>
         I'm a{' '}
-        <HoverPopUp>
-          <a href="#skills" title="" className={styles.colored}>
+        <HoverPopUp href="#skills">
+          <span title="" className={styles.colored}>
             developer
-          </a>
+          </span>
           <span>See my skills!</span>
         </HoverPopUp>{' '}
         and I'm currently{' '}
-        <HoverPopUp down>
-          <a href="#works" title="" className={styles.colored}>
+        <HoverPopUp href="#works" down>
+          <span title="" className={styles.colored}>
             working
-          </a>
+          </span>
           <span>See my work experiences!</span>
         </HoverPopUp>{' '}
         on the{' '}
