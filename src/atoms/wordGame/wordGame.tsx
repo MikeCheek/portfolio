@@ -6,6 +6,7 @@ import {WordGameProps} from './wordGame.types'
 import containsChar from '../../utilities/containsChar'
 import sleep from '../../utilities/sleep'
 import {getDefinition} from '../../utilities/word'
+import {strToHash} from '../../utilities/hash'
 
 const alphabet: string[] = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
@@ -26,8 +27,11 @@ const WordGame = ({word, language}: WordGameProps): JSX.Element => {
 
   const [hint, setHint] = useState<boolean>(false)
 
+  const [code, setCode] = useState<string>('')
+
   useEffect(() => {
     setLan(language)
+    setCode(strToHash(word, language))
     setChars(Array.from(word))
     setRemChars(Array.from(word))
     console.log(`
@@ -150,6 +154,13 @@ Go somewhere else or try to guess the word `)
   const toggleDefinition = () => setDefinition(!definition)
   const toggleHint = () => setHint(!hint)
 
+  const handleCopyClick = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>, text: string) => {
+    const target = event.currentTarget
+    navigator.clipboard.writeText(text)
+    target.innerHTML = 'Copied!'
+    sleep(3000).then(() => (target.innerHTML = '(Copy)'))
+  }
+
   return (
     <form id={'form'} className={styles.form}>
       <div id={'trebbling'}>
@@ -198,6 +209,21 @@ Go somewhere else or try to guess the word `)
           <p>Attempts: {attempts}</p>
         </>
       )}
+      <p>
+        Code of the word: {code}{' '}
+        <span className={styles.copy} onClick={(e) => handleCopyClick(e, code)}>
+          (Copy)
+        </span>
+      </p>
+      <span>
+        If you want to play again with this word save{' '}
+        <a className="link" href={`${location.origin}?word=${code}`} rel="noopener noreferrer">
+          this link
+        </a>
+        <span className={styles.copy} onClick={(e) => handleCopyClick(e, `${location.origin}?word=${code}`)}>
+          (Copy)
+        </span>
+      </span>
       <div className={styles.lettersWrapper}>
         <div className={styles.letters}>
           <p>Letters of the word</p>

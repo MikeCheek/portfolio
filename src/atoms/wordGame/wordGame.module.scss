@@ -116,3 +116,12 @@
     color: var(--cta-hov-dark);
   }
 }
+
+.copy {
+  color: var(--cta-dark);
+  cursor: pointer;
+  margin-left: 10px;
+  &:hover {
+    color: var(--cta-hov-dark);
+  }
+}

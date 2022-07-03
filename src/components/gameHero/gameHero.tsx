@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import * as styles from './gameHero.module.scss'
 
@@ -6,8 +6,10 @@ import Loading from '../../atoms/loading/loading'
 import WordGame from '../../atoms/wordGame/wordGame'
 import sleep from '../../utilities/sleep'
 import randomWord from '../../utilities/word'
+import {GameHeroProps} from './gameHero.types'
+import {hashToStr} from '../../utilities/hash'
 
-const GameHero = (): JSX.Element => {
+const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [fetched, setFetched] = useState<boolean>(false)
   const [word, setWord] = useState<string>('')
   const [started, setStarted] = useState<boolean>(false)
@@ -37,6 +39,16 @@ const GameHero = (): JSX.Element => {
     if (language === 'en') setLanguage('it')
     else setLanguage('en')
   }
+
+  useEffect(() => {
+    if (code) {
+      const str = hashToStr(code)
+      setWord(str[0])
+      setLanguage(str[1] == 'e' ? 'en' : 'it')
+      setStarted(true)
+      setFetched(true)
+    }
+  }, [code])
 
   return (
     <div className={styles.game}>
