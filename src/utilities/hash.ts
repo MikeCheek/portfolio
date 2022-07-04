@@ -3,7 +3,7 @@ const alphabet = 'abcdefghijklmnopqrstuvwxyz'
 export const hashToStr = (hash: string) => {
   let n = 1
   const l = hash[0]
-  const h = hash.substring(2)
+  const h = hash.substring(2).toLowerCase()
   const arrHash = Array.from(h)
     .reverse()
     .map((char) => prevLetter(char, n++))
@@ -14,7 +14,7 @@ export const hashToStr = (hash: string) => {
 export const strToHash = (str: string, lang: string = 'en') => {
   let n = 1
   const l = lang === 'en' ? 'e-' : 'i-'
-  const arrHash = Array.from(str)
+  const arrHash = Array.from(str.toLowerCase())
     .map((char) => nextLetter(char, n++))
     .reverse()
   const hash = l + arrHash.join('')
