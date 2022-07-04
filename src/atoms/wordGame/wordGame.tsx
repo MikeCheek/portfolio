@@ -220,7 +220,10 @@ Go somewhere else or try to guess the word `)
         <a className="link" href={`https://mikecheek.github.io/portfolio/game?word=${code}`} rel="noopener noreferrer">
           this link
         </a>
-        <span className={styles.copy} onClick={(e) => handleCopyClick(e, `https://mikecheek.github.io/portfolio/game?word=${code}`)}>
+        <span
+          className={styles.copy}
+          onClick={(e) => handleCopyClick(e, `https://mikecheek.github.io/portfolio/game?word=${code}`)}
+        >
           (Copy)
         </span>
       </span>
