@@ -1,0 +1,92 @@
+$surface-color: var(--orange);
+$curve: 40;
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+  border-radius: calc($curve * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--black);
+  &:hover .overlay {
+    transform: translateY(0);
+  }
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc($curve * 1px);
+  background-color: $surface-color;
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+  padding: 1em;
+  border-radius: calc($curve * 1px) 0 0 0;
+  background-color: $surface-color;
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+  .subHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+
+.arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.arc path {
+  fill: $surface-color;
+  d: path('M 40 80 c 22 0 40 -22 40 -40 v 40 Z');
+}
+
+.card:hover .header {
+  transform: translateY(0);
+}
+
+.favicon {
+  border-radius: 50%;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.title {
+  font-size: 1em;
+  margin: 0 0 0.3em;
+}
+
+.tagline {
+  display: block;
+  margin: 1em 0;
+  font-size: 0.8em;
+}
+
+.description {
+  padding: 0 2em 2em;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

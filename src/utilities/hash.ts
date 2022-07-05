@@ -3,8 +3,8 @@ const alphabet = 'abcdefghijklmnopqrstuvwxyz'
 export const hashToStr = (hash: string) => {
   let n = 1
   const l = hash[0]
-  const h = hash.substring(2).toLowerCase()
-  const arrHash = Array.from(h)
+  const h = hash.substring(2)
+  const arrHash = Array.from(h.toLowerCase())
     .reverse()
     .map((char) => prevLetter(char, n++))
   const str = arrHash.join('')
