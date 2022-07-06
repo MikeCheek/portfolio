@@ -11,8 +11,8 @@ const Projects = () => {
       className={styles.carousel}
       interval={5000}
       ariaLabel={'My projects'}
-      centerSlidePercentage={80}
-      centerMode
+      // centerSlidePercentage={80}
+      // centerMode
       autoPlay
       showArrows={false}
       showThumbs={false}
