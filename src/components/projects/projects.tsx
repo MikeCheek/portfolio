@@ -16,6 +16,9 @@ const Projects = () => {
       autoPlay
       showArrows={false}
       showThumbs={false}
+      autoFocus
+      useKeyboardArrows
+      stopOnHover
       showIndicators
       emulateTouch
       showStatus={false}
@@ -36,7 +39,11 @@ const Projects = () => {
           alt={'Pop! Funding'}
         />
       </Card>
-      <Card href="https://nt.syskrack.org" title="Naturalmente Tecnologici">
+      <Card
+        href="https://nt.syskrack.org"
+        title="Naturalmente Tecnologici"
+        description="Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)"
+      >
         <StaticImage
           placeholder="blurred"
           className={styles.imageMobile}
@@ -50,7 +57,12 @@ const Projects = () => {
           alt={'Naturalmente Tecnologici'}
         />
       </Card>
-      <Card href="https://wdc.jetop.com" favicon="/logo.png" title="Web Dev Challenge 2022">
+      <Card
+        href="https://wdc.jetop.com"
+        favicon="/logo.png"
+        title="Web Dev Challenge 2022"
+        description="Website created on the occasion of the Web Dev Challenge event organized by JEToP"
+      >
         <StaticImage
           placeholder="blurred"
           className={styles.imageMobile}

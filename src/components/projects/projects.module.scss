@@ -6,17 +6,21 @@
   }
 }
 
-.image {
+.imageStructure {
   width: 100%;
   height: auto;
+  filter: brightness(0.8);
+}
+
+.image {
+  @extend .imageStructure;
   @media screen and (max-width: 768px) {
     display: none !important;
   }
 }
 
 .imageMobile {
-  width: 100%;
-  height: auto;
+  @extend .imageStructure;
   @media screen and (min-width: 768px) {
     display: none !important;
   }
