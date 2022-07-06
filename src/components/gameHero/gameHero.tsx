@@ -45,7 +45,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const useCode = (code: string) => {
     const str = hashToStr(code)
     setWord(str[0].toLowerCase())
-    setLanguage(str[1] == 'e' ? 'en' : 'it')
+    setLanguage(str[1].toLowerCase() == 'e' ? 'en' : 'it')
     setStarted(true)
     setFetched(true)
   }
