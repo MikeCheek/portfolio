@@ -52,14 +52,8 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
   return (
     <div className={styles.game}>
-      {started ? (
-        <div className={styles.restart}>
-          <p>Guess the word or </p>
-          <button onClick={fetchData} className={styles.buttonRestart}>
-            RESTART
-          </button>
-        </div>
-      ) : (
+      {started ? null
+      : (
         <>
           <h3>RULES</h3>
           <h4>
@@ -102,16 +96,21 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
             ITALIAN
           </button>
         </div>
-        {time > 0 ? <p>Word fetched in: {time.toPrecision(8)} ms</p> : null}
-      </div>
-
-      {!started ? (
+        {!started ? (
         <button onClick={fetchData} className={styles.buttonStart}>
           START
         </button>
       ) : (
-        <></>
+        <div className={styles.restart}>
+          <p>Guess the word or </p>
+          <button onClick={fetchData} className={styles.buttonRestart}>
+            RESTART
+          </button>
+        </div>
       )}
+        
+        {time > 0 ? <p>Word fetched in: {time.toPrecision(8)} ms</p> : null}
+      </div>
 
       {fetched ? <WordGame word={word} language={language} /> : started ? <Loading /> : null}
     </div>
