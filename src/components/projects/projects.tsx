@@ -24,23 +24,45 @@ const Projects = () => {
     >
       <Card href="https://pop-funding.vercel.app">
         <StaticImage
+          placeholder="blurred"
           className={styles.imageMobile}
           src="../../images/screenshots/pop-mobile.jpg"
           alt={'Pop! Funding'}
         />
-        <StaticImage className={styles.image} src="../../images/screenshots/pop.png" alt={'Pop! Funding'} />
+        <StaticImage
+          placeholder="blurred"
+          className={styles.image}
+          src="../../images/screenshots/pop.png"
+          alt={'Pop! Funding'}
+        />
       </Card>
       <Card href="https://nt.syskrack.org" title="Naturalmente Tecnologici">
         <StaticImage
+          placeholder="blurred"
           className={styles.imageMobile}
           src="../../images/screenshots/nt-mobile.jpg"
           alt={'Naturalmente Tecnologici'}
         />
-        <StaticImage className={styles.image} src="../../images/screenshots/nt.png" alt={'Naturalmente Tecnologici'} />
+        <StaticImage
+          placeholder="blurred"
+          className={styles.image}
+          src="../../images/screenshots/nt.png"
+          alt={'Naturalmente Tecnologici'}
+        />
       </Card>
       <Card href="https://wdc.jetop.com" favicon="/logo.png" title="Web Dev Challenge 2022">
-        <StaticImage className={styles.imageMobile} src="../../images/screenshots/wdc-mobile.jpg" alt={'WDC 2022'} />
-        <StaticImage className={styles.image} src="../../images/screenshots/wdc.png" alt={'WDC 2022'} />
+        <StaticImage
+          placeholder="blurred"
+          className={styles.imageMobile}
+          src="../../images/screenshots/wdc-mobile.jpg"
+          alt={'WDC 2022'}
+        />
+        <StaticImage
+          placeholder="blurred"
+          className={styles.image}
+          src="../../images/screenshots/wdc.png"
+          alt={'WDC 2022'}
+        />
       </Card>
     </Carousel>
   )
