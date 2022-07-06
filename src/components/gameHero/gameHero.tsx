@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 
 import * as styles from './gameHero.module.scss'
 
@@ -15,6 +15,8 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [started, setStarted] = useState<boolean>(false)
   const [length, setLength] = useState<number>(7)
   const [time, setTime] = useState<number>(0)
+  
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const [language, setLanguage] = useState<string>('en')
 
@@ -39,27 +41,33 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
     if (language === 'en') setLanguage('it')
     else setLanguage('en')
   }
+  
+  const useCode = (code: string) => {
+    const str = hashToStr(code)
+    setWord(str[0].toLowerCase())
+    setLanguage(str[1].toLowerCase() == 'e' ? 'en' : 'it')
+    setStarted(true)
+    setFetched(true)
+  }
+  
+  const handleStartClick = () => {
+    const input = inputRef.current
+    if(input && input.value != '' && input.value.lenght != 0 && input.value != null)
+      useCode(input.value)
+    else
+      fetchData()
+  } 
 
   useEffect(() => {
     if (code) {
-      const str = hashToStr(code)
-      setWord(str[0].toLowerCase())
-      setLanguage(str[1] == 'e' ? 'en' : 'it')
-      setStarted(true)
-      setFetched(true)
+      useCode(code);
     }
   }, [code])
 
   return (
     <div className={styles.game}>
-      {started ? (
-        <div className={styles.restart}>
-          <p>Guess the word or </p>
-          <button onClick={fetchData} className={styles.buttonRestart}>
-            RESTART
-          </button>
-        </div>
-      ) : (
+      {started ? null
+      : (
         <>
           <h3>RULES</h3>
           <h4>
@@ -102,16 +110,29 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
             ITALIAN
           </button>
         </div>
-        {time > 0 ? <p>Word fetched in: {time.toPrecision(8)} ms</p> : null}
-      </div>
+        
+        {started? null : (
+          <div>
+            <p>Do you have any code?</p>
+            <input type="text" ref={inputRef} placeholder={'Code'} />
+          </div>
+         )}
 
-      {!started ? (
-        <button onClick={fetchData} className={styles.buttonStart}>
+        {!started ? (
+        <button onClick={handleStartClick} className={styles.buttonStart}>
           START
         </button>
       ) : (
-        <></>
+        <div className={styles.restart}>
+          <p>Guess the word or </p>
+          <button onClick={fetchData} className={styles.buttonRestart}>
+            RESTART
+          </button>
+        </div>
       )}
+        
+        {time > 0 ? <p>Word fetched in: {time.toPrecision(8)} ms</p> : null}
+      </div>
 
       {fetched ? <WordGame word={word} language={language} /> : started ? <Loading /> : null}
     </div>
