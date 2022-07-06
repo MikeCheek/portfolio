@@ -31,7 +31,7 @@ const Layout = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
         {children}
 
         <Separator />
-        <Footer noGameLink={noGameLink} />
+        {noGameLink ? <Footer noGameLink={noGameLink} /> : null}
       </div>
       {noGameLink ? null : <ArrowUp />}
     </>
