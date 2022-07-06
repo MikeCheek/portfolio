@@ -110,10 +110,14 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
             ITALIAN
           </button>
         </div>
-        <div>
-          <p>Do you have any code?</p>
-          <input type="text" ref={inputRef} placeholder={'Code'} />
-        </div>
+        
+        {started? null : (
+          <div>
+            <p>Do you have any code?</p>
+            <input type="text" ref={inputRef} placeholder={'Code'} />
+          </div>
+         )}
+
         {!started ? (
         <button onClick={handleStartClick} className={styles.buttonStart}>
           START
