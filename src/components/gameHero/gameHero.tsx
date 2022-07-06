@@ -8,6 +8,8 @@ import sleep from '../../utilities/sleep'
 import randomWord from '../../utilities/word'
 import {GameHeroProps} from './gameHero.types'
 import {hashToStr} from '../../utilities/hash'
+import Rules from '../../atoms/rules/rules'
+// import SettingsSVG from '../../assets/settings.svg'
 
 const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [fetched, setFetched] = useState<boolean>(false)
@@ -64,28 +66,15 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
   return (
     <div className={styles.game}>
-      {started ? null : (
-        <>
-          <h3>RULES</h3>
-          <h4>
-            The game is easy. <br />
-            You guess the secret word by placing letters in boxes.
-            <br />
-            <br />
-            <li>
-              When you guess a letter, the box turns <span style={{color: 'var(--orange)'}}>orange</span>
-            </li>
-            <li>
-              When you guess both the letter and the position in the word, the box turns{' '}
-              <span style={{color: 'var(--pink)'}}>pink</span>
-            </li>
-            <br />
-            You can change the MAX length and the language of the hidden word at the top. <br />
-            <br />
-            That's all! Enjoy the game!
-          </h4>
-        </>
-      )}
+      <h1 className={styles.heading}>Word Game</h1>
+      {time > 0 ? (
+        <p className={styles.stats}>
+          <span>Fetched in:</span>
+          <span>{time.toPrecision(5)} ms</span>
+        </p>
+      ) : null}
+      {/* <SettingsSVG className={styles.setttingsSvg} width={50} fill="var(--orange)" /> */}
+      {started ? null : <Rules />}
       <div className={styles.head}>
         <div className={styles.max}>
           <div className={styles.text}>
@@ -94,7 +83,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
           <div className={styles.buttons}>
             <button onClick={increase}>{`>`}</button>
-            <div>{length}</div>
+            <span>{length}</span>
             <button onClick={decrease}>{`<`}</button>
           </div>
         </div>
@@ -109,26 +98,24 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
         </div>
 
         {started ? null : (
-          <div>
+          <div className={styles.code}>
             <p>Do you have any code?</p>
-            <input type="text" ref={inputRef} placeholder={'Code'} />
+            <input type="text" className={styles.inputCode} ref={inputRef} placeholder={'X-XXXX'} />
           </div>
         )}
 
-        {!started ? (
-          <button onClick={handleStartClick} className={styles.buttonStart}>
-            START
-          </button>
-        ) : (
+        {started ? (
           <div className={styles.restart}>
             <p>Guess the word or </p>
             <button onClick={fetchData} className={styles.buttonRestart}>
               RESTART
             </button>
           </div>
+        ) : (
+          <button onClick={handleStartClick} className={styles.buttonStart}>
+            START
+          </button>
         )}
-
-        {time > 0 ? <p>Word fetched in: {time.toPrecision(8)} ms</p> : null}
       </div>
 
       {fetched ? <WordGame word={word} language={language} /> : started ? <Loading /> : null}
