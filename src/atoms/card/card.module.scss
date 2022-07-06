@@ -25,6 +25,20 @@ $curve: 40;
   background-color: $surface-color;
   transform: translateY(100%);
   transition: 0.2s ease-in-out;
+
+  h3 {
+    font-size: 1.1rem;
+    @media screen and (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    font-size: 0.9rem;
+    @media screen and (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
 }
 
 .header {
@@ -72,21 +86,15 @@ $curve: 40;
 }
 
 .title {
-  font-size: 1em;
   margin: 0 0 0.3em;
 }
 
 .tagline {
   display: block;
   margin: 1em 0;
-  font-size: 0.8em;
 }
 
 .description {
   padding: 0 2em 2em;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+  margin: 0 0 1em;
 }

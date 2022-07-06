@@ -11,13 +11,11 @@ const Projects = () => {
       className={styles.carousel}
       interval={5000}
       ariaLabel={'My projects'}
-      //@ts-ignore
-      renderThumbs={() => null}
       centerSlidePercentage={80}
       centerMode
       autoPlay
       showArrows={false}
-      showThumbs
+      showThumbs={false}
       showIndicators
       emulateTouch
       showStatus={false}
@@ -25,13 +23,24 @@ const Projects = () => {
       preventMovementUntilSwipeScrollTolerance
     >
       <Card href="https://pop-funding.vercel.app">
-        <StaticImage className={styles.image} src="../../images/pop.png" alt={''} />
+        <StaticImage
+          className={styles.imageMobile}
+          src="../../images/screenshots/pop-mobile.jpg"
+          alt={'Pop! Funding'}
+        />
+        <StaticImage className={styles.image} src="../../images/screenshots/pop.png" alt={'Pop! Funding'} />
       </Card>
       <Card href="https://nt.syskrack.org" title="Naturalmente Tecnologici">
-        <StaticImage className={styles.image} src="../../images/nt.png" alt={''} />
+        <StaticImage
+          className={styles.imageMobile}
+          src="../../images/screenshots/nt-mobile.jpg"
+          alt={'Naturalmente Tecnologici'}
+        />
+        <StaticImage className={styles.image} src="../../images/screenshots/nt.png" alt={'Naturalmente Tecnologici'} />
       </Card>
       <Card href="https://wdc.jetop.com" favicon="/logo.png" title="Web Dev Challenge 2022">
-        <StaticImage className={styles.image} src="../../images/wdc.png" alt={''} />
+        <StaticImage className={styles.imageMobile} src="../../images/screenshots/wdc-mobile.jpg" alt={'WDC 2022'} />
+        <StaticImage className={styles.image} src="../../images/screenshots/wdc.png" alt={'WDC 2022'} />
       </Card>
     </Carousel>
   )

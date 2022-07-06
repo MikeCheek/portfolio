@@ -3,18 +3,19 @@ import * as styles from './card.module.scss'
 import {CardProps} from './card.types'
 import {parser} from 'html-metadata-parser'
 
-const Card = ({children, href, title = '', description = '', favicon = '/favicon.ico'}: CardProps) => {
-  const [desc, setDescription] = useState<string>(description)
-  const [tit, setTitle] = useState<string>(title)
+const Card = ({children, href, title, description, favicon = '/favicon.ico'}: CardProps) => {
+  const [desc, setDescription] = useState<string>(description ?? '')
+  const [tit, setTitle] = useState<string>(title ?? '')
   useEffect(() => {
-    parser(href)
-      .then((result) => {
-        setDescription(result['meta']['description'] ?? '')
-        setTitle(result['meta']['title'] ?? '')
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    if (!title && !description)
+      parser(href)
+        .then((result) => {
+          setDescription(result['meta']['description'] ?? '')
+          setTitle(result['meta']['title'] ?? '')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
   }, [])
   return (
     <span className={styles.card}>
