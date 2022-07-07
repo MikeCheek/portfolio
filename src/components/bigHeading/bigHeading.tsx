@@ -31,10 +31,10 @@ const BigHeading = () => {
           <span>See my work experiences!</span>
         </HoverPopUp>{' '}
         on the{' '}
-        <HoverPopUp down>
-          <a href="#projects" title="" className={styles.colored}>
+        <HoverPopUp href="#projects" down>
+          <span title="" className={styles.colored}>
             web
-          </a>
+          </span>
           <span>See my works!</span>
         </HoverPopUp>
       </h2>
