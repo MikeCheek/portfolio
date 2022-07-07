@@ -31,13 +31,12 @@ const BigHeading = () => {
           <span>See my work experiences!</span>
         </HoverPopUp>{' '}
         on the{' '}
-        {/* <HoverPopUp down>
-          <a href="#none" title="" className={styles.colored}>
+        <HoverPopUp down>
+          <a href="#projects" title="" className={styles.colored}>
             web
           </a>
           <span>See my works!</span>
-        </HoverPopUp> */}
-        web
+        </HoverPopUp>
       </h2>
       {/*<Circles number={5} />*/}
       <div className={styles.arrowWrap} onClick={() => window.scroll(0, window.innerHeight)}>
