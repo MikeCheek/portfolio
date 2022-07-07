@@ -40,11 +40,11 @@ const HoverPopUp = ({children, down = false, href}: HoverPopUpProps) => {
       }}
     >
       {show ? (
-        <PopUp top={pos.top} left={pos.left} right={pos.right} onClick={onClick}>
+        <PopUp top={pos.top} left={pos.left} right={pos.right}>
           {children[1]}
         </PopUp>
       ) : null}
-      <span>{children[0]}</span>
+      <span onClick={onClick}>{children[0]}</span>
     </span>
   )
 }
