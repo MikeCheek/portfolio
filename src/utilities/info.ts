@@ -27,9 +27,9 @@ export const otherExperiences = [
   },
   {
     title: 'SysE2021 - Summer School (2021)',
-    text: `/* Orientation event on the Master's degree
+    text: `/* Master's degree orientation event
                         organized by the University of Genova in
-                        collaboration with University of Savoie Mont
+                        collaboration with the University of Savoie Mont
                         Blanc and carried out in English */<br/><br/>
                 // Location: Imperia, Liguria<br/><br/>
                 // Duration: 5 days<br/><br/>
@@ -162,7 +162,7 @@ export const others: SkillsType = [
 ]
 export const languages = `
     <h3>Languages</h3>
-    <p>Italian (mothertongue)</p>
+    <p>Italian (mother tongue)</p>
     <p>English (B2 Cambridge First Certificate)</p>
 `
 
