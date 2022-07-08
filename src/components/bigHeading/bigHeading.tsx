@@ -16,17 +16,17 @@ const BigHeading = () => {
         </HoverPopUp>
       </h1>
       <h2>
-        I'm a{' '}
+        As a{' '}
         <HoverPopUp href="#skills">
           <span title="" className={styles.colored}>
             developer
           </span>
           <span>See my skills!</span>
         </HoverPopUp>{' '}
-        and I'm currently{' '}
+        <br />I currently{' '}
         <HoverPopUp href="#works" down>
           <span title="" className={styles.colored}>
-            working
+            work
           </span>
           <span>See my work experiences!</span>
         </HoverPopUp>{' '}
