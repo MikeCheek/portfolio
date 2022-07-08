@@ -1,4 +1,5 @@
 import React from 'react'
+import GoDown from '../goDown/goDown'
 //import Circles from '../../atoms/circles/circles'
 import HoverPopUp from '../hoverPopUp/hoverPopUp'
 import * as styles from './bigHeading.module.scss'
@@ -39,14 +40,7 @@ const BigHeading = () => {
         </HoverPopUp>
       </h2>
       {/*<Circles number={5} />*/}
-      <div className={styles.arrowWrap} onClick={() => window.scroll(0, window.innerHeight)}>
-        <div className={styles.arrow1}>
-          <div className={styles.arrow}></div>
-        </div>
-        <div className={styles.arrow2}>
-          <div className={styles.arrow}></div>
-        </div>
-      </div>
+      <GoDown />
     </div>
   )
 }

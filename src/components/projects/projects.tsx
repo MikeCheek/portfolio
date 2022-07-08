@@ -2,6 +2,7 @@ import {StaticImage} from 'gatsby-plugin-image'
 import React from 'react'
 import {Carousel} from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import Arrow from '../../atoms/arrow/arrow'
 import Card from '../../atoms/card/card'
 import * as styles from './projects.module.scss'
 
@@ -14,15 +15,47 @@ const Projects = () => {
       // centerSlidePercentage={80}
       // centerMode
       autoPlay
-      showArrows={false}
+      // showArrows={false}
+      renderArrowNext={(clickHandler) => (
+        <Arrow
+          right
+          onClick={clickHandler}
+          injectStyle={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            right: 0,
+            margin: 'auto',
+            transform: 'scale(0.8)',
+            zIndex: 1,
+          }}
+          hideMobile
+        />
+      )}
+      renderArrowPrev={(clickHandler) => (
+        <Arrow
+          onClick={clickHandler}
+          injectStyle={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            margin: 'auto',
+            transform: 'scale(0.8)',
+            zIndex: 1,
+          }}
+          hideMobile
+        />
+      )}
       showThumbs={false}
       autoFocus
       useKeyboardArrows
       stopOnHover
-      showIndicators
+      showIndicators={false}
       emulateTouch
       showStatus={false}
       infiniteLoop
+      swipeScrollTolerance={10}
       preventMovementUntilSwipeScrollTolerance
     >
       <Card href="https://pop-funding.vercel.app">
