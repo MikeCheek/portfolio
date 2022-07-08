@@ -58,7 +58,12 @@ const Projects = () => {
       swipeScrollTolerance={10}
       preventMovementUntilSwipeScrollTolerance
     >
-      <Card href="https://pop-funding.vercel.app">
+      <Card
+        href="https://pop-funding.vercel.app"
+        title="Pop! Funding"
+        description="A working crowdfunding web application based on Algorand Blockchain where anyone with Algo can create a funding or donate "
+        github="https://github.com/MikeCheek/pop-funding"
+      >
         <StaticImage
           placeholder="blurred"
           className={styles.imageMobile}
@@ -76,6 +81,7 @@ const Projects = () => {
         href="https://nt.syskrack.org"
         title="Naturalmente Tecnologici"
         description="Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)"
+        github="https://github.com/MikeCheek/naturalmente-tecnologici"
       >
         <StaticImage
           placeholder="blurred"

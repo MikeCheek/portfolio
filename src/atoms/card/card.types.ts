@@ -4,5 +4,6 @@ export interface CardProps {
   repo?: string
   title?: string
   description?: string
+  github?: string
   favicon?: string
 }

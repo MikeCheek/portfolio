@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react'
 import * as styles from './card.module.scss'
 import {CardProps} from './card.types'
 import {parser} from 'html-metadata-parser'
+import GitHub from '../../assets/github.svg'
 
-const Card = ({children, href, title, description, favicon = '/favicon.ico'}: CardProps) => {
+const Card = ({children, href, title, description, github, favicon = '/favicon.ico'}: CardProps) => {
   const [desc, setDescription] = useState<string>(description ?? '')
   const [tit, setTitle] = useState<string>(title ?? '')
   useEffect(() => {
@@ -30,6 +31,13 @@ const Card = ({children, href, title, description, favicon = '/favicon.ico'}: Ca
           <div className={styles.subHeader}>
             <img width={50} height={50} className={styles.favicon} src={href + favicon} alt={title + ' favicon'} />
             <h3 className={styles.title}>{tit}</h3>
+            {github ? (
+              <a href={github} target={'_blank'} rel={'noopener noreferrer'} title={title + ' Repo'}>
+                <GitHub width={30} height={30} fill={'var(--black)'} />
+              </a>
+            ) : (
+              <p></p>
+            )}
           </div>
         </div>
         <p className={styles.description}>{desc}</p>
