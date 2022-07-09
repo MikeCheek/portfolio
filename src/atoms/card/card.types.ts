@@ -6,4 +6,6 @@ export interface CardProps {
   description?: string
   github?: string
   favicon?: string
+  designed?: boolean
+  developed?: boolean
 }

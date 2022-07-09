@@ -3,8 +3,18 @@ import * as styles from './card.module.scss'
 import {CardProps} from './card.types'
 import {parser} from 'html-metadata-parser'
 import GitHub from '../../assets/github.svg'
+import {Design, Develop} from '../legend/legend'
 
-const Card = ({children, href, title, description, github, favicon = '/favicon.ico'}: CardProps) => {
+const Card = ({
+  children,
+  href,
+  title,
+  description,
+  github,
+  favicon = '/favicon.ico',
+  designed,
+  developed,
+}: CardProps) => {
   const [desc, setDescription] = useState<string>(description ?? '')
   const [tit, setTitle] = useState<string>(title ?? '')
   useEffect(() => {
@@ -20,6 +30,12 @@ const Card = ({children, href, title, description, github, favicon = '/favicon.i
   }, [])
   return (
     <span className={styles.card}>
+      {designed || developed ? (
+        <span className={styles.badges}>
+          {designed && <Design />}
+          {developed && <Develop />}
+        </span>
+      ) : null}
       <a href={href} target={'_blank'} rel="noopener noreferrer">
         {children}
       </a>
