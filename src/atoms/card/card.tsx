@@ -29,11 +29,11 @@ const Card = ({children, href, title, description, github, favicon = '/favicon.i
             <path />
           </svg>
           <div className={styles.subHeader}>
-            <img width={50} height={50} className={styles.favicon} src={href + favicon} alt={title + ' favicon'} />
+            <img className={styles.favicon} src={href + favicon} alt={title + ' favicon'} />
             <h3 className={styles.title}>{tit}</h3>
             {github ? (
               <a href={github} target={'_blank'} rel={'noopener noreferrer'} title={title + ' Repo'}>
-                <GitHub width={30} height={30} fill={'var(--black)'} />
+                <GitHub width={50} height={50} className={styles.favicon} fill={'var(--black)'} />
               </a>
             ) : (
               <p></p>

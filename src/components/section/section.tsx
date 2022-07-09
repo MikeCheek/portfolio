@@ -29,7 +29,6 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
       }`}
       ref={ref}
       style={{
-        backgroundColor: 'var(--sect-bg-dark)',
         transition: 'opacity 1s ease, transform 1s ease',
       }}
       id={id ?? title}

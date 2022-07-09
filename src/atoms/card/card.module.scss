@@ -12,7 +12,6 @@ $curve: 20;
   color: var(--black);
   filter: brightness(0.8);
   @media screen and (min-width: '768px') {
-    margin: 0 10%;
     height: 100%;
   }
   &:hover .overlay {
@@ -32,7 +31,7 @@ $curve: 20;
   transition: 0.2s ease-in-out;
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     @media screen and (min-width: 768px) {
       font-size: 1.5rem;
     }
@@ -89,8 +88,13 @@ $curve: 20;
 
 .favicon {
   border-radius: 50%;
-  max-width: 40px;
-  max-height: 40px;
+  max-width: 25px;
+  max-height: 25px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 50px;
+    max-height: 50px;
+  }
 }
 
 .title {
@@ -106,6 +110,6 @@ $curve: 20;
 }
 
 .description {
-  padding: 0 2em 2em;
+  padding: 0 2em 1em;
   margin: 0 0 1em;
 }

@@ -24,3 +24,24 @@
     display: none !important;
   }
 }
+
+.shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 15%;
+  z-index: 1;
+}
+
+.shadowLeft {
+  @extend .shadow;
+  left: -5px;
+  background-image: linear-gradient(to left, transparent, #0a0a0a);
+}
+
+.shadowRight {
+  @extend .shadow;
+  right: -5px;
+  background-image: linear-gradient(to right, transparent, #0a0a0a);
+}

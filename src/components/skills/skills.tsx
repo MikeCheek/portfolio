@@ -46,15 +46,19 @@ const Skills = (): JSX.Element => {
               style={
                 inView
                   ? {
-                      transform: `translate(${calculate(key)[0]}vw,${calculate(key)[1]}vh)`,
-                      fontSize: `${1.8 - key / 13}rem`,
+                      transform: `translate(${calculate(key + 1)[0]}vw,${calculate(key + 1)[1]}vh)`,
+                      fontSize: `${1.7 - key / 17}rem`,
                       zIndex: data.length - key,
-                      transitionDuration: `${3 - key / 8}s`,
+                      transitionDelay: `${key / 15}s`,
                     }
                   : {}
               }
             >
-              <Skill name={item.name} link={item.link} />
+              <Skill
+                name={item.name}
+                link={item.link}
+                style={inView ? {transform: 'scale(1)', transitionDelay: `${key / 15}s`} : {transform: 'scale(0)'}}
+              />
             </span>
           )
         })}

@@ -108,7 +108,7 @@ export const programming: SkillsType = [
     percentage: 50,
   },
   {
-    name: 'Bash (Unix shell)',
+    name: 'Bash (Unix)',
     percentage: 70,
   },
   {
