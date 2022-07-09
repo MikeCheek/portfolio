@@ -31,7 +31,7 @@
   -webkit-appearance: none;
   appearance: none;
   height: 5px;
-  background: var(--transparent-pink);
+  background: var(--transparent-orange);
   border-radius: 5px;
   border: 0;
   margin: 20px auto;
@@ -42,14 +42,14 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: var(--pink);
+    background: var(--orange);
     cursor: pointer;
   }
   &::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: var(--pink);
+    background: var(--orange);
     cursor: pointer;
   }
 }
