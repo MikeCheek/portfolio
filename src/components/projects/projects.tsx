@@ -51,7 +51,6 @@ const Projects = () => {
             />
           )}
           showThumbs={false}
-          autoFocus
           useKeyboardArrows
           stopOnHover
           showIndicators={false}
