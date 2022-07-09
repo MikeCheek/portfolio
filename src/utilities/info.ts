@@ -105,12 +105,15 @@ export const programming: SkillsType = [
   },
   {
     name: 'Assembly MIPS',
+    percentage: 50,
   },
   {
     name: 'Bash (Unix shell)',
+    percentage: 70,
   },
   {
     name: 'PHP',
+    percentage: 20,
   },
 ]
 export const frameworks: SkillsType = [
@@ -150,6 +153,7 @@ export const others: SkillsType = [
   },
   {
     name: 'SQL',
+    percentage: 40,
   },
   {
     name: 'MatLab',
