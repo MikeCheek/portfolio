@@ -1,18 +1,72 @@
-import React from 'react'
+import React, {useCallback, useState} from 'react'
+import {useInView} from 'react-intersection-observer'
 import {programming, frameworks, others, languages} from '../../utilities/info'
 import Skill from '../skill/skill'
 
 import * as styles from './skills.module.scss'
 
 const Skills = (): JSX.Element => {
+  const [degree, setDegree] = useState<number>(45)
+
+  const [ref, inView, _entry] = useInView({
+    threshold: 0,
+    fallbackInView: true,
+    rootMargin: '-35% 0px -35% 0px',
+  })
+
+  const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0))
+
+  const degreeConverter = (degree: number): [number, number] => {
+    return [Math.cos(degree), Math.sin(degree)]
+  }
+
+  const calculate = useCallback(
+    (mult: number) => {
+      console.log(degree)
+      const expand = mult * 2 * (mult < 3 ? 2.5 : 1)
+      let [x, y] = degreeConverter(degree * mult)
+      x = x * expand
+      y = y * expand
+      const max = 50
+      x = x > max ? max : x < -max ? -max : x
+      y = y > max ? max : y < -max ? -max : y
+      return [x, y]
+    },
+    [degree]
+  )
+
   return (
     <div className={styles.wrap}>
-      <div className={styles.skills}>
-        <Skill title="Programming Languages" array={programming} />
-        <Skill title="Frameworks" array={frameworks} />
-        <Skill title="Others" array={others} />
-        <div dangerouslySetInnerHTML={{__html: languages}} />
+      <div className={styles.skills} ref={ref}>
+        {data.map((item, key) => {
+          return (
+            <span
+              key={key}
+              className={styles.skillWrap}
+              style={
+                inView
+                  ? {
+                      transform: `translate(${calculate(key)[0]}vw,${calculate(key)[1]}vh)`,
+                      fontSize: `${2 - key / 13}rem`,
+                      zIndex: data.length - key,
+                    }
+                  : {}
+              }
+            >
+              <Skill name={item.name} link={item.link} />
+            </span>
+          )
+        })}
       </div>
+      <input
+        className={styles.range}
+        type="range"
+        min="0"
+        max="360"
+        value={degree}
+        onChange={(e) => setDegree(Number(e.target.value))}
+      />
+      <div dangerouslySetInnerHTML={{__html: languages}} />
     </div>
   )
 }

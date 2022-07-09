@@ -93,71 +93,73 @@ export const github: string = 'https://github.com/Mikecheek'
 export const programming: SkillsType = [
   {
     name: 'C',
-    percentage: '90%',
+    percentage: 60,
   },
   {
     name: 'Java',
-    percentage: '80%',
+    percentage: 60,
   },
   {
     name: 'Javascript',
-    percentage: '90%',
+    percentage: 95,
   },
   {
     name: 'Assembly MIPS',
-    percentage: '70%',
   },
   {
     name: 'Bash (Unix shell)',
-    percentage: '70%',
   },
   {
     name: 'PHP',
-    percentage: '30%',
   },
 ]
 export const frameworks: SkillsType = [
   {
     name: 'React Js',
     link: 'https://it.reactjs.org',
+    percentage: 90,
   },
   {
     name: 'Gatsby Js',
     link: 'https://www.gatsbyjs.com',
+    percentage: 90,
   },
   {
     name: 'Next Js',
     link: 'https://nextjs.org',
+    percentage: 80,
   },
 ]
 export const others: SkillsType = [
   {
     name: 'HTML',
-    percentage: '90%',
+    percentage: 90,
   },
   {
     name: 'CSS',
-    percentage: '90%',
+    percentage: 90,
   },
   {
     name: 'Sass',
     link: 'https://sass-lang.com',
+    percentage: 70,
   },
   {
     name: 'Linux',
-    percentage: '80%',
+    percentage: 60,
   },
   {
     name: 'SQL',
-    percentage: '80%',
   },
   {
     name: 'MatLab',
     link: 'https://it.mathworks.com/products/matlab.html',
+    percentage: 10,
   },
   {
     name: 'Simulink',
     link: 'https://it.mathworks.com/products/simulink.html',
+    percentage: 10,
   },
 ]
 export const languages = `
