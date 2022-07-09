@@ -32,7 +32,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
         backgroundColor: 'var(--sect-bg-dark)',
         transition: 'opacity 1s ease, transform 1s ease',
       }}
-      id={id ? id : title}
+      id={id ?? title}
     >
       {paragraph ? (
         <>
@@ -44,8 +44,8 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                   width={'100px'}
                   height={'100px'}
                   className={isClicked ? styles.move : null}
-                  fill={Svg.fill ? Svg.fill : 'none'}
-                  stroke={Svg.stroke ? Svg.stroke : 'none'}
+                  fill={Svg.fill ?? 'none'}
+                  stroke={Svg.stroke ?? 'none'}
                 />
               </div>
             ) : null}
@@ -62,8 +62,8 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                   width={'100px'}
                   height={'100px'}
                   className={isClicked ? styles.jump : null}
-                  fill={Svg.fill ? Svg.fill : 'none'}
-                  stroke={Svg.stroke ? Svg.stroke : 'none'}
+                  fill={Svg.fill ?? 'none'}
+                  stroke={Svg.stroke ?? 'none'}
                 />
               </div>
             ) : null}
