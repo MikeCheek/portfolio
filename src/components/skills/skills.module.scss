@@ -2,7 +2,6 @@
 .wrap {
   display: flex;
   width: 100%;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
 }
@@ -10,8 +9,8 @@
 .skills {
   width: 90%;
   height: 70vh;
+  margin: auto;
   position: relative;
-  animation: appear 1s ease-in-out;
 }
 
 .skillWrap {
@@ -28,15 +27,14 @@
 }
 
 .range {
-  width: 100%;
+  width: 90%;
   -webkit-appearance: none;
   appearance: none;
-  width: 100%;
   height: 5px;
   background: var(--transparent-pink);
   border-radius: 5px;
   border: 0;
-  margin: 0;
+  margin: 20px auto;
   padding: 0;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;

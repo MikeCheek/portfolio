@@ -47,8 +47,9 @@ const Skills = (): JSX.Element => {
                 inView
                   ? {
                       transform: `translate(${calculate(key)[0]}vw,${calculate(key)[1]}vh)`,
-                      fontSize: `${2 - key / 13}rem`,
+                      fontSize: `${1.8 - key / 13}rem`,
                       zIndex: data.length - key,
+                      transitionDuration: `${3 - key / 8}s`,
                     }
                   : {}
               }
@@ -63,6 +64,7 @@ const Skills = (): JSX.Element => {
         type="range"
         min="0"
         max="360"
+        step={1}
         value={degree}
         onChange={(e) => setDegree(Number(e.target.value))}
       />
