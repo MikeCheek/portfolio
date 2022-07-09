@@ -73,7 +73,7 @@ export const events = [
     dateStart: '2019/09',
     dateEnd: 'Today',
     text: ` -> Bachelor's degree<br/>
-                -> Ingegneria Informatica`,
+                -> Computer Engeneering`,
   },
   {
     name: `High school "Archimede" - Acireale`,
