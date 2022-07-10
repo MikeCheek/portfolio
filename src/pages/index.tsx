@@ -62,7 +62,7 @@ const IndexPage = (): JSX.Element => {
       <SEO
         title={'Michele Pulvirenti'}
         description={
-          "Hi, I'm a developer and I'm currently working on the web. I'm passionate about building cool websites with amazing animations and I'm always looking for new ways to improve my skills."
+          "Hi, I'm a developer and I'm currently working on the web. I love building cool websites with amazing animations and always strive to improve my skills."
         }
         googleSiteVerification={'I4IPeMDb8LK64z0WfFe8k8Ep4XWwHih824Fu6F8fy64'}
         pathname={'/'}
