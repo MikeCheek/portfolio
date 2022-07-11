@@ -45,7 +45,7 @@ const Battery = () => {
 
   return battery.level >= 0 ? (
     <>
-      <div className={styles.battery} style={{opacity: battery.charging ? 1 : 0.8}}>
+      <div className={styles.battery} style={{opacity: battery.charging ? 0.8 : 0.7}}>
         <div className={styles.level} style={{width: battery.level * 100 + '%'}}></div>
         <span>
           {battery.level * 100}% {battery.charging ? <Lightning fill="var(--orange)" /> : null}
