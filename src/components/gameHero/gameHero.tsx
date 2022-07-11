@@ -9,6 +9,7 @@ import randomWord from '../../utilities/word'
 import {GameHeroProps} from './gameHero.types'
 import {hashToStr} from '../../utilities/hash'
 import Rules from '../../atoms/rules/rules'
+import Battery from '../../atoms/battery/battery'
 // import SettingsSVG from '../../assets/settings.svg'
 
 const GameHero = ({code}: GameHeroProps): JSX.Element => {
@@ -83,6 +84,9 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
           <span>{time.toPrecision(5)} ms</span>
         </p>
       ) : null}
+      <div className={styles.battery}>
+        <Battery />
+      </div>
       {/* <SettingsSVG className={styles.setttingsSvg} width={50} fill="var(--orange)" /> */}
       {started ? null : <Rules />}
       <div className={styles.head}>

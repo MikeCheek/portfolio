@@ -30,6 +30,18 @@
   }
 }
 
+.battery {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  transform: scale(0.8);
+  @media screen and (min-width: '768px') {
+    top: 10px;
+    right: 20px;
+    transform: none;
+  }
+}
+
 .game {
   display: flex;
   flex-direction: column;
