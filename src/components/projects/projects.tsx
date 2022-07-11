@@ -25,6 +25,7 @@ const Projects = () => {
             <Arrow
               right
               onClick={clickHandler}
+              hideMobile
               injectStyle={{
                 position: 'absolute',
                 top: 0,
@@ -39,6 +40,7 @@ const Projects = () => {
           renderArrowPrev={(clickHandler) => (
             <Arrow
               onClick={clickHandler}
+              hideMobile
               injectStyle={{
                 position: 'absolute',
                 top: 0,
