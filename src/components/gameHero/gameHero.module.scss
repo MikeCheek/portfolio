@@ -35,6 +35,25 @@
   }
 }
 
+.checkBattery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  div {
+    background-color: #ffffffa6;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    cursor: pointer;
+  }
+}
+
 .game {
   display: flex;
   flex-direction: column;
@@ -135,12 +154,6 @@
   p {
     margin: auto 0 auto;
   }
-  abbr {
-    color: red;
-    text-decoration: none;
-    padding: 2px 10px 2px 10px;
-    font-size: 1.5rem;
-  }
 }
 
 .buttons {
@@ -210,6 +223,6 @@
 }
 
 .error {
-  color: var(--pink);
+  color: lightcoral;
   margin-top: -20px;
 }

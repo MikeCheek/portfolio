@@ -19,6 +19,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [length, setLength] = useState<number>(7)
   const [time, setTime] = useState<number>(0)
   const [error, setError] = useState<boolean>(false)
+  const [showBattery, setShowBattery] = useState<boolean>(false)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -84,9 +85,11 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
           <span>{time.toPrecision(5)} ms</span>
         </p>
       ) : null}
-      <div className={styles.battery}>
-        <Battery />
-      </div>
+      {showBattery ? (
+        <div className={styles.battery}>
+          <Battery />
+        </div>
+      ) : null}
       {/* <SettingsSVG className={styles.setttingsSvg} width={50} fill="var(--orange)" /> */}
       {started ? null : <Rules />}
       <div className={styles.head}>
@@ -125,6 +128,15 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
               />
             </div>
             {error ? <p className={styles.error}>Invalid code</p> : null}
+            <div className={styles.checkBattery}>
+              <p>Show battery status?</p>
+              <div
+                style={showBattery ? {backgroundColor: 'var(--orange)'} : {}}
+                onClick={() => setShowBattery(!showBattery)}
+              >
+                {showBattery ? <span>&#10003;</span> : null}
+              </div>
+            </div>
           </>
         )}
 
