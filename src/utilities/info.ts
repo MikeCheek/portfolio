@@ -51,7 +51,7 @@ export const about: string = `
     <p>Try clicking on the section icon!</p>`
 
 //work experiences
-export const works: string = `<strong><h3><a title="JEToP" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Today)<br/><br/>
+export const works: string = `<strong><h3><a title="JEToP" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Now)<br/><br/>
     <h4>Role: IT Consultant</h4>
     <p>As a member of <strong>teams</strong> on both internal and external projects, 
       <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
@@ -71,7 +71,7 @@ export const events = [
   {
     name: 'Politecnico di Torino',
     dateStart: '2019/09',
-    dateEnd: 'Today',
+    dateEnd: 'Now',
     text: ` -> Bachelor's degree<br/>
                 -> Computer Engeneering`,
   },
