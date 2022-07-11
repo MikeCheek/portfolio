@@ -55,7 +55,7 @@ export const works: string = `<strong><h3><a title="JEToP" class="link" href="ht
     <h4>Role: IT Consultant</h4>
     <p>As a member of <strong>teams</strong> on both internal and external projects, 
       <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
-      like <strong>React, Gatsby and NextJS</strong> and have improved my backend skills through training.<br/> 
+      like <strong>ReactJs, GatsbyJs and NextJs</strong> and have improved my backend skills through training.<br/> 
       <br/><br/>
     </p>
     <h4>Role: Collaborator of IT Area</h4>
