@@ -17,10 +17,13 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [started, setStarted] = useState<boolean>(false)
   const [length, setLength] = useState<number>(7)
   const [time, setTime] = useState<number>(0)
+  const [error, setError] = useState<boolean>(false)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [language, setLanguage] = useState<string>('en')
+
+  const regexp = '^(e|E|i|I)(-)([a-zA-Z]{2,})'
 
   const fetchData = async () => {
     setFetched(false)
@@ -54,8 +57,15 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
   const handleStartClick = () => {
     const input = inputRef.current
-    if (input && input.value != '' && input.value.length != 0 && input.value != null) useCode(input.value)
-    else fetchData()
+    if (input && input.value != '' && input.value.length != 0 && input.value != null) {
+      if (input && checkRegexp(input.value)) {
+        useCode(input.value)
+      }
+    } else fetchData()
+  }
+
+  const checkRegexp = (str: string) => {
+    return new RegExp(regexp).test(str)
   }
 
   useEffect(() => {
@@ -98,10 +108,20 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
         </div>
 
         {started ? null : (
-          <div className={styles.code}>
-            <p>Do you have any code?</p>
-            <input type="text" className={styles.inputCode} ref={inputRef} placeholder={'X-XXXX'} pattern={"(e||E||i||I)-([a-z]||[A-Z])*"} />
-          </div>
+          <>
+            <div className={styles.code}>
+              <p>Do you have any code?</p>
+              <input
+                type="text"
+                className={styles.inputCode}
+                onChange={(value) => (checkRegexp(value.target.value) ? setError(false) : setError(true))}
+                ref={inputRef}
+                placeholder={'X-XXXX'}
+                pattern={regexp}
+              />
+            </div>
+            {error ? <p className={styles.error}>Invalid code</p> : null}
+          </>
         )}
 
         {started ? (

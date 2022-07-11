@@ -197,4 +197,14 @@
     padding: 10px;
     font-size: 1.5rem;
   }
+
+  &:invalid {
+    border-color: red;
+    background-color: lightcoral;
+  }
+}
+
+.error {
+  color: var(--pink);
+  margin-top: -20px;
 }
