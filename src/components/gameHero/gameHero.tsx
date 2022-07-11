@@ -100,7 +100,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
         {started ? null : (
           <div className={styles.code}>
             <p>Do you have any code?</p>
-            <input type="text" className={styles.inputCode} ref={inputRef} placeholder={'X-XXXX'} />
+            <input type="text" className={styles.inputCode} ref={inputRef} placeholder={'X-XXXX'} pattern={"(e||E||i||I)-([a-z]||[A-Z])*"} />
           </div>
         )}
 
