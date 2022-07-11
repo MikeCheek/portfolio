@@ -100,7 +100,11 @@ export const programming: SkillsType = [
     percentage: 60,
   },
   {
-    name: 'Javascript',
+    name: 'JavaScript',
+    percentage: 95,
+  },
+  {
+    name: 'Typescript',
     percentage: 95,
   },
   {
