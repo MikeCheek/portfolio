@@ -136,6 +136,11 @@ export const frameworks: SkillsType = [
     link: 'https://nextjs.org',
     percentage: 80,
   },
+  {
+    name: 'Tailwind CSS',
+    link: 'https://tailwindcss.com',
+    percentage: 80,
+  },
 ]
 export const others: SkillsType = [
   {
