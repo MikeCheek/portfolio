@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[834],{336:function(e,t,i){i.r(t),i.d(t,{default:function(){return c}});var r=i(7294),u=i.p+"static/cv-09cdc948edabd425a6bcbe9ee5a83910.pdf",c=function(){return r.createElement("iframe",{style:{position:"absolute",top:0,left:0,right:0},width:"100%",height:"100%",frameBorder:"0",title:"Michele pulvirenti Curriculum Vitae",name:"Michele pulvirenti Curriculum Vitae",src:u})}}}]);
+//# sourceMappingURL=component---src-pages-cv-tsx-ae10130db6c8192ce958.js.map
