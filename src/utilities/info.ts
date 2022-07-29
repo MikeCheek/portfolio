@@ -164,16 +164,6 @@ export const others: SkillsType = [
     name: 'SQL',
     percentage: 40,
   },
-  {
-    name: 'MatLab',
-    link: 'https://it.mathworks.com/products/matlab.html',
-    percentage: 10,
-  },
-  {
-    name: 'Simulink',
-    link: 'https://it.mathworks.com/products/simulink.html',
-    percentage: 10,
-  },
 ]
 export const languages = `
     <h3>Languages</h3>

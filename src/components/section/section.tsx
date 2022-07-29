@@ -28,9 +28,6 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
         inView ? (reversed ? styles.sectionViewReversed : styles.sectionView) : ''
       }`}
       ref={ref}
-      style={{
-        transition: 'opacity 1s ease, transform 1s ease',
-      }}
       id={id ?? title}
     >
       {paragraph ? (
