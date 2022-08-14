@@ -58,7 +58,6 @@ const Projects = () => {
           showIndicators={false}
           emulateTouch
           showStatus={false}
-          infiniteLoop
           swipeScrollTolerance={10}
           preventMovementUntilSwipeScrollTolerance
         >
