@@ -10,7 +10,8 @@ import {GameHeroProps} from './gameHero.types'
 import {hashToStr} from '../../utilities/hash'
 import Rules from '../../atoms/rules/rules'
 import Battery from '../../atoms/battery/battery'
-// import SettingsSVG from '../../assets/settings.svg'
+import GameSettings from '../gameSettings/gameSettings'
+import SettingsSVG from '../../assets/settings.svg'
 
 const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [fetched, setFetched] = useState<boolean>(false)
@@ -20,12 +21,17 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [time, setTime] = useState<number>(0)
   const [error, setError] = useState<boolean>(false)
   const [showBattery, setShowBattery] = useState<boolean>(false)
+  const [settings, setSettings] = useState<boolean>(false)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [language, setLanguage] = useState<string>('en')
 
   const regexp = '^(e|E|i|I)(-)([a-zA-Z]{2,})'
+
+  const checkRegexp = (str: string) => {
+    return new RegExp(regexp).test(str)
+  }
 
   const fetchData = async () => {
     setFetched(false)
@@ -66,10 +72,6 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
     } else fetchData()
   }
 
-  const checkRegexp = (str: string) => {
-    return new RegExp(regexp).test(str)
-  }
-
   useEffect(() => {
     if (code) {
       useCode(code)
@@ -89,69 +91,47 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
           <Battery />
         </div>
       ) : null}
-      {/* <SettingsSVG className={styles.setttingsSvg} width={50} fill="var(--orange)" /> */}
+
       {started ? null : <Rules />}
-      <div className={styles.head}>
-        <div className={styles.max}>
-          <div className={styles.text}>
-            <p>Max word length is</p>
-          </div>
-
-          <div className={styles.buttons}>
-            <button onClick={increase}>{`>`}</button>
-            <span>{length}</span>
-            <button onClick={decrease}>{`<`}</button>
-          </div>
-        </div>
-        <div className={styles.language}>
-          <p>Language </p>
-          <button onClick={changeLanguage} className={language.toUpperCase() == 'EN' ? styles.buttonOn : ''}>
-            ENGLISH
-          </button>
-          <button onClick={changeLanguage} className={language.toUpperCase() == 'IT' ? styles.buttonOn : ''}>
-            ITALIAN
-          </button>
-        </div>
-
-        {started ? null : (
-          <>
-            <div className={styles.code}>
-              <p>Do you have any code?</p>
-              <input
-                type="text"
-                className={styles.inputCode}
-                onChange={(value) => (checkRegexp(value.target.value) ? setError(false) : setError(true))}
-                ref={inputRef}
-                placeholder={'X-XXXX'}
-                pattern={regexp}
-              />
-            </div>
-            {error ? <p className={styles.error}>Invalid code</p> : null}
-            <div className={styles.checkBattery}>
-              <p>Show battery status?</p>
-              <div
-                style={showBattery ? {backgroundColor: 'var(--orange)'} : {}}
-                onClick={() => setShowBattery(!showBattery)}
-              >
-                {showBattery ? <span>&#10003;</span> : null}
-              </div>
-            </div>
-          </>
-        )}
-
-        {started ? (
-          <div className={styles.restart}>
-            <p>Guess the word or </p>
-            <button onClick={fetchData} className={styles.buttonRestart}>
-              RESTART
-            </button>
-          </div>
-        ) : (
-          <button onClick={handleStartClick} className={styles.buttonStart}>
-            START
-          </button>
-        )}
+      <div
+        className={styles.settingsWrap}
+        onClick={() => {
+          setSettings((value) => !value)
+        }}
+      >
+        <SettingsSVG width={50} fill="var(--orange)" />
+        <p>Settings</p>
       </div>
+      {settings && (
+        <GameSettings
+          increase={increase}
+          decrease={decrease}
+          changeLanguage={changeLanguage}
+          language={language}
+          setShowBattery={setShowBattery}
+          error={error}
+          setError={setError}
+          inputRef={inputRef}
+          showBattery={showBattery}
+          started={started}
+          handleStartClick={handleStartClick}
+          checkRegexp={checkRegexp}
+          regexp={regexp}
+        />
+      )}
+
+      {started ? (
+        <div className={styles.restart}>
+          <p>Guess the word or </p>
+          <button onClick={fetchData} className={styles.buttonRestart}>
+            RESTART
+          </button>
+        </div>
+      ) : (
+        <button onClick={handleStartClick} className={styles.buttonStart}>
+          START
+        </button>
+      )}
 
       {fetched ? <WordGame word={word} language={language} /> : started ? <Loading /> : null}
     </div>
