@@ -9,6 +9,7 @@
   fill: var(--cta-dark);
   stroke: var(--cta-dark);
   cursor: pointer;
+  z-index: 999;
 }
 
 .arrowUp:hover {
