@@ -32,7 +32,7 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
     >
       {paragraph ? (
         <>
-          <h2 className={`${styles.titleParagraph}`}>{title}</h2>
+          <h2 className={styles.titleParagraph}>{title}</h2>
           <div className={styles.contentParagraph}>
             {Svg ? (
               <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
