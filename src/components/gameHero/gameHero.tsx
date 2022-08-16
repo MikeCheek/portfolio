@@ -117,6 +117,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
           handleStartClick={handleStartClick}
           checkRegexp={checkRegexp}
           regexp={regexp}
+          length={length}
         />
       )}
 

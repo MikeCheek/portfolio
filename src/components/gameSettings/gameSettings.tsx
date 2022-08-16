@@ -15,6 +15,7 @@ const GameSettings = ({
   started,
   regexp,
   checkRegexp,
+  length,
 }: GameSettingsProps) => {
   return (
     <div className={styles.settings}>

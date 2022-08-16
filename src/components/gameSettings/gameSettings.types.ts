@@ -12,4 +12,5 @@ export interface GameSettingsProps {
   started: boolean
   regexp: string
   checkRegexp: (str: string) => boolean
+  length: number
 }
