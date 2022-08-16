@@ -22,6 +22,7 @@ import Loading from '../../atoms/loading/loading'
 const Hero = (): JSX.Element => {
   const color = 'var(--svg-dark)'
   const Projects = lazy(() => import('../projects/projects'))
+  const isSSR = typeof window === 'undefined'
 
   return (
     // <div className={styles.wrapper}>
@@ -36,9 +37,13 @@ const Hero = (): JSX.Element => {
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} Svg={{svg: Web, fill: color}} reversed>
-          <Suspense fallback={<Loading />}>
-            <Projects />
-          </Suspense>
+          <>
+            {!isSSR && (
+              <Suspense fallback={<Loading />}>
+                <Projects />
+              </Suspense>
+            )}
+          </>
         </Section>
         <Section title={'Hard skills'} id={'skills'} Svg={{svg: HSkills, fill: color}}>
           <Skills />

@@ -7,6 +7,7 @@ import SEO from '../components/seo/seo'
 const Game = () => {
   const [code, setCode] = useState<string>()
   const GameHero = lazy(() => import('../components/gameHero/gameHero'))
+  const isSSR = typeof window === 'undefined'
 
   useEffect(() => {
     const params = new URLSearchParams(location.search)
@@ -23,9 +24,11 @@ const Game = () => {
       <SEO title={'Word Game'} description={'Play this word game'} pathname={'/game'} />
       <Layout noGameLink={true}>
         <h1 className={styles.heading}>Word Game</h1>
-        <Suspense fallback={<BigLoader />}>
-          <GameHero code={code} />
-        </Suspense>
+        {!isSSR && (
+          <Suspense fallback={<BigLoader />}>
+            <GameHero code={code} />
+          </Suspense>
+        )}
       </Layout>
     </>
   )
