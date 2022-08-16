@@ -30,7 +30,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const fetchData = async () => {
     setFetched(false)
     setStarted(true)
-    await sleep(500)
+    // await sleep(500)
     const stime = performance.now()
     const data = randomWord(length, language)
     const etime = performance.now()
@@ -78,7 +78,6 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
   return (
     <div className={styles.game}>
-      <h1 className={styles.heading}>Word Game</h1>
       {time > 0 ? (
         <p className={styles.stats}>
           <span>Fetched in:</span>

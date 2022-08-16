@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import GameHero from '../components/gameHero/gameHero'
+import React, {lazy, Suspense, useEffect, useState} from 'react'
+import * as styles from '../styles/game.module.scss'
+import Loading from '../atoms/loading/loading'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo/seo'
 
 const Game = () => {
   const [code, setCode] = useState<string>()
+  const GameHero = lazy(() => import('../components/gameHero/gameHero'))
+
   useEffect(() => {
     const params = new URLSearchParams(location.search)
 
@@ -19,10 +22,21 @@ const Game = () => {
     <>
       <SEO title={'Word Game'} description={'Play this word game'} pathname={'/game'} />
       <Layout noGameLink={true}>
-        <GameHero code={code} />
+        <h1 className={styles.heading}>Word Game</h1>
+        <Suspense fallback={<BigLoader />}>
+          <GameHero code={code} />
+        </Suspense>
       </Layout>
     </>
   )
 }
 
 export default Game
+
+const BigLoader = () => {
+  return (
+    <div className={styles.bigLoader}>
+      <Loading />
+    </div>
+  )
+}
