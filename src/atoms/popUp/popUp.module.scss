@@ -8,9 +8,10 @@
   z-index: 20;
   top: 0;
   color: var(--orange);
-  font-size: 1rem;
+  font-size: 2rem;
   padding: 0 10px;
   animation: show 500ms ease;
+  width: fit-content;
 
   //@media screen and (min-width: '768px') {
   //  font-size: 2rem;

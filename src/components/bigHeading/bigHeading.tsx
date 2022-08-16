@@ -36,7 +36,7 @@ const BigHeading = () => {
           <span title="" className={styles.colored}>
             web
           </span>
-          <span>See my works!</span>
+          <span>See my projects!</span>
         </HoverPopUp>
       </h2>
       {/*<Circles number={5} />*/}
