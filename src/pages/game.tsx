@@ -1,8 +1,8 @@
 import React, {lazy, Suspense, useEffect, useState} from 'react'
 import * as styles from '../styles/game.module.scss'
-import Loading from '../atoms/loading/loading'
-import Layout from '../components/layout/layout'
 import SEO from '../components/seo/seo'
+import GameLoader from '../gameLoader/gameLoader'
+import Layout from '../components/layout/layout'
 
 const Game = () => {
   const [code, setCode] = useState<string>()
@@ -25,7 +25,7 @@ const Game = () => {
       <Layout noGameLink={true}>
         <h1 className={styles.heading}>Word Game</h1>
         {!isSSR && (
-          <Suspense fallback={<BigLoader />}>
+          <Suspense fallback={<GameLoader />}>
             <GameHero code={code} />
           </Suspense>
         )}
@@ -35,11 +35,3 @@ const Game = () => {
 }
 
 export default Game
-
-const BigLoader = () => {
-  return (
-    <div className={styles.bigLoader}>
-      <Loading />
-    </div>
-  )
-}
