@@ -35,13 +35,14 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
   const fetchData = async () => {
     setFetched(false)
-    setStarted(true)
+    setStarted(false)
     // await sleep(500)
     const stime = performance.now()
     const data = randomWord(length, language)
     const etime = performance.now()
     setTime(etime - stime)
     setWord(data)
+    setStarted(true)
     setFetched(true)
   }
 
