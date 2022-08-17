@@ -47,6 +47,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
     setTime(etime - stime)
     setWord(data)
     setFetched(true)
+    setSettings(false)
     forceRemount()
   }
 
