@@ -4,7 +4,6 @@ import * as styles from './gameHero.module.scss'
 
 import Loading from '../../atoms/loading/loading'
 import WordGame from '../../atoms/wordGame/wordGame'
-// import sleep from '../../utilities/sleep'
 import randomWord from '../../utilities/word'
 import {GameHeroProps} from './gameHero.types'
 import {hashToStr} from '../../utilities/hash'
@@ -22,6 +21,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
   const [error, setError] = useState<boolean>(false)
   const [showBattery, setShowBattery] = useState<boolean>(false)
   const [settings, setSettings] = useState<boolean>(false)
+  const [key, setKey] = useState<number>(0)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -31,6 +31,10 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
 
   const checkRegexp = (str: string) => {
     return new RegExp(regexp).test(str)
+  }
+
+  const forceRemount = () => {
+    setKey((k) => (k === 0 ? 1 : 0))
   }
 
   const fetchData = async () => {
@@ -43,6 +47,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
     setTime(etime - stime)
     setWord(data)
     setFetched(true)
+    forceRemount()
   }
 
   const increase = () => setLength(length * 1 + 1)
@@ -134,7 +139,7 @@ const GameHero = ({code}: GameHeroProps): JSX.Element => {
         </button>
       )}
 
-      {fetched ? <WordGame word={word} language={language} /> : started ? <Loading /> : null}
+      {fetched ? <WordGame word={word} language={language} key={key} /> : started ? <Loading /> : null}
     </div>
   )
 }

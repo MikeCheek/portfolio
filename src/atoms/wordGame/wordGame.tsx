@@ -40,9 +40,6 @@ What are you looking for?
 What do you expect to find here?
 I'm having fun with ${word}... 
 Go somewhere else or try to guess the word `)
-
-    if (document.getElementById('input0')) document.getElementById('input0')?.focus()
-    else sleep(1000).then(() => document.getElementById('input0')?.focus())
   }, [word])
 
   const nextInput = (form: any, index: number): void => {
@@ -178,6 +175,7 @@ Go somewhere else or try to guess the word `)
               onKeyDown={handleEnter}
               onChange={handleChange}
               pattern={'^([a-z]|[A-Z])*$'}
+              autoFocus={key === 0}
             />
           )
         })}
