@@ -35,7 +35,7 @@ module.exports = {
         theme_color: '#000000',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: 'standalone',
+        display: 'fullscreen',
         icon: 'src/images/maskableIcons/maskable_icon_x48.png', // This path is relative to the root of the site.
         icons: [
           {
