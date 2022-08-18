@@ -9,6 +9,7 @@ import {getDefinition} from '../../utilities/word'
 import {strToHash} from '../../utilities/hash'
 
 const alphabet: string[] = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+const splitChar = ';'
 
 const WordGame = ({word, language}: WordGameProps): JSX.Element => {
   const [chars, setChars] = useState<string[]>([])
@@ -25,9 +26,31 @@ const WordGame = ({word, language}: WordGameProps): JSX.Element => {
 
   const [lan, setLan] = useState<string>(language)
 
-  const [hint, setHint] = useState<boolean>(false)
+  const [hint, setHint] = useState<string>()
+  const [hintIndex, setHintIndex] = useState<number>(0)
+  const [disableHint, setDisableHint] = useState<boolean>(false)
 
   const [code, setCode] = useState<string>('')
+
+  const splittedDefinition = getDefinition(word).replace(word, '****').split(splitChar)
+
+  const getNextHint = () => {
+    if (disableHint) return
+
+    setDisableHint(true)
+
+    if (!hint) {
+      setHint(splittedDefinition[hintIndex])
+    } else {
+      setHint((h) => h + splitChar + splittedDefinition[hintIndex])
+    }
+
+    setHintIndex((h) => h + 1)
+
+    setTimeout(() => {
+      setDisableHint(false)
+    }, 10000)
+  }
 
   useEffect(() => {
     setLan(language)
@@ -149,7 +172,6 @@ Go somewhere else or try to guess the word `)
   }
 
   const toggleDefinition = () => setDefinition(!definition)
-  const toggleHint = () => setHint(!hint)
 
   const handleCopyClick = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>, text: string) => {
     const target = event.currentTarget
@@ -192,7 +214,7 @@ Go somewhere else or try to guess the word `)
                 {definition ? `HIDE` : `SHOW`} DEFINITION
               </button>
               {definition ? (
-                <p>
+                <p className={styles.box}>
                   <span style={{color: 'var(--pink)'}}>{word}</span>: {getDefinition(word)}
                 </p>
               ) : null}
@@ -243,19 +265,21 @@ Go somewhere else or try to guess the word `)
           </div>
         </div>
       </div>
-      <button type="button" className={styles.buttonHint} onClick={toggleHint}>
-        {hint ? 'HIDE' : 'SHOW'} HINT
-      </button>
-      {hint ? (
-        <div className={styles.letters}>
-          <p>Remaining letters</p>
-          <div className={styles.charList}>
-            {remainings.map((letter, key) => {
-              return <p key={key}>{letter}</p>
-            })}
-          </div>
+      <div className={styles.letters}>
+        <p>Remaining letters</p>
+        <div className={styles.charList}>
+          {remainings.map((letter, key) => {
+            return <p key={key}>{letter}</p>
+          })}
         </div>
-      ) : null}
+      </div>
+      {hintIndex < splittedDefinition.length && language === 'en' && (
+        <button type="button" className={styles.buttonHint} onClick={getNextHint} disabled={disableHint}>
+          {disableHint ? `WAIT 10 SECONDS FOR NEXT` : 'SHOW'} HINT
+        </button>
+      )}
+      {hint && <p className={styles.box}>{hint}</p>}
+      {hint?.includes('****') && <p>The hidden word is replaced with ****</p>}
     </form>
   )
 }

@@ -108,11 +108,6 @@
 
 .victory {
   margin: 20px 0 20px;
-  p {
-    background-color: var(--very-transparent-white);
-    padding: 10px;
-    border-radius: 10px;
-  }
 }
 
 .ctaDefinition {
@@ -146,4 +141,10 @@
   &:hover {
     color: var(--cta-hov-dark);
   }
+}
+
+.box {
+  background-color: var(--very-transparent-white);
+  padding: 10px;
+  border-radius: 10px;
 }
