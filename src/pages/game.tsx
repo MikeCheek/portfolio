@@ -29,7 +29,6 @@ const Game = () => {
             <GameHero code={code} />
           </Suspense>
         )}
-        <GameLoader />
       </Layout>
     </>
   )
