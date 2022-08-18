@@ -6,7 +6,7 @@ const Rules = () => {
       <h3>RULES</h3>
       <h4>
         The game is easy. <br />
-        You guess the secret word by placing letters in boxes.
+        Try to guess the secret word by placing letters in boxes.
         <br />
         <br />
         <li>
