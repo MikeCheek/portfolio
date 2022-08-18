@@ -226,7 +226,7 @@ Go somewhere else or try to guess the word `)
         </span>
       </span>
       <div className={styles.lettersWrapper}>
-        <div className={styles.letters}>
+        <div className={styles.lettersL}>
           <p>Letters of the word</p>
           <div className={styles.charListOrange}>
             {Array.from(okLetters).map((letter, key) => {
@@ -234,7 +234,7 @@ Go somewhere else or try to guess the word `)
             })}
           </div>
         </div>
-        <div className={styles.letters}>
+        <div className={styles.lettersR}>
           <p>Letters used</p>
           <div className={styles.charList}>
             {Array.from(inLetters).map((letter, key) => {
