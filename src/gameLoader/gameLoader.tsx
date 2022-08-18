@@ -17,7 +17,7 @@ const GameLoader = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((i) => (i < info.length - 1 ? i + 1 : 0))
-    }, 2000)
+    }, 3000)
     return () => {
       clearInterval(interval)
     }
