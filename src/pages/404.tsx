@@ -25,7 +25,7 @@ const NotFoundPage = (): JSX.Element => {
     <>
       <SEO title={'Not found'} pathname={'/404/'} />
       <Layout>
-        <h1 style={{color: 'var(--pink)'}}>Page not found</h1>
+        <h1 style={{color: 'var(--pink)'}}>PAGE NOT FOUND</h1>
         <span style={{textAlign: 'center', marginBottom: '100px'}}>
           Did you lose your way while navigating?
           <Rocket />
