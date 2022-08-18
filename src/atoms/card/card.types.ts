@@ -1,4 +1,4 @@
-export interface CardProps {
+export default interface CardProps {
   children: React.ReactNode
   href: string
   repo?: string

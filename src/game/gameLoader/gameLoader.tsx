@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import Loading from '../atoms/loading/loading'
+import Loading from '../../atoms/loading/loading'
 import * as styles from './gameLoader.module.scss'
 
 const info = [
-  'Loading resources...',
-  'Looking for tricky words...',
-  'Loading game assets...',
-  'Finding matches...',
-  'Still waiting? Oh no...',
-  'Keep calm and wait for it...',
+  'Loading resources',
+  'Looking for tricky words',
+  'Loading game assets',
+  'Finding matches',
+  'Still waiting? Oh no',
+  'Keep calm and wait for it',
 ]
 
 const GameLoader = () => {
@@ -17,7 +17,7 @@ const GameLoader = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((i) => (i < info.length - 1 ? i + 1 : 0))
-    }, 2000)
+    }, 3000)
     return () => {
       clearInterval(interval)
     }

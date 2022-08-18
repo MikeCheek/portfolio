@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './arrow.module.scss'
-import {ArrowProps} from './arrow.types'
+import ArrowProps from './arrow.types'
 
 const Arrow = ({
   right,

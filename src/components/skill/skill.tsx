@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './skill.module.scss'
-import {SkillType} from './skill.types'
+import SkillType from './skill.types'
 
 const Skill = ({name, link, style}: SkillType) => {
   return (

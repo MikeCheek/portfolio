@@ -2,14 +2,16 @@
   position: relative;
   align-self: center;
   justify-self: center;
-  height: 300px;
+  height: 400px;
   width: 100vw;
   overflow: hidden;
-  left: -5px;
 }
 
 .rocketWrap {
   animation: go-and-back 7s infinite linear;
+  @media screen and (min-width: 768px) {
+    animation-duration: 10s;
+  }
 }
 
 .svg {
@@ -30,9 +32,6 @@
   top: 20%;
   left: 0;
   opacity: 0.5;
-  @media screen and (min-width: '768px') {
-    left: 30%;
-  }
 }
 
 @keyframes flying {
@@ -58,9 +57,9 @@
 
 @keyframes go-and-back {
   from {
-    transform: translateX(-350px);
+    transform: translateX(-100%);
   }
   to {
-    transform: translateX(300px);
+    transform: translateX(60%);
   }
 }

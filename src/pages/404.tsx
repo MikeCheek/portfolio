@@ -25,13 +25,9 @@ const NotFoundPage = (): JSX.Element => {
     <>
       <SEO title={'Not found'} pathname={'/404/'} />
       <Layout>
-        <h1>Page not found</h1>
-        <span style={{textAlign: 'center'}}>
-          Sorry{' '}
-          <span role="img" aria-label="Pensive emoji">
-            😔
-          </span>{' '}
-          we couldn't find what you were looking for.
+        <h1 style={{color: 'var(--pink)'}}>Page not found</h1>
+        <span style={{textAlign: 'center', marginBottom: '100px'}}>
+          Did you lose your way while navigating?
           <Rocket />
           <br />
           {process.env.NODE_ENV === 'development' ? (
@@ -42,10 +38,9 @@ const NotFoundPage = (): JSX.Element => {
             </>
           ) : null}
           <br />
-          <Link to="/" className="link">
-            Go home
+          <Link to="/" className="buttonStyle">
+            GO HOME
           </Link>
-          .
         </span>
       </Layout>
     </>

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import * as styles from './circles.module.scss'
-import {CirclesProps} from './circles.types'
+import CirclesProps from './circles.types'
 
 const Circles = ({number}: CirclesProps) => {
   const ref = useRef<Array<HTMLSpanElement> | Array<null>>([])

@@ -1,4 +1,4 @@
-export interface ArrowProps {
+export default interface ArrowProps {
   right?: boolean
   down?: boolean
   up?: boolean

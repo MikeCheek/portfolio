@@ -1,12 +1,12 @@
 import React, {lazy, Suspense, useEffect, useState} from 'react'
 import * as styles from '../styles/game.module.scss'
 import SEO from '../components/seo/seo'
-import GameLoader from '../gameLoader/gameLoader'
+import GameLoader from '../game/gameLoader/gameLoader'
 import Layout from '../components/layout/layout'
 
 const Game = () => {
   const [code, setCode] = useState<string>()
-  const GameHero = lazy(() => import('../components/gameHero/gameHero'))
+  const GameHero = lazy(() => import('../game/gameHero/gameHero'))
   const isSSR = typeof window === 'undefined'
 
   useEffect(() => {
@@ -29,6 +29,7 @@ const Game = () => {
             <GameHero code={code} />
           </Suspense>
         )}
+        <GameLoader />
       </Layout>
     </>
   )

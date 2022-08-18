@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import PopUp from '../../atoms/popUp/popUp'
-import {HoverPopUpProps} from './hoverPopUp.types'
+import HoverPopUpProps from './hoverPopUp.types'
 
 const HoverPopUp = ({children, down = false, href}: HoverPopUpProps) => {
   const [show, setShow] = useState<boolean>(false)

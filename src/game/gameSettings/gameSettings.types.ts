@@ -1,4 +1,4 @@
-export interface GameSettingsProps {
+export default interface GameSettingsProps {
   increase: () => void
   decrease: () => void
   changeLanguage: () => void

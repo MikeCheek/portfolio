@@ -1,3 +1,3 @@
-export interface CirclesProps {
+export default interface CirclesProps {
   number: number
 }

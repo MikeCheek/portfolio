@@ -1,4 +1,4 @@
-export interface SkillType {
+export default interface SkillType {
   name: string
   link?: string
   style?: React.CSSProperties

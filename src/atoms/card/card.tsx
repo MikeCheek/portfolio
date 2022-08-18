@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import * as styles from './card.module.scss'
-import {CardProps} from './card.types'
+import CardProps from './card.types'
 import {parser} from 'html-metadata-parser'
 import GitHub from '../../assets/github.svg'
 import {Design, Develop} from '../legend/legend'

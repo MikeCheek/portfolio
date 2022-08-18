@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './rotatingWorld.module.scss'
-import {RotatingWorldProps} from './rotatingWorld.types'
+import RotatingWorldProps from './rotatingWorld.types'
 
 const RotatingWorld = ({children}: RotatingWorldProps) => {
   return (

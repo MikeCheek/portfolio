@@ -13,7 +13,7 @@ const Rocket = (): JSX.Element => {
         </div>
       </div>
       <div className={styles.wind}>
-        <WindSvg width={'400px'} height={'200px'} fill={'var(--wind-dark)'} />
+        <WindSvg width={'100vw'} height={'200px'} fill={'var(--wind-dark)'} />
       </div>
     </div>
   )

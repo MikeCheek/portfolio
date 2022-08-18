@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './gameSettings.module.scss'
-import {GameSettingsProps} from './gameSettings.types'
+import GameSettingsProps from './gameSettings.types'
 
 const GameSettings = ({
   increase,

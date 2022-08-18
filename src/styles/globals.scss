@@ -63,6 +63,7 @@ body {
     color: var(--cta-dark);
     margin: 5px;
     padding: 10px;
+    text-decoration: none;
     &:hover {
       border: 5px groove var(--cta-hov-dark);
       color: var(--cta-hov-dark);
