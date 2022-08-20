@@ -30,12 +30,12 @@ const Layout = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
       <div id="top" className={styles.layout}>
         {children}
 
-        {!noGameLink && 
+        {!noGameLink && (
           <>
             <Separator />
             <Footer noGameLink={noGameLink} />
           </>
-        } 
+        )}
       </div>
       {!noGameLink && <ArrowUp />}
     </>
