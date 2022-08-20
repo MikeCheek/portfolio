@@ -259,13 +259,15 @@ Go somewhere else or try to guess the word `)
               })}
             </div>
           </div>
-          {hintIndex < splittedDefinition.length && language === 'en' && (
-            <button type="button" className={styles.buttonHint} onClick={getNextHint} disabled={disableHint}>
-              {disableHint ? `WAIT 10 SECONDS FOR NEXT` : 'SHOW'} HINT
-            </button>
-          )}
-          {hint && <p className={styles.box}>{hint}</p>}
-          {hint?.includes('****') && <p>The hidden word is replaced with ****</p>}
+          <span>
+            {hintIndex < splittedDefinition.length && language === 'en' && (
+              <button type="button" className={styles.buttonHint} onClick={getNextHint} disabled={disableHint}>
+                {disableHint ? `WAIT 10 SECONDS FOR NEXT` : 'SHOW'} HINT
+              </button>
+            )}
+            {hint && <p className={styles.box}>{hint}</p>}
+            {hint?.includes('****') && <p>The hidden word is replaced with ****</p>}
+          </span>
         </div>
         <div className={styles.lettersR}>
           <div className={styles.letters}>
