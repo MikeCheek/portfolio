@@ -64,19 +64,17 @@
 }
 
 .lettersL {
-  @extend .letters;
   @media screen and (min-width: '768px') {
     position: absolute;
-    max-width: 15%;
+    max-width: 30vw;
     top: 10vh;
     left: 0;
   }
 }
 .lettersR {
-  @extend .letters;
   @media screen and (min-width: '768px') {
     position: absolute;
-    max-width: 15%;
+    max-width: 30vw;
     top: 10vh;
     right: 0;
   }
@@ -147,4 +145,5 @@
   background-color: var(--very-transparent-white);
   padding: 10px;
   border-radius: 10px;
+  margin: 0 30px 20px;
 }

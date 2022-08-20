@@ -181,54 +181,56 @@ Go somewhere else or try to guess the word `)
   }
 
   return (
-    <form id={'form'} className={styles.form}>
-      <div id={'trebbling'}>
-        {chars.map((_char, key) => {
-          return (
-            <input
-              type={'text'}
-              key={key}
-              className={styles.input}
-              id={'input' + key}
-              name={'input' + key}
-              tabIndex={key + 1}
-              enterKeyHint={'next'}
-              maxLength={1}
-              onKeyDown={handleEnter}
-              onChange={handleChange}
-              pattern={'^([a-z]|[A-Z])*$'}
-              autoFocus={key === 0}
-            />
-          )
-        })}
-      </div>
-      {victory ? (
-        <div className={styles.victory}>
-          <h2>
-            YOU HAVE GUESSED THE WORD <span style={{color: 'var(--pink)'}}>{word.toUpperCase()}</span> IN {attempts}{' '}
-            {attempts == 1 ? 'ATTEMPT' : 'ATTEMPTS'}!!
-          </h2>
-          {lan === 'en' ? (
-            <>
-              <button type={'button'} className={styles.ctaDefinition} onClick={toggleDefinition}>
-                {definition ? `HIDE` : `SHOW`} DEFINITION
-              </button>
-              {definition ? (
-                <p className={styles.box}>
-                  <span style={{color: 'var(--pink)'}}>{word}</span>: {getDefinition(word)}
-                </p>
-              ) : null}
-            </>
-          ) : null}
+    <div id={'form'} className={styles.form}>
+      <form id={'form'}>
+        <div id={'trebbling'}>
+          {chars.map((_char, key) => {
+            return (
+              <input
+                type={'text'}
+                key={key}
+                className={styles.input}
+                id={'input' + key}
+                name={'input' + key}
+                tabIndex={key + 1}
+                enterKeyHint={'next'}
+                maxLength={1}
+                onKeyDown={handleEnter}
+                onChange={handleChange}
+                pattern={'^([a-z]|[A-Z])*$'}
+                autoFocus={key === 0}
+              />
+            )
+          })}
         </div>
-      ) : (
-        <>
-          <button className={styles.check} type={'button'} value={'Check'} onClick={check}>
-            CHECK
-          </button>
-          <p>Attempts: {attempts}</p>
-        </>
-      )}
+        {victory ? (
+          <div className={styles.victory}>
+            <h2>
+              YOU HAVE GUESSED THE WORD <span style={{color: 'var(--pink)'}}>{word.toUpperCase()}</span> IN {attempts}{' '}
+              {attempts == 1 ? 'ATTEMPT' : 'ATTEMPTS'}!!
+            </h2>
+            {lan === 'en' ? (
+              <>
+                <button type={'button'} className={styles.ctaDefinition} onClick={toggleDefinition}>
+                  {definition ? `HIDE` : `SHOW`} DEFINITION
+                </button>
+                {definition ? (
+                  <p className={styles.box}>
+                    <span style={{color: 'var(--pink)'}}>{word}</span>: {getDefinition(word)}
+                  </p>
+                ) : null}
+              </>
+            ) : null}
+          </div>
+        ) : (
+          <>
+            <button className={styles.check} type={'button'} value={'Check'} onClick={check}>
+              CHECK
+            </button>
+            <p>Attempts: {attempts}</p>
+          </>
+        )}{' '}
+      </form>
       <p>
         Code of the word: {code}{' '}
         <span className={styles.copy} onClick={(e) => handleCopyClick(e, code)}>
@@ -249,38 +251,42 @@ Go somewhere else or try to guess the word `)
       </span>
       <div className={styles.lettersWrapper}>
         <div className={styles.lettersL}>
-          <p>Letters of the word</p>
-          <div className={styles.charListOrange}>
-            {Array.from(okLetters).map((letter, key) => {
-              return <p key={key}>{letter}</p>
-            })}
+          <div className={styles.letters}>
+            <p>Letters of the word</p>
+            <div className={styles.charListOrange}>
+              {Array.from(okLetters).map((letter, key) => {
+                return <p key={key}>{letter}</p>
+              })}
+            </div>
           </div>
+          {hintIndex < splittedDefinition.length && language === 'en' && (
+            <button type="button" className={styles.buttonHint} onClick={getNextHint} disabled={disableHint}>
+              {disableHint ? `WAIT 10 SECONDS FOR NEXT` : 'SHOW'} HINT
+            </button>
+          )}
+          {hint && <p className={styles.box}>{hint}</p>}
+          {hint?.includes('****') && <p>The hidden word is replaced with ****</p>}
         </div>
         <div className={styles.lettersR}>
-          <p>Letters used</p>
-          <div className={styles.charList}>
-            {Array.from(inLetters).map((letter, key) => {
-              return <p key={key}>{letter}</p>
-            })}
+          <div className={styles.letters}>
+            <p>Letters used</p>
+            <div className={styles.charList}>
+              {Array.from(inLetters).map((letter, key) => {
+                return <p key={key}>{letter}</p>
+              })}
+            </div>
+          </div>
+          <div className={styles.letters}>
+            <p>Remaining letters</p>
+            <div className={styles.charList}>
+              {remainings.map((letter, key) => {
+                return <p key={key}>{letter}</p>
+              })}
+            </div>
           </div>
         </div>
       </div>
-      <div className={styles.letters}>
-        <p>Remaining letters</p>
-        <div className={styles.charList}>
-          {remainings.map((letter, key) => {
-            return <p key={key}>{letter}</p>
-          })}
-        </div>
-      </div>
-      {hintIndex < splittedDefinition.length && language === 'en' && (
-        <button type="button" className={styles.buttonHint} onClick={getNextHint} disabled={disableHint}>
-          {disableHint ? `WAIT 10 SECONDS FOR NEXT` : 'SHOW'} HINT
-        </button>
-      )}
-      {hint && <p className={styles.box}>{hint}</p>}
-      {hint?.includes('****') && <p>The hidden word is replaced with ****</p>}
-    </form>
+    </div>
   )
 }
 
