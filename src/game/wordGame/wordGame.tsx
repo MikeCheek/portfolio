@@ -32,7 +32,7 @@ const WordGame = ({word, language}: WordGameProps): JSX.Element => {
 
   const [code, setCode] = useState<string>('')
 
-  const splittedDefinition = getDefinition(word).replace(word, '****').split(splitChar)
+  const splittedDefinition = getDefinition(word).replace(new RegExp(word, 'g'), '****').split(splitChar)
 
   const getNextHint = () => {
     if (disableHint) return
