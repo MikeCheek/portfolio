@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import TypingEffect from '../../atoms/typingEffect/typingEffect'
+import TypingEffect from '../typingEffect/typingEffect'
 import Profile from '../profile/profile'
 
 import {commands} from '../../utilities/info'
@@ -7,7 +7,7 @@ import {commands} from '../../utilities/info'
 import * as styles from './whoami.module.scss'
 import BashWindow from '../bashWindow/bashWindow'
 import sleep from '../../utilities/sleep'
-import BigHeading from '../bigHeading/bigHeading'
+import BigHeading from '../../components/bigHeading/bigHeading'
 
 const Whoami = (): JSX.Element => {
   const [show, setShow] = useState<number>(0)

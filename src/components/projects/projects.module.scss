@@ -1,14 +1,65 @@
-.carousel {
+.projects {
   width: 100%;
-
-  > * {
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  @media screen and (min-width: 768px) {
+    width: 120%;
+    gap: 200px;
   }
 }
 
-.imageStructure {
+.project {
   width: 100%;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+.projectReverse {
+  @extend .project;
+  @media screen and (min-width: 768px) {
+    flex-direction: row-reverse;
+  }
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  gap: 20px;
+  h3 {
+    color: var(--pink);
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: flex-start;
+    min-height: 250px;
+  }
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.imageStructure {
+  min-width: 48%;
+  max-width: 48%;
+  height: fit-content;
 }
 
 .image {
@@ -23,30 +74,4 @@
   @media screen and (min-width: 768px) {
     display: none !important;
   }
-}
-
-.shadow {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 90%;
-  width: 10%;
-  z-index: 1;
-  @media screen and (min-width: 768px) {
-    height: 100%;
-  }
-}
-
-.shadowLeft {
-  @extend .shadow;
-  left: -2px;
-  border-radius: 0 20px 20px 0;
-  background-image: linear-gradient(to left, transparent, #0a0a0a);
-}
-
-.shadowRight {
-  @extend .shadow;
-  right: -2px;
-  border-radius: 20px 0 0 20px;
-  background-image: linear-gradient(to right, transparent, #0a0a0a);
 }

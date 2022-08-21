@@ -1,0 +1,52 @@
+.carousel {
+  width: 100%;
+
+  > * {
+    box-sizing: border-box;
+  }
+}
+
+.imageStructure {
+  width: 100%;
+  height: auto;
+}
+
+.image {
+  @extend .imageStructure;
+  @media screen and (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.imageMobile {
+  @extend .imageStructure;
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 90%;
+  width: 10%;
+  z-index: 1;
+  @media screen and (min-width: 768px) {
+    height: 100%;
+  }
+}
+
+.shadowLeft {
+  @extend .shadow;
+  left: -2px;
+  border-radius: 0 20px 20px 0;
+  background-image: linear-gradient(to left, transparent, #0a0a0a);
+}
+
+.shadowRight {
+  @extend .shadow;
+  right: -2px;
+  border-radius: 20px 0 0 20px;
+  background-image: linear-gradient(to right, transparent, #0a0a0a);
+}

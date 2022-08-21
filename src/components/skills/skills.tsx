@@ -22,7 +22,6 @@ const Skills = (): JSX.Element => {
 
   const calculate = useCallback(
     (mult: number) => {
-      console.log(degree)
       const expand = mult * 2 * (mult < 3 ? 2.5 : 1)
       let [x, y] = degreeConverter(degree * mult)
       x = x * expand
@@ -34,6 +33,11 @@ const Skills = (): JSX.Element => {
     },
     [degree]
   )
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDegree(Number(e.target.value))
+    console.log(Number(e.target.value))
+  }
 
   return (
     <div className={styles.wrap}>
@@ -70,7 +74,7 @@ const Skills = (): JSX.Element => {
         max="360"
         step={1}
         value={degree}
-        onChange={(e) => setDegree(Number(e.target.value))}
+        onChange={(e) => handleChange(e)}
       />
       <div dangerouslySetInnerHTML={{__html: languages}} />
     </div>

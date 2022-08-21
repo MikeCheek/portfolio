@@ -1,5 +1,5 @@
 import React from 'react'
-import PhotoProfile from '../../atoms/photoProfile/photoProfile'
+import PhotoProfile from '../photoProfile/photoProfile'
 
 import cv from '../../assets/cv.pdf'
 

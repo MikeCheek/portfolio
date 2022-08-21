@@ -67,6 +67,7 @@ body {
     &:hover {
       border: 5px groove var(--cta-hov-dark);
       color: var(--cta-hov-dark);
+      transform: scale(1.05);
     }
   }
 }
