@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react'
+import React from 'react'
 
 import * as styles from './hero.module.scss'
 
@@ -12,12 +12,10 @@ import Things from '../../assets/things.svg'
 import Others from '../others/others'
 import {about, works} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
-import Loading from '../../atoms/loading/loading'
+import Projects from '../projects/projects' 
 
 const Hero = (): JSX.Element => {
   const color = 'var(--svg-dark)'
-  const Projects = lazy(() => import('../projects/projects'))
-  const isSSR = typeof window === 'undefined'
 
   return (
     <div>
@@ -27,13 +25,7 @@ const Hero = (): JSX.Element => {
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>
-          <>
-            {!isSSR && (
-              <Suspense fallback={<Loading />}>
-                <Projects />
-              </Suspense>
-            )}
-          </>
+          <Projects />
         </Section>
         <Section title={'Hard skills'} id={'skills'} Svg={{svg: HSkills, fill: color}}>
           <Skills />
