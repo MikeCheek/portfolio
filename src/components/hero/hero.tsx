@@ -8,8 +8,6 @@ import Skills from '../skills/skills'
 import Account from '../../assets/account.svg'
 import Coding from '../../assets/coding.svg'
 import HSkills from '../../assets/skills.svg'
-import Things from '../../assets/things.svg'
-import Others from '../others/others'
 import {about, works} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 import Projects from '../projects/projects'
@@ -32,9 +30,6 @@ const Hero = (): JSX.Element => {
         </Section>
         <Section title={'Work Experiences'} id={'works'} Svg={{svg: Coding, fill: color}} reversed>
           <div dangerouslySetInnerHTML={{__html: works}} />
-        </Section>
-        <Section title={'Other experiences'} id={'others'} Svg={{svg: Things, fill: color}}>
-          <Others />
         </Section>
       </div>
     </div>
