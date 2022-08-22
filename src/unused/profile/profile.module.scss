@@ -14,16 +14,16 @@
   margin-top: 20px;
   background-color: none;
   border: 5px groove;
-  border-color: var(--cta-dark);
+  border-color: var(--transparent-orange);
   padding: 10px 15px 10px;
   text-decoration: none;
-  color: var(--cta-dark);
+  color: var(--transparent-orange);
   text-transform: uppercase;
   font-weight: bolder;
 }
 
 .cvButton:hover {
-  border-color: var(--cta-hov-dark);
-  color: var(--cta-hov-dark);
+  border-color: var(--orange);
+  color: var(--orange);
   transform: scale(1.1);
 }

@@ -1,7 +1,7 @@
 $line-lenght: 15%;
 .container {
-  border-color: var(--timeline-dark);
-  box-shadow: var(--timeline-dark);
+  border-color: var(--transparent-white);
+  box-shadow: var(--transparent-white);
 }
 
 .wrapper {
@@ -47,7 +47,7 @@ $line-lenght: 15%;
   border: 2px solid;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 100%;
-  background-color: var(--timeline-dark);
+  background-color: var(--transparent-white);
   @media screen and (min-width: '768px') {
     width: auto;
     height: $line-lenght;

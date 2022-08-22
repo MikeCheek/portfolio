@@ -14,7 +14,7 @@ const width: string = '50px'
 const height: string = '50px'
 
 const Footer = ({noGameLink = false}: FooterProps): JSX.Element => {
-  const color: string = 'var(--icon-dark)'
+  const color: string = 'var(--white)'
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     const x: number = event.clientX

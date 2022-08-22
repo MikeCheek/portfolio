@@ -9,11 +9,11 @@ const Rocket = (): JSX.Element => {
     <div className={styles.wrap}>
       <div className={styles.rocketWrap}>
         <div className={styles.rocket}>
-          <RocketSvg width={'200px'} fill={'var(--rocket-dark)'} />
+          <RocketSvg width={'200px'} fill={'var(--orange)'} />
         </div>
       </div>
       <div className={styles.wind}>
-        <WindSvg width={'100vw'} height={'200px'} fill={'var(--wind-dark)'} />
+        <WindSvg width={'100vw'} height={'200px'} fill={'var(--grey)'} />
       </div>
     </div>
   )

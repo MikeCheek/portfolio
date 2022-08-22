@@ -1,7 +1,7 @@
 @import 'colors', 'scrollbar';
 html {
-  background-color: var(--bg-dark);
-  color: var(--col-dark);
+  background-color: var(--black);
+  color: var(--white);
   font-family: 'Rubik', sans-serif;
   font-size: 16px;
   letter-spacing: 1px;
@@ -59,14 +59,15 @@ body {
   }
   .buttonStyle {
     background: none;
-    border: 5px groove var(--cta-dark);
-    color: var(--cta-dark);
+    border: 5px groove var(--transparent-orange);
+    color: var(--transparent-orange);
     margin: 5px;
     padding: 10px;
     text-decoration: none;
+    transition: 100ms;
     &:hover {
-      border: 5px groove var(--cta-hov-dark);
-      color: var(--cta-hov-dark);
+      border: 5px groove var(--orange);
+      color: var(--orange);
       transform: scale(1.05);
     }
   }

@@ -15,7 +15,7 @@ import BigHeading from '../bigHeading/bigHeading'
 import Projects from '../projects/projects'
 
 const Hero = (): JSX.Element => {
-  const color = 'var(--svg-dark)'
+  const color = 'var(--transparent-pink)'
 
   return (
     <div>

@@ -52,7 +52,7 @@
 
 .title {
   text-transform: uppercase;
-  color: var(--title-dark);
+  color: var(--orange);
   font-size: 1.8rem;
   line-height: 2rem;
   @media screen and (min-width: '768px') {
@@ -102,7 +102,7 @@
 }
 
 .titleParagraph {
-  color: var(--title-dark);
+  color: var(--orange);
 }
 
 .contentParagraph {
