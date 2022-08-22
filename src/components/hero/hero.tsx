@@ -12,7 +12,7 @@ import Things from '../../assets/things.svg'
 import Others from '../others/others'
 import {about, works} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
-import Projects from '../projects/projects' 
+import Projects from '../projects/projects'
 
 const Hero = (): JSX.Element => {
   const color = 'var(--svg-dark)'
