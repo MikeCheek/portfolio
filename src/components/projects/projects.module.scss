@@ -75,6 +75,7 @@
 .imageMobile {
   @extend .imageStructure;
   position: absolute;
+  top: 0;
   max-width: none;
   z-index: -1;
   filter: brightness(0.3) opacity(0.8) blur(2px);
