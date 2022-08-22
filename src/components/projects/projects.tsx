@@ -79,6 +79,7 @@ const projectsList = [
         className={styles.imageMobile}
         src="../../images/screenshots/nt-mobile.jpg"
         alt={'Naturalmente Tecnologici'}
+        style={{opacity: 0.5}}
       />
     ),
   },
