@@ -7,11 +7,11 @@ import Section from '../section/section'
 import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
-import Projects from '../projects/projects'
 import Loading from '../../atoms/loading/loading'
 
 const Cube = lazy(() => import('../../atoms/threeD/threeD'))
 const Skills = lazy(() => import('../skills/skills'))
+const Projects = lazy(() => import('../projects/projects'))
 
 const Hero = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
@@ -30,7 +30,9 @@ const Hero = (): JSX.Element => {
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>
-          <Projects />
+          <Suspense fallback={null}>
+            <Projects />
+          </Suspense>
         </Section>
         <Section title={'Hard skills'} id={'skills'} Svg={{svg: HSkills, fill: color}}>
           <Suspense fallback={null}>
