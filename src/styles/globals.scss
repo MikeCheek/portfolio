@@ -65,6 +65,7 @@ body {
     padding: 10px;
     text-decoration: none;
     transition: 100ms;
+    font-weight: bolder;
     &:hover {
       border: 5px groove var(--orange);
       color: var(--orange);
