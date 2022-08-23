@@ -69,6 +69,7 @@ const Skills = (): JSX.Element => {
       </div>
       <input
         className={styles.range}
+        name="Degree"
         type="range"
         min="0"
         max="360"
