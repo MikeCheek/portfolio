@@ -61,12 +61,12 @@
   padding: 10px;
   margin: 30px;
   background: none;
-  border: 5px groove var(--cta-dark);
-  color: var(--cta-dark);
+  border: 5px groove var(--transparent-orange);
+  color: var(--transparent-orange);
   cursor: pointer;
   &:hover {
-    border: 5px groove var(--cta-hov-dark);
-    color: var(--cta-hov-dark);
+    border: 5px groove var(--orange);
+    color: var(--orange);
     transform: scale(1.1);
   }
 }
@@ -77,6 +77,6 @@
   margin: 5px;
   &:hover {
     border: none;
-    color: var(--cta-hov-dark);
+    color: var(--orange);
   }
 }
