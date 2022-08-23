@@ -13,7 +13,7 @@ const BigHeading = () => {
           <span title="" className={styles.colored}>
             Michele Pulvirenti
           </span>
-          <span>See my background!</span>
+          <span>Discover my background!</span>
         </HoverPopUp>
       </h1>
       <h2>
@@ -29,15 +29,9 @@ const BigHeading = () => {
           <span title="" className={styles.colored}>
             work
           </span>
-          <span>See my work experiences!</span>
+          <span>Look at my projects!</span>
         </HoverPopUp>{' '}
-        on the{' '}
-        <HoverPopUp href="#projects" down>
-          <span title="" className={styles.colored}>
-            web
-          </span>
-          <span>See my projects!</span>
-        </HoverPopUp>
+        on the web
       </h2>
       {/*<Circles number={5} />*/}
       <GoDown />
