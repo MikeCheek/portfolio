@@ -3,7 +3,6 @@ import React, {lazy, Suspense} from 'react'
 import * as styles from './hero.module.scss'
 
 import Section from '../section/section'
-import Skills from '../skills/skills'
 
 import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
@@ -12,6 +11,7 @@ import Projects from '../projects/projects'
 import Loading from '../../atoms/loading/loading'
 
 const Cube = lazy(() => import('../../atoms/threeD/threeD'))
+const Skills = lazy(() => import('../skills/skills'))
 
 const Hero = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
@@ -33,7 +33,9 @@ const Hero = (): JSX.Element => {
           <Projects />
         </Section>
         <Section title={'Hard skills'} id={'skills'} Svg={{svg: HSkills, fill: color}}>
-          <Skills />
+          <Suspense fallback={null}>
+            <Skills />
+          </Suspense>
         </Section>
       </div>
     </div>
