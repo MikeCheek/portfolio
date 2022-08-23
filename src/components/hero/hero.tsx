@@ -10,22 +10,15 @@ import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 import Projects from '../projects/projects'
 import Loading from '../../atoms/loading/loading'
-import * as mikeStyles from '../../atoms/mike/mike.module.scss'
 
-const Mike = lazy(() => import('../../atoms/mike/mike'))
+const Cube = lazy(() => import('../../atoms/threeD/threeD'))
 
 const Hero = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
 
-  const MikeComponent = (
-    <Suspense
-      fallback={
-        <div className={mikeStyles.canvas}>
-          <Loading />
-        </div>
-      }
-    >
-      <Mike />
+  const CubeComponent = (
+    <Suspense fallback={<Loading />}>
+      <Cube />
     </Suspense>
   )
 
@@ -33,7 +26,7 @@ const Hero = (): JSX.Element => {
     <div>
       <BigHeading />
       <div className={styles.sectionWrap}>
-        <Section title={'About me'} id={'about'} Model3d={MikeComponent}>
+        <Section title={'About me'} id={'about'} Model3d={CubeComponent}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>
