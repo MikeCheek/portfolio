@@ -5,11 +5,11 @@ import * as styles from './hero.module.scss'
 import Section from '../section/section'
 import Skills from '../skills/skills'
 
-import Account from '../../assets/account.svg'
 import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 import Projects from '../projects/projects'
+import Mike from '../../atoms/mike/mike'
 
 const Hero = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
@@ -18,7 +18,7 @@ const Hero = (): JSX.Element => {
     <div>
       <BigHeading />
       <div className={styles.sectionWrap}>
-        <Section title={'About me'} id={'about'} Svg={{svg: Account, stroke: color}}>
+        <Section title={'About me'} id={'about'} Model3d={Mike}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>

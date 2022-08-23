@@ -5,7 +5,15 @@ import * as styles from './section.module.scss'
 import sleep from '../../utilities/sleep'
 import {useInView} from 'react-intersection-observer'
 
-const Section = ({title, children, id, reversed = false, Svg, paragraph = false}: SectionProps): JSX.Element => {
+const Section = ({
+  title,
+  children,
+  id,
+  reversed = false,
+  Svg,
+  paragraph = false,
+  Model3d,
+}: SectionProps): JSX.Element => {
   const [ref, inView, _entry] = useInView({
     threshold: 0,
     fallbackInView: true,
@@ -44,6 +52,8 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                   stroke={Svg.stroke ?? 'none'}
                 />
               </div>
+            ) : Model3d ? (
+              <Model3d />
             ) : null}
             <div className={styles.childrenParagraph}>{children}</div>
           </div>
@@ -62,6 +72,8 @@ const Section = ({title, children, id, reversed = false, Svg, paragraph = false}
                   stroke={Svg.stroke ?? 'none'}
                 />
               </div>
+            ) : Model3d ? (
+              <Model3d />
             ) : null}
             <div className={styles.children}>{children}</div>
           </div>
