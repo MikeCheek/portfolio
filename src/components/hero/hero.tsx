@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {lazy, Suspense} from 'react'
 
 import * as styles from './hero.module.scss'
 
@@ -9,16 +9,31 @@ import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 import Projects from '../projects/projects'
-import Mike from '../../atoms/mike/mike'
+import Loading from '../../atoms/loading/loading'
+import * as mikeStyles from '../../atoms/mike/mike.module.scss'
+
+const Mike = lazy(() => import('../../atoms/mike/mike'))
 
 const Hero = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
+
+  const MikeComponent = (
+    <Suspense
+      fallback={
+        <div className={mikeStyles.canvas}>
+          <Loading />
+        </div>
+      }
+    >
+      <Mike />
+    </Suspense>
+  )
 
   return (
     <div>
       <BigHeading />
       <div className={styles.sectionWrap}>
-        <Section title={'About me'} id={'about'} Model3d={Mike}>
+        <Section title={'About me'} id={'about'} Model3d={MikeComponent}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>

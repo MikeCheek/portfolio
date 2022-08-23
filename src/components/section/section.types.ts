@@ -11,5 +11,5 @@ export type SectionProps = {
     stroke?: string
   }
   paragraph?: boolean
-  Model3d?: any
+  Model3d?: JSX.Element
 }

@@ -53,7 +53,7 @@ const Section = ({
                 />
               </div>
             ) : Model3d ? (
-              <Model3d />
+              Model3d
             ) : null}
             <div className={styles.childrenParagraph}>{children}</div>
           </div>
@@ -73,7 +73,7 @@ const Section = ({
                 />
               </div>
             ) : Model3d ? (
-              <Model3d />
+              Model3d
             ) : null}
             <div className={styles.children}>{children}</div>
           </div>

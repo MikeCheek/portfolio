@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react'
+import React from 'react'
 import {Canvas, extend} from '@react-three/fiber'
 import {OrbitControls} from '@react-three/drei'
 import Model from './model.js'
@@ -14,9 +14,7 @@ const Mike = () => {
         <ambientLight intensity={0.5} />
         <ambientLight intensity={0.1} />
         <directionalLight intensity={0.4} />
-        <Suspense fallback={null}>
-          <Model position={[0, -0.9, 0]} />
-        </Suspense>
+        <Model position={[0, -0.9, 0]} />
         <OrbitControls
           autoRotate
           minPolarAngle={Math.PI / 2.8}
