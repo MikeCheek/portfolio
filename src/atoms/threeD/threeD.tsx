@@ -1,6 +1,7 @@
-import React from 'react'
-import {Canvas} from '@react-three/fiber'
+import React, {useRef} from 'react'
+import {Canvas, useFrame} from '@react-three/fiber'
 import {OrbitControls} from '@react-three/drei'
+import {Mesh} from 'three'
 
 const ThreeD = () => {
   return (
@@ -16,8 +17,14 @@ const ThreeD = () => {
 }
 
 const Box = () => {
+  const boxRef = useRef<Mesh>()
+  useFrame(({clock}) => {
+    boxRef.current!.rotation.x = Math.sin(clock.getElapsedTime())
+    boxRef.current!.rotation.y = Math.cos(clock.getElapsedTime())
+  })
   return (
-    <mesh rotation={[90, 0, 20]}>
+    /*@ts-ignore */
+    <mesh ref={boxRef} rotation={[90, 0, 20]}>
       <boxBufferGeometry attach="geometry" args={[3, 3, 3, 3]} />
       <meshLambertMaterial attach="material" color={'#ffac30'} emissive={'#fd76cb'} wireframe reflectivity={1} />
     </mesh>
