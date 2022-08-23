@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react'
 import {useInView} from 'react-intersection-observer'
-import {programming, frameworks, others, languages} from '../../utilities/info'
+import {programming, frameworks, others} from '../../utilities/info'
 import Skill from '../skill/skill'
 
 import * as styles from './skills.module.scss'
@@ -77,7 +77,6 @@ const Skills = (): JSX.Element => {
         value={degree}
         onChange={(e) => handleChange(e)}
       />
-      <div dangerouslySetInnerHTML={{__html: languages}} />
     </div>
   )
 }
