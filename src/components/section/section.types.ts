@@ -1,8 +1,6 @@
-import {ReactElement} from 'react'
-
 export type SectionProps = {
   title: string
-  children: ReactElement<any, any>
+  children: JSX.Element
   reversed?: boolean
   id?: string
   Svg?: {
