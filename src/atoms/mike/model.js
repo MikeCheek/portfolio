@@ -9,7 +9,7 @@ const path = process.env.NODE_ENV === 'development' ? '/mike.glb' : '/portfolio/
 
 const Model = (props) => {
   const group = useRef()
-  const {nodes, materials} =  useGLTF(path)
+  const {nodes, materials} = useGLTF(path)
   return (
     <group {...props} ref={group} dispose={null}>
       <primitive object={nodes.Hips} />
