@@ -1,6 +1,6 @@
 import React from 'react'
-import {otherExperiences} from '../../utilities/info'
-import Section from '../section/section'
+import Section from '../../../src/components/section/section'
+import {otherExperiences} from '../../../src/utilities/info'
 
 const Others = (): JSX.Element => {
   return (
