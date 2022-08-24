@@ -9,7 +9,7 @@ import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 import Loading from '../../atoms/loading/loading'
 
-const Cube = lazy(() => import('../../atoms/threeD/threeD'))
+const Model3D = lazy(() => import('../../atoms/model3D/model3D'))
 const Skills = lazy(() => import('../skills/skills'))
 const Projects = lazy(() => import('../projects/projects'))
 
@@ -18,7 +18,7 @@ const Hero = (): JSX.Element => {
 
   const CubeComponent = (
     <Suspense fallback={<Loading />}>
-      <Cube />
+      <Model3D />
     </Suspense>
   )
 
