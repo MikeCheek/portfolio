@@ -18,4 +18,3 @@ const Model = (props) => {
 
 useGLTF.preload(path)
 export default Model
-
