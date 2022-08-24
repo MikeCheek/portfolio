@@ -1,5 +1,6 @@
 .canvas {
-  width: 85vw;
+  width: 50vw;
+  min-width: 200px;
   height: 30vh;
   cursor: grab;
   display: flex;
@@ -9,5 +10,6 @@
   @media screen and (min-width: '768px') {
     width: 40vw;
     height: 80vh;
+    min-width: 400px;
   }
 }
