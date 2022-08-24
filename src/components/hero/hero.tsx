@@ -8,6 +8,7 @@ import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading/bigHeading'
 import Loading from '../../atoms/loading/loading'
+import * as modelStyles from '../../atoms/model3D/model3D.module.scss'
 
 const Model3D = lazy(() => import('../../atoms/model3D/model3D'))
 const Skills = lazy(() => import('../skills/skills'))
@@ -16,8 +17,14 @@ const Projects = lazy(() => import('../projects/projects'))
 const Hero = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
 
-  const CubeComponent = (
-    <Suspense fallback={<Loading />}>
+  const ModelComponent = (
+    <Suspense
+      fallback={
+        <div className={modelStyles.canvas}>
+          <Loading />
+        </div>
+      }
+    >
       <Model3D />
     </Suspense>
   )
@@ -26,7 +33,7 @@ const Hero = (): JSX.Element => {
     <div>
       <BigHeading />
       <div className={styles.sectionWrap}>
-        <Section title={'About me'} id={'about'} Model3d={CubeComponent}>
+        <Section title={'About me'} id={'about'} Model3d={ModelComponent}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>
