@@ -25,7 +25,7 @@ const BigHeading = () => {
           <span>See my skills!</span>
         </HoverPopUp>{' '}
         <br />I currently{' '}
-        <HoverPopUp href="#works" down>
+        <HoverPopUp href="#projects" down>
           <span title="" className={styles.colored}>
             work
           </span>
