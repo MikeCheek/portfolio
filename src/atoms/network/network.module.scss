@@ -1,0 +1,11 @@
+.network {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  opacity: 0.2;
+}

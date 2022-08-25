@@ -12,6 +12,7 @@ import ArrowUp from '../../atoms/arrowUp/arrowUp'
 
 import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
+import Network from '../../atoms/network/network'
 
 const Layout = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
   const [browser, setBrowser] = useState<string>('waiting')
@@ -28,6 +29,7 @@ const Layout = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
         <Ball BallSvg={BallMoving} />
       )}
       <div id="top" className={styles.layout}>
+        <Network />
         {children}
 
         {!noGameLink && (
