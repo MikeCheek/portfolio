@@ -11,7 +11,7 @@ const Network = () => {
   }, [])
 
   return (
-    <div className={styles.network}>
+    <div className={styles.network} onClick={() => navigator.vibrate([200, 10, 200])}>
       <svg width={10} height={10} fill={network ? 'green' : 'red'}>
         <circle cx="50%" cy="50%" r="5" fill="current" />
       </svg>
