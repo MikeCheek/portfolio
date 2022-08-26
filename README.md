@@ -1,6 +1,8 @@
 # Hi! Welcome to my portfolio
 
-<li>This site is developed with GatsbyJs and Typescript</li>
+<li>This site is developed with GatsbyJs, Typescript and SCSS</li>
+
+<li>Code is checked and formatted before every commit thanks to Husky, Prettier and ESlint</li>
 
 <li>It is deployed to GitHub Pages through GitHub Actions</li>
 
