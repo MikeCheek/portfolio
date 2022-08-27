@@ -10,7 +10,7 @@ const Projects = () => {
           <div className={key % 2 == 1 ? styles.projectReverse : styles.project} key={key}>
             <div className={styles.head}>
               <h3>{project.title}</h3>
-              <i dangerouslySetInnerHTML={{__html: project.description}}></i>
+              <em dangerouslySetInnerHTML={{__html: project.description}}></em>
 
               {project.imageMobile}
 
