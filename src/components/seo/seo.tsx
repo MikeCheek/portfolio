@@ -110,7 +110,7 @@ const SEO = ({
         bingSiteVerification
           ?{
               name: `msvalidate.01`,
-              content: bingSiteVerification7,
+              content: bingSiteVerification,
             }
           : {},
       ]
