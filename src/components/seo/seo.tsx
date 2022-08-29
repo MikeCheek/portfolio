@@ -11,6 +11,7 @@ const SEO = ({
   title,
   pathname,
   googleSiteVerification,
+  bingSiteVerification,
 }: SEOProps): JSX.Element => {
   const {site} = useStaticQuery(
     graphql`
@@ -104,6 +105,12 @@ const SEO = ({
           ? {
               name: `google-site-verification`,
               content: googleSiteVerification,
+            }
+          : {},
+        bingSiteVerification
+          ?{
+              name: `msvalidate.01`,
+              content: bingSiteVerification7,
             }
           : {},
       ]
