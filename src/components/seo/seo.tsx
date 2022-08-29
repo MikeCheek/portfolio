@@ -101,19 +101,14 @@ const SEO = ({
           name: `twitter:description`,
           content: metaDescription,
         },
-        googleSiteVerification
-          ? {
-              name: `google-site-verification`,
-              content: googleSiteVerification,
-            }
-          : {},
-
-        bingSiteVerification
-          ? {
-              name: `msvalidate.01`,
-              content: bingSiteVerification,
-            }
-          : {},
+        {
+          name: `google-site-verification`,
+          content: googleSiteVerification ?? '',
+        },
+        {
+          name: `msvalidate.01`,
+          content: bingSiteVerification ?? '',
+        },
       ]
         .concat(
           image
