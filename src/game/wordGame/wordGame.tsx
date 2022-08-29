@@ -255,7 +255,7 @@ Go somewhere else or try to guess the word `)
             <p>Letters of the word</p>
             <div className={styles.charListOrange}>
               {Array.from(okLetters).map((letter, key) => {
-                return <p key={key}>{letter}</p>
+                return <p key={key}>{letter.toUpperCase()}</p>
               })}
             </div>
           </div>
@@ -274,7 +274,7 @@ Go somewhere else or try to guess the word `)
             <p>Letters used</p>
             <div className={styles.charList}>
               {Array.from(inLetters).map((letter, key) => {
-                return <p key={key}>{letter}</p>
+                return <p key={key}>{letter.toUpperCase()}</p>
               })}
             </div>
           </div>
@@ -282,7 +282,7 @@ Go somewhere else or try to guess the word `)
             <p>Remaining letters</p>
             <div className={styles.charList}>
               {remainings.map((letter, key) => {
-                return <p key={key}>{letter}</p>
+                return <p key={key}>{letter.toUpperCase()}</p>
               })}
             </div>
           </div>
