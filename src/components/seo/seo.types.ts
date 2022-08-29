@@ -5,6 +5,7 @@ export type SEOProps = {
   meta?: Meta
   title: string
   googleSiteVerification?: string
+  bingSiteVerification?: string
   pathname?: string
 }
 
