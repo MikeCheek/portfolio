@@ -23,8 +23,7 @@ There are 2 pages in this website:
 
 - You can even install the game because this website is a PWA
 
-- It is also indexed on
-  - ![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white)
+- It is also indexed on search engines
 
 ##
 
