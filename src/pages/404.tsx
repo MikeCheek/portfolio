@@ -10,7 +10,7 @@ interface Bored {
 }
 
 const NotFoundPage = (): JSX.Element => {
-  const [bored, setBored] = useState<Bored>({activity: 'none'})
+  const [bored, setBored] = useState<Bored>({activity: ""})
   const [error, setError] = useState<boolean>(false)
 
   const fetchData = async () => {
@@ -40,7 +40,7 @@ const NotFoundPage = (): JSX.Element => {
             GO HOME
           </Link>
           <Rocket />
-          {!error && (
+          {!error && bored['activity'] != "" (
             <div style={{marginTop: '50px'}}>
               <p>
                 If you are bored try to{' '}
