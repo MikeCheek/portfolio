@@ -7,22 +7,26 @@ import Rocket from '../components/rocket/rocket'
 interface Bored {
   activity?: string
   link?: string
+  type?: string
+  partecipants?: number
+  price?: number
+  key?: string
+  accessibility?: number
 }
 
 const NotFoundPage = (): JSX.Element => {
   const [bored, setBored] = useState<Bored>({})
   const [error, setError] = useState<boolean>(false)
+  
+  const fixData = (data: Bored) => { 
+    data.activity = data.activity[0].toLowerCase() + data.activity.substring(1) 
+  }
 
-  const fetchData = async () => {
-    const result: Response = await fetch('http://www.boredapi.com/api/activity')
-
-    if (result.ok) {
-      const d = await result.json()
-      d.activity = d.activity[0].toLowerCase() + d.activity.substring(1)
-      setBored(d)
-    } else {
-      setError(true)
-    }
+  const fetchData = () => {
+    fetch('https://www.boredapi.com/api/activity')
+      .then(response => response.json())
+      .then(data => setBored(fixData(data)))
+      .catch(_err => setError(true))
   }
 
   useEffect(() => {
