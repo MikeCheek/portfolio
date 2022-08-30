@@ -14,7 +14,7 @@ const NotFoundPage = (): JSX.Element => {
   const [error, setError] = useState<boolean>(false)
 
   const fetchData = async () => {
-    const result: Response = await fetch('https://www.boredapi.com/api/activity')
+    const result: Response = await fetch('http://www.boredapi.com/api/activity')
 
     if (result.ok) {
       const d = await result.json()
@@ -40,7 +40,7 @@ const NotFoundPage = (): JSX.Element => {
             GO HOME
           </Link>
           <Rocket />
-          {!error && bored['activity'] != "" (
+          {!error && bored['activity'] != "" && (
             <div style={{marginTop: '50px'}}>
               <p>
                 If you are bored try to{' '}
