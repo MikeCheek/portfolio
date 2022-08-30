@@ -18,7 +18,7 @@ const NotFoundPage = (): JSX.Element => {
 
     if (result.ok) {
       const d = await result.json()
-      d.activity = d.activity.[0].toLowerCase() + d.activity.substring(1)
+      d.activity = d.activity[0].toLowerCase() + d.activity.substring(1)
       setBored(d)
     } else {
       setError(true)
