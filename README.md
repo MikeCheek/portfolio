@@ -1,5 +1,9 @@
 # Hi! Welcome to my portfolio
 
+![Gatsby Publish](https://github.com/MikeCheek/portfolio/workflows/Gatsby%20Publish/badge.svg)
+
+##
+
 There are 3 main pages in this website:
 
 1. :house: <a target="_blank" href="https://mikecheek.github.io/portfolio">Home Page</a> ( / )
