@@ -47,7 +47,7 @@ const NotFoundPage = (): JSX.Element => {
           </Link>
           {!error && (
             <div>
-              <p>If you are bored, try {bored.link==""? bored.activity : <a target="_blank" href={bored.link}>{bored.activity}</a>}</p>
+              <p>If you are bored try {bored.link==""? bored.activity : <a target="_blank" href={bored.link}>{bored.activity}</a>}</p>
             </div>
           )}
           
