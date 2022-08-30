@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
 import SEO from '../components/seo/seo'
 import Layout from '../components/layout/layout'
 import Rocket from '../components/rocket/rocket'
 
+interface Bored {
+  activity: string
+  link?: string
+}
+
 const NotFoundPage = (): JSX.Element => {
-  
-  const [bored, setBored] = useState<JSON>(JSON.parse(`{"loading": "data"}`))
+  const [bored, setBored] = useState<Bored>({activity: 'none'})
   const [error, setError] = useState<boolean>(false)
-  
+
   const fetchData = async () => {
     const result: Response = await fetch('https://www.boredapi.com/api/activity')
-    
+
     if (result.ok) {
-      const d: JSON = await result.json()
+      const d = await result.json()
+      d['activity'] = d['activity'][0].toLowerCase() + d['activity'].substring(1)
       setBored(d)
     } else {
       setError(true)
@@ -24,16 +29,31 @@ const NotFoundPage = (): JSX.Element => {
     fetchData()
   }, [])
 
-
   return (
     <>
       <SEO title={'Not found'} pathname={'/404/'} />
       <Layout>
         <h1 style={{color: 'var(--pink)'}}>PAGE NOT FOUND</h1>
         <span style={{textAlign: 'center', marginBottom: '100px'}}>
-          Did you lose your way while navigating?
+          Did you lose your way while navigating?{' '}
+          <Link to="/" className="link">
+            GO HOME
+          </Link>
           <Rocket />
-          <br />
+          {!error && (
+            <div style={{marginTop: '50px'}}>
+              <p>
+                If you are bored try to{' '}
+                {bored['link'] == '' ? (
+                  bored['activity']
+                ) : (
+                  <a className="link" target="_blank" rel="noopener noreferrer" href={bored['link']}>
+                    {bored['activity']}
+                  </a>
+                )}
+              </p>
+            </div>
+          )}
           {process.env.NODE_ENV === 'development' ? (
             <>
               <br />
@@ -41,16 +61,6 @@ const NotFoundPage = (): JSX.Element => {
               <br />
             </>
           ) : null}
-          <br />
-          <Link to="/" className="buttonStyle">
-            GO HOME
-          </Link>
-          {!error && (
-            <div>
-              <p>If you are bored try {bored.link==""? bored.activity : <a target="_blank" rel="noopener noreferrer" href={bored.link}>{bored.activity}</a>}</p>
-            </div>
-          )}
-          
         </span>
       </Layout>
     </>
