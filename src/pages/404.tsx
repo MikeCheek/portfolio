@@ -6,7 +6,7 @@ import Rocket from '../components/rocket/rocket'
 
 const NotFoundPage = (): JSX.Element => {
   
-  const [bored, setBored] useState<JSON>(JSON.parse(`{"loading": "data"}`))
+  const [bored, setBored] = useState<JSON>(JSON.parse(`{"loading": "data"}`))
   const [error, setError] = useState<boolean>(false)
   
   const fetchData = async () => {
