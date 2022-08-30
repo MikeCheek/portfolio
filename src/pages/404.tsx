@@ -3,6 +3,7 @@ import {Link} from 'gatsby'
 import SEO from '../components/seo/seo'
 import Layout from '../components/layout/layout'
 import Rocket from '../components/rocket/rocket'
+import * as styles from '../styles/404.module.scss'
 
 interface Bored {
   activity?: string
@@ -16,6 +17,7 @@ interface Bored {
 
 const NotFoundPage = (): JSX.Element => {
   const [bored, setBored] = useState<Bored>({})
+  const [fetched, setFetched] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
   
   const fixData = (data: Bored) => { 
@@ -25,7 +27,10 @@ const NotFoundPage = (): JSX.Element => {
   const fetchData = () => {
     fetch('https://www.boredapi.com/api/activity')
       .then(response => response.json())
-      .then(data => setBored(fixData(data)))
+      .then(data => {
+        setBored(fixData(data))
+        setFetched(true)
+      })
       .catch(_err => setError(true))
   }
 
@@ -37,15 +42,15 @@ const NotFoundPage = (): JSX.Element => {
     <>
       <SEO title={'Not found'} pathname={'/404/'} />
       <Layout>
-        <h1 style={{color: 'var(--pink)'}}>PAGE NOT FOUND</h1>
-        <span style={{textAlign: 'center', marginBottom: '100px'}}>
+        <h1 className={styles.heading}>PAGE NOT FOUND</h1>
+        <span className={styles.lost}>
           Did you lose your way while navigating?{' '}
           <Link to="/" className="link">
             GO HOME
           </Link>
           <Rocket />
-          {!error && bored.activity && (
-            <div style={{marginTop: '50px'}}>
+          {fetched && (
+            <div className={styles.boredWrap}>
               <p>
                 If you are bored try to{' '}
                 {bored.link == '' ? (
