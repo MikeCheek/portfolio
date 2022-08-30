@@ -5,7 +5,7 @@ import Layout from '../components/layout/layout'
 import Rocket from '../components/rocket/rocket'
 
 interface Bored {
-  activity: string
+  activity?: string
   link?: string
 }
 
