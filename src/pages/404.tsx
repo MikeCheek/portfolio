@@ -10,7 +10,7 @@ interface Bored {
 }
 
 const NotFoundPage = (): JSX.Element => {
-  const [bored, setBored] = useState<Bored>({activity: ""})
+  const [bored, setBored] = useState<Bored>({})
   const [error, setError] = useState<boolean>(false)
 
   const fetchData = async () => {
@@ -18,7 +18,7 @@ const NotFoundPage = (): JSX.Element => {
 
     if (result.ok) {
       const d = await result.json()
-      d['activity'] = d['activity'][0].toLowerCase() + d['activity'].substring(1)
+      d.activity = d.activity.[0].toLowerCase() + d.activity.substring(1)
       setBored(d)
     } else {
       setError(true)
@@ -40,15 +40,15 @@ const NotFoundPage = (): JSX.Element => {
             GO HOME
           </Link>
           <Rocket />
-          {!error && bored['activity'] != "" && (
+          {!error && bored.activity && (
             <div style={{marginTop: '50px'}}>
               <p>
                 If you are bored try to{' '}
-                {bored['link'] == '' ? (
-                  bored['activity']
+                {bored.link == '' ? (
+                  bored.activity
                 ) : (
-                  <a className="link" target="_blank" rel="noopener noreferrer" href={bored['link']}>
-                    {bored['activity']}
+                  <a className="link" target="_blank" rel="noopener noreferrer" href={bored.link}>
+                    {bored.activity}
                   </a>
                 )}
               </p>
