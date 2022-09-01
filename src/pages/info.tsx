@@ -35,7 +35,7 @@ const InfoPage = () => {
           {fetched[0] ? (
             !error[0] && (
               <div>
-                <p>There are {Object.keys(data!).length} different languages on this website </p>
+                <p>There are {Object.keys(data!).length} different languages on this repository </p>
                 {Object.keys(data!).map((entry: string, key: number) => {
                   return (
                     <p key={key}>
