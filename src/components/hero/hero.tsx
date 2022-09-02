@@ -37,14 +37,10 @@ const Hero = (): JSX.Element => {
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={'My projects'} id={'projects'} reversed>
-          <Suspense fallback={null}>
-            <Projects />
-          </Suspense>
+          <Projects />
         </Section>
         <Section title={'Hard skills'} id={'skills'} Svg={{svg: HSkills, fill: color}}>
-          <Suspense fallback={null}>
-            <Skills />
-          </Suspense>
+          <Skills />
         </Section>
       </div>
     </div>
