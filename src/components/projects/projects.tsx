@@ -48,6 +48,7 @@ const projectsList = [
         className={styles.image}
         src="../../images/screenshots/pop.png"
         alt={'Pop! Funding'}
+        loading="lazy"
       />
     ),
     imageMobile: (
@@ -56,6 +57,7 @@ const projectsList = [
         className={styles.imageMobile}
         src="../../images/screenshots/pop-mobile.jpg"
         alt={'Pop! Funding'}
+        loading="lazy"
       />
     ),
   },
@@ -71,6 +73,7 @@ const projectsList = [
         className={styles.image}
         src="../../images/screenshots/nt.png"
         alt={'Naturalmente Tecnologici'}
+        loading="lazy"
       />
     ),
     imageMobile: (
@@ -80,6 +83,7 @@ const projectsList = [
         src="../../images/screenshots/nt-mobile.jpg"
         alt={'Naturalmente Tecnologici'}
         style={{opacity: 0.3}}
+        loading="lazy"
       />
     ),
   },
@@ -94,6 +98,7 @@ const projectsList = [
         className={styles.image}
         src="../../images/screenshots/wdc.png"
         alt={'Web Dev Challenge 2022'}
+        loading="lazy"
       />
     ),
     imageMobile: (
@@ -102,6 +107,7 @@ const projectsList = [
         className={styles.imageMobile}
         src="../../images/screenshots/wdc-mobile.jpg"
         alt={'Web Dev Challenge 2022'}
+        loading="lazy"
       />
     ),
   },
