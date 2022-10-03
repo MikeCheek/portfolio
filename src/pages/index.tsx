@@ -1,11 +1,10 @@
 import React, {useEffect} from 'react'
-import Hero from '../components/hero/hero'
-import Layout from '../components/layout/layout'
-import SEO from '../components/seo/seo'
+import Hero from '../components/hero'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 import '../styles/globals.scss'
 
 const IndexPage = (): JSX.Element => {
-
   const animateKeyDown = (key: KeyboardEvent) => {
     if (key.keyCode === 79)
       //o
@@ -31,7 +30,7 @@ const IndexPage = (): JSX.Element => {
   const animateKeyUp = () => {
     document.body.removeAttribute('style')
   }
-  
+
   useEffect(() => {
     document.addEventListener('keydown', animateKeyDown)
     document.addEventListener('keyup', animateKeyUp)

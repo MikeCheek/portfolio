@@ -1,6 +1,6 @@
 import React from 'react'
-import DesignSvg from '../../assets/pencil.svg'
-import DevelopSvg from '../../assets/web.svg'
+import DesignSvg from 'assets/pencil.svg'
+import DevelopSvg from 'assets/web.svg'
 import * as styles from './legend.module.scss'
 
 const Legend = () => {

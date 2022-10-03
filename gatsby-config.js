@@ -1,4 +1,5 @@
 const url = 'https://mikecheek.github.io/portfolio'
+
 module.exports = {
   siteMetadata: {
     siteUrl: url,
@@ -36,46 +37,46 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: 'fullscreen',
-        icon: 'src/images/maskableIcons/maskable_icon_x48.png', // This path is relative to the root of the site.
+        icon: 'src/assets/images/maskableIcons/maskable_icon_x48.png', // This path is relative to the root of the site.
         icons: [
           {
-            src: 'src/images/maskableIcons/maskable_icon.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon.png',
             sizes: '1024x1024',
             type: 'image/png',
             purpose: 'any maskable',
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x512.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x512.png',
             sizes: `512x512`,
             type: `image/png`,
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x384.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x384.png',
             sizes: `384x384`,
             type: `image/png`,
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x192.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x192.png',
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x128.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x128.png',
             sizes: `128x128`,
             type: `image/png`,
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x96.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x96.png',
             sizes: `96x96`,
             type: `image/png`,
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x72.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x72.png',
             sizes: `72x72`,
             type: `image/png`,
           },
           {
-            src: 'src/images/maskableIcons/maskable_icon_x48.png',
+            src: 'src/assets/images/maskableIcons/maskable_icon_x48.png',
             sizes: `48x48`,
             type: `image/png`,
           },
@@ -100,7 +101,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: './src/images/',
+        path: './src/assets/images/',
       },
       __key: 'images',
     },

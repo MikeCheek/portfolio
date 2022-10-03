@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import Loading from '../atoms/loading/loading';
-import Layout from '../components/layout/layout';
-import SEO from '../components/seo/seo';
+import React, {useEffect, useState} from 'react'
+import Loading from '../atoms/loading'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const InfoPage = () => {
-  const [data, setData] = useState<JSON>();
-  const [deploys, setDeploys] = useState<JSON>();
-  const [error, setError] = useState<boolean[]>([false, false]);
-  const [fetched, setFetched] = useState<boolean[]>([false, false]);
+  const [data, setData] = useState<JSON>()
+  const [deploys, setDeploys] = useState<JSON>()
+  const [error, setError] = useState<boolean[]>([false, false])
+  const [fetched, setFetched] = useState<boolean[]>([false, false])
 
   const fetchData = () => {
     fetch('https://api.github.com/repos/mikecheek/portfolio/languages')
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((_err) => setError((err) => [true, err[1]]))
-      .finally(() => setFetched((fetch) => [true, fetch[1]]));
+      .finally(() => setFetched((fetch) => [true, fetch[1]]))
 
     fetch('https://api.github.com/repos/mikecheek/portfolio/actions/workflows/20375826/runs')
       .then((response) => response.json())
       .then((data) => setDeploys(data))
       .catch((_err) => setError((err) => [err[0], true]))
-      .finally(() => setFetched((fetch) => [fetch[0], true]));
-  };
+      .finally(() => setFetched((fetch) => [fetch[0], true]))
+  }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -41,7 +41,7 @@ const InfoPage = () => {
                     <p key={key}>
                       {entry}: {(data as any)[entry]}
                     </p>
-                  );
+                  )
                 })}
               </div>
             )
@@ -52,7 +52,7 @@ const InfoPage = () => {
           {fetched[1] ? (
             !error[1] && (
               <div>
-                <p>This site was built and deployed {deploys['total_count']} times</p>
+                <p>This site was built and deployed {(deploys as any)['total_count']} times</p>
               </div>
             )
           ) : (
@@ -61,8 +61,7 @@ const InfoPage = () => {
         </>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default InfoPage;
-
+export default InfoPage

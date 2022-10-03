@@ -12,7 +12,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
-    "typeRoots": ["./src/@types", "./node_modules/@types"]
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "baseUrl": "./src",
+    "paths": {
+      "@atoms/*": ["atoms/*"],
+      "@components*": ["components/*"]
+    }
   },
-  "include": ["./src/**/*", "./global.d.ts"]
+  "include": ["./src/**/*", "./global.d.ts"],
+  "exclude": ["node_modules"]
 }

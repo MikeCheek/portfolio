@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
-import SEO from '../components/seo/seo'
-import Layout from '../components/layout/layout'
-import Rocket from '../components/rocket/rocket'
+import SEO from '../components/seo'
+import Layout from '../components/layout'
+import Rocket from '../components/rocket'
 import * as styles from '../styles/404.module.scss'
 
 interface Bored {
@@ -18,20 +18,21 @@ interface Bored {
 const NotFoundPage = (): JSX.Element => {
   const [bored, setBored] = useState<Bored>({})
   const [fetched, setFetched] = useState<boolean>(false)
-  const [error, setError] = useState<boolean>(false)
-  
-  const fixData = (data: Bored) => { 
-    data.activity = data.activity[0].toLowerCase() + data.activity.substring(1) 
+  const [_error, setError] = useState<boolean>(false)
+
+  const fixData = (data: Bored) => {
+    if (data.activity) data.activity = data.activity[0].toLowerCase() + data.activity.substring(1)
+    return data
   }
 
   const fetchData = () => {
     fetch('https://www.boredapi.com/api/activity')
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setBored(fixData(data))
         setFetched(true)
       })
-      .catch(_err => setError(true))
+      .catch((_err) => setError(true))
   }
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Section from '../../../src/components/section/section'
+import Section from '../components/section'
 import {otherExperiences} from '../../../src/utilities/info'
 
 const Others = (): JSX.Element => {

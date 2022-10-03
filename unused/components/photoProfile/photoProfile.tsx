@@ -7,7 +7,7 @@ const PhotoProfile = (): JSX.Element => {
   return (
     <div id="profile" className={styles.profile}>
       <StaticImage
-        src={'../../images/newProfescional.png'}
+        src={'images/newProfescional.png'}
         alt="Michele Pulvirenti"
         placeholder="tracedSVG"
         layout="constrained"

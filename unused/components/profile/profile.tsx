@@ -1,7 +1,7 @@
 import React from 'react'
 import PhotoProfile from '../photoProfile/photoProfile'
 
-import cv from '../../assets/cv.pdf'
+import cv from 'assets/cv.pdf'
 
 import * as styles from './profile.module.scss'
 

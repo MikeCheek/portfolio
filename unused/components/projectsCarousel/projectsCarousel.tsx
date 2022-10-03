@@ -2,7 +2,7 @@ import {StaticImage} from 'gatsby-plugin-image'
 import React from 'react'
 import {Carousel} from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import Arrow from '../../atoms/arrow/arrow'
+import Arrow from '@atoms/arrow/arrow'
 import Card from '../card/card'
 import Legend from '../legend/legend'
 import * as styles from './projects.module.scss'
@@ -73,13 +73,13 @@ const ProjectsCarousel = () => {
             <StaticImage
               placeholder="blurred"
               className={styles.imageMobile}
-              src="../../images/screenshots/pop-mobile.jpg"
+              src="images/screenshots/pop-mobile.jpg"
               alt={'Pop! Funding'}
             />
             <StaticImage
               placeholder="blurred"
               className={styles.image}
-              src="../../images/screenshots/pop.png"
+              src="images/screenshots/pop.png"
               alt={'Pop! Funding'}
             />
           </Card>
@@ -93,13 +93,13 @@ const ProjectsCarousel = () => {
             <StaticImage
               placeholder="blurred"
               className={styles.imageMobile}
-              src="../../images/screenshots/nt-mobile.jpg"
+              src="images/screenshots/nt-mobile.jpg"
               alt={'Naturalmente Tecnologici'}
             />
             <StaticImage
               placeholder="blurred"
               className={styles.image}
-              src="../../images/screenshots/nt.png"
+              src="images/screenshots/nt.png"
               alt={'Naturalmente Tecnologici'}
             />
           </Card>
@@ -113,13 +113,13 @@ const ProjectsCarousel = () => {
             <StaticImage
               placeholder="blurred"
               className={styles.imageMobile}
-              src="../../images/screenshots/wdc-mobile.jpg"
+              src="images/screenshots/wdc-mobile.jpg"
               alt={'WDC 2022'}
             />
             <StaticImage
               placeholder="blurred"
               className={styles.image}
-              src="../../images/screenshots/wdc.png"
+              src="images/screenshots/wdc.png"
               alt={'WDC 2022'}
             />
           </Card>

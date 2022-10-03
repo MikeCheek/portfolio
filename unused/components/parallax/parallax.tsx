@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import * as styles from './parallax.module.scss'
-import Pencil from '../../assets/pencil.svg'
+import Pencil from 'assets/pencil.svg'
 
 const Parallax = (): JSX.Element => {
   const parallax = (event: MouseEvent) => {
