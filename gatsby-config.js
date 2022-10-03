@@ -5,12 +5,15 @@ module.exports = {
     siteUrl: url,
     title: 'Michele Pulvirenti Portfolio',
     description:
-      "Hi, I'm a developer and I'm currently working on the web. I love building cool websites with amazing animations and always strive to improve my skills.",
+      "Hi, I'm a developer and I'm currently working on the web. I love building cool apps with amazing animations and always strive to improve my skills.",
     url: url,
     keywords: ['michele', 'pulvirenti', 'portfolio', 'mikecheek', 'developer', 'web'],
     author: 'Michele Pulvirenti',
   },
   pathPrefix: '/portfolio',
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-robots-txt',

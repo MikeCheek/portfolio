@@ -35,8 +35,8 @@ const IndexPage = (): JSX.Element => {
     document.addEventListener('keydown', animateKeyDown)
     document.addEventListener('keyup', animateKeyUp)
     return () => {
-      document.removeEventListener('keydown', animateKeyDown)
-      document.removeEventListener('keyup', animateKeyUp)
+      document.removeEventListener('keydown', () => {})
+      document.removeEventListener('keyup', () => {})
     }
   }, [])
 
@@ -52,9 +52,7 @@ const IndexPage = (): JSX.Element => {
         pathname={'/'}
       />
       <Layout>
-        <div>
-          <Hero />
-        </div>
+        <Hero />
       </Layout>
     </>
   )

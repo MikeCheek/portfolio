@@ -10,24 +10,26 @@ const Index = (): JSX.Element => {
   let currentScrollPos: number
 
   const setListener = () => {
-    if (typeof window !== 'undefined') window.onscroll = handleScroll
+    window.addEventListener('scroll', handleScroll)
   }
 
   const removeListener = () => {
-    if (typeof window !== 'undefined') window.onscroll = null
+    window.removeEventListener('scroll', () => {})
   }
 
   const handleScroll = () => {
-    currentScrollPos = window.pageYOffset
-    const arrow = ref.current
-    if (arrow) {
-      if (currentScrollPos >= 200 && currentScrollPos < prevScrollpos) {
-        arrow.style.transform = 'translateY(-500px)'
-      } else {
-        arrow.style.removeProperty('transform')
+    if (typeof window !== 'undefined') {
+      currentScrollPos = window.pageYOffset
+      const arrow = ref.current
+      if (arrow) {
+        if (currentScrollPos >= 200 && currentScrollPos < prevScrollpos) {
+          arrow.style.transform = 'translateY(-500px)'
+        } else {
+          arrow.style.removeProperty('transform')
+        }
       }
+      prevScrollpos = currentScrollPos
     }
-    prevScrollpos = currentScrollPos
   }
 
   useEffect(() => {

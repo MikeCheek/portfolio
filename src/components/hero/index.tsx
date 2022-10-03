@@ -8,11 +8,12 @@ import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
 import BigHeading from '../bigHeading'
 import Loading from '../../atoms/loading'
+import Projects from '../projects'
+import Skills from '../skills'
+
 import * as modelStyles from '../../atoms/model3D/index.module.scss'
 
 const Model3D = lazy(() => import('../../atoms/model3D'))
-const Skills = lazy(() => import('../skills'))
-const Projects = lazy(() => import('../projects'))
 
 const Index = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
