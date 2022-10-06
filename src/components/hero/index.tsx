@@ -11,8 +11,7 @@ import Loading from '../../atoms/loading'
 import Projects from '../projects'
 import Skills from '../skills'
 
-import * as modelStyles from '../../atoms/model3D/index.module.scss'
-
+// import * as modelStyles from '../../atoms/model3D/index.module.scss'
 // const Model3D = lazy(() => import('../../atoms/model3D'))
 const Model3D = lazy(() => import('../../atoms/threeD'))
 
@@ -20,13 +19,7 @@ const Index = (): JSX.Element => {
   const color = 'var(--transparent-pink)'
 
   const ModelComponent = (
-    <Suspense
-      fallback={
-        <div className={modelStyles.canvas}>
-          <Loading />
-        </div>
-      }
-    >
+    <Suspense fallback={<Loading />}>
       <Model3D />
     </Suspense>
   )
