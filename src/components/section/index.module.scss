@@ -6,9 +6,8 @@
   flex-direction: column;
   text-align: center;
   border-radius: 50px;
-  opacity: 0;
   //background-color: #0a0a0a;
-  transition: opacity 500ms ease;
+  transition: opacity 500ms ease, transform 100ms ease;
   @media screen and (min-width: '768px') {
     text-align: left;
     margin: 5% 4% 5%;
@@ -21,14 +20,6 @@
 
 .sectionReversed {
   @extend .structure;
-}
-
-.sectionView {
-  opacity: 1;
-}
-
-.sectionViewReversed {
-  opacity: 1;
 }
 
 .content {

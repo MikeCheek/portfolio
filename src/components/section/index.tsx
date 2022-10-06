@@ -3,14 +3,14 @@ import {SectionProps} from './index.types'
 import * as styles from './index.module.scss'
 
 import sleep from '../../utilities/sleep'
-import {useInView} from 'react-intersection-observer'
+// import {useInView} from 'react-intersection-observer'
 
 const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps): JSX.Element => {
-  const [ref, inView, _entry] = useInView({
-    threshold: 0,
-    fallbackInView: true,
-    rootMargin: '-10px 0px -10px 0px',
-  })
+  // const [ref, inView, _entry] = useInView({
+  //   threshold: 0,
+  //   fallbackInView: true,
+  //   rootMargin: '-10px 0px -10px 0px',
+  // })
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
 
@@ -23,13 +23,7 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
   }
 
   return (
-    <div
-      className={`${reversed ? styles.sectionReversed : styles.section} ${
-        inView ? (reversed ? styles.sectionViewReversed : styles.sectionView) : ''
-      }`}
-      ref={ref}
-      id={id ?? title}
-    >
+    <div className={`${reversed ? styles.sectionReversed : styles.section}`} id={id ?? title}>
       {paragraph ? (
         <>
           <h2 className={styles.titleParagraph}>{title}</h2>

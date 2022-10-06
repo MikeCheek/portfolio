@@ -46,6 +46,14 @@
     color: var(--pink);
   }
 
+  em {
+    @media screen and (max-width: 768px) {
+      background-color: #00000030;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     align-items: flex-start;
     min-height: 250px;
@@ -75,7 +83,7 @@
 
 .imageMobile {
   @extend .imageStructure;
-  position: absolute;
+  position: absolute !important;
   max-width: none;
   z-index: -1;
   filter: brightness(0.5) opacity(0.8) blur(2px);
