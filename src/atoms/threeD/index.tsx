@@ -6,18 +6,11 @@ import {TOUCH} from 'three'
 
 const Index = () => {
   const handleOneTouch = (event: React.TouchEvent<HTMLDivElement>) => {
-    event.preventDefault()
+    event.stopPropagation()
   }
 
   const handleTouch = (event: React.TouchEvent<HTMLDivElement>) => {
-    switch (event.touches.length) {
-      case 1: {
-        handleOneTouch(event)
-        break
-      }
-      default:
-        break
-    }
+    if (event.touches.length == 1) handleOneTouch(event)
   }
 
   return (
