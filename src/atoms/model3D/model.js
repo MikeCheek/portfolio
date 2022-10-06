@@ -6,7 +6,7 @@ npx gltfjsx model.js
 import React, {useRef} from 'react'
 import {useGLTF} from '@react-three/drei'
 
-const path = process.env.NODE_ENV === 'development' ? '/mike.glb' : '/portfolio/mike.glb'
+const path = process.env.NODE_ENV === 'development' ||  window.location.href.includes('portfolio') ? '/mike.glb' : '/portfolio/mike.glb'
 
 const Model = (props) => {
   const group = useRef()
