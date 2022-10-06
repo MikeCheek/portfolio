@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import Blob from '../../assets/blob.svg'
+import * as styles from './index.module.scss'
 
 const Index = () => {
   const [position, setPosition] = useState<{x: number; y: number}>({x: 0, y: 0})
-  const dimension = 100
+  const dimension = 200
 
   const handleMouseMove = (event: MouseEvent) => {
     setPosition({x: event.clientX - dimension / 2, y: event.clientY - dimension / 2})
@@ -19,11 +20,8 @@ const Index = () => {
     <Blob
       width={dimension}
       height={dimension}
-      style={{
-        position: 'fixed',
-        zIndex: -999,
-        transform: `translate(${position.x}px, ${position.y}px)`,
-      }}
+      className={styles.cursor}
+      style={{transform: `translate(${position.x}px, ${position.y}px)`}}
     />
   )
 }
