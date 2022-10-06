@@ -45,13 +45,13 @@
     height: 25px;
     border-radius: 50%;
     background: var(--orange);
-    cursor: pointer;
+    cursor: grab;
   }
   &::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background: var(--orange);
-    cursor: pointer;
+    cursor: grab;
   }
 }

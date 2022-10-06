@@ -10,6 +10,7 @@ import BigHeading from '../bigHeading'
 import Projects from '../projects'
 import Skills from '../skills'
 import Model3D from '../../atoms/threeD'
+import Cursor from '../../atoms/cursor'
 
 // const Model3D = lazy(() => import('../../atoms/model3D'))
 
@@ -18,6 +19,7 @@ const Index = (): JSX.Element => {
 
   return (
     <div>
+      <Cursor />
       <BigHeading />
       <div className={styles.sectionWrap}>
         <Section title={'About me'} id={'about'} Model3d={<Model3D />}>
