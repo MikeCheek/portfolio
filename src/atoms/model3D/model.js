@@ -7,7 +7,7 @@ import React, {useRef} from 'react'
 import {useGLTF} from '@react-three/drei'
 
 const path = process.env.NODE_ENV === 'development' ||  
-      (typeof window != 'undefined' && window.location.href.includes('portfolio')) ? '/mike.glb' : '/portfolio/mike.glb'
+      (typeof window != 'undefined' && !window.location.href.includes('portfolio')) ? '/mike.glb' : '/portfolio/mike.glb'
 
 const Model = (props) => {
   const group = useRef()
