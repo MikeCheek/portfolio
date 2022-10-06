@@ -66,6 +66,7 @@ body {
     text-decoration: none;
     transition: 100ms;
     font-weight: bolder;
+    text-align: center;
     &:hover {
       border: 5px groove var(--orange);
       color: var(--orange);
