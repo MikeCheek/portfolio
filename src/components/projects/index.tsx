@@ -1,5 +1,5 @@
 import {graphql, useStaticQuery} from 'gatsby'
-import {GatsbyImage, StaticImage} from 'gatsby-plugin-image'
+import {GatsbyImage} from 'gatsby-plugin-image'
 import React from 'react'
 import * as styles from './index.module.scss'
 import {Data, Edge} from './index.types'
