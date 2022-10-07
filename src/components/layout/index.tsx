@@ -4,14 +4,14 @@ import detectBrowser from '../../utilities/detectBrowser'
 import * as styles from './index.module.scss'
 import {LayoutProps} from './index.types'
 
-import Footer from '../Footer'
-import Ball from '../../atoms/Ball'
-import Separator from '../../atoms/Separator'
-import ArrowUp from '../../atoms/ArrowUp'
+import Footer from '../footer'
+import Ball from '../../atoms/ball'
+import Separator from '../../atoms/separator'
+import ArrowUp from '../../atoms/arrowUp'
 
 import BallMoving from '../../assets/ballMoving.svg'
 import BallStill from '../../assets/ballStill.svg'
-import Network from '../../atoms/Network'
+import Network from '../../atoms/network'
 
 const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
   const [browser, setBrowser] = useState<string>('waiting')

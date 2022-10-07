@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react'
 import {useInView} from 'react-intersection-observer'
 import {programming, frameworks, others} from '../../utilities/info'
-import Skill from '../../atoms/Skill'
+import Skill from '../../atoms/skill'
 
 import * as styles from './index.module.scss'
 

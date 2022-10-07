@@ -1,6 +1,6 @@
 import React from 'react'
-import GoDown from '../GoDown'
-import HoverPopUp from '../HoverPopUp'
+import GoDown from '../goDown'
+import HoverPopUp from '../hoverPopUp'
 import * as styles from './index.module.scss'
 
 const Index = () => {

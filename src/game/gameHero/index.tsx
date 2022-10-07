@@ -3,13 +3,13 @@ import React, {useEffect, useState, useRef} from 'react'
 import * as styles from './index.module.scss'
 import GameHeroProps from './index.types'
 
-import Loading from '../../atoms/Loading'
-import WordGame from '../WordGame'
+import Loading from '../../atoms/loading'
+import WordGame from '../wordGame'
 import randomWord from '../../utilities/word'
 import {hashToStr} from '../../utilities/hash'
-import Rules from '../Rules'
-import Battery from '../../atoms/Battery'
-import GameSettings from '../GameSettings'
+import Rules from '../rules'
+import Battery from '../../atoms/battery'
+import GameSettings from '../gameSettings'
 import SettingsSVG from '../../assets/settings.svg'
 
 const Index = ({code}: GameHeroProps): JSX.Element => {

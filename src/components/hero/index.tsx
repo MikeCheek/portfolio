@@ -2,15 +2,15 @@ import React from 'react'
 
 import * as styles from './index.module.scss'
 
-import Section from '../Section'
+import Section from '../section'
 
 import HSkills from '../../assets/skills.svg'
 import {about} from '../../utilities/info'
-import BigHeading from '../BigHeading'
-import Projects from '../Projects'
-import Skills from '../Skills'
-import Model3D from '../../atoms/ThreeD'
-import Cursor from '../../atoms/Cursor'
+import BigHeading from '../bigHeading'
+import Projects from '../projects'
+import Skills from '../skills'
+import Model3D from '../../atoms/threeD'
+import Cursor from '../../atoms/cursor'
 
 // const Model3D = lazy(() => import('../../atoms/model3D'))
 

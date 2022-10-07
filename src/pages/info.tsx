@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import Loading from '../atoms/Loading'
-import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import Loading from '../atoms/loading'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const InfoPage = () => {
   const [data, setData] = useState<JSON>()
