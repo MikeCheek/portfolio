@@ -5,7 +5,7 @@ import * as styles from './index.module.scss'
 
 const Index = () => {
   const [position, setPosition] = useState<{x: number; y: number}>({x: 0, y: 0})
-  const [scale, setScale] = useState<number>(1)
+  const [transform, setTransform] = useState<{scale: number; rotate: number}>({scale: 1, rotate: 0})
   const dimension = 100
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -13,15 +13,27 @@ const Index = () => {
   }
 
   const handleMouseClick = (_event: MouseEvent) => {
-    setScale(1.5)
-    sleep(100).then(() => setScale(1))
+    setTransform((t) => ({scale: 1.5, rotate: (t.rotate + 40) % 360}))
+    sleep(100).then(() => setTransform((t) => ({scale: 1, rotate: (t.rotate + 10) % 360})))
+  }
+
+  const handleMouseDown = (_event: MouseEvent) => {
+    setTransform((t) => ({scale: 0.7, rotate: t.rotate}))
+  }
+
+  const handleMouseUp = (_event: MouseEvent) => {
+    setTransform((t) => ({scale: 1, rotate: t.rotate}))
   }
 
   useEffect(() => {
     window.addEventListener('mousemove', (e) => handleMouseMove(e))
+    window.addEventListener('mousedown', (e) => handleMouseDown(e))
+    window.addEventListener('mouseup', (e) => handleMouseUp(e))
     window.addEventListener('click', (e) => handleMouseClick(e))
     return () => {
       window.removeEventListener('mousemove', () => {})
+      window.removeEventListener('mousedown', () => {})
+      window.removeEventListener('mouseup', () => {})
       window.removeEventListener('click', () => {})
     }
   }, [])
@@ -31,7 +43,7 @@ const Index = () => {
         width={dimension}
         height={dimension}
         className={styles.cursor}
-        style={{transform: `scale(${scale})`}}
+        style={{transform: `scale(${transform.scale}) rotate(${transform.rotate}deg)`}}
         fill={'none'}
       />
     </div>
