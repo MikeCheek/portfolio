@@ -39,7 +39,7 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
                 />
               </div>
             ) : Model3d ? (
-              Model3d
+              <div className={styles.model}>{Model3d}</div>
             ) : null}
             <div className={styles.childrenParagraph}>{children}</div>
           </div>
@@ -59,7 +59,7 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
                 />
               </div>
             ) : Model3d ? (
-              Model3d
+              <div className={styles.model}>{Model3d}</div>
             ) : null}
             <div className={styles.children}>{children}</div>
           </div>
