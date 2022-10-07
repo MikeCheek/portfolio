@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import PopUp from '../../atoms/popUp'
+import PopUp from '../../atoms/PopUp'
 import HoverPopUpProps from './index.types'
 
 const Index = ({children, down = false, href}: HoverPopUpProps) => {

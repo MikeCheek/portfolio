@@ -1,12 +1,12 @@
 import React, {lazy, Suspense, useEffect, useState} from 'react'
 import * as styles from '../styles/game.module.scss'
-import SEO from '../components/seo'
-import GameLoader from '../game/gameLoader'
-import Layout from '../components/layout'
+import SEO from '../components/Seo'
+import GameLoader from '../game/GameLoader'
+import Layout from '../components/Layout'
 
 const Game = () => {
   const [code, setCode] = useState<string>()
-  const GameHero = lazy(() => import('../game/gameHero'))
+  const GameHero = lazy(() => import('../game/GameHero'))
   const isSSR = typeof window === 'undefined'
 
   useEffect(() => {

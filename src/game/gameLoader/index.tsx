@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import Loading from '../../atoms/loading'
+import Loading from '../../atoms/Loading'
 import * as styles from './index.module.scss'
 
 const info = [

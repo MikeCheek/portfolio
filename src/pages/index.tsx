@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Hero from '../components/Hero'
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
 import '../styles/globals.scss'
 
 const IndexPage = (): JSX.Element => {

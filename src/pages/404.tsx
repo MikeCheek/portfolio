@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Rocket from '../components/rocket'
+import SEO from '../components/Seo'
+import Layout from '../components/Layout'
+import Rocket from '../components/Rocket'
 import * as styles from '../styles/404.module.scss'
 
 interface Bored {

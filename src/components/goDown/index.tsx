@@ -1,5 +1,5 @@
 import React from 'react'
-import Arrow from '../../atoms/arrow'
+import Arrow from '../../atoms/Arrow'
 import * as styles from './index.module.scss'
 
 const Index = () => {
