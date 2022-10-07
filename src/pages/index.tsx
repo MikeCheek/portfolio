@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import Hero from '../components/hero'
+import Hero from '../components/Hero'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import '../styles/globals.scss'
