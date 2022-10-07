@@ -13,7 +13,7 @@ const Index = () => {
   }
 
   const handleMouseClick = (_event: MouseEvent) => {
-    setTransform((t) => ({scale: 1.5, rotate: (t.rotate + 40) % 360}))
+    setTransform((t) => ({scale: 1.3, rotate: (t.rotate + 40) % 360}))
     sleep(100).then(() => setTransform((t) => ({scale: 1, rotate: (t.rotate + 10) % 360})))
   }
 
