@@ -13,10 +13,10 @@
     "noUnusedParameters": true,
     "removeComments": false,
     "typeRoots": ["./src/@types", "./node_modules/@types"],
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@atoms/*": ["atoms/*"],
-      "@components*": ["components/*"]
+      "@atoms/*": ["src/atoms/*"],
+      "@components*": ["src/components/*"]
     }
   },
   "include": ["./src/**/*", "./global.d.ts"],
