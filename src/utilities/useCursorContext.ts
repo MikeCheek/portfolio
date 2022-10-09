@@ -1,5 +1,18 @@
-import {createContext, useContext} from 'react'
+import {createContext} from 'react'
 
-export const CursorContext = createContext<boolean>(false)
+interface Context {
+  scale: {x: number; y: number}
+  position?: {x: number; y: number}
+  fit: (width: number, height: number) => void
+  unFit: () => void
+  fitElement: (element: HTMLElement) => void
+}
 
-export const useCursor = useContext(CursorContext)
+const CursorContext = createContext<Context>({
+  scale: {x: 1, y: 1},
+  fit: () => {},
+  fitElement: () => {},
+  unFit: () => {},
+})
+
+export default CursorContext

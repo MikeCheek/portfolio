@@ -1,10 +1,30 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import CursorContext from '../utilities/useCursorContext'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import '../styles/globals.scss'
 
 const IndexPage = (): JSX.Element => {
+  const [scale, setScale] = useState<{x: number; y: number}>({x: 1, y: 1})
+  const [position, setPosition] = useState<{x: number; y: number}>()
+  const dimension = 100
+
+  const fit = (width: number, height: number) => {
+    setScale({x: width / dimension + 1, y: height / dimension + 1})
+  }
+  const fitElement = (element: HTMLElement) => {
+    const dim = element.getBoundingClientRect()
+    const [width, height] = [dim.width + 10, dim.height + 10]
+    const [x, y] = [dim.left + width / 2 - dimension / 2, dim.top + height / 2 - dimension / 2]
+    setScale({x: width / dimension + 1, y: height / dimension + 1})
+    setPosition({x: x, y: y})
+  }
+  const unFit = () => {
+    setScale({x: 1, y: 1})
+    setPosition(undefined)
+  }
+
   const animateKeyDown = (key: KeyboardEvent) => {
     if (key.keyCode === 79)
       //o
@@ -52,7 +72,9 @@ const IndexPage = (): JSX.Element => {
         pathname={'/'}
       />
       <Layout>
-        <Hero />
+        <CursorContext.Provider value={{scale, position, fit, fitElement, unFit}}>
+          <Hero />
+        </CursorContext.Provider>
       </Layout>
     </>
   )

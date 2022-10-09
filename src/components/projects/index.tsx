@@ -1,10 +1,13 @@
 import {graphql, useStaticQuery} from 'gatsby'
 import {GatsbyImage} from 'gatsby-plugin-image'
-import React from 'react'
+import React, {useContext} from 'react'
+import CursorContext from '../../utilities/useCursorContext'
 import * as styles from './index.module.scss'
 import {Data, Edge} from './index.types'
 
 const Index = () => {
+  const {fitElement, unFit} = useContext(CursorContext)
+
   const data: Data = useStaticQuery(graphql`
     query AssetsPhotos {
       allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}, dir: {regex: "/assets/images/screenshots/"}}) {
@@ -20,6 +23,13 @@ const Index = () => {
       }
     }
   `)
+
+  const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    fitElement(e.currentTarget)
+  }
+  const handleMouseLeave = () => {
+    unFit()
+  }
 
   return (
     <div className={styles.projects}>
@@ -43,11 +53,29 @@ const Index = () => {
               />
 
               <div className={styles.links}>
-                <a href={project.href} target="_blank" rel="noopener noreferrer" className="buttonStyle">
+                <a
+                  onMouseOver={(e) => handleMouseHover(e)}
+                  onMouseEnter={(e) => handleMouseHover(e)}
+                  onMouseOut={handleMouseLeave}
+                  onMouseLeave={handleMouseLeave}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="buttonStyle"
+                >
                   Visit Website
                 </a>
                 {project.github && (
-                  <a href={project.github} target={'_blank'} rel={'noopener noreferrer'} className="buttonStyle">
+                  <a
+                    onMouseOver={(e) => handleMouseHover(e)}
+                    onMouseEnter={(e) => handleMouseHover(e)}
+                    onMouseOut={handleMouseLeave}
+                    onMouseLeave={handleMouseLeave}
+                    href={project.github}
+                    target={'_blank'}
+                    rel={'noopener noreferrer'}
+                    className="buttonStyle"
+                  >
                     Visit Repo
                   </a>
                 )}

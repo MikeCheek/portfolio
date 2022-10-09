@@ -12,12 +12,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
-    "typeRoots": ["./src/@types", "./node_modules/@types"],
-    "baseUrl": ".",
-    "paths": {
-      "@atoms/*": ["src/atoms/*"],
-      "@components*": ["src/components/*"]
-    }
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@atoms/*": ["src/atoms/*"],
+    //   "@components*": ["src/components/*"]
+    // }
   },
   "include": ["./src/**/*", "./global.d.ts"],
   "exclude": ["node_modules"]
