@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 
 import * as styles from './index.module.scss'
 import {WordGameProps} from './index.types'
@@ -12,6 +12,7 @@ const alphabet: string[] = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 const splitChar = ';'
 
 const Index = ({word, language}: WordGameProps): JSX.Element => {
+  const formRef = useRef<HTMLFormElement>(null)
   const [chars, setChars] = useState<string[]>([])
   const [remChars, setRemChars] = useState<string[]>([])
   const [victory, setVictory] = useState<boolean>(false)
@@ -65,20 +66,30 @@ I'm having fun with ${word}...
 Go somewhere else or try to guess the word `)
   }, [word])
 
-  const nextInput = (form: any, index: number): void => {
-    if (form.elements[index + 1].value == 'Check') return
-
-    if (form.elements[index + 1].disabled) nextInput(form, index + 1)
-    else form.elements[index + 1]?.focus()
+  const nextInput = (index: number): void => {
+    const nextElement = formRef.current!.elements[index + 1] as HTMLInputElement
+    if (nextElement) {
+      if (nextElement.value == 'Check') return
+      if (nextElement.disabled) nextInput(index + 1)
+      else {
+        nextElement.focus()
+        nextElement.select()
+      }
+    }
   }
 
-  const previousInput = (form: any, index: number): void => {
-    if (form.elements[index - 1] && form.elements[index - 1].disabled) previousInput(form, index - 1)
-    else form.elements[index - 1]?.focus()
+  const previousInput = (index: number): void => {
+    const prevElement = formRef.current!.elements[index - 1] as HTMLInputElement
+    if (prevElement)
+      if (prevElement.disabled) previousInput(index - 1)
+      else {
+        prevElement.focus()
+        prevElement.select()
+      }
   }
 
   const handleEnter = (event: any): void => {
-    const form = event.target.form
+    const form = formRef.current || event.target.form
     const index = [...form].indexOf(event.target)
 
     if (event.key.toLowerCase() === 'enter' || event.key.toLowerCase() === 'arrowright') {
@@ -86,30 +97,30 @@ Go somewhere else or try to guess the word `)
       if (form.elements[index + 1].value == 'Check' || form.elements[index + 1].disabled) {
         check(event)
       }
-      nextInput(form, index)
+      nextInput(index)
       event.preventDefault()
     } else if (event.key.toLowerCase() === 'arrowleft') {
-      previousInput(form, index)
+      previousInput(index)
       event.preventDefault()
     } else if (event.key.toLowerCase() === 'backspace' && event.target.value === '') {
-      previousInput(form, index)
+      previousInput(index)
     }
   }
 
   const handleChange = (event: any) => {
-    const form = event.target.form
+    const form = formRef.current || event.target.form
     const index = [...form].indexOf(event.target)
 
     if (event.target.value == ' ' || event.target.value == '' || !event.target.value.match('^([a-z]|[A-Z])*$')) {
       event.target.value = ''
     } else {
-      nextInput(form, index)
+      nextInput(index)
       event.preventDefault()
     }
   }
 
   const check = (event: any) => {
-    const form = event.target.form || document.getElementById('form')
+    const form = formRef.current || event.target.form
     const tmpArray: string[] = []
     let tmpString = ''
 
@@ -182,7 +193,7 @@ Go somewhere else or try to guess the word `)
 
   return (
     <div id={'form'} className={styles.form}>
-      <form id={'form'}>
+      <form ref={formRef} id={'form'}>
         <div id={'trebbling'}>
           {chars.map((_char, key) => {
             return (
@@ -199,6 +210,7 @@ Go somewhere else or try to guess the word `)
                 onChange={handleChange}
                 pattern={'^([a-z]|[A-Z])*$'}
                 autoFocus={key === 0}
+                onClick={(e) => e.currentTarget.select()}
               />
             )
           })}
