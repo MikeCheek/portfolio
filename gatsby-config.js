@@ -28,15 +28,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Word Game | MP',
-        short_name: 'Word Game',
-        start_url: '/game',
+        name: 'Michele Pulvirenti | Portfolio',
+        short_name: 'Portfolio | MP',
+        start_url: '/',
         lang: 'en',
         background_color: '#000000',
         theme_color: '#000000',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: 'fullscreen',
+        display: 'standalone',
         icon: 'src/assets/images/maskableIcons/maskable_icon_x48.png', // This path is relative to the root of the site.
         icons: [
           {
