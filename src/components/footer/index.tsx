@@ -76,9 +76,14 @@ const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
         </div>
       </div>
       {noGameLink ? null : (
-        <Link to={'/game'} className={'link'} title="Play Word Game">
+        <a
+          href={'https://mikecheek.github.io/wordgame?ref=portfolio'}
+          target={'_blank'}
+          className={'link'}
+          title="Play Word Game"
+        >
           Play a game!
-        </Link>
+        </a>
       )}
     </>
   )

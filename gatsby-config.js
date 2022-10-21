@@ -11,9 +11,6 @@ module.exports = {
     author: 'Michele Pulvirenti',
   },
   pathPrefix: '/portfolio',
-  flags: {
-    DEV_SSR: true,
-  },
   plugins: [
     {
       resolve: 'gatsby-plugin-robots-txt',
@@ -128,10 +125,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: ['/', '/game/'],
-        workboxConfig: {
-          maximumFileSizeToCacheInBytes: 100000000,
-        },
+        precachePages: ['/'],
       },
     },
     {
