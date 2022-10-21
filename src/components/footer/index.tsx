@@ -6,7 +6,6 @@ import Email from '../../assets/email.svg'
 import Linkedin from '../../assets/linkedin.svg'
 import Github from '../../assets/github.svg'
 import {email, github, linkedin} from '../../utilities/info'
-import {Link} from 'gatsby'
 import FooterProps from './index.types'
 
 const width: string = '50px'
