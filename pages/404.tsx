@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import Link from 'next/link'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Rocket from '../components/rocket'
-import styles from '../styles/404.module.scss'
+import React, {useState, useEffect} from "react"
+import Link from "next/link"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
+import Rocket from "../components/rocket"
+import styles from "../styles/404.module.scss"
 
 interface Bored {
   activity?: string
@@ -26,7 +26,7 @@ const NotFoundPage = (): JSX.Element => {
   }
 
   const fetchData = () => {
-    fetch('https://www.boredapi.com/api/activity')
+    fetch("https://www.boredapi.com/api/activity")
       .then((response) => response.json())
       .then((data) => {
         setBored(fixData(data))
@@ -37,15 +37,15 @@ const NotFoundPage = (): JSX.Element => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <>
-      <SEO title={'Not found'} pathname={'/404/'} />
+      <SEO title={"Not found"} pathname={"/404/"} />
       <Layout>
         <h1 className={styles.heading}>PAGE NOT FOUND</h1>
         <span className={styles.lost}>
-          Did you lose your way while navigating?{' '}
+          Did you lose your way while navigating?{" "}
           <Link href="/" className="link">
             <a>GO HOME</a>
           </Link>
@@ -53,8 +53,8 @@ const NotFoundPage = (): JSX.Element => {
           {fetched && (
             <div className={styles.boredWrap}>
               <p>
-                If you are bored try to{' '}
-                {bored.link == '' ? (
+                If you are bored try to{" "}
+                {bored.link == "" ? (
                   bored.activity
                 ) : (
                   <a className="link" target="_blank" rel="noopener noreferrer" href={bored.link}>
@@ -64,7 +64,7 @@ const NotFoundPage = (): JSX.Element => {
               </p>
             </div>
           )}
-          {process.env.NODE_ENV === 'development' ? (
+          {process.env.NODE_ENV === "development" ? (
             <>
               <br />
               Try creating a page in <code>src/pages/</code>.
