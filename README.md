@@ -35,7 +35,6 @@ There are 3 main pages in this website:
 
 Try to discover hidden tricks on the website!
 
-
 "gatsby-plugin-google-fonts": "^1.0.1",
 "gatsby-plugin-manifest": "^4.21.0",
 "gatsby-plugin-offline": "^5.21.0",
