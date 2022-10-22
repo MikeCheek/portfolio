@@ -37,7 +37,7 @@ const NotFoundPage = (): JSX.Element => {
 
   useEffect(() => {
     fetchData()
-  }, [fetchData])
+  }, [])
 
   return (
     <>
