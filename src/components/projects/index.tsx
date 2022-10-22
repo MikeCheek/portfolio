@@ -1,28 +1,10 @@
-import {graphql, useStaticQuery} from 'gatsby'
-import {GatsbyImage} from 'gatsby-plugin-image'
+import Image from 'next/image'
 import React, {useContext} from 'react'
 import CursorContext from '../../utilities/useCursorContext'
 import * as styles from './index.module.scss'
-import {Data, Edge} from './index.types'
 
 const Index = () => {
   const {fitElement, unFit} = useContext(CursorContext)
-
-  const data: Data = useStaticQuery(graphql`
-    query AssetsPhotos {
-      allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}, dir: {regex: "/assets/images/screenshots/"}}) {
-        edges {
-          node {
-            id
-            name
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
-  `)
 
   const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     fitElement(e.currentTarget)
@@ -30,6 +12,9 @@ const Index = () => {
   const handleMouseLeave = () => {
     unFit()
   }
+
+  const imagePath = (name: string) => `../../assets/images/screenshots/${name}.png`
+  const imageMobilePath = (name: string) => `../../assets/images/screenshots/${name}-mobile.jpg`
 
   return (
     <div className={styles.projects}>
@@ -40,11 +25,8 @@ const Index = () => {
               <h3>{project.title}</h3>
               <em dangerouslySetInnerHTML={{__html: project.description}}></em>
 
-              <GatsbyImage
-                image={
-                  data.allFile!.edges.filter((edge: Edge) => edge.node.name === `${project.image}-mobile`)[0].node
-                    .childImageSharp.gatsbyImageData
-                }
+              <Image
+                src={imageMobilePath(project.image)}
                 alt={project.title}
                 className={styles.imageMobile}
                 style={project.image == 'nt' ? {opacity: 0.4} : {}}
@@ -81,11 +63,8 @@ const Index = () => {
                 )}
               </div>
             </div>
-            <GatsbyImage
-              image={
-                data.allFile!.edges.filter((edge: Edge) => edge.node.name === project.image)[0].node.childImageSharp
-                  .gatsbyImageData
-              }
+            <Image
+              src={imagePath(project.image)}
               alt={project.title}
               className={styles.image}
               loading={'lazy'}

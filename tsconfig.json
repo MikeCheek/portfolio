@@ -3,7 +3,11 @@
     "module": "commonjs",
     "target": "es6",
     "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2017"],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2017"
+    ],
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
@@ -12,13 +16,27 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
-    "typeRoots": ["./src/@types", "./node_modules/@types"]
+    "typeRoots": [
+      "./src/@types",
+      "./node_modules/@types"
+    ]
     // "baseUrl": ".",
     // "paths": {
     //   "@atoms/*": ["src/atoms/*"],
     //   "@components*": ["src/components/*"]
     // }
+    ,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
-  "include": ["./src/**/*", "./global.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*",
+    "./global.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

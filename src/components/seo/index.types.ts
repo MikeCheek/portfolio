@@ -2,7 +2,7 @@
 export type SEOProps = {
   description?: string
   lang?: string
-  meta?: Meta
+  meta?: {name: string; content: string}[]
   title: string
   googleSiteVerification?: string
   bingSiteVerification?: string

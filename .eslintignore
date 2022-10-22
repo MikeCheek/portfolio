@@ -1,5 +1,4 @@
 *.js
-.cache
-public
+.next
 package.json
 package-lock.json

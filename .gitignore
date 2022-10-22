@@ -1,8 +1,5 @@
 node_modules/
-.cache/
-public
-gh-pages
-gh-pages.pub
+.next
 .env
 .env.local
 .history

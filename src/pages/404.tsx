@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'gatsby'
+import Link from 'next/link'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Rocket from '../components/rocket'
@@ -46,8 +46,8 @@ const NotFoundPage = (): JSX.Element => {
         <h1 className={styles.heading}>PAGE NOT FOUND</h1>
         <span className={styles.lost}>
           Did you lose your way while navigating?{' '}
-          <Link to="/" className="link">
-            GO HOME
+          <Link href="/" className="link">
+            <a>GO HOME</a>
           </Link>
           <Rocket />
           {fetched && (

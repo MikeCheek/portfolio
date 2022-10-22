@@ -34,3 +34,13 @@ There are 3 main pages in this website:
 ##
 
 Try to discover hidden tricks on the website!
+
+
+"gatsby-plugin-google-fonts": "^1.0.1",
+"gatsby-plugin-manifest": "^4.21.0",
+"gatsby-plugin-offline": "^5.21.0",
+"gatsby-plugin-robots-txt": "^1.7.1",
+"gatsby-plugin-sass": "^5.21.0",
+"gatsby-plugin-sitemap": "^5.21.0",
+"gatsby-plugin-typescript": "^4.21.0",
+"gatsby-source-filesystem": "^4.21.1",
