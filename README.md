@@ -10,7 +10,7 @@ There are 2 main pages in this website:
 
 - This website is developed with
 
-  - ![GatsbyJs](https://img.shields.io/badge/Gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=white) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![SAAS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+  - ![Next.Js](https://img.shields.io/badge/NextJs-000000?style=for-the-badge) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![SAAS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
 - Code is checked and formatted before every commit thanks to
 
