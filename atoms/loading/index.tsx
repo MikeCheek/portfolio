@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './index.module.scss';
+import React from 'react'
+import styles from './index.module.scss'
 
 const Index = (): JSX.Element => {
   return (
@@ -8,7 +8,7 @@ const Index = (): JSX.Element => {
       <div className={styles.circle2} />
       <div className={styles.circle3} />
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

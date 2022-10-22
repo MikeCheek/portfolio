@@ -1,9 +1,9 @@
-import pop from '../../assets/images/screenshots/pop.png';
-import nt from '../../assets/images/screenshots/nt.png';
-import wdc from '../../assets/images/screenshots/pop.png';
-import pop_mobile from '../../assets/images/screenshots/pop-mobile.jpg';
-import nt_mobile from '../../assets/images/screenshots/nt-mobile.jpg';
-import wdc_mobile from '../../assets/images/screenshots/wdc-mobile.jpg';
+import pop from '../../assets/images/screenshots/pop.png'
+import nt from '../../assets/images/screenshots/nt.png'
+import wdc from '../../assets/images/screenshots/pop.png'
+import pop_mobile from '../../assets/images/screenshots/pop-mobile.jpg'
+import nt_mobile from '../../assets/images/screenshots/nt-mobile.jpg'
+import wdc_mobile from '../../assets/images/screenshots/wdc-mobile.jpg'
 
 const projectsList = [
   {
@@ -34,6 +34,6 @@ const projectsList = [
                 The challenge was to develop in team a landing page on a specific theme`,
     href: 'https://wdc.jetop.com',
   },
-];
+]
 
-export default projectsList;
+export default projectsList

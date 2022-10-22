@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './index.module.scss';
-import ArrowProps from './index.types';
+import React from 'react'
+import styles from './index.module.scss'
+import ArrowProps from './index.types'
 
 const Index = ({
   right,
@@ -15,7 +15,7 @@ const Index = ({
   const arrowStyle = {
     transform: down ? 'rotate(45deg)' : right ? 'rotate(315deg)' : up ? 'rotate(225deg)' : 'rotate(135deg)',
     borderColor: color,
-  };
+  }
   return (
     <div
       className={`${styles.arrowWrap} ${hideMobile ? styles.hideMobile : hideDesktop ? styles.hideDesktop : ''}`}
@@ -24,7 +24,7 @@ const Index = ({
     >
       <div style={arrowStyle} className={styles.arrow}></div>
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

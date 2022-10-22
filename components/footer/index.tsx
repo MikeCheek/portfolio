@@ -1,37 +1,37 @@
-import React from 'react';
-import styles from './index.module.scss';
+import React from 'react'
+import styles from './index.module.scss'
 
 //import Phone from '../../assets/phone.svg'
-import Email from '../../assets/email.svg';
-import Linkedin from '../../assets/linkedin.svg';
-import Github from '../../assets/github.svg';
-import { email, github, linkedin } from '../../utilities/info';
-import FooterProps from './index.types';
+import Email from '../../assets/email.svg'
+import Linkedin from '../../assets/linkedin.svg'
+import Github from '../../assets/github.svg'
+import {email, github, linkedin} from '../../utilities/info'
+import FooterProps from './index.types'
 
-const width: string = '50px';
-const height: string = '50px';
+const width: string = '50px'
+const height: string = '50px'
 
-const Index = ({ noGameLink = false }: FooterProps): JSX.Element => {
-  const color: string = 'var(--white)';
+const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
+  const color: string = 'var(--white)'
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    const x: number = event.clientX;
-    const y: number = event.clientY;
-    const element = event.currentTarget;
-    const rect = element.getBoundingClientRect();
-    const middleX: number = rect.left + rect.width / 2;
-    const middleY: number = rect.top + rect.height / 2;
-    const xOffset = x - middleX;
-    const yOffset = y - middleY;
-    element.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-  };
+    const x: number = event.clientX
+    const y: number = event.clientY
+    const element = event.currentTarget
+    const rect = element.getBoundingClientRect()
+    const middleX: number = rect.left + rect.width / 2
+    const middleY: number = rect.top + rect.height / 2
+    const xOffset = x - middleX
+    const yOffset = y - middleY
+    element.style.transform = `translate(${xOffset}px, ${yOffset}px)`
+  }
 
   const handleMouseLeave = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    const element = event.currentTarget;
+    const element = event.currentTarget
     setTimeout(() => {
-      element.style.removeProperty('transform');
-    }, 150);
-  };
+      element.style.removeProperty('transform')
+    }, 150)
+  }
 
   return (
     <>
@@ -85,7 +85,7 @@ const Index = ({ noGameLink = false }: FooterProps): JSX.Element => {
         </a>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

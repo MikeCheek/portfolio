@@ -1,8 +1,8 @@
-import React from 'react';
-import RocketSvg from '../../assets/rocket.svg';
-import WindSvg from '../../assets/wind.svg';
+import React from 'react'
+import RocketSvg from '../../assets/rocket.svg'
+import WindSvg from '../../assets/wind.svg'
 
-import styles from './index.module.scss';
+import styles from './index.module.scss'
 
 const Index = (): JSX.Element => {
   return (
@@ -16,7 +16,7 @@ const Index = (): JSX.Element => {
         <WindSvg width={'100vw'} height={'200px'} fill={'var(--grey)'} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

@@ -1,7 +1,7 @@
-import React from 'react';
-import GoDown from '../goDown';
-import HoverPopUp from '../hoverPopUp';
-import styles from './index.module.scss';
+import React from 'react'
+import GoDown from '../goDown'
+import HoverPopUp from '../hoverPopUp'
+import styles from './index.module.scss'
 
 const Index = () => {
   return (
@@ -35,7 +35,7 @@ const Index = () => {
       {/*<Circles number={5} />*/}
       <GoDown />
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

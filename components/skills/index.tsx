@@ -1,43 +1,43 @@
-import React, { useCallback, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { programming, frameworks, others } from '../../utilities/info';
-import Skill from '../../atoms/skill';
+import React, {useCallback, useState} from 'react'
+import {useInView} from 'react-intersection-observer'
+import {programming, frameworks, others} from '../../utilities/info'
+import Skill from '../../atoms/skill'
 
-import styles from './index.module.scss';
+import styles from './index.module.scss'
 
 const Index = (): JSX.Element => {
-  const [degree, setDegree] = useState<number>(45);
+  const [degree, setDegree] = useState<number>(45)
 
   const [ref, inView, _entry] = useInView({
     threshold: 0,
     fallbackInView: true,
     rootMargin: '-35% 0px -35% 0px',
-  });
+  })
 
-  const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0));
+  const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0))
 
   const degreeConverter = (degree: number): [number, number] => {
-    return [Math.cos(degree), Math.sin(degree)];
-  };
+    return [Math.cos(degree), Math.sin(degree)]
+  }
 
   const calculate = useCallback(
     (mult: number) => {
-      const expand = mult * 2 * (mult < 3 ? 2.5 : 1);
-      let [x, y] = degreeConverter(degree * mult);
-      x = x * expand;
-      y = y * expand;
-      const max = 50;
-      x = x > max ? max : x < -max ? -max : x;
-      y = y > max ? max : y < -max ? -max : y;
-      return [x, y];
+      const expand = mult * 2 * (mult < 3 ? 2.5 : 1)
+      let [x, y] = degreeConverter(degree * mult)
+      x = x * expand
+      y = y * expand
+      const max = 50
+      x = x > max ? max : x < -max ? -max : x
+      y = y > max ? max : y < -max ? -max : y
+      return [x, y]
     },
     [degree]
-  );
+  )
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDegree(Number(e.target.value));
-    console.log(Number(e.target.value));
-  };
+    setDegree(Number(e.target.value))
+    console.log(Number(e.target.value))
+  }
 
   return (
     <div className={styles.wrap}>
@@ -61,10 +61,10 @@ const Index = (): JSX.Element => {
               <Skill
                 name={item.name}
                 link={item.link}
-                style={inView ? { transform: 'scale(1)', transitionDelay: `${key / 15}s` } : { transform: 'scale(0)' }}
+                style={inView ? {transform: 'scale(1)', transitionDelay: `${key / 15}s`} : {transform: 'scale(0)'}}
               />
             </span>
-          );
+          )
         })}
       </div>
       <input
@@ -78,7 +78,7 @@ const Index = (): JSX.Element => {
         onChange={(e) => handleChange(e)}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

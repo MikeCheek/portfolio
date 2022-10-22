@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import Arrow from '../../atoms/arrow';
-import CursorContext from '../../utilities/useCursorContext';
-import styles from './index.module.scss';
+import React, {useContext} from 'react'
+import Arrow from '../../atoms/arrow'
+import CursorContext from '../../utilities/useCursorContext'
+import styles from './index.module.scss'
 
 const Index = () => {
-  const { fitElement, unFit } = useContext(CursorContext);
+  const {fitElement, unFit} = useContext(CursorContext)
   return (
     <div
       className={styles.arrowWrap}
@@ -21,7 +21,7 @@ const Index = () => {
         <Arrow color="var(--pink)" down />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

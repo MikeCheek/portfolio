@@ -1,43 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import SEO from '../components/seo';
-import Layout from '../components/layout';
-import Rocket from '../components/rocket';
-import styles from '../styles/404.module.scss';
+import React, {useState, useEffect} from 'react'
+import Link from 'next/link'
+import SEO from '../components/seo'
+import Layout from '../components/layout'
+import Rocket from '../components/rocket'
+import styles from '../styles/404.module.scss'
 
 interface Bored {
-  activity?: string;
-  link?: string;
-  type?: string;
-  partecipants?: number;
-  price?: number;
-  key?: string;
-  accessibility?: number;
+  activity?: string
+  link?: string
+  type?: string
+  partecipants?: number
+  price?: number
+  key?: string
+  accessibility?: number
 }
 
 const NotFoundPage = (): JSX.Element => {
-  const [bored, setBored] = useState<Bored>({});
-  const [fetched, setFetched] = useState<boolean>(false);
-  const [_error, setError] = useState<boolean>(false);
+  const [bored, setBored] = useState<Bored>({})
+  const [fetched, setFetched] = useState<boolean>(false)
+  const [_error, setError] = useState<boolean>(false)
 
   const fixData = (data: Bored) => {
-    if (data.activity) data.activity = data.activity[0].toLowerCase() + data.activity.substring(1);
-    return data;
-  };
+    if (data.activity) data.activity = data.activity[0].toLowerCase() + data.activity.substring(1)
+    return data
+  }
 
   const fetchData = () => {
     fetch('https://www.boredapi.com/api/activity')
       .then((response) => response.json())
       .then((data) => {
-        setBored(fixData(data));
-        setFetched(true);
+        setBored(fixData(data))
+        setFetched(true)
       })
-      .catch((_err) => setError(true));
-  };
+      .catch((_err) => setError(true))
+  }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -74,7 +74,7 @@ const NotFoundPage = (): JSX.Element => {
         </span>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

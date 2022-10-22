@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './index.module.scss';
+import React from 'react'
+import styles from './index.module.scss'
 
 const Index = (): JSX.Element => {
-  return <div className={styles.separator} />;
-};
+  return <div className={styles.separator} />
+}
 
-export default Index;
+export default Index

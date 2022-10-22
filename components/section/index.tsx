@@ -1,34 +1,26 @@
-import React, { useState } from 'react';
-import { SectionProps } from './index.types';
-import styles from './index.module.scss';
+import React, {useState} from 'react'
+import {SectionProps} from './index.types'
+import styles from './index.module.scss'
 
-import sleep from '../../utilities/sleep';
+import sleep from '../../utilities/sleep'
 // import {useInView} from 'react-intersection-observer'
 
-const Index = ({
-  title,
-  children,
-  id,
-  reversed = false,
-  Svg,
-  paragraph = false,
-  Model3d,
-}: SectionProps): JSX.Element => {
+const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps): JSX.Element => {
   // const [ref, inView, _entry] = useInView({
   //   threshold: 0,
   //   fallbackInView: true,
   //   rootMargin: '-10px 0px -10px 0px',
   // })
 
-  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false)
 
   const setClicked = async () => {
     if (!isClicked) {
-      setIsClicked(true);
-      await sleep(3000);
-      setIsClicked(false);
+      setIsClicked(true)
+      await sleep(3000)
+      setIsClicked(false)
     }
-  };
+  }
 
   return (
     <div className={`${reversed ? styles.sectionReversed : styles.section}`} id={id ?? title}>
@@ -41,7 +33,7 @@ const Index = ({
                 <Svg.svg
                   width={'100px'}
                   height={'100px'}
-                  className={isClicked ? styles.move : null}
+                  className={isClicked ? styles.move : ''}
                   fill={Svg.fill ?? 'none'}
                   stroke={Svg.stroke ?? 'none'}
                 />
@@ -61,7 +53,7 @@ const Index = ({
                 <Svg.svg
                   width={'100px'}
                   height={'100px'}
-                  className={isClicked ? styles.jump : null}
+                  className={isClicked ? styles.jump : ''}
                   fill={Svg.fill ?? 'none'}
                   stroke={Svg.stroke ?? 'none'}
                 />
@@ -74,7 +66,7 @@ const Index = ({
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

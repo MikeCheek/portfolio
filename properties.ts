@@ -1,4 +1,4 @@
-const url = 'https://mikecheek.github.io/portfolio';
+const url = 'https://mikecheek.github.io/portfolio'
 export default {
   title: 'Michele Pulvirenti Portfolio',
   description:
@@ -13,7 +13,7 @@ export default {
   siteUrl: url,
   generateRobotsTxt: true,
   robotsTxtOptions: {
-    policies: [{ userAgent: '*', allow: '/' }],
+    policies: [{userAgent: '*', allow: '/'}],
   },
 
   // next-manifest
@@ -75,4 +75,4 @@ export default {
   // If you do not provide a crossOrigin option, it will skip CORS for manifest.
   // Any invalid keyword or empty string defaults to `anonymous`
   crossOrigin: `use-credentials`,
-};
+}

@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './index.module.scss';
-import SkillType from './index.types';
+import React from 'react'
+import styles from './index.module.scss'
+import SkillType from './index.types'
 
-const Index = ({ name, link, style }: SkillType) => {
+const Index = ({name, link, style}: SkillType) => {
   return (
     <>
       {link ? (
@@ -19,7 +19,7 @@ const Index = ({ name, link, style }: SkillType) => {
         </p>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

@@ -1,8 +1,8 @@
-import React from 'react';
-import NextHeadSeo from 'next-head-seo';
-import config from '../../properties';
+import React from 'react'
+import NextHeadSeo from 'next-head-seo'
+import config from '../../properties'
 //import { useStaticQuery, graphql } from "gatsby"
-import { SEOProps /*QueryTypes*/ } from './index.types';
+import {SEOProps /*QueryTypes*/} from './index.types'
 
 const Index = ({
   description = '',
@@ -13,11 +13,11 @@ const Index = ({
   googleSiteVerification,
   bingSiteVerification,
 }: SEOProps): JSX.Element => {
-  const metaDescription = description || config.description;
-  const defaultTitle: string = title + '| Portfolio';
-  const url: string = 'https://mikecheek.github.io/portfolio';
-  const image: string = url + '/logo.png';
-  const canonical = pathname ? `${config.siteUrl}${pathname}` : null;
+  const metaDescription = description || config.description
+  const defaultTitle: string = title + '| Portfolio'
+  const url: string = 'https://mikecheek.github.io/portfolio'
+  const image: string = url + '/logo.png'
+  const canonical = pathname ? `${config.siteUrl}${pathname}` : null
 
   return (
     <NextHeadSeo
@@ -54,7 +54,7 @@ const Index = ({
         ...meta,
       ]}
     />
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
