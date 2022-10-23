@@ -1,8 +1,8 @@
-import React from 'react'
-import {Canvas, extend} from '@react-three/fiber'
-import {OrbitControls} from '@react-three/drei'
-import Model from './notebook.js'
-import styles from './index.module.scss'
+import React from "react"
+import {Canvas, extend} from "@react-three/fiber"
+import {OrbitControls} from "@react-three/drei"
+import Model from "./notebook.js"
+import styles from "./index.module.scss"
 
 extend({OrbitControls})
 extend({Model})

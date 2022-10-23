@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import PopUp from '../../atoms/popUp'
-import HoverPopUpProps from './index.types'
+import React, {useState} from "react"
+import PopUp from "../../atoms/popUp"
+import HoverPopUpProps from "./index.types"
 
 const Index = ({children, down = false, href}: HoverPopUpProps) => {
   const [show, setShow] = useState<boolean>(false)
@@ -13,8 +13,8 @@ const Index = ({children, down = false, href}: HoverPopUpProps) => {
   const checkLeftRight = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const left = event.clientX
     const right = window.innerWidth - left
-    if (right > left) return {left: left - 50, right: 'auto'}
-    return {left: 'auto', right: right - 50}
+    if (right > left) return {left: left - 50, right: "auto"}
+    return {left: "auto", right: right - 50}
   }
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {

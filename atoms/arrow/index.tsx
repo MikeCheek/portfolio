@@ -1,24 +1,24 @@
-import React from 'react'
-import styles from './index.module.scss'
-import ArrowProps from './index.types'
+import React from "react"
+import styles from "./index.module.scss"
+import ArrowProps from "./index.types"
 
 const Index = ({
   right,
   down,
   up,
-  color = 'var(--orange)',
+  color = "var(--orange)",
   onClick = () => {},
   injectStyle,
   hideMobile = false,
   hideDesktop = false,
 }: ArrowProps) => {
   const arrowStyle = {
-    transform: down ? 'rotate(45deg)' : right ? 'rotate(315deg)' : up ? 'rotate(225deg)' : 'rotate(135deg)',
+    transform: down ? "rotate(45deg)" : right ? "rotate(315deg)" : up ? "rotate(225deg)" : "rotate(135deg)",
     borderColor: color,
   }
   return (
     <div
-      className={`${styles.arrowWrap} ${hideMobile ? styles.hideMobile : hideDesktop ? styles.hideDesktop : ''}`}
+      className={`${styles.arrowWrap} ${hideMobile ? styles.hideMobile : hideDesktop ? styles.hideDesktop : ""}`}
       style={injectStyle}
       onClick={onClick}
     >

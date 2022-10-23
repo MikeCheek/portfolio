@@ -1,4 +1,4 @@
-import {SkillsType} from './info.types'
+import {SkillsType} from "./info.types"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -8,13 +8,13 @@ export const commands = [
     input: `cat introduction.txt`,
     output: `<p>Hi, this is a work in progress <br/>Try to interact with me (drag, close, resize)</p>`,
   },
-  {auto: false, input: '', output: `Nice try, but I'm still working on this feature`},
+  {auto: false, input: "", output: `Nice try, but I'm still working on this feature`},
 ]
 
 //other experiences
 export const otherExperiences = [
   {
-    title: 'JEISM - JE Italy Summer Meeting (2021)',
+    title: "JEISM - JE Italy Summer Meeting (2021)",
     text: `// Event between Italian Junior Enterprises<br/><br/>
                 // Location: Gabicce, Marche<br/><br/>
                 // Duration: 3 days<br/><br/>
@@ -26,7 +26,7 @@ export const otherExperiences = [
                     Marketplace on the theme of Open Innovation`,
   },
   {
-    title: 'SysE2021 - Summer School (2021)',
+    title: "SysE2021 - Summer School (2021)",
     text: `/* Master's degree orientation event
                         organized by the University of Genova in
                         collaboration with the University of Savoie Mont
@@ -68,99 +68,99 @@ export const works: string = `<strong><h3><a title="JEToP" class="link" href="ht
 //education
 export const events = [
   {
-    name: 'Politecnico di Torino',
-    dateStart: '2019/09',
-    dateEnd: 'Now',
+    name: "Politecnico di Torino",
+    dateStart: "2019/09",
+    dateEnd: "Now",
     text: ` -> Bachelor's degree<br/>
                 -> Computer Engeneering`,
   },
   {
     name: `High school "Archimede" - Acireale`,
-    dateStart: '2013/09',
-    dateEnd: '2019/06',
+    dateStart: "2013/09",
+    dateEnd: "2019/06",
     text: ` -> High school diploma`,
   },
 ]
 
 //Contacts
 //export const phone: number = 1111111111
-export const email: string = 'michele00.pulvirenti@gmail.com'
-export const linkedin: string = 'https://www.linkedin.com/in/michele-pulvirenti'
-export const github: string = 'https://github.com/Mikecheek'
+export const email: string = "michele00.pulvirenti@gmail.com"
+export const linkedin: string = "https://www.linkedin.com/in/michele-pulvirenti"
+export const github: string = "https://github.com/Mikecheek"
 
 //skills
 export const programming: SkillsType = [
   {
-    name: 'C',
+    name: "C",
     percentage: 60,
   },
   {
-    name: 'Java',
+    name: "Java",
     percentage: 60,
   },
   {
-    name: 'JavaScript',
+    name: "JavaScript",
     percentage: 95,
   },
   {
-    name: 'Typescript',
+    name: "Typescript",
     percentage: 95,
   },
   {
-    name: 'Assembly MIPS',
+    name: "Assembly MIPS",
     percentage: 50,
   },
   {
-    name: 'Bash (Unix)',
+    name: "Bash (Unix)",
     percentage: 70,
   },
   {
-    name: 'PHP',
+    name: "PHP",
     percentage: 20,
   },
 ]
 export const frameworks: SkillsType = [
   {
-    name: 'React Js',
-    link: 'https://it.reactjs.org',
+    name: "React Js",
+    link: "https://it.reactjs.org",
     percentage: 90,
   },
   {
-    name: 'Gatsby Js',
-    link: 'https://www.gatsbyjs.com',
+    name: "Gatsby Js",
+    link: "https://www.gatsbyjs.com",
     percentage: 90,
   },
   {
-    name: 'Next Js',
-    link: 'https://nextjs.org',
+    name: "Next Js",
+    link: "https://nextjs.org",
     percentage: 80,
   },
   {
-    name: 'Tailwind CSS',
-    link: 'https://tailwindcss.com',
+    name: "Tailwind CSS",
+    link: "https://tailwindcss.com",
     percentage: 80,
   },
 ]
 export const others: SkillsType = [
   {
-    name: 'HTML',
+    name: "HTML",
     percentage: 90,
   },
   {
-    name: 'CSS',
+    name: "CSS",
     percentage: 90,
   },
   {
-    name: 'Sass',
-    link: 'https://sass-lang.com',
+    name: "Sass",
+    link: "https://sass-lang.com",
     percentage: 70,
   },
   {
-    name: 'Linux',
+    name: "Linux",
     percentage: 60,
   },
   {
-    name: 'SQL',
+    name: "SQL",
     percentage: 40,
   },
 ]
@@ -176,33 +176,33 @@ export const navItems = [
   //    text: "Home", path: "/"
   //},
   {
-    text: 'About',
-    path: '#about',
+    text: "About",
+    path: "#about",
     isHref: true,
   },
   {
-    text: 'Works',
-    path: '#works',
+    text: "Works",
+    path: "#works",
     isHref: true,
   },
   {
-    text: 'Skills',
-    path: '#skills',
+    text: "Skills",
+    path: "#skills",
     isHref: true,
   },
   {
-    text: 'Education',
-    path: '#education',
+    text: "Education",
+    path: "#education",
     isHref: true,
   },
   {
-    text: 'Other',
-    path: '#others',
+    text: "Other",
+    path: "#others",
     isHref: true,
   },
   {
-    text: 'Contacts',
-    path: '#contacts',
+    text: "Contacts",
+    path: "#contacts",
     isHref: true,
   },
 ]

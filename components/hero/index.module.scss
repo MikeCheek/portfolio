@@ -1,4 +1,4 @@
-@import '../../styles/animations';
+@import "../../styles/animations";
 .parallax {
   position: relative;
   z-index: -1;
@@ -21,7 +21,7 @@
     font-size: 1rem;
     width: fit-content;
   }
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;

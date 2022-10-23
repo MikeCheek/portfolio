@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 
-import styles from './index.module.scss'
-import BallProps from './index.types'
+import styles from "./index.module.scss"
+import BallProps from "./index.types"
 
 const Index = ({BallSvg, fastAnimation = false}: BallProps): JSX.Element => {
   return (

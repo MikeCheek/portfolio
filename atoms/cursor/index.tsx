@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react'
-import sleep from '../../utilities/sleep'
-import Blob from '../../assets/blob.svg'
-import styles from './index.module.scss'
-import CursorContext from '../../utilities/useCursorContext'
+import React, {useContext, useEffect, useState} from "react"
+import sleep from "../../utilities/sleep"
+import Blob from "../../assets/blob.svg"
+import styles from "./index.module.scss"
+import CursorContext from "../../utilities/useCursorContext"
 
 const Index = () => {
   const [position, setPosition] = useState<{x: number; y: number}>({x: 0, y: 0})
@@ -28,15 +28,15 @@ const Index = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('mousemove', (e) => handleMouseMove(e))
-    window.addEventListener('mousedown', (e) => handleMouseDown(e))
-    window.addEventListener('mouseup', (e) => handleMouseUp(e))
-    window.addEventListener('click', (e) => handleMouseClick(e))
+    window.addEventListener("mousemove", (e) => handleMouseMove(e))
+    window.addEventListener("mousedown", (e) => handleMouseDown(e))
+    window.addEventListener("mouseup", (e) => handleMouseUp(e))
+    window.addEventListener("click", (e) => handleMouseClick(e))
     return () => {
-      window.removeEventListener('mousemove', () => {})
-      window.removeEventListener('mousedown', () => {})
-      window.removeEventListener('mouseup', () => {})
-      window.removeEventListener('click', () => {})
+      window.removeEventListener("mousemove", () => {})
+      window.removeEventListener("mousedown", () => {})
+      window.removeEventListener("mouseup", () => {})
+      window.removeEventListener("click", () => {})
     }
   }, [])
   return (
@@ -53,7 +53,7 @@ const Index = () => {
         height={dimension}
         className={styles.cursor}
         style={{transform: `scale(${transform.scale}) rotate(${transform.rotate}deg)`}}
-        fill={'none'}
+        fill={"none"}
       />
     </div>
   )

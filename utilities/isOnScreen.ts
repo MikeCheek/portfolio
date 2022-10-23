@@ -1,5 +1,5 @@
-import {useState, useEffect, RefObject} from 'react'
-import sleep from './sleep'
+import {useState, useEffect, RefObject} from "react"
+import sleep from "./sleep"
 
 const isOnScreen = (ref: RefObject<HTMLElement>, retarded = false) => {
   const [isIntersecting, setIntersecting] = useState(false)

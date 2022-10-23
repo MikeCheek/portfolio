@@ -1,4 +1,4 @@
-@import '../../styles/animations';
+@import "../../styles/animations";
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -14,7 +14,7 @@
   height: 30px;
   margin: 8px;
   transform: scale(0);
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     width: 40px;
     height: 40px;
     margin: 10px;

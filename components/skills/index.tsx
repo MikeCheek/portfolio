@@ -1,9 +1,9 @@
-import React, {useCallback, useState} from 'react'
-import {useInView} from 'react-intersection-observer'
-import {programming, frameworks, others} from '../../utilities/info'
-import Skill from '../../atoms/skill'
+import React, {useCallback, useState} from "react"
+import {useInView} from "react-intersection-observer"
+import {programming, frameworks, others} from "../../utilities/info"
+import Skill from "../../atoms/skill"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 const Index = (): JSX.Element => {
   const [degree, setDegree] = useState<number>(45)
@@ -11,7 +11,7 @@ const Index = (): JSX.Element => {
   const [ref, inView, _entry] = useInView({
     threshold: 0,
     fallbackInView: true,
-    rootMargin: '-35% 0px -35% 0px',
+    rootMargin: "-35% 0px -35% 0px",
   })
 
   const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0))
@@ -61,7 +61,7 @@ const Index = (): JSX.Element => {
               <Skill
                 name={item.name}
                 link={item.link}
-                style={inView ? {transform: 'scale(1)', transitionDelay: `${key / 15}s`} : {transform: 'scale(0)'}}
+                style={inView ? {transform: "scale(1)", transitionDelay: `${key / 15}s`} : {transform: "scale(0)"}}
               />
             </span>
           )

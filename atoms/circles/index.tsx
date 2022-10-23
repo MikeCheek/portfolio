@@ -1,6 +1,6 @@
-import React, {useRef} from 'react'
-import styles from './index.module.scss'
-import CirclesProps from './index.types'
+import React, {useRef} from "react"
+import styles from "./index.module.scss"
+import CirclesProps from "./index.types"
 
 const Index = ({number}: CirclesProps) => {
   const ref = useRef<Array<HTMLSpanElement> | Array<null>>([])
@@ -11,14 +11,14 @@ const Index = ({number}: CirclesProps) => {
       const circle = ref.current[i]
       setTimeout(() => {
         if (circle) {
-          circle!.style.borderWidth = '5px'
-          circle!.style.opacity = '1'
+          circle!.style.borderWidth = "5px"
+          circle!.style.opacity = "1"
         }
       }, i * 100)
       setTimeout(() => {
         if (circle) {
-          circle!.style.removeProperty('border-width')
-          circle!.style.removeProperty('opacity')
+          circle!.style.removeProperty("border-width")
+          circle!.style.removeProperty("opacity")
         }
       }, i * 100 + 200)
     }

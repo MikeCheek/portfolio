@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import {SectionProps} from './index.types'
-import styles from './index.module.scss'
+import React, {useState} from "react"
+import {SectionProps} from "./index.types"
+import styles from "./index.module.scss"
 
-import sleep from '../../utilities/sleep'
+import sleep from "../../utilities/sleep"
 // import {useInView} from 'react-intersection-observer'
 
 const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps): JSX.Element => {
@@ -31,11 +31,11 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
             {Svg ? (
               <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
                 <Svg.svg
-                  width={'100px'}
-                  height={'100px'}
-                  className={isClicked ? styles.move : ''}
-                  fill={Svg.fill ?? 'none'}
-                  stroke={Svg.stroke ?? 'none'}
+                  width={"100px"}
+                  height={"100px"}
+                  className={isClicked ? styles.move : ""}
+                  fill={Svg.fill ?? "none"}
+                  stroke={Svg.stroke ?? "none"}
                 />
               </div>
             ) : Model3d ? (
@@ -51,11 +51,11 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
             {Svg ? (
               <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
                 <Svg.svg
-                  width={'100px'}
-                  height={'100px'}
-                  className={isClicked ? styles.jump : ''}
-                  fill={Svg.fill ?? 'none'}
-                  stroke={Svg.stroke ?? 'none'}
+                  width={"100px"}
+                  height={"100px"}
+                  className={isClicked ? styles.jump : ""}
+                  fill={Svg.fill ?? "none"}
+                  stroke={Svg.stroke ?? "none"}
                 />
               </div>
             ) : Model3d ? (

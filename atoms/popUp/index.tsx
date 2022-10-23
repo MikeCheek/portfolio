@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './index.module.scss'
-import PopUpProps from './index.types'
+import React from "react"
+import styles from "./index.module.scss"
+import PopUpProps from "./index.types"
 
 const Index = ({children, top, left, right, onClick = () => null}: PopUpProps) => {
   return (

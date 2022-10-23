@@ -1,4 +1,4 @@
-@import '../../styles/animations';
+@import "../../styles/animations";
 .ball {
   position: fixed;
   height: 100vh;
@@ -12,7 +12,7 @@
   left: 0;
   :first-child {
     transform: scale(1.5);
-    @media screen and (min-width: '768px') {
+    @media screen and (min-width: "768px") {
       transform: scale(1);
     }
   }

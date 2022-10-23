@@ -6,7 +6,7 @@
   margin-bottom: 100px;
   margin-top: 50px;
   width: 100%;
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     flex-direction: row;
   }
 }
@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: space-evenly;
   width: 70%;
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     width: 40%;
   }
   .iconWrap {
@@ -37,7 +37,7 @@
 
 .contacts {
   margin-bottom: 50px;
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     margin-bottom: 0;
   }
 }

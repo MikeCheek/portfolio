@@ -1,7 +1,7 @@
-import React, {useEffect, useRef} from 'react'
-import styles from './index.module.scss'
+import React, {useEffect, useRef} from "react"
+import styles from "./index.module.scss"
 
-import Arrow from '../../assets/arrowUp.svg'
+import Arrow from "../../assets/arrowUp.svg"
 
 const Index = (): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
@@ -10,22 +10,22 @@ const Index = (): JSX.Element => {
   let currentScrollPos: number
 
   const setListener = () => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
   }
 
   const removeListener = () => {
-    window.removeEventListener('scroll', () => {})
+    window.removeEventListener("scroll", () => {})
   }
 
   const handleScroll = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       currentScrollPos = window.pageYOffset
       const arrow = ref.current
       if (arrow) {
         if (currentScrollPos >= 200 && currentScrollPos < prevScrollpos) {
-          arrow.style.transform = 'translateY(-500px)'
+          arrow.style.transform = "translateY(-500px)"
         } else {
-          arrow.style.removeProperty('transform')
+          arrow.style.removeProperty("transform")
         }
       }
       prevScrollpos = currentScrollPos
@@ -40,13 +40,13 @@ const Index = (): JSX.Element => {
   return (
     <div
       className={styles.arrowUp}
-      title={'Go to top'}
+      title={"Go to top"}
       ref={ref}
       onClick={() => {
         window.scroll(0, 0)
       }}
     >
-      <Arrow width={'50px'} height={'50px'} />
+      <Arrow width={"50px"} height={"50px"} />
     </div>
   )
 }

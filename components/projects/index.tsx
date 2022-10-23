@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import React, {useContext} from 'react'
-import CursorContext from '../../utilities/useCursorContext'
-import styles from './index.module.scss'
-import projectsList from './data'
+import Image from "next/image"
+import React, {useContext} from "react"
+import CursorContext from "../../utilities/useCursorContext"
+import styles from "./index.module.scss"
+import projectsList from "./data"
 
 const Index = () => {
   const {fitElement, unFit} = useContext(CursorContext)
@@ -28,7 +28,7 @@ const Index = () => {
                 alt={project.title}
                 className={styles.imageMobile}
                 style={project.reduce_opacity ? {opacity: 0.4} : {}}
-                loading={'lazy'}
+                loading={"lazy"}
                 quality={50}
               />
 
@@ -52,8 +52,8 @@ const Index = () => {
                     onMouseOut={handleMouseLeave}
                     onMouseLeave={handleMouseLeave}
                     href={project.github}
-                    target={'_blank'}
-                    rel={'noopener noreferrer'}
+                    target={"_blank"}
+                    rel={"noopener noreferrer"}
                     className="buttonStyle"
                   >
                     Visit Repo
@@ -61,7 +61,7 @@ const Index = () => {
                 )}
               </div>
             </div>
-            <Image src={project.image} alt={project.title} className={styles.image} loading={'lazy'} quality={50} />
+            <Image src={project.image} alt={project.title} className={styles.image} loading={"lazy"} quality={50} />
           </div>
         )
       })}

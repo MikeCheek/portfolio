@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef} from "react"
 
 interface CanvasImageProps {
   width: number
@@ -11,7 +11,7 @@ const CanvasImage = ({width, height, image}: CanvasImageProps) => {
 
   useEffect(() => {
     let context
-    if (canvasRef.current) context = canvasRef.current.getContext('2d')
+    if (canvasRef.current) context = canvasRef.current.getContext("2d")
     if (context) context.drawImage(image, 0, 0, width, height)
   }, [canvasRef.current, image])
 

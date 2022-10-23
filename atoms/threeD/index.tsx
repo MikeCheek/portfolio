@@ -1,9 +1,9 @@
-import React, {useContext} from 'react'
-import {Canvas} from '@react-three/fiber'
-import {OrbitControls} from '@react-three/drei'
-import Box from './box'
-import {TOUCH} from 'three'
-import CursorContext from '../../utilities/useCursorContext'
+import React, {useContext} from "react"
+import {Canvas} from "@react-three/fiber"
+import {OrbitControls} from "@react-three/drei"
+import Box from "./box"
+import {TOUCH} from "three"
+import CursorContext from "../../utilities/useCursorContext"
 
 const Index = () => {
   const {fitElement, unFit} = useContext(CursorContext)
