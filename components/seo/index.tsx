@@ -15,7 +15,7 @@ const Index = ({
 }: SEOProps): JSX.Element => {
   const metaDescription = description || config.description
   const defaultTitle: string = title + "| Portfolio"
-  const url: string = "https://mikecheek.github.io/portfolio"
+  const url: string = config.url
   const image: string = url + "/logo.png"
   const canonical = pathname ? `${config.siteUrl}${pathname}` : null
 

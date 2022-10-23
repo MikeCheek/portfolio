@@ -1,4 +1,4 @@
-const url = "https://mikecheek.github.io/portfolio"
+const url = "https://michelepulvirenti.vercel.app"
 export default {
   title: "Michele Pulvirenti Portfolio",
   description:
