@@ -3,10 +3,10 @@
 <defs>
 <style>
 
-      .a{animation: move-left 1.2s infinite linear;}
-      .b{animation: move-left 1.5s infinite linear;}
-      .c{animation: move-left 1.8s infinite linear;}
-      .d{animation: move-left 0.9s infinite linear;}
+      .a{animation: move-left 2.2s infinite linear;}
+      .b{animation: move-left 2.5s infinite linear;}
+      .c{animation: move-left 2.8s infinite linear;}
+      .d{animation: move-left 1.9s infinite linear;}
 
       @keyframes move-left{
          from{

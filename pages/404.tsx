@@ -46,8 +46,8 @@ const NotFoundPage = (): JSX.Element => {
         <h1 className={styles.heading}>PAGE NOT FOUND</h1>
         <span className={styles.lost}>
           Did you lose your way while navigating?{" "}
-          <Link href="/" className="link">
-            <a>GO HOME</a>
+          <Link href="/">
+            <a className="link">GO HOME</a>
           </Link>
           <Rocket />
           {fetched && (

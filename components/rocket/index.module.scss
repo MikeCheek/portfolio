@@ -2,9 +2,12 @@
   position: relative;
   align-self: center;
   justify-self: center;
-  height: 400px;
+  height: 300px;
   width: 100vw;
   overflow: hidden;
+  @media screen and (min-width: 768px) {
+    height: 400px;
+  }
 }
 
 .rocketWrap {

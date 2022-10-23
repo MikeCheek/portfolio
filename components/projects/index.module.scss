@@ -76,6 +76,29 @@
 
 .image {
   @extend .imageStructure;
+  border-radius: 12.5px;
+}
+
+.desktopWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  .imageWrap {
+    border-radius: 20px;
+    border: 2px var(--transparent-white) solid;
+    background-color: var(--very-transparent-white);
+    padding: 5px;
+  }
+
+  .stand {
+    width: 200px;
+    height: 10px;
+    border-radius: 20px;
+    border: 2px var(--transparent-white) solid;
+  }
   @media screen and (max-width: 768px) {
     display: none !important;
   }
