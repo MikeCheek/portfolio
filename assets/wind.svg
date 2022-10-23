@@ -19,9 +19,9 @@
 </style>
 </defs>
 <g transform="translate(-11.16 -67.169)" stroke-width="0" fill="current">
-<rect class="a" x="47.133" y="60.708" width="95.211" height="1.9544" style="paint-order:stroke markers fill"/>
-<rect class="b" x="108.27" y="89.79" width="95.211" height="1.9544" style="paint-order:stroke markers fill"/>
-<rect class="c" x="21.733" y="119.81" width="95.211" height="1.9544" style="paint-order:stroke markers fill"/>
-<rect class="d" x="87.304" y="153.93" width="95.211" height="1.9544" style="paint-order:stroke markers fill"/>
+<rect class="a" x="47.133" y="0.708" width="60" height="1" style="paint-order:stroke markers fill"/>
+<rect class="b" x="108.27" y="19.79" width="60" height="1" style="paint-order:stroke markers fill"/>
+<rect class="c" x="21.733" y="29.81" width="60" height="1" style="paint-order:stroke markers fill"/>
+<rect class="d" x="87.304" y="53.93" width="60" height="1" style="paint-order:stroke markers fill"/>
 </g>
 </svg>

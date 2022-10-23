@@ -13,7 +13,7 @@ const Index = (): JSX.Element => {
         </div>
       </div>
       <div className={styles.wind}>
-        <WindSvg width={"100vw"} height={"200px"} fill={"var(--grey)"} />
+        <WindSvg width={"100vw"} fill={"var(--grey)"} />
       </div>
     </div>
   )
