@@ -62,16 +62,7 @@ const Index = () => {
               </div>
             </div>
             <div className={styles.desktopWrap}>
-              <a
-                onMouseOver={(e) => handleMouseHover(e)}
-                onMouseEnter={(e) => handleMouseHover(e)}
-                onMouseOut={handleMouseLeave}
-                onMouseLeave={handleMouseLeave}
-                className={styles.imageWrap}
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className={styles.imageWrap} href={project.href} target="_blank" rel="noopener noreferrer">
                 <Image src={project.image} alt={project.title} className={styles.image} loading={"lazy"} quality={50} />
               </a>
               <div className={styles.stand}></div>
