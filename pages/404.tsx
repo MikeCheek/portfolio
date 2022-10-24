@@ -25,7 +25,7 @@ const NotFoundPage = (): JSX.Element => {
     return data
   }
 
-  const fetchData = () => {
+  useEffect(() => {
     fetch("https://www.boredapi.com/api/activity")
       .then((response) => response.json())
       .then((data) => {
@@ -33,10 +33,6 @@ const NotFoundPage = (): JSX.Element => {
         setFetched(true)
       })
       .catch((_err) => setError(true))
-  }
-
-  useEffect(() => {
-    fetchData()
   }, [])
 
   return (

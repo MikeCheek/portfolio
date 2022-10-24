@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://michelepulvirenti.vercel.app
+
+# Sitemaps
+Sitemap: https://michelepulvirenti.vercel.app/sitemap.xml
