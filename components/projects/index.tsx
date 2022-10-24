@@ -22,15 +22,16 @@ const Index = () => {
             <div className={styles.head}>
               <h3>{project.title}</h3>
               <em dangerouslySetInnerHTML={{__html: project.description}}></em>
-
-              <Image
-                src={project.image_mobile}
-                alt={project.title}
-                className={styles.imageMobile}
-                style={project.reduce_opacity ? {opacity: 0.4} : {}}
-                loading={"lazy"}
-                quality={50}
-              />
+              <div className={styles.imageMobileWrap}>
+                <Image
+                  src={project.image_mobile}
+                  alt={project.title}
+                  className={styles.imageMobile}
+                  style={project.reduce_opacity ? {opacity: 0.4} : {}}
+                  loading={"lazy"}
+                  quality={50}
+                />
+              </div>
 
               <div className={styles.links}>
                 <a
