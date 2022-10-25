@@ -25,25 +25,7 @@ body {
   background-attachment: fixed;
   margin: 0;
   overflow-x: hidden;
-  // ul {
-  //   margin: 0;
-  //   padding: 0;
-  // }
-  // @media screen and (min-width: '768px') {
-  //   ul {
-  //     margin: initial;
-  //     padding: initial;
-  //   }
-  // }
-  // li {
-  //   list-style-type: '💻';
-  //   margin-left: 2rem;
-  //   padding-inline-start: 1ch;
-  //   width: fit-content;
-  //   &::marker {
-  //     margin-left: 10%;
-  //   }
-  // }
+
   .link {
     background: linear-gradient(to right, var(--transparent-white), var(--transparent-white)),
       linear-gradient(to right, var(--orange), var(--pink));
