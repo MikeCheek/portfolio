@@ -39,9 +39,39 @@ const Index = (): JSX.Element => {
     console.log(Number(e.target.value))
   }
 
+  let touchX: number
+  const handleTwoTouch = (touches: TouchList) => {
+    const touchPositionX = touches[0]?.clientX
+    setDegree((d) => d + Number(touchPositionX - touchX))
+  }
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touches = e.nativeEvent.touches
+    switch (touches.length) {
+      case 2: {
+        touchX = touches[0].clientX
+        break
+      }
+      default:
+        break
+    }
+  }
+
+  const handleTouch: React.TouchEventHandler = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touches = e.nativeEvent.touches
+    switch (touches.length) {
+      case 2: {
+        handleTwoTouch(touches)
+        break
+      }
+      default:
+        break
+    }
+  }
+
   return (
     <div className={styles.wrap}>
-      <div className={styles.skills} ref={ref}>
+      <div className={styles.skills} onTouchStart={handleTouchStart} onTouchMove={handleTouch} ref={ref}>
         {data.map((item, key) => {
           return (
             <span
