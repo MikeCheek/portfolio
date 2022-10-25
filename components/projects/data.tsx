@@ -31,7 +31,8 @@ const projectsList = [
     image: wdc,
     image_mobile: wdc_mobile,
     description: `Website created on the occasion of the Web Dev Challenge event organized by JEToP<br/><br/>
-                The challenge was to develop in team a landing page on a specific theme`,
+                The challenge was to develop in team a landing page on a specific theme<br/><br/>
+                Have a look also at the <a href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
     href: "https://wdc.jetop.com",
   },
 ]
