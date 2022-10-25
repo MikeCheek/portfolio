@@ -7,6 +7,7 @@ import styles from "./index.module.scss"
 
 const Index = (): JSX.Element => {
   const [degree, setDegree] = useState<number>(45)
+  let touchX: number
 
   const [ref, inView, _entry] = useInView({
     threshold: 0,
@@ -39,7 +40,6 @@ const Index = (): JSX.Element => {
     console.log(Number(e.target.value))
   }
 
-  let touchX: number
   const handleTwoTouch = (touches: TouchList) => {
     const touchPositionX = touches[0]?.clientX
     setDegree((d) => d + Number(touchPositionX - touchX))
@@ -49,6 +49,7 @@ const Index = (): JSX.Element => {
     const touches = e.nativeEvent.touches
     switch (touches.length) {
       case 2: {
+        e.preventDefault()
         touchX = touches[0].clientX
         break
       }
@@ -57,10 +58,11 @@ const Index = (): JSX.Element => {
     }
   }
 
-  const handleTouch: React.TouchEventHandler = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
     const touches = e.nativeEvent.touches
     switch (touches.length) {
       case 2: {
+        e.preventDefault()
         handleTwoTouch(touches)
         break
       }
