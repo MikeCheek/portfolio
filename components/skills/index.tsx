@@ -46,9 +46,13 @@ const Index = (): JSX.Element => {
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     const touches = e.nativeEvent.touches
-    window.addEventListener("touchstart", (event) => {
-      if (event.touches.length > 1) event.preventDefault()
-    })
+    window.addEventListener(
+      "touchstart",
+      (event) => {
+        if (event.touches.length > 1) event.preventDefault()
+      },
+      {passive: true}
+    )
     switch (touches.length) {
       case 2: {
         e.preventDefault()

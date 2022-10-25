@@ -10,7 +10,7 @@ const Index = (): JSX.Element => {
   let currentScrollPos: number
 
   const setListener = () => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, {passive: true})
   }
 
   const removeListener = () => {
