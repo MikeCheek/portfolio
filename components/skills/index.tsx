@@ -36,11 +36,6 @@ const Index = (): JSX.Element => {
     [degree]
   )
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDegree(Number(e.target.value))
-    console.log(Number(e.target.value))
-  }
-
   const handleTwoTouch = (touches: TouchList) => {
     const touchPositionX = touches[0]?.clientX
     setDegree((d) => d + Number(touchPositionX - touchX))
