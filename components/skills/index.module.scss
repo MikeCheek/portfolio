@@ -9,7 +9,7 @@
 .skills {
   width: 90%;
   height: 70vh;
-  margin: 20px auto;
+  margin: auto;
   position: relative;
 }
 
@@ -27,31 +27,49 @@
   transition: transform 1s ease-out;
 }
 
-.range {
-  width: 50vw;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 5px;
-  background: var(--transparent-orange);
-  border-radius: 5px;
-  border: 0;
-  margin: 20px auto;
-  padding: 0;
-  opacity: 0.5;
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: var(--orange);
-    cursor: grab;
-  }
-  &::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: var(--orange);
-    cursor: grab;
+.neutral {
+  text-align: center;
+}
+
+.hint {
+  @extend .neutral;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 }
+
+.hintMobile {
+  @extend .neutral;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+// .range {
+//   width: 50vw;
+//   -webkit-appearance: none;
+//   appearance: none;
+//   height: 5px;
+//   background: var(--transparent-orange);
+//   border-radius: 5px;
+//   border: 0;
+//   margin: 20px auto;
+//   padding: 0;
+//   opacity: 0.5;
+//   &::-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     appearance: none;
+//     width: 25px;
+//     height: 25px;
+//     border-radius: 50%;
+//     background: var(--orange);
+//     cursor: grab;
+//   }
+//   &::-moz-range-thumb {
+//     width: 25px;
+//     height: 25px;
+//     border-radius: 50%;
+//     background: var(--orange);
+//     cursor: grab;
+//   }
+// }

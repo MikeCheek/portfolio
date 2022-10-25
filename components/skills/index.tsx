@@ -123,21 +123,15 @@ const Index = (): JSX.Element => {
                 name={item.name}
                 link={item.link}
                 style={inView ? {transform: "scale(1)", transitionDelay: `${key / 15}s`} : {transform: "scale(0)"}}
+                color={key % 2 ? "var(--pink)" : "var(--orange)"}
               />
             </span>
           )
         })}
       </div>
-      <input
-        className={styles.range}
-        name="Degree"
-        type="range"
-        min="0"
-        max="360"
-        step={1}
-        value={degree}
-        onChange={(e) => handleChange(e)}
-      />
+      <p className={styles.neutral}>Some skills are hidden from the others?</p>
+      <p className={styles.hintMobile}>Use 2 fingers and see the magic!</p>{" "}
+      <p className={styles.hint}>Drag the space between them with your mouse!</p>
     </div>
   )
 }

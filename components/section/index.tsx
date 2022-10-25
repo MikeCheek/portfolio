@@ -46,7 +46,7 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
         </>
       ) : (
         <>
-          <h2 className={`${reversed ? styles.titleReversed : styles.title}`}>{title}</h2>
+          <h2 className={styles.title}>{title}</h2>
           <div className={reversed ? styles.contentReversed : styles.content}>
             {Svg ? (
               <div className={styles.svg} onClick={setClicked} onMouseDown={setClicked}>
