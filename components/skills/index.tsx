@@ -43,6 +43,7 @@ const Index = (): JSX.Element => {
   const handleTwoTouch = (touches: TouchList) => {
     const touchPositionX = touches[0]?.clientX
     setDegree((d) => d + Number(touchPositionX - touchX))
+    touchX = touchPositionX
   }
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
