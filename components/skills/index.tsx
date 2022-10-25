@@ -8,6 +8,7 @@ import styles from "./index.module.scss"
 const Index = (): JSX.Element => {
   const [degree, setDegree] = useState<number>(45)
   let touchX: number
+  let mouseDown = false
 
   const [ref, inView, _entry] = useInView({
     threshold: 0,
@@ -46,8 +47,13 @@ const Index = (): JSX.Element => {
     touchX = touchPositionX
   }
 
+  const handleTouchEnd = () => window.removeEventListener("touchstart", () => {})
+
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     const touches = e.nativeEvent.touches
+    window.addEventListener("touchstart", (event) => {
+      if (event.touches.length > 1) event.preventDefault()
+    })
     switch (touches.length) {
       case 2: {
         e.preventDefault()
@@ -61,6 +67,7 @@ const Index = (): JSX.Element => {
 
   const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
     const touches = e.nativeEvent.touches
+
     switch (touches.length) {
       case 2: {
         e.preventDefault()
@@ -72,9 +79,30 @@ const Index = (): JSX.Element => {
     }
   }
 
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    touchX = e.clientX
+    mouseDown = true
+  }
+
+  const handleMouseUp = () => (mouseDown = false)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (mouseDown) {
+      setDegree((d) => d + Number(e.clientX - touchX))
+      touchX = e.clientX
+    }
+  }
+
   return (
-    <div className={styles.wrap}>
-      <div className={styles.skills} onTouchStart={handleTouchStart} onTouchMove={handleTouch} ref={ref}>
+    <div className={styles.wrap} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <div
+        className={styles.skills}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouch}
+        onTouchEnd={handleTouchEnd}
+        ref={ref}
+      >
         {data.map((item, key) => {
           return (
             <span
