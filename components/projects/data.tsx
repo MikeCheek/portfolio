@@ -1,6 +1,6 @@
 import pop from "../../assets/images/screenshots/pop.png"
 import nt from "../../assets/images/screenshots/nt.png"
-import wdc from "../../assets/images/screenshots/pop.png"
+import wdc from "../../assets/images/screenshots/wdc.png"
 import pop_mobile from "../../assets/images/screenshots/pop-mobile.jpg"
 import nt_mobile from "../../assets/images/screenshots/nt-mobile.jpg"
 import wdc_mobile from "../../assets/images/screenshots/wdc-mobile.jpg"
