@@ -33,14 +33,14 @@
 
 .hint {
   @extend .neutral;
-  @media screen and (max-width: 768px) {
+  @media (hover: none) and (pointer: coarse) {
     display: none;
   }
 }
 
 .hintMobile {
   @extend .neutral;
-  @media screen and (min-width: 768px) {
+  @media (hover: hover) and (pointer: fine) {
     display: none;
   }
 }
