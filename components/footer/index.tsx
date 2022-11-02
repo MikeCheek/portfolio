@@ -43,23 +43,23 @@ const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
             onMouseMove={(event) => handleMouseMove(event)}
             onMouseLeave={(event) => handleMouseLeave(event)}
             className={styles.iconWrap}
-            href={"mailto:" + email}
-            title={"Send me an email"}
-            target={"_blank"}
-            rel="noopener noreferrer"
-          >
-            <Email width={width} height={height} fill={color} className={styles.icon} />
-          </a>
-          <a
-            onMouseMove={(event) => handleMouseMove(event)}
-            onMouseLeave={(event) => handleMouseLeave(event)}
-            className={styles.iconWrap}
             href={linkedin}
             title={"Linkedin profile"}
             target={"_blank"}
             rel="noopener noreferrer"
           >
             <Linkedin width={width} height={height} fill={color} className={styles.icon} />
+          </a>
+          <a
+            onMouseMove={(event) => handleMouseMove(event)}
+            onMouseLeave={(event) => handleMouseLeave(event)}
+            className={styles.iconWrap}
+            href={"mailto:" + email}
+            title={"Send me an email"}
+            target={"_blank"}
+            rel="noopener noreferrer"
+          >
+            <Email width={width} height={height} fill={color} className={styles.icon} />
           </a>
           <a
             onMouseMove={(event) => handleMouseMove(event)}
