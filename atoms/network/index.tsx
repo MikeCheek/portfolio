@@ -6,8 +6,8 @@ const Index = () => {
 
   useEffect(() => {
     setNetwork(window.navigator.onLine)
-    window.addEventListener("online", () => setNetwork(true))
-    window.addEventListener("offline", () => setNetwork(false))
+    window.addEventListener("online", () => setNetwork(true), {passive: true})
+    window.addEventListener("offline", () => setNetwork(false), {passive: true})
   }, [])
 
   return (

@@ -17,6 +17,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  z-index: 1;
   > * {
     font-size: 1rem;
     width: fit-content;

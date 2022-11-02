@@ -7,6 +7,8 @@ import styles from "./index.module.scss"
 
 const Index = (): JSX.Element => {
   const [degree, setDegree] = useState<number>(45)
+  let touchX: number
+  let mouseDown = false
 
   const [ref, inView, _entry] = useInView({
     threshold: 0,
@@ -34,14 +36,72 @@ const Index = (): JSX.Element => {
     [degree]
   )
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDegree(Number(e.target.value))
-    console.log(Number(e.target.value))
+  const handleTwoTouch = (touches: TouchList) => {
+    const touchPositionX = touches[0]?.clientX
+    setDegree((d) => d + Number(touchPositionX - touchX))
+    touchX = touchPositionX
+  }
+
+  const handleTouchEnd = () => window.removeEventListener("touchstart", () => {})
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touches = e.nativeEvent.touches
+    window.addEventListener(
+      "touchstart",
+      (event) => {
+        if (event.touches.length > 1) event.preventDefault()
+      },
+      {passive: true}
+    )
+    switch (touches.length) {
+      case 2: {
+        e.preventDefault()
+        touchX = touches[0].clientX
+        break
+      }
+      default:
+        break
+    }
+  }
+
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touches = e.nativeEvent.touches
+
+    switch (touches.length) {
+      case 2: {
+        e.preventDefault()
+        handleTwoTouch(touches)
+        break
+      }
+      default:
+        break
+    }
+  }
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    touchX = e.clientX
+    mouseDown = true
+  }
+
+  const handleMouseUp = () => (mouseDown = false)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (mouseDown) {
+      setDegree((d) => d + Number(e.clientX - touchX))
+      touchX = e.clientX
+    }
   }
 
   return (
-    <div className={styles.wrap}>
-      <div className={styles.skills} ref={ref}>
+    <div className={styles.wrap} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <div
+        className={styles.skills}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouch}
+        onTouchEnd={handleTouchEnd}
+        ref={ref}
+      >
         {data.map((item, key) => {
           return (
             <span
@@ -62,21 +122,15 @@ const Index = (): JSX.Element => {
                 name={item.name}
                 link={item.link}
                 style={inView ? {transform: "scale(1)", transitionDelay: `${key / 15}s`} : {transform: "scale(0)"}}
+                color={key % 2 ? "var(--pink)" : "var(--orange)"}
               />
             </span>
           )
         })}
       </div>
-      <input
-        className={styles.range}
-        name="Degree"
-        type="range"
-        min="0"
-        max="360"
-        step={1}
-        value={degree}
-        onChange={(e) => handleChange(e)}
-      />
+      <p className={styles.neutral}>Some skills are hidden from the others?</p>
+      <p className={styles.hintMobile}>Use 2 fingers and see the magic!</p>{" "}
+      <p className={styles.hint}>Drag the space between them with your mouse!</p>
     </div>
   )
 }

@@ -51,8 +51,8 @@ const IndexPage = (): JSX.Element => {
   }
 
   useEffect(() => {
-    document.addEventListener("keydown", animateKeyDown)
-    document.addEventListener("keyup", animateKeyUp)
+    document.addEventListener("keydown", animateKeyDown, {passive: true})
+    document.addEventListener("keyup", animateKeyUp, {passive: true})
     return () => {
       document.removeEventListener("keydown", () => {})
       document.removeEventListener("keyup", () => {})

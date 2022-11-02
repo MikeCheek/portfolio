@@ -4,6 +4,7 @@
   transition: transform 150ms ease-out;
   top: 0;
   left: 0;
+  z-index: 0;
   @media screen and (max-width: "768px") {
     display: none;
   }

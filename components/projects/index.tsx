@@ -2,7 +2,7 @@ import Image from "next/image"
 import React, {useContext} from "react"
 import CursorContext from "../../utilities/useCursorContext"
 import styles from "./index.module.scss"
-import projectsList from "./data"
+import {projectsList} from "../../utilities/info"
 
 const Index = () => {
   const {fitElement, unFit} = useContext(CursorContext)

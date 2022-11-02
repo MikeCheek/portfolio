@@ -28,10 +28,10 @@ const Index = () => {
   }
 
   useEffect(() => {
-    window.addEventListener("mousemove", (e) => handleMouseMove(e))
-    window.addEventListener("mousedown", (e) => handleMouseDown(e))
-    window.addEventListener("mouseup", (e) => handleMouseUp(e))
-    window.addEventListener("click", (e) => handleMouseClick(e))
+    window.addEventListener("mousemove", (e) => handleMouseMove(e), {passive: true})
+    window.addEventListener("mousedown", (e) => handleMouseDown(e), {passive: true})
+    window.addEventListener("mouseup", (e) => handleMouseUp(e), {passive: true})
+    window.addEventListener("click", (e) => handleMouseClick(e), {passive: true})
     return () => {
       window.removeEventListener("mousemove", () => {})
       window.removeEventListener("mousedown", () => {})

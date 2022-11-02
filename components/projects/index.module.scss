@@ -69,8 +69,6 @@
 }
 
 .imageStructure {
-  min-width: 48%;
-  max-width: 48%;
   height: fit-content;
 }
 
@@ -85,12 +83,15 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-
+  transition: transform 1s ease-in-out;
   .imageWrap {
     border-radius: 20px;
     border: 2px var(--transparent-white) solid;
     background-color: var(--very-transparent-white);
     padding: 5px;
+    max-width: 40vw;
+    min-width: 40vw;
+    width: 40vw;
   }
 
   .stand {
