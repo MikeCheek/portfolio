@@ -51,7 +51,7 @@ export const about: string = `
     I'm a <span style="color: var(--pink)">developer</span></h3>
     <p>Having been fascinated with computers since I was a child,<br/>
     I am studying computer engineering at the Polytechnic of Turin.</p>
-    <p>I am currently working at <a title="JEToP" class="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
+    <p>I am currently working at <a title="JEToP" target="_blank" rel="noopener noreferrer" class="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
     <br/>I decided to work there because I wanted to immediately take advantage of the opportunities that the university offered</p>
     <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics</p>`
 
