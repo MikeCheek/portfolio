@@ -17,18 +17,18 @@ $very-transparent-white: #fffefd0c;
 $very-transparent-black: #0000000e;
 $very-transparent-pink: #fd76cb0e;
 
-body[data-theme="dark"] {
-  --text-primary: $white;
-  --text-secondary: $orange;
-  --text-tertiary: $pink;
-  --bg-primary: $black;
-  --bg-toggle: $white;
-}
-
 body[data-theme="light"] {
   --text-primary: $black;
   --text-secondary: $pink;
   --text-tertiary: $orange;
   --bg-primary: $white;
   --bg-toggle: $black;
+}
+
+body[data-theme="dark"] {
+  --text-primary: $white;
+  --text-secondary: $orange;
+  --text-tertiary: $pink;
+  --bg-primary: $black;
+  --bg-toggle: $white;
 }

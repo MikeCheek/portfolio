@@ -8,7 +8,7 @@ const Index = ({name, link, style, color}: SkillType) => {
       {link ? (
         <a
           href={link}
-          style={{...style, backgroundColor: color ?? "var(--white)"}}
+          style={{...style, backgroundColor: color ?? "var(--text-primary)"}}
           className={styles.skill}
           rel="noopener noreferrer"
           target={"_blank"}
@@ -21,7 +21,7 @@ const Index = ({name, link, style, color}: SkillType) => {
           </svg> */}
         </a>
       ) : (
-        <p className={styles.skill} style={{...style, backgroundColor: color ?? "var(--white)"}}>
+        <p className={styles.skill} style={{...style, backgroundColor: color ?? "var(--text-primary)"}}>
           {name}
         </p>
       )}
