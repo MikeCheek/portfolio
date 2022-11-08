@@ -1,4 +1,4 @@
-import {SkillsType} from "./info.types"
+import {Project, SkillsType} from "./info.types"
 import pop from "../assets/images/screenshots/pop.png"
 import nt from "../assets/images/screenshots/nt.png"
 import wdc from "../assets/images/screenshots/wdc.png"
@@ -213,7 +213,7 @@ export const navItems = [
   },
 ]
 
-export const projectsList = [
+export const projectsList: Project[] = [
   {
     title: "Pop! Funding",
     image: pop,
