@@ -22,6 +22,7 @@ const Index = ({
   return (
     <NextHeadSeo
       title={title}
+      description={metaDescription}
       canonical={canonical ?? url}
       og={{
         title: defaultTitle,
