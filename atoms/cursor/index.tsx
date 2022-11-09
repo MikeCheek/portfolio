@@ -40,22 +40,24 @@ const Index = () => {
     }
   }, [])
   return (
-    <div
-      className={styles.container}
-      style={{
-        transform: `translate(${context.position ? context.position.x : position.x}px, ${
-          context.position ? context.position.y : position.y
-        }px) scale(${context.scale.x}, ${context.scale.y})`,
-      }}
-    >
-      <Blob
-        width={dimension}
-        height={dimension}
-        className={styles.cursor}
-        style={{transform: `scale(${transform.scale}) rotate(${transform.rotate}deg)`}}
-        fill={"none"}
-      />
-    </div>
+    <span className={styles.wrap}>
+      <div
+        className={styles.container}
+        style={{
+          transform: `translate(${context.position ? context.position.x : position.x}px, ${
+            context.position ? context.position.y : position.y
+          }px) scale(${context.scale.x}, ${context.scale.y})`,
+        }}
+      >
+        <Blob
+          width={dimension}
+          height={dimension}
+          className={styles.cursor}
+          style={{transform: `scale(${transform.scale}) rotate(${transform.rotate}deg)`}}
+          fill={"none"}
+        />
+      </div>
+    </span>
   )
 }
 

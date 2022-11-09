@@ -1,3 +1,9 @@
+.wrap {
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
+}
+
 .container {
   position: fixed;
   transform-origin: center center;
@@ -5,12 +11,6 @@
   top: 0;
   left: 0;
   z-index: 0;
-  @media screen and (max-width: "768px") {
-    display: none;
-  }
-  @media not (pointer: fine) {
-    display: none;
-  }
 }
 
 .cursor {
