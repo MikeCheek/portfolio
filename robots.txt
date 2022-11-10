@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Redirect 301 / https://michelepulvirenti.vercel.app
