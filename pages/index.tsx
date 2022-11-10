@@ -25,26 +25,30 @@ const IndexPage = (): JSX.Element => {
   }
 
   const animateKeyDown = (key: KeyboardEvent) => {
-    if (key.keyCode === 79)
-      //o
-      document.body.style.color = "var(--orange)"
-    if (key.keyCode === 80)
-      //p
-      document.body.style.color = "var(--pink)"
-    if (key.keyCode === 187) {
-      //+
-      document.body.style.transform = "scale(1.5)"
-      document.body.style.overflowX = "scroll"
+    console.log(key.key)
+    switch (key.key) {
+      case "o":
+        document.body.style.color = "var(--orange)"
+        break
+      case "p":
+        document.body.style.color = "var(--pink)"
+        break
+      case "+":
+        document.body.style.transform = "scale(1.5)"
+        document.body.style.overflowX = "scroll"
+        break
+      case "-":
+        document.body.style.transform = "scale(0.5)"
+        break
+      case "u":
+        document.body.style.textDecoration = "underline"
+        break
+      case "t":
+        document.body.style.webkitTextStroke = "thick"
+        break
+      default:
+        break
     }
-    if (key.keyCode === 189)
-      //-
-      document.body.style.transform = "scale(0.5)"
-    if (key.keyCode === 85)
-      //u
-      document.body.style.textDecoration = "underline"
-    if (key.keyCode === 84)
-      //t
-      document.body.style.webkitTextStroke = "thick"
   }
   const animateKeyUp = () => {
     document.body.removeAttribute("style")
