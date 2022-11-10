@@ -220,7 +220,8 @@ export const projectsList: Project[] = [
     image_mobile: pop_mobile,
     description: `A working crowdfunding web application based on Algorand Blockchain where anyone with Algo can create a funding or donate<br/><br/>
     This is the Project Work proposed by Algorand to the attendees of MasterZ 2nd Edition.<br/><br/>
-    Doing this Project Work we had the opportunity to test and improve our knowledge of the Algorand blockchain and to learn how to use it in the development of a crowdfunding platform. `,
+    Doing this Project Work we had the opportunity to test and improve our knowledge of the Algorand blockchain and to learn how to use it in the development of a crowdfunding platform.<br/><br/>
+    Visit the site and try to click on bubbles!`,
     href: "https://pop-funding.vercel.app",
     github: "https://github.com/MikeCheek/pop-funding",
   },
@@ -229,7 +230,8 @@ export const projectsList: Project[] = [
     image: nt,
     image_mobile: nt_mobile,
     description: `Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)<br/><br/>
-      During the event there were conferences and workshops on the theme of ethical and sustainable technological development in social and environmental terms.`,
+      During the event there were conferences and workshops on the theme of ethical and sustainable technological development in social and environmental terms.<br/><br/>
+      Visit the site and try to catch the walking bugs!`,
     href: "https://nt.syskrack.org",
     github: "https://github.com/MikeCheek/naturalmente-tecnologici",
     reduce_opacity: true,
@@ -238,7 +240,7 @@ export const projectsList: Project[] = [
     title: "Web Dev Challenge 2022",
     image: wdc,
     image_mobile: wdc_mobile,
-    description: `Website created on the occasion of the Web Dev Challenge event organized by JEToP<br/><br/>
+    description: `Website created to show all info of the Web Dev Challenge event organized by JEToP<br/><br/>
                 The challenge was to develop in team a landing page on a specific theme<br/><br/>
                 Have a look also at the <a href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
     href: "https://wdc.jetop.com",
