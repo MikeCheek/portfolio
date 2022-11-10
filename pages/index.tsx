@@ -25,7 +25,6 @@ const IndexPage = (): JSX.Element => {
   }
 
   const animateKeyDown = (key: KeyboardEvent) => {
-    console.log(key.key)
     switch (key.key) {
       case "o":
         document.body.style.color = "var(--orange)"
