@@ -2,7 +2,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: process.env.NODE_ENV === "development" ? true : false,
   swcMinify: true,
 }
 

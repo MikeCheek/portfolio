@@ -3,6 +3,7 @@ import CursorContext from "../utilities/useCursorContext"
 import Hero from "../components/hero"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import postRequest from "../utilities/postRequest"
 
 const IndexPage = (): JSX.Element => {
   const [scale, setScale] = useState<{x: number; y: number}>({x: 1, y: 1})
@@ -53,9 +54,16 @@ const IndexPage = (): JSX.Element => {
     document.body.removeAttribute("style")
   }
 
+  const updateView = () => {
+    postRequest(window.location + "/api/v1/db/views", {
+      page: "index",
+    }).then((data) => console.log(data))
+  }
+
   useEffect(() => {
     document.addEventListener("keydown", animateKeyDown, {passive: true})
     document.addEventListener("keyup", animateKeyUp, {passive: true})
+    updateView()
     return () => {
       document.removeEventListener("keydown", () => {})
       document.removeEventListener("keyup", () => {})
