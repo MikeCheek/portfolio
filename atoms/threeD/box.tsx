@@ -1,15 +1,14 @@
 import {useFrame} from "@react-three/fiber"
 import React, {useRef} from "react"
-import {Mesh} from "three"
+import {BufferGeometry, Material, Mesh} from "three"
 
 const Box = () => {
-  const boxRef = useRef<Mesh>()
+  const boxRef = useRef<Mesh<BufferGeometry, Material | Material[]> | null>(null)
   useFrame(({clock}) => {
-    boxRef.current!.rotation.x = Math.sin(clock.getElapsedTime())
-    boxRef.current!.rotation.y = Math.cos(clock.getElapsedTime())
+    boxRef.current!.rotation.x = Math.sin(clock.getElapsedTime() / 4)
+    boxRef.current!.rotation.y = Math.cos(clock.getElapsedTime() / 4)
   })
   return (
-    /*@ts-ignore */
     <mesh ref={boxRef} rotation={[90, 0, 20]}>
       <boxBufferGeometry attach="geometry" args={[3, 3, 3, 3]} />
       <meshLambertMaterial attach="material" color={"#ffac30"} emissive={"#fd76cb"} wireframe reflectivity={1} />

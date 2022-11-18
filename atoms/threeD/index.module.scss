@@ -1,0 +1,11 @@
+.wrapMobile {
+  display: none;
+  @media (hover: none) and (pointer: coarse) {
+    display: block;
+  }
+}
+.wrapDesktop {
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
+}
