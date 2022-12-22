@@ -21,7 +21,7 @@ const Index = () => {
   const fetchData = () => {
     setLoading(true)
     setError(undefined)
-    fetch(window.location.href + "/api/v1/data/projects")
+    fetch(window.location.origin + "/api/v1/data/projects")
       .then((response) => response.json())
       .then((data) => setProjectList(data))
       .catch((e) => {

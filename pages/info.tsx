@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import Loading from "../atoms/loading"
+import ViewChart from "../atoms/viewChart"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -58,6 +59,7 @@ const InfoPage = () => {
           ) : (
             <Loading />
           )}
+          <ViewChart />
         </>
       </Layout>
     </>

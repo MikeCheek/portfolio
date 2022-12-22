@@ -55,9 +55,10 @@ const IndexPage = (): JSX.Element => {
   }
 
   const updateView = () => {
-    postRequest(window.location + "/api/v1/db/views", {
+    postRequest(window.location.origin + "/api/v1/db/views", {
       page: "index",
-    }).then((data) => console.log(data))
+      mbare: window.location.search.includes("mbare"),
+    })
   }
 
   useEffect(() => {
