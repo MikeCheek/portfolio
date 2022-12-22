@@ -28,19 +28,20 @@ const Index = () => {
       })
   }, [])
 
-  useEffect(
-    () =>
-      setModifiedDataChart(
-        dataChart && dataChart.length > 0
-          ? [
-              {x: dataChart[1].x - 1, y: Math.min(...dataChart.map((d) => d.y)) - 1, r: 0},
-              ...dataChart,
-              {x: dataChart[dataChart.length - 1].x + 1, y: Math.max(...dataChart.map((d) => d.y)) + 1, r: 0},
-            ]
-          : []
-      ),
-    [dataChart]
-  )
+  useEffect(() => {
+    console.table(dataChart)
+    setModifiedDataChart(
+      dataChart && dataChart.length > 0
+        ? [
+            {x: dataChart[1].x - 1, y: Math.min(...dataChart.map((d) => d.y)) - 1, r: 0},
+            ...dataChart,
+            {x: dataChart[dataChart.length - 1].x + 1, y: Math.max(...dataChart.map((d) => d.y)) + 1, r: 0},
+          ]
+        : []
+    )
+  }, [dataChart])
+
+  useEffect(() => console.table(modifiedDataChart), [modifiedDataChart])
   const data = {
     labels: [
       "January",
