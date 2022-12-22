@@ -3,7 +3,7 @@
 
 const nextConfig = {
   reactStrictMode: process.env.NODE_ENV === "development" ? true : false,
-  swcMinify: true,
+  swcMinify: false,
 }
 
 module.exports = {
