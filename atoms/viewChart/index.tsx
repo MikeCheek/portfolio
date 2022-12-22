@@ -12,6 +12,7 @@ Chart.register(LinearScale, PointElement)
 
 const Index = () => {
   const [dataChart, setDataChart] = useState<DataChart[]>()
+  const [modifiedDataChart, setModifiedDataChart] = useState<DataChart[]>()
   useEffect(() => {
     fetch(window.location.origin + "/api/v1/db/views")
       .then((res) => res.json())
@@ -27,7 +28,19 @@ const Index = () => {
       })
   }, [])
 
-  useEffect(() => console.table(dataChart), [dataChart])
+  useEffect(
+    () =>
+      setModifiedDataChart(
+        dataChart && dataChart.length > 0
+          ? [
+              {x: dataChart[1].x - 1, y: Math.min(...dataChart.map((d) => d.y)) - 1, r: 0},
+              ...dataChart,
+              {x: dataChart[dataChart.length - 1].x + 1, y: Math.max(...dataChart.map((d) => d.y)) + 1, r: 0},
+            ]
+          : []
+      ),
+    [dataChart]
+  )
   const data = {
     labels: [
       "January",
@@ -63,13 +76,7 @@ const Index = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: dataChart
-          ? [
-              {x: dataChart[1].x - 1, y: Math.min(...dataChart.map((d) => d.y)) - 1, r: 0},
-              ...dataChart,
-              {x: dataChart[dataChart.length - 1].x + 1, y: Math.max(...dataChart.map((d) => d.y)) + 1, r: 0},
-            ]
-          : [],
+        data: modifiedDataChart,
       },
     ],
   }
