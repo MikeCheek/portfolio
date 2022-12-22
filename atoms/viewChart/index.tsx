@@ -77,9 +77,13 @@ const Index = () => {
   return (
     <>
       <p>The following chart represents when home page was viewed</p>
-      <div className={styles.chart}>
-        <Bubble data={data} width={400} height={200} />
-      </div>
+      {dataChart ? (
+        <div className={styles.chart}>
+          <Bubble data={data} width={400} height={200} />
+        </div>
+      ) : (
+        <p>Fetching data...</p>
+      )}
     </>
   )
 }
