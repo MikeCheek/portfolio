@@ -13,7 +13,7 @@ const IndexPage = (): JSX.Element => {
   useEffect(() => {
     const params = new URLSearchParams(location.search)
     params.forEach((value, key) => {
-      if (key === "ref") {
+      if (key === "r") {
         switch (value) {
           case "ln":
             addRef("linkedin")
