@@ -10,6 +10,34 @@ const IndexPage = (): JSX.Element => {
   const [position, setPosition] = useState<{x: number; y: number}>()
   const dimension = 100
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    params.forEach((value, key) => {
+      if (key === "ref") {
+        switch (value) {
+          case "ln":
+            addRef("linkedin")
+            break
+          case "nt":
+            addRef("nt")
+            break
+          case "wgame":
+            addRef("wordgame")
+            break
+          case "git":
+            addRef("github")
+            break
+          case "old":
+            addRef("oldsite")
+            break
+          default:
+            addRef(value)
+            break
+        }
+      }
+    })
+  }, [])
+
   const fit = (width: number, height: number) => {
     setScale({x: width / dimension + 1, y: height / dimension + 1})
   }
@@ -52,6 +80,12 @@ const IndexPage = (): JSX.Element => {
   }
   const animateKeyUp = () => {
     document.body.removeAttribute("style")
+  }
+
+  const addRef = (ref: string) => {
+    postRequest(window.location.origin + "/api/v1/db/referral", {
+      source: ref,
+    })
   }
 
   const updateView = () => {
