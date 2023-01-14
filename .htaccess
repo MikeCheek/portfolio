@@ -1,2 +1,2 @@
 RewriteEngine on 
-RewriteRule ^(.*)$ https://michelepulvirenti.vercel.app [R=301,L]
+RewriteRule ^(.*)$ https://michelepulvirenti.vercel.app/?r=ld [R=301,L]
