@@ -21,13 +21,13 @@ const IndexPage = (): JSX.Element => {
           case "nt":
             addRef("nt")
             break
-          case "wgame":
+          case "wg":
             addRef("wordgame")
             break
-          case "git":
+          case "gt":
             addRef("github")
             break
-          case "old":
+          case "ld":
             addRef("oldsite")
             break
           default:
