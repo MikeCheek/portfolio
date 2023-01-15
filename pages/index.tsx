@@ -11,7 +11,25 @@ const IndexPage = (): JSX.Element => {
   const dimension = 100
 
   useEffect(() => {
+    document.addEventListener("keydown", animateKeyDown, {passive: true})
+    document.addEventListener("keyup", animateKeyUp, {passive: true})
     const params = new URLSearchParams(location.search)
+    updateRef(params)
+    updateView(params)
+    return () => {
+      document.removeEventListener("keydown", () => {})
+      document.removeEventListener("keyup", () => {})
+    }
+  }, [])
+
+  const updateView = (params: URLSearchParams) => {
+    postRequest(window.location.origin + "/api/v1/db/views", {
+      page: "index",
+      mbare: params.has("mbare"),
+    })
+  }
+
+  const updateRef = (params: URLSearchParams) => {
     params.forEach((value, key) => {
       if (key === "r") {
         switch (value) {
@@ -36,7 +54,7 @@ const IndexPage = (): JSX.Element => {
         }
       }
     })
-  }, [])
+  }
 
   const fit = (width: number, height: number) => {
     setScale({x: width / dimension + 1, y: height / dimension + 1})
@@ -87,23 +105,6 @@ const IndexPage = (): JSX.Element => {
       source: ref,
     })
   }
-
-  const updateView = () => {
-    postRequest(window.location.origin + "/api/v1/db/views", {
-      page: "index",
-      mbare: window.location.search.includes("mbare"),
-    })
-  }
-
-  useEffect(() => {
-    document.addEventListener("keydown", animateKeyDown, {passive: true})
-    document.addEventListener("keyup", animateKeyUp, {passive: true})
-    updateView()
-    return () => {
-      document.removeEventListener("keydown", () => {})
-      document.removeEventListener("keyup", () => {})
-    }
-  }, [])
 
   return (
     <>
