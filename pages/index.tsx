@@ -30,30 +30,28 @@ const IndexPage = (): JSX.Element => {
   }
 
   const updateRef = (params: URLSearchParams) => {
-    params.forEach((value, key) => {
-      if (key === "r") {
-        switch (value) {
-          case "ln":
-            addRef("linkedin")
-            break
-          case "nt":
-            addRef("nt")
-            break
-          case "wg":
-            addRef("wordgame")
-            break
-          case "gt":
-            addRef("github")
-            break
-          case "ld":
-            addRef("oldsite")
-            break
-          default:
-            addRef(value)
-            break
-        }
-      }
-    })
+    if (!params.has("r")) return
+    const value = params.get("r")
+    switch (value) {
+      case "ln":
+        addRef("linkedin")
+        break
+      case "nt":
+        addRef("nt")
+        break
+      case "wg":
+        addRef("wordgame")
+        break
+      case "gt":
+        addRef("github")
+        break
+      case "ld":
+        addRef("oldsite")
+        break
+      default:
+        addRef(value ?? "null")
+        break
+    }
   }
 
   const fit = (width: number, height: number) => {
