@@ -11,6 +11,9 @@ import Projects from "../projects"
 import Skills from "../skills"
 import Model3D from "../../atoms/threeD"
 import Cursor from "../../atoms/cursor"
+import Bouncing from "../../atoms/bouncing"
+import {Physics} from "@react-three/cannon"
+import {Canvas} from "@react-three/fiber"
 
 // const Model3D = lazy(() => import('../../atoms/model3D'))
 
@@ -22,7 +25,7 @@ const Index = (): JSX.Element => {
       <Cursor />
       <BigHeading />
       <div className={styles.sectionWrap}>
-        <Section title={"About me"} id={"about"} Model3d={<Model3D />}>
+        <Section title={"About me"} id={"about"} Model3d={<Bouncing />}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={"My projects"} id={"projects"} reversed>
