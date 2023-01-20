@@ -66,7 +66,7 @@ const Index = () => {
           <Sphere />
           <Plane />
           <PerspectiveCamera makeDefault position={[0, 3, 10]} />
-          <OrbitControls />
+          {/* <OrbitControls /> */}
         </Physics>
       </Canvas>
     </Suspense>
