@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: michelepulvirenti.vercel.app
+Token: 4849b3527d9b24808db11756fbcc4e6c6866bdf6adf3e27287e54fc58d754620
