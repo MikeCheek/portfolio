@@ -2,9 +2,11 @@ import {Project, SkillsType} from "./info.types"
 import pop from "../assets/images/screenshots/pop.png"
 import nt from "../assets/images/screenshots/nt.png"
 import wdc from "../assets/images/screenshots/wdc.png"
+import wordgame from "../assets/images/screenshots/wordgame.png"
 import pop_mobile from "../assets/images/screenshots/pop-mobile.jpg"
 import nt_mobile from "../assets/images/screenshots/nt-mobile.jpg"
 import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
+import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -241,8 +243,20 @@ export const projectsList: Project[] = [
     image: wdc,
     image_mobile: wdc_mobile,
     description: `Website created to show all info of the Web Dev Challenge event organized by JEToP<br/><br/>
-                The challenge was to develop in team a landing page on a specific theme<br/><br/>
+                In the challenge, teams were required to create landing pages on a specific topic<br/><br/>
                 Have a look also at the <a href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
     href: "https://wdc.jetop.com",
+  },
+  {
+    title: "WordGame",
+    image: wordgame,
+    image_mobile: wordgame_mobile,
+    description: `Webapp developed for fun and to try something new<br/><br/>
+                It is a simple guess the hidden word game and you can play in english or in italian<br/><br/>
+                This webapp is also a PWA, so you can install it and play offline<br/><br/>
+                When you guess the word, you can also see its definition (only available in English).
+                It's a great way to play and learn at the same time!`,
+    href: "https://mikecheek.github.io/wordgame",
+    github: "https://github.com/MikeCheek/wordgame",
   },
 ]
