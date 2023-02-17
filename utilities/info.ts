@@ -260,6 +260,5 @@ export const projectsList: Project[] = [
                 It's a great way to play and learn at the same time!`,
     href: "https://mikecheek.github.io/wordgame",
     github: "https://github.com/MikeCheek/wordgame",
-    reduce_opacity: true,
   },
 ]
