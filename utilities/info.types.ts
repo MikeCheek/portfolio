@@ -14,4 +14,5 @@ export interface Project {
   href: string
   github?: string
   reduce_opacity?: boolean
+  video?: string
 }

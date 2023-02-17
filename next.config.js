@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
 /** @type {import('next-sitemap').IConfig} */
+const withPlugins = require("next-compose-plugins")
+const withVideos = require("next-videos")
+
+const url = "https://michelepulvirenti.vercel.app"
 
 const nextConfig = {
   reactStrictMode: process.env.NODE_ENV === "development" ? true : false,
   swcMinify: false,
-}
-
-module.exports = {
-  ...nextConfig,
+  siteUrl: process.env.SITE_URL || url,
+  generateRobotsTxt: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -18,3 +20,5 @@ module.exports = {
     return config
   },
 }
+
+module.exports = withPlugins([withVideos], nextConfig)

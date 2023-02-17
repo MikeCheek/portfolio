@@ -79,6 +79,18 @@
   border-radius: 12.5px;
 }
 
+.video {
+  @extend .image;
+  width: inherit;
+}
+
+.media {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: opacity 500ms ease;
+}
+
 .desktopWrap {
   display: flex;
   flex-direction: column;
@@ -94,6 +106,7 @@
     max-width: 40vw;
     min-width: 40vw;
     width: 40vw;
+    position: relative;
   }
 
   .stand {

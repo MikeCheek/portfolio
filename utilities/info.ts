@@ -226,6 +226,7 @@ export const projectsList: Project[] = [
     Visit the site and try to click on bubbles!`,
     href: "https://pop-funding.vercel.app",
     github: "https://github.com/MikeCheek/pop-funding",
+    video: require("../assets/videos/pop.mp4"),
   },
   {
     title: "Naturalmente Tecnologici",
