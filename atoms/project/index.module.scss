@@ -93,6 +93,9 @@
     min-width: 40vw;
     width: 40vw;
     position: relative;
+    display: grid;
+    place-items: center;
+    overflow-y: hidden;
   }
 
   .stand {
