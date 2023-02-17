@@ -238,6 +238,7 @@ export const projectsList: Project[] = [
     href: "https://nt.syskrack.org",
     github: "https://github.com/MikeCheek/naturalmente-tecnologici",
     reduce_opacity: true,
+    video: require("../assets/videos/nt.mp4"),
   },
   {
     title: "Web Dev Challenge 2022",
