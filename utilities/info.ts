@@ -250,7 +250,7 @@ export const projectsList: Project[] = [
     href: "https://wdc.jetop.com",
   },
   {
-    title: "WordGame",
+    title: "Word Game",
     image: wordgame,
     image_mobile: wordgame_mobile,
     description: `Webapp developed for fun and to try something new<br/><br/>
@@ -260,5 +260,6 @@ export const projectsList: Project[] = [
                 It's a great way to play and learn at the same time!`,
     href: "https://mikecheek.github.io/wordgame",
     github: "https://github.com/MikeCheek/wordgame",
+    reduce_opacity: true,
   },
 ]
