@@ -85,6 +85,7 @@
 .video {
   @extend .image;
   width: inherit;
+  height: auto;
 }
 
 .media {

@@ -80,7 +80,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
               onMouseEnter={(e) => e.currentTarget.play()}
               onMouseLeave={(e) => e.currentTarget.pause()}
               loop
-              className={`${styles.video} `}
+              className={styles.video}
             >
               <source src={project.video} />
             </video>
