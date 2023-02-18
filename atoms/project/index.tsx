@@ -1,20 +1,13 @@
-import React, {useContext, useEffect, useRef, useState} from "react"
+import React, {useContext} from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import {ProjectProps} from "./index.types"
 import CursorContext from "../../utilities/useCursorContext"
+import Link from "../../assets/link.svg"
 
 const Index = ({project, reversed = false}: ProjectProps) => {
   const {fitElement, unFit} = useContext(CursorContext)
-  const [showVideo, setShowVideo] = useState<boolean>(false)
-
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    if (videoRef.current)
-      if (showVideo) videoRef.current.play()
-      else videoRef.current.pause()
-  }, [showVideo])
+  const id = project.title.replace(/\s+/g, "")
 
   const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     fitElement(e.currentTarget)
@@ -24,8 +17,18 @@ const Index = ({project, reversed = false}: ProjectProps) => {
   }
 
   return (
-    <div className={reversed ? styles.projectReverse : styles.project}>
+    <div className={reversed ? styles.projectReverse : styles.project} id={id}>
       <div className={styles.head}>
+        <a
+          href={"#" + id}
+          className={reversed ? styles.linkReversed : styles.link}
+          onMouseOver={(e) => handleMouseHover(e)}
+          onMouseEnter={(e) => handleMouseHover(e)}
+          onMouseOut={handleMouseLeave}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Link />
+        </a>
         <h3>{project.title}</h3>
         <em dangerouslySetInnerHTML={{__html: project.description}}></em>
         <div className={styles.imageMobileWrap}>
@@ -69,44 +72,20 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         </div>
       </div>
       <div className={styles.desktopWrap}>
-        <a
-          className={styles.imageWrap}
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={() => project.video && setShowVideo(true)}
-          onMouseLeave={() => setShowVideo(false)}
-        >
+        <a className={styles.imageWrap} href={project.href} target="_blank" rel="noopener noreferrer">
           {project.video ? (
-            <>
-              <Image
-                src={project.image}
-                alt={project.title}
-                className={`${styles.image} ${styles.media}`}
-                loading={"lazy"}
-                quality={50}
-                style={showVideo ? {opacity: 0} : {opacity: 1}}
-              />
-              <video
-                muted
-                autoPlay
-                ref={videoRef}
-                loop
-                className={`${styles.video} ${styles.media}`}
-                style={showVideo ? {opacity: 1} : {opacity: 0}}
-              >
-                <source src={project.video} />
-              </video>
-            </>
+            <video
+              muted
+              controls={false}
+              onMouseEnter={(e) => e.currentTarget.play()}
+              onMouseLeave={(e) => e.currentTarget.pause()}
+              loop
+              className={`${styles.video} `}
+            >
+              <source src={project.video} />
+            </video>
           ) : (
-            <Image
-              src={project.image}
-              alt={project.title}
-              className={styles.image}
-              loading={"lazy"}
-              quality={50}
-              onMouseEnter={() => project.video && setShowVideo(true)}
-            />
+            <Image src={project.image} alt={project.title} className={styles.image} loading={"lazy"} quality={50} />
           )}
         </a>
         <div className={styles.stand} />

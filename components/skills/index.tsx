@@ -130,7 +130,7 @@ const Index = (): JSX.Element => {
       </div>
       <p className={styles.neutral}>Some skills are hidden from the others?</p>
       <p className={styles.hintMobile}>Use 2 fingers and see the magic!</p>{" "}
-      <p className={styles.hint}>Drag the space between them with your mouse!</p>
+      <p className={styles.hint}>Drag on empty space and see the magic!</p>
     </div>
   )
 }

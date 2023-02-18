@@ -1,4 +1,5 @@
 import {createContext} from "react"
+import {Project} from "./info.types"
 
 interface Context {
   scale: {x: number; y: number}
@@ -6,6 +7,7 @@ interface Context {
   fit: (width: number, height: number) => void
   unFit: () => void
   fitElement: (element: HTMLElement) => void
+  projects: Project[]
 }
 
 const CursorContext = createContext<Context>({
@@ -13,6 +15,7 @@ const CursorContext = createContext<Context>({
   fit: () => {},
   fitElement: () => {},
   unFit: () => {},
+  projects: [],
 })
 
 export default CursorContext

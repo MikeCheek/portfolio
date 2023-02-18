@@ -4,8 +4,11 @@ import Hero from "../components/hero"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import postRequest from "../utilities/postRequest"
+import {NextApiRequest} from "next"
+import {getAllProjects} from "./api/v1/data/projects"
+import {Project} from "../utilities/info.types"
 
-const IndexPage = (): JSX.Element => {
+const IndexPage = ({projects}: {projects: Project[]}): JSX.Element => {
   const [scale, setScale] = useState<{x: number; y: number}>({x: 1, y: 1})
   const [position, setPosition] = useState<{x: number; y: number}>()
   const dimension = 100
@@ -116,7 +119,7 @@ const IndexPage = (): JSX.Element => {
         pathname={"/"}
       />
       <Layout>
-        <CursorContext.Provider value={{scale, position, fit, fitElement, unFit}}>
+        <CursorContext.Provider value={{scale, position, fit, fitElement, unFit, projects}}>
           <Hero />
         </CursorContext.Provider>
       </Layout>
@@ -125,3 +128,10 @@ const IndexPage = (): JSX.Element => {
 }
 
 export default IndexPage
+
+export async function getServerSideProps(req: NextApiRequest) {
+  const projects = getAllProjects()
+  return {
+    props: {projects: projects}, // will be passed to the page component as props
+  }
+}

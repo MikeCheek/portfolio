@@ -48,6 +48,23 @@
   }
 }
 
+.link {
+  position: absolute;
+  left: -40px;
+  top: 15px;
+  fill: var(--transparent-white);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  padding: 10px;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.linkReversed {
+  @extend .link;
+}
+
 .links {
   width: 100%;
   display: flex;
