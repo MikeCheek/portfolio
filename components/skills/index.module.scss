@@ -26,6 +26,9 @@
   height: fit-content;
   will-change: transform;
   transition: transform 1s ease-out;
+  &:hover {
+    z-index: 999 !important;
+  }
 }
 
 .neutral {
