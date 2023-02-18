@@ -1,13 +1,21 @@
-import React, {useContext} from "react"
+import React, {useContext, useEffect, useRef} from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import {ProjectProps} from "./index.types"
 import CursorContext from "../../utilities/useCursorContext"
 import Link from "../../assets/link.svg"
+import {useInView} from "react-intersection-observer"
 
 const Index = ({project, reversed = false}: ProjectProps) => {
   const {fitElement, unFit} = useContext(CursorContext)
   const id = project.title.replace(/\s+/g, "")
+  const [ref, inView, _entry] = useInView({
+    threshold: 0,
+    fallbackInView: true,
+    rootMargin: "-30% 0px -30% 0px",
+  })
+
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     fitElement(e.currentTarget)
@@ -15,6 +23,13 @@ const Index = ({project, reversed = false}: ProjectProps) => {
   const handleMouseLeave = () => {
     unFit()
   }
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (inView) videoRef.current.play()
+      else videoRef.current.pause()
+    }
+  }, [inView])
 
   return (
     <div className={reversed ? styles.projectReverse : styles.project} id={id}>
@@ -71,14 +86,15 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           )}
         </div>
       </div>
-      <div className={styles.desktopWrap}>
+      <div ref={ref} className={styles.desktopWrap}>
         <a className={styles.imageWrap} href={project.href} target="_blank" rel="noopener noreferrer">
           {project.video ? (
             <video
               muted
+              ref={videoRef}
               controls={false}
-              onMouseEnter={(e) => e.currentTarget.play()}
-              onMouseLeave={(e) => e.currentTarget.pause()}
+              onMouseEnter={(e) => e.currentTarget.pause()}
+              onMouseLeave={(e) => e.currentTarget.play()}
               loop
               className={styles.video}
             >
