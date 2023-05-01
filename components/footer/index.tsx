@@ -35,7 +35,7 @@ const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
 
   return (
     <>
-      <div className={styles.footer} id={"contacts"}>
+      <footer className={styles.footer} id={"contacts"}>
         <h2 className={styles.contacts}>My contacts</h2>
         <div className={styles.icons}>
           {/*<Phone width={width} fill={color} />*/}
@@ -73,7 +73,7 @@ const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
             <Github width={width} height={height} fill={color} className={styles.icon} />
           </a>
         </div>
-      </div>
+      </footer>
       {noGameLink ? null : (
         <a
           href={"https://mikecheek.github.io/wordgame?ref=portfolio"}
