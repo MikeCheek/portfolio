@@ -85,6 +85,7 @@ const Index = ({
         }}
         twitter={{
           card: image ? "summary_large_image" : "summary",
+          site: url,
         }}
         customMetaTags={[
           {
@@ -102,6 +103,18 @@ const Index = ({
           {
             property: "og:image:height",
             content: "200px",
+          },
+          {
+            property: "twitter:image",
+            content: image,
+          },
+          {
+            property: "twitter:title",
+            content: defaultTitle,
+          },
+          {
+            property: "twitter:description",
+            content: metaDescription,
           },
           ...meta,
         ]}
