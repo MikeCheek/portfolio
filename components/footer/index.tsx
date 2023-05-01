@@ -44,7 +44,7 @@ const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
             onMouseLeave={(event) => handleMouseLeave(event)}
             className={styles.iconWrap}
             href={linkedin}
-            title={"Linkedin profile"}
+            title={"Visit my Linkedin profile"}
             target={"_blank"}
             rel="noopener noreferrer"
           >
@@ -66,7 +66,7 @@ const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
             onMouseLeave={(event) => handleMouseLeave(event)}
             className={styles.iconWrap}
             href={github}
-            title={"GitHub profile"}
+            title={"Visit my GitHub profile"}
             target={"_blank"}
             rel="noopener noreferrer"
           >

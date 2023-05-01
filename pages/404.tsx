@@ -42,8 +42,8 @@ const NotFoundPage = (): JSX.Element => {
         <h1 className={styles.heading}>PAGE NOT FOUND</h1>
         <span className={styles.lost}>
           Did you lose your way while navigating?{" "}
-          <Link href="/">
-            <a className="link">GO HOME</a>
+          <Link title="GO HOME" href="/">
+            <p className="link">GO HOME</p>
           </Link>
           <Rocket />
           {fetched && (
@@ -53,7 +53,13 @@ const NotFoundPage = (): JSX.Element => {
                 {bored.link == "" ? (
                   bored.activity
                 ) : (
-                  <a className="link" target="_blank" rel="noopener noreferrer" href={bored.link}>
+                  <a
+                    title={bored.activity}
+                    className="link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={bored.link}
+                  >
                     {bored.activity}
                   </a>
                 )}

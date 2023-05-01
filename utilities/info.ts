@@ -53,12 +53,12 @@ export const about: string = `
     I'm a <span style="color: var(--pink)">developer</span></h3>
     <p>Having been fascinated with computers since I was a child,<br/>
     I am studying computer engineering at the Polytechnic of Turin.</p>
-    <p>I am currently working at <a title="JEToP" target="_blank" rel="noopener noreferrer" class="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
+    <p>I am currently working at <a title="JEToP Website" target="_blank" rel="noopener noreferrer" class="link" href="https://jetop.com">JEToP</a>, a student no-profit organization.
     <br/>I decided to work there because I wanted to immediately take advantage of the opportunities that the university offered</p>
     <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics</p>`
 
 //work experiences
-export const works: string = `<strong><h3><a title="JEToP" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Now)<br/><br/>
+export const works: string = `<strong><h3><a title="JEToP Website" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Now)<br/><br/>
     <h4>Role: IT Consultant</h4>
     <p>As a member of <strong>teams</strong> on both internal and external projects, 
       <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
@@ -246,7 +246,7 @@ export const projectsList: Project[] = [
     image_mobile: wdc_mobile,
     description: `Website created to show all info of the Web Dev Challenge event organized by JEToP<br/><br/>
                 In the challenge, teams were required to create landing pages on a specific topic<br/><br/>
-                Have a look also at the <a href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
+                Have a look also at the <a title="JEToP WDC Thanks" href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
     href: "https://wdc.jetop.com",
   },
   {

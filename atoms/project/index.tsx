@@ -36,6 +36,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
       <div className={styles.head}>
         <a
           href={"#" + id}
+          title={"Link to " + id}
           className={reversed ? styles.linkReversed : styles.link}
           onMouseOver={(e) => handleMouseHover(e)}
           onMouseEnter={(e) => handleMouseHover(e)}
@@ -59,6 +60,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
 
         <div className={styles.links}>
           <a
+            title={"Go to " + project.title + " website"}
             onMouseOver={(e) => handleMouseHover(e)}
             onMouseEnter={(e) => handleMouseHover(e)}
             onMouseOut={handleMouseLeave}
@@ -72,6 +74,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           </a>
           {project.github && (
             <a
+              title={"Go to " + project.title + " repository"}
               onMouseOver={(e) => handleMouseHover(e)}
               onMouseEnter={(e) => handleMouseHover(e)}
               onMouseOut={handleMouseLeave}
@@ -87,7 +90,13 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         </div>
       </div>
       <div ref={ref} className={styles.desktopWrap}>
-        <a className={styles.imageWrap} href={project.href} target="_blank" rel="noopener noreferrer">
+        <a
+          title={"Go to " + project.title + " website"}
+          className={styles.imageWrap}
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {project.video ? (
             <video
               muted
