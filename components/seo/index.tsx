@@ -15,7 +15,7 @@ const Index = ({
   bingSiteVerification,
 }: SEOProps): JSX.Element => {
   const metaDescription = description || config.description
-  const defaultTitle: string = title + "| Portfolio"
+  const defaultTitle: string = title + " | Portfolio"
   const url: string = config.url
   const image: string = url + "/logo.png"
   const canonical = pathname ? `${config.siteUrl}${pathname}` : null
@@ -72,7 +72,7 @@ const Index = ({
   return (
     <>
       <NextHeadSeo
-        title={title}
+        title={defaultTitle}
         description={metaDescription}
         canonical={canonical ?? url}
         og={{
