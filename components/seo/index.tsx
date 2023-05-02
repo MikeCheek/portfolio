@@ -84,7 +84,7 @@ const Index = ({
           siteName: title,
         }}
         twitter={{
-          card: image ? "summary_large_image" : "summary",
+          card: "summary",
           site: url,
         }}
         customMetaTags={[
