@@ -20,7 +20,9 @@ const Index = (): JSX.Element => {
   return (
     <div>
       <Cursor />
-      <BigHeading />
+      <header>
+        <BigHeading />
+      </header>
       <div className={styles.sectionWrap}>
         <Section title={"About me"} id={"about"} Model3d={<Model3D />}>
           <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />

@@ -5,7 +5,7 @@ import styles from "./index.module.scss"
 
 const Index = () => {
   return (
-    <div className={styles.heading}>
+    <nav className={styles.heading}>
       <h1>
         Hi, I&apos;m{" "}
         <HoverPopUp href="#about" down>
@@ -34,7 +34,7 @@ const Index = () => {
       </h2>
       {/*<Circles number={5} />*/}
       <GoDown />
-    </div>
+    </nav>
   )
 }
 

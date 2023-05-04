@@ -99,6 +99,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         >
           {project.video ? (
             <video
+              className={styles.video}
               muted
               ref={videoRef}
               controls={false}
@@ -106,7 +107,6 @@ const Index = ({project, reversed = false}: ProjectProps) => {
               onMouseLeave={(e) => e.currentTarget.play()}
               loop
               about={project.title + " video"}
-              className={styles.video}
             >
               <source src={project.video} />
             </video>

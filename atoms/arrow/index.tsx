@@ -18,7 +18,7 @@ const Index = ({
   }
   return (
     <div
-      className={`${styles.arrowWrap} ${hideMobile ? styles.hideMobile : hideDesktop ? styles.hideDesktop : ""}`}
+      className={`${styles.arrowWrap} ${hideMobile ? styles.hideMobile : hideDesktop ? styles.hideDesktop : null}`}
       style={injectStyle}
       onClick={onClick}
     >

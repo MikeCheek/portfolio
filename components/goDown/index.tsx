@@ -7,7 +7,7 @@ const Index = () => {
   const {fitElement, unFit} = useContext(CursorContext)
   return (
     <div
-      className={styles.arrowWrap}
+      className={styles.arrows}
       onClick={() => window.scroll(0, window.innerHeight)}
       onMouseEnter={(e) => fitElement(e.currentTarget)}
       onMouseOver={(e) => fitElement(e.currentTarget)}
