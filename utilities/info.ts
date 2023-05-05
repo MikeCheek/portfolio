@@ -237,7 +237,6 @@ export const projectsList: Project[] = [
       Visit the site and try to catch the walking bugs!`,
     href: "https://nt.syskrack.org",
     github: "https://github.com/MikeCheek/naturalmente-tecnologici",
-    reduce_opacity: true,
     video: require("../assets/videos/nt.mp4"),
   },
   {
