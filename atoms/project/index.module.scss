@@ -80,6 +80,7 @@
 .image {
   @extend .imageStructure;
   border-radius: 12.5px;
+  width: inherit;
 }
 
 .video {
@@ -107,13 +108,10 @@
     border: 2px var(--transparent-white) solid;
     background-color: var(--very-transparent-white);
     padding: 5px;
-    max-width: 40vw;
-    min-width: 40vw;
     width: 40vw;
     position: relative;
     display: grid;
     place-items: center;
-    overflow-y: hidden;
   }
 
   .stand {

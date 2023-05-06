@@ -54,6 +54,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
             className={styles.imageMobile}
             style={project.reduce_opacity ? {opacity: 0.4} : {}}
             loading={"lazy"}
+            fill
             quality={50}
           />
         </div>
@@ -111,7 +112,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
               <source src={project.video} />
             </video>
           ) : (
-            <Image src={project.image} alt={project.title} className={styles.image} loading={"lazy"} quality={50} />
+            <Image src={project.image} alt={project.title} className={styles.image} height={380} quality={80} />
           )}
         </a>
         <div className={styles.stand} />
