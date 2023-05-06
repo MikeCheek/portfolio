@@ -1,0 +1,42 @@
+.button {
+  background: none;
+  border: 5px groove var(--transparent-orange);
+  color: var(--transparent-orange);
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  transition: 100ms;
+  font-weight: bolder;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.5s ease;
+  will-change: color;
+
+  &:hover {
+    color: var(--black);
+    span {
+      transform: translateY(0) scale(2);
+    }
+  }
+
+  @for $i from 1 through 10 {
+    :nth-child(#{$i}) {
+      --n: #{$i};
+    }
+  }
+
+  span {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: var(--orange);
+    transform: translateY(150%);
+    left: calc((var(--n) - 1) * 10%);
+    transition: transform 0.5s ease;
+    will-change: transform;
+    transition-delay: calc((var(--n) - 1) * 0.05s);
+    z-index: -1;
+  }
+}

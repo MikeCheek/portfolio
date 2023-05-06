@@ -5,6 +5,7 @@ import {ProjectProps} from "./index.types"
 import CursorContext from "../../utilities/useCursorContext"
 import Link from "../../assets/link.svg"
 import {useInView} from "react-intersection-observer"
+import Button from "../button"
 
 const Index = ({project, reversed = false}: ProjectProps) => {
   const {fitElement, unFit} = useContext(CursorContext)
@@ -60,33 +61,23 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         </div>
 
         <div className={styles.links}>
-          <a
+          <Button
             title={"Go to " + project.title + " website"}
-            onMouseOver={(e) => handleMouseHover(e)}
             onMouseEnter={(e) => handleMouseHover(e)}
-            onMouseOut={handleMouseLeave}
             onMouseLeave={handleMouseLeave}
             href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="buttonStyle"
           >
             Visit Website
-          </a>
+          </Button>
           {project.github && (
-            <a
+            <Button
               title={"Go to " + project.title + " repository"}
-              onMouseOver={(e) => handleMouseHover(e)}
               onMouseEnter={(e) => handleMouseHover(e)}
-              onMouseOut={handleMouseLeave}
               onMouseLeave={handleMouseLeave}
               href={project.github}
-              target={"_blank"}
-              rel={"noopener noreferrer"}
-              className="buttonStyle"
             >
               Visit Repo
-            </a>
+            </Button>
           )}
         </div>
       </div>
