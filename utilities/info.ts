@@ -234,7 +234,7 @@ export const projectsList: Project[] = [
     image_mobile: nt_mobile,
     description: `Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)<br/><br/>
       During the event there were conferences and workshops on the theme of ethical and sustainable technological development in social and environmental terms.<br/><br/>
-      Visit the site and try to catch the walking bugs!`,
+      Visit the site and try to catch the flying insects!`,
     href: "https://nt.syskrack.org",
     github: "https://github.com/MikeCheek/naturalmente-tecnologici",
     video: require("../assets/videos/nt.mp4"),
