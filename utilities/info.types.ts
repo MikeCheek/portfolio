@@ -15,4 +15,6 @@ export interface Project {
   github?: string
   reduce_opacity?: boolean
   video?: string
+  technologies?: string[]
+  tools?: string[]
 }

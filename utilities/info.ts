@@ -227,6 +227,8 @@ export const projectsList: Project[] = [
     href: "https://pop-funding.vercel.app",
     github: "https://github.com/MikeCheek/pop-funding",
     video: require("../assets/videos/pop.mp4"),
+    technologies: ["NextJs", "TailwindCSS"],
+    tools: ["ESLint", "Prettier"],
   },
   {
     title: "Naturalmente Tecnologici",
@@ -238,6 +240,8 @@ export const projectsList: Project[] = [
     href: "https://nt.syskrack.org",
     github: "https://github.com/MikeCheek/naturalmente-tecnologici",
     video: require("../assets/videos/nt.mp4"),
+    technologies: ["GatsbyJs", "Sass"],
+    tools: ["FTP Deploy Action"],
   },
   {
     title: "Web Dev Challenge 2022",
@@ -247,6 +251,8 @@ export const projectsList: Project[] = [
                 In the challenge, teams were required to create landing pages on a specific topic<br/><br/>
                 Have a look also at the <a title="JEToP WDC Thanks" href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
     href: "https://wdc.jetop.com",
+    technologies: ["NextJs", "TailwindCSS"],
+    tools: ["Husky", "ESLint", "Prettier"],
   },
   {
     title: "Word Game",
@@ -259,5 +265,6 @@ export const projectsList: Project[] = [
                 It's a great way to play and learn at the same time!`,
     href: "https://mikecheek.github.io/wordgame",
     github: "https://github.com/MikeCheek/wordgame",
+    technologies: ["GatsbyJs", "Sass"],
   },
 ]

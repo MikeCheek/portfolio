@@ -6,6 +6,7 @@ import CursorContext from "../../utilities/useCursorContext"
 import Link from "../../assets/link.svg"
 import {useInView} from "react-intersection-observer"
 import Button from "../button"
+import Chip from "../chip"
 
 const Index = ({project, reversed = false}: ProjectProps) => {
   const {fitElement, unFit} = useContext(CursorContext)
@@ -107,6 +108,27 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           )}
         </a>
         <div className={styles.stand} />
+      </div>
+      <div className={styles.chipsWrap}>
+        {project.technologies ? (
+          <div className={styles.chips}>
+            {project.technologies.map((technology, key) => (
+              <Chip key={key} text={technology} />
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
+        {project.tools ? (
+          <div className={styles.chips}>
+            {project.tools.map((tool, key) => (
+              <Chip key={key} orange text={tool} />
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
+        <p>Try to light these tags up, they need to be recharged</p>
       </div>
     </div>
   )

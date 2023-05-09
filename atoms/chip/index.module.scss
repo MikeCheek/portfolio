@@ -1,0 +1,36 @@
+.wrap {
+  color: var(--pink);
+  position: relative;
+  border: 3px solid var(--pink);
+  border-radius: 20px;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    mix-blend-mode: difference;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+  }
+}
+
+.wrapOrange {
+  @extend .wrap;
+  color: var(--orange);
+  border-color: var(--orange) !important;
+}
+
+.background {
+  padding: 5px 10px;
+  color: transparent;
+  background-color: var(--pink);
+  transition: opacity 500ms ease;
+}
+
+.backgroundOrange {
+  @extend .background;
+  border-color: var(--orange) !important;
+  background-color: var(--orange);
+}
