@@ -17,6 +17,8 @@ const IndexPage = ({projects}: {projects: Project[]}): JSX.Element => {
     document.addEventListener("keydown", animateKeyDown, {passive: true})
     document.addEventListener("keyup", animateKeyUp, {passive: true})
     const params = new URLSearchParams(location.search)
+    const referrer = document.referrer
+    if (referrer && referrer.length > 0) addRef(referrer)
     updateRef(params)
     updateView(params)
     return () => {
