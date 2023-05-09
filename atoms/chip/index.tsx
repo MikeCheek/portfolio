@@ -22,8 +22,7 @@ const Index = ({text, orange = false}: ChipProps) => {
       setTimeout(() => setTimer(1700), 8000)
     }
     setTimeout(decrement, timer)
-    console.log("runned")
-  }, [opacity])
+  }, [opacity, timer])
 
   return (
     <div
