@@ -11,7 +11,7 @@ const Index = ({text, orange = false}: ChipProps) => {
   }
 
   const decrement = () => {
-    setOpacity((curr) => (curr < 0 ? curr : curr - 0.05))
+    setOpacity((curr) => (curr < 0 ? curr : curr - 0.1))
   }
 
   const handleMouseEnter = () => increment()
