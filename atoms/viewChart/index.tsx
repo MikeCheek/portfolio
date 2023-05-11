@@ -1,94 +1,81 @@
-import {Chart, LinearScale, PointElement} from "chart.js"
 import React, {useEffect, useState} from "react"
-import {Bubble} from "react-chartjs-2"
 import styles from "./index.module.scss"
+import {Line, LineChart, XAxis, YAxis, Tooltip} from "recharts"
 
 interface DataChart {
-  x: number
-  y: number
-  r: number
+  name: string
+  Views: number
+  hour: number
 }
-Chart.register(LinearScale, PointElement)
 
 const Index = () => {
   const [dataChart, setDataChart] = useState<DataChart[]>()
-  const [modifiedDataChart, setModifiedDataChart] = useState<DataChart[]>()
-  useEffect(() => {
+  const [modifiedDataChart, _setModifiedDataChart] = useState<DataChart[]>([])
+
+  const fetchData = () =>
     fetch(window.location.origin + "/api/v1/db/views")
       .then((res) => res.json())
       .then((json: {date: number[]}) => {
         const dates = json.date.map((n) => new Date(n))
         setDataChart(
           dates.map((date) => ({
-            x: parseInt(date.toLocaleString("default", {month: "numeric"}), 10),
-            y: parseInt(date.toLocaleString("default", {day: "numeric"}), 10),
-            r: parseInt(date.toLocaleString("default", {hour: "numeric"}), 10),
+            name: date.toLocaleDateString(),
+            Views: 1,
+            hour: parseInt(date.toLocaleString("default", {hour: "numeric"}), 10),
           }))
         )
       })
+
+  const calculateData = () => {
+    if (dataChart)
+      dataChart.forEach((date) => {
+        const found = modifiedDataChart.find((v) => v.name === date.name)
+        if (found) found.Views += 1
+        else modifiedDataChart.push(date)
+      })
+  }
+
+  useEffect(() => {
+    fetchData()
   }, [])
 
   useEffect(() => {
-    if (dataChart && dataChart.length > 0)
-      setModifiedDataChart(
-        dataChart && dataChart.length > 0
-          ? [
-              {x: dataChart[1].x - 1, y: Math.min(...dataChart.map((d) => d.y)) - 1, r: 0},
-              ...dataChart,
-              {x: dataChart[dataChart.length - 1].x + 1, y: Math.max(...dataChart.map((d) => d.y)) + 1, r: 0},
-            ]
-          : []
-      )
+    calculateData()
   }, [dataChart])
 
-  useEffect(() => console.table(modifiedDataChart), [modifiedDataChart])
-  const data = {
-    labels: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
-    datasets: [
-      {
-        label: "My First dataset",
-        fill: false,
-        lineTension: 0.1,
-        backgroundColor: "rgba(75,192,192,0.4)",
-        // borderColor: "rgba(75,192,192,1)",
-        borderCapStyle: "butt",
-        borderDash: [],
-        borderDashOffset: 0.0,
-        borderJoinStyle: "miter",
-        // pointBorderColor: "rgba(75,192,192,1)",
-        pointBackgroundColor: "#fd76cb22",
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "#fd76cb88",
-        // pointHoverBorderColor: "rgba(220,220,220,1)",
-        pointHoverBorderWidth: 2,
-        pointRadius: 1,
-        pointHitRadius: 10,
-        data: modifiedDataChart,
-      },
-    ],
-  }
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
 
   return (
     <>
-      <p>The following chart represents when home page was viewed</p>
-      {modifiedDataChart ? (
-        <div className={styles.chart}>
-          <Bubble data={data} width={400} height={200} />
-        </div>
+      {modifiedDataChart.length > 0 ? (
+        <>
+          <LineChart
+            width={700}
+            height={400}
+            data={modifiedDataChart}
+            // margin={{top: 5, right: 20, bottom: 5, left: 0}}
+            className={styles.chart}
+          >
+            <Line type="monotone" dataKey="Views" stroke="var(--orange)" />
+            {/* <CartesianGrid stroke="#ccc" strokeDasharray="5 5" /> */}
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip wrapperClassName={styles.tooltip} />
+          </LineChart>
+        </>
       ) : (
         <p>Fetching data...</p>
       )}

@@ -27,6 +27,7 @@
   color: transparent;
   background-color: var(--pink);
   transition: opacity 500ms ease;
+  will-change: opacity;
 }
 
 .backgroundOrange {
