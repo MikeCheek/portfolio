@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from "next"
 import {firestore} from "@utilities/firebase/clientApp"
-import {doc, arrayUnion,  setDoc} from "firebase/firestore"
+import {doc, arrayUnion, setDoc} from "firebase/firestore"
 
 type Res = {
   ok?: boolean
