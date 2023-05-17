@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="251.75mm" height="95.176mm" version="1.1" viewBox="0 0 201.75 80.176" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="251.75mm" height="95.176mm" version="1.1" viewBox="0 0 201.75 80.176" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<style>
-
-      .a{animation: move-left 2.2s infinite linear;}
+<style>.a{animation: move-left 2.2s infinite linear;}
       .b{animation: move-left 2.5s infinite linear;}
       .c{animation: move-left 2.8s infinite linear;}
       .d{animation: move-left 1.9s infinite linear;}
@@ -15,11 +13,10 @@
          to{
             transform: translateX(-200px);
          }
-      }
-</style>
+      }</style>
 </defs>
-<g transform="translate(-11.16 -67.169)" stroke-width="0" fill="current">
-<rect class="a" x="47.133" y="0.708" width="60" height="1" style="paint-order:stroke markers fill"/>
+<g transform="translate(-11.16 -67.169)" fill="current" stroke-width="0">
+<rect class="a" x="47.133" y=".708" width="60" height="1" style="paint-order:stroke markers fill"/>
 <rect class="b" x="108.27" y="19.79" width="60" height="1" style="paint-order:stroke markers fill"/>
 <rect class="c" x="21.733" y="29.81" width="60" height="1" style="paint-order:stroke markers fill"/>
 <rect class="d" x="87.304" y="53.93" width="60" height="1" style="paint-order:stroke markers fill"/>

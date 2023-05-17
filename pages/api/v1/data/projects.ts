@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from "next"
-import {projectsList} from "../../../../utilities/info"
-import {Project} from "../../../../utilities/info.types"
+import {projectsList} from "@utilities/info"
+import {Project} from "@utilities/info.types"
 
 export const getAllProjects = () => projectsList
 

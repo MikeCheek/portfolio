@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react"
 import Link from "next/link"
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-import Rocket from "../components/rocket"
+import SEO from "@atoms/Seo"
+import Layout from "@organisms/Layout"
+import Rocket from "@atoms/Rocket"
 import styles from "../styles/404.module.scss"
 
 interface Bored {
@@ -42,8 +42,8 @@ const NotFoundPage = (): JSX.Element => {
         <h1 className={styles.heading}>PAGE NOT FOUND</h1>
         <span className={styles.lost}>
           Did you lose your way while navigating?{" "}
-          <Link title="GO HOME" href="/">
-            <p className="link">GO HOME</p>
+          <Link title="GO HOME" href="/" className="link">
+            GO HOME
           </Link>
           <Rocket />
           {fetched && (

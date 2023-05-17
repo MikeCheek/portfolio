@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from "next"
-import {firestore} from "../../../../firebase/clientApp"
+import {firestore} from "@utilities/firebase/clientApp"
 import {updateDoc, doc, arrayUnion, getDoc} from "firebase/firestore"
 
 type Res = {

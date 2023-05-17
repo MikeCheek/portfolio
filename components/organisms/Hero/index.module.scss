@@ -1,0 +1,42 @@
+@import "@styles/animations";
+.parallax {
+  position: relative;
+  z-index: -1;
+}
+
+.sectionWrap {
+  display: flex;
+  flex-direction: column;
+  // margin-top: 10%;
+}
+
+// .wrapper {
+//   padding-top: 1%;
+// }
+.about {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  > * {
+    font-size: 1rem;
+    width: fit-content;
+  }
+  @media screen and (min-width: "768px") {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    ul {
+      padding: initial;
+    }
+    :first-child {
+      flex: 1 1 80%;
+    }
+    > * {
+      flex: 1 1 30%;
+      margin-left: 3%;
+      margin-right: 3%;
+      width: 50%;
+    }
+  }
+}

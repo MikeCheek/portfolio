@@ -1,7 +1,7 @@
 import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import InfoHero from "../components/infoHero"
+import Layout from "@organisms/Layout"
+import SEO from "@atoms/Seo"
+import InfoHero from "@organisms/InfoHero"
 
 const InfoPage = () => {
   return (
