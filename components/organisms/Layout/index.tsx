@@ -21,7 +21,7 @@ const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
   }, [])
 
   return (
-    <>
+    <main>
       {browser === "waiting" ? null : browser === "Safari" ? (
         <Ball BallSvg={BallStill} />
       ) : (
@@ -39,7 +39,7 @@ const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
         )}
       </div>
       {!noGameLink && <ArrowUp />}
-    </>
+    </main>
   )
 }
 
