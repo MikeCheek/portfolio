@@ -22,6 +22,7 @@ const Index = ({
   const name = "Michele Pulvirenti"
 
   const shcemaOrgPerson = {
+    "@context": "https://www.schema.org",
     "@type": "Person",
     "@id": url,
     name: name,
@@ -38,6 +39,7 @@ const Index = ({
   }
 
   const schemaOrgWebPage = {
+    "@context": "https://www.schema.org",
     "@type": "WebSite",
     url: url,
     inLanguage: "en",
