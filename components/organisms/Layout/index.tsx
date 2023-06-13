@@ -12,6 +12,7 @@ import ArrowUp from "@molecules/ArrowUp"
 import BallMoving from "@assets/ballMoving.svg"
 import BallStill from "@assets/ballStill.svg"
 import Network from "@atoms/Network"
+import ProgressPage from "@atoms/ProgressPage"
 
 const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
   const [browser, setBrowser] = useState<string>("waiting")
@@ -28,6 +29,7 @@ const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
         <Ball BallSvg={BallMoving} />
       )}
       <div id="top" className={styles.layout}>
+        <ProgressPage />
         <Network />
         {children}
 
