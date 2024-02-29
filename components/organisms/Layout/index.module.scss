@@ -6,4 +6,13 @@
   justify-content: center;
   padding: 1%;
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
