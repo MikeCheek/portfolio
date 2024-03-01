@@ -9,7 +9,7 @@ import Button from "@atoms/Button"
 import Chip from "@atoms/Chip"
 
 const Index = ({project, reversed = false}: ProjectProps) => {
-  const {fitElement, unFit} = useContext(CursorContext)
+  // const {fitElement, unFit} = useContext(CursorContext)
   const id = project.title.replace(/\s+/g, "")
   const [ref, inView, _entry] = useInView({
     threshold: 0,
@@ -19,12 +19,12 @@ const Index = ({project, reversed = false}: ProjectProps) => {
 
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    fitElement(e.currentTarget)
-  }
-  const handleMouseLeave = () => {
-    unFit()
-  }
+  // const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  //   fitElement(e.currentTarget)
+  // }
+  // const handleMouseLeave = () => {
+  //   unFit()
+  // }
 
   useEffect(() => {
     if (videoRef.current) {
@@ -40,10 +40,10 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           href={"#" + id}
           title={"Link to " + id}
           className={reversed ? styles.linkReversed : styles.link}
-          onMouseOver={(e) => handleMouseHover(e)}
-          onMouseEnter={(e) => handleMouseHover(e)}
-          onMouseOut={handleMouseLeave}
-          onMouseLeave={handleMouseLeave}
+          // onMouseOver={(e) => handleMouseHover(e)}
+          // onMouseEnter={(e) => handleMouseHover(e)}
+          // onMouseOut={handleMouseLeave}
+          // onMouseLeave={handleMouseLeave}
         >
           <Link />
         </a>
@@ -64,8 +64,8 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         <div className={styles.links}>
           <Button
             title={"Go to " + project.title + " website"}
-            onMouseEnter={(e) => handleMouseHover(e)}
-            onMouseLeave={handleMouseLeave}
+            // onMouseEnter={(e) => handleMouseHover(e)}
+            // onMouseLeave={handleMouseLeave}
             href={project.href}
           >
             Visit Website
@@ -73,8 +73,8 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           {project.github && (
             <Button
               title={"Go to " + project.title + " repository"}
-              onMouseEnter={(e) => handleMouseHover(e)}
-              onMouseLeave={handleMouseLeave}
+              // onMouseEnter={(e) => handleMouseHover(e)}
+              // onMouseLeave={handleMouseLeave}
               href={project.github}
             >
               Visit Repo

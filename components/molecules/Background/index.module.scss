@@ -1,0 +1,40 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.keysWrap {
+  display: none;
+  @media (hover: hover) and (pointer: fine) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: fit-content;
+    opacity: 0.5;
+  }
+}
+
+.keyAction {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.8rem;
+
+  & p {
+    margin: 0;
+  }
+
+  & b {
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding: 2px;
+    width: 40px;
+    margin: 0;
+    text-align: center;
+  }
+}

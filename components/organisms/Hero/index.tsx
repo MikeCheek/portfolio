@@ -19,7 +19,7 @@ const Index = (): JSX.Element => {
 
   return (
     <div>
-      <Cursor />
+      {/* <Cursor /> */}
       <header>
         <BigHeading />
       </header>

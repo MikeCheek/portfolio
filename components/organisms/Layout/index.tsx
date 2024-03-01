@@ -5,33 +5,17 @@ import styles from "./index.module.scss"
 import {LayoutProps} from "./index.types"
 
 import Footer from "@atoms/Footer"
-import Ball from "@atoms/Ball"
 import Separator from "@atoms/Separator"
 import ArrowUp from "@molecules/ArrowUp"
 
-import BallMoving from "@assets/ballMoving.svg"
-import BallStill from "@assets/ballStill.svg"
 import Network from "@atoms/Network"
 import ProgressPage from "@atoms/ProgressPage"
-import GameOfLife from "@atoms/GameOfLife"
+import Background from "@molecules/Background"
 
 const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
-  const [browser, setBrowser] = useState<string>("waiting")
-
-  useEffect(() => {
-    setBrowser(detectBrowser())
-  }, [])
-
   return (
     <main>
-      {/* {browser === "waiting" ? null : browser === "Safari" ? (
-        <Ball BallSvg={BallStill} />
-      ) : (
-        <Ball BallSvg={BallMoving} />
-      )} */}
-      <div className={styles.background}>
-        <GameOfLife />
-      </div>
+      <Background />
       <div id="top" className={styles.layout}>
         <ProgressPage />
         <Network />

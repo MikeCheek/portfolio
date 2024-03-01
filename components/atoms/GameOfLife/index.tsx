@@ -10,6 +10,7 @@ const Index = () => {
   let rows: number
   let board: number[][]
   let next: number[][]
+  let paused: boolean = false
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.frameRate(10)
@@ -34,7 +35,7 @@ const Index = () => {
 
   const draw = (p5: p5Types) => {
     p5.background(0)
-    generate()
+    if (!paused) generate()
     for (let i = 0; i < columns; i++) {
       for (let j = 0; j < rows; j++) {
         if (board[i][j] == 1) p5.fill(70)
@@ -45,8 +46,27 @@ const Index = () => {
     }
   }
 
+  const keyPressed = (p5: p5Types) => {
+    console.log(p5.keyCode + " " + p5.key)
+    if (
+      p5.keyCode === 82 // r
+    ) {
+      init(p5)
+    }
+    if (
+      p5.keyCode === 80 || // p
+      p5.keyCode === 32 // space
+    ) {
+      paused = !paused
+    }
+  }
+
   const mousePressed = (p5: p5Types) => {
-    init(p5)
+    if (board && p5.mouseX <= p5.width && p5.mouseY <= p5.height) {
+      const cellX = p5.floor(p5.mouseX / w)
+      const cellY = p5.floor(p5.mouseY / w)
+      if (board[cellX]) board[cellX][cellY] = (board[cellX][cellY] - 1) * -1
+    }
   }
 
   const init = (p5: p5Types) => {
@@ -85,7 +105,7 @@ const Index = () => {
     next = temp
   }
 
-  return <Sketch setup={setup} draw={draw} mousePressed={mousePressed} />
+  return <Sketch setup={setup} draw={draw} mousePressed={mousePressed} keyPressed={keyPressed} />
 }
 
 export default Index

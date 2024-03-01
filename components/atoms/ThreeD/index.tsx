@@ -7,15 +7,15 @@ import CursorContext from "@utilities/useCursorContext"
 import styles from "./index.module.scss"
 
 const Index = () => {
-  const {fitElement, unFit} = useContext(CursorContext)
+  // const {fitElement, unFit} = useContext(CursorContext)
 
   return (
     <>
       <Canvas
-        onMouseOver={(e) => fitElement(e.currentTarget)}
-        onMouseEnter={(e) => fitElement(e.currentTarget)}
-        onMouseOut={unFit}
-        onMouseLeave={unFit}
+        // onMouseOver={(e) => fitElement(e.currentTarget)}
+        // onMouseEnter={(e) => fitElement(e.currentTarget)}
+        // onMouseOut={unFit}
+        // onMouseLeave={unFit}
         className={styles.wrapMobile}
       >
         <Box />
@@ -23,10 +23,10 @@ const Index = () => {
         <directionalLight position={[-2, 5, 2]} intensity={0.2} />
       </Canvas>
       <Canvas
-        onMouseOver={(e) => fitElement(e.currentTarget)}
-        onMouseEnter={(e) => fitElement(e.currentTarget)}
-        onMouseOut={unFit}
-        onMouseLeave={unFit}
+        // onMouseOver={(e) => fitElement(e.currentTarget)}
+        // onMouseEnter={(e) => fitElement(e.currentTarget)}
+        // onMouseOut={unFit}
+        // onMouseLeave={unFit}
         className={styles.wrapDesktop}
       >
         <Box />
