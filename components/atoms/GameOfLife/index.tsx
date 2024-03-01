@@ -47,7 +47,6 @@ const Index = () => {
   }
 
   const keyPressed = (p5: p5Types) => {
-    console.log(p5.keyCode + " " + p5.key)
     if (
       p5.keyCode === 82 // r
     ) {
