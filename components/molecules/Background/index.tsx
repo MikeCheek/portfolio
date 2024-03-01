@@ -24,6 +24,7 @@ const Index = () => {
   )} */}
       <GameOfLife />
       <div className={styles.keysWrap}>
+        <p>Game of Life simulation</p>
         {keys.map((v, key) => (
           <div key={key} className={styles.keyAction}>
             <b>{v.key}</b>
