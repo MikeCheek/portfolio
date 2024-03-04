@@ -121,9 +121,14 @@ const IndexPage = ({projects}: {projects: Project[]}): JSX.Element => {
         pathname={"/"}
       />
       <Layout>
-        {/* <CursorContext.Provider value={{scale, position, fit, fitElement, unFit, projects}}> */}
-        <Hero />
-        {/* </CursorContext.Provider> */}
+        <CursorContext.Provider
+          value={{
+            //scale, position, fit, fitElement, unFit,
+            projects,
+          }}
+        >
+          <Hero />
+        </CursorContext.Provider>
       </Layout>
     </>
   )

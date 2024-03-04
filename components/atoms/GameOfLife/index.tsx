@@ -5,7 +5,7 @@ import p5Types from "p5"
 const Sketch = dynamic(import("react-p5"), {ssr: false})
 
 const Index = () => {
-  const w = 10
+  const w = 20
   let columns: number
   let rows: number
   let board: number[][]

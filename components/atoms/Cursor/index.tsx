@@ -43,11 +43,11 @@ const Index = () => {
     <span className={styles.wrap}>
       <div
         className={styles.container}
-        style={{
-          transform: `translate(${context.position ? context.position.x : position.x}px, ${
-            context.position ? context.position.y : position.y
-          }px) scale(${context.scale.x}, ${context.scale.y})`,
-        }}
+        // style={{
+        //   transform: `translate(${context.position ? context.position.x : position.x}px, ${
+        //     context.position ? context.position.y : position.y
+        //   }px) scale(${context.scale.x}, ${context.scale.y})`,
+        // }}
       >
         <Blob
           width={dimension}
