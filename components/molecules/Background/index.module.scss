@@ -2,17 +2,27 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.gol {
+  position: relative;
   z-index: -1;
 }
 
-.keysWrap {
+.menu {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 5px;
-  left: 5px;
+  left: 10px;
   width: fit-content;
   opacity: 0.5;
+  z-index: 1;
+
+  & p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .keyAction {
@@ -24,6 +34,7 @@
   gap: 10px;
   align-items: center;
   font-size: 0.8rem;
+  margin-left: 10px;
 
   & p {
     margin: 0;
@@ -34,7 +45,61 @@
     border-radius: 5px;
     padding: 2px;
     width: 40px;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 7px;
     text-align: center;
+    box-shadow: -2px 3px 0px 0px var(--grey);
+  }
+}
+
+.sizes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.button {
+  padding: 3px 8px;
+  border: 1px solid var(--grey);
+  background: none;
+  color: var(--grey);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 100ms ease;
+  transform-origin: center center;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.buttonActive {
+  @extend .button;
+  border: 2px solid var(--white);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.warning {
+  position: relative;
+  &::after {
+    content: "WARNING! This option may affect performance";
+    color: var(--pink);
+    position: absolute;
+    top: 150%;
+    left: 0;
+    opacity: 0;
+    transform: scale(0.7) translateY(-50%);
+    transform-origin: top center;
+    transition: opacity 100ms ease, transform 200ms ease;
+    pointer-events: none;
+  }
+  &:hover {
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }

@@ -1,11 +1,11 @@
 import dynamic from "next/dynamic"
-import React from "react"
+import React, {useEffect} from "react"
 import p5Types from "p5"
+import GameOfLifeProps from "./index.types"
 
 const Sketch = dynamic(import("react-p5"), {ssr: false})
 
-const Index = () => {
-  const w = 20
+const Index = ({size}: GameOfLifeProps) => {
   let columns: number
   let rows: number
   let board: number[][]
@@ -18,8 +18,8 @@ const Index = () => {
 
     window.addEventListener("resize", () => p5.resizeCanvas(window.innerWidth, window.innerHeight))
 
-    columns = p5.floor(p5.width / w)
-    rows = p5.floor(p5.height / w)
+    columns = p5.floor(p5.width / size)
+    rows = p5.floor(p5.height / size)
 
     board = new Array(columns)
     for (let i = 0; i < columns; i++) {
@@ -41,7 +41,7 @@ const Index = () => {
         if (board[i][j] == 1) p5.fill(70)
         else p5.fill(0)
         p5.stroke(0)
-        p5.rect(i * w, j * w, w - 1, w - 1)
+        p5.rect(i * size, j * size, size - 1, size - 1)
       }
     }
   }
@@ -62,8 +62,8 @@ const Index = () => {
 
   const mousePressed = (p5: p5Types) => {
     if (board && p5.mouseX <= p5.width && p5.mouseY <= p5.height) {
-      const cellX = p5.floor(p5.mouseX / w)
-      const cellY = p5.floor(p5.mouseY / w)
+      const cellX = p5.floor(p5.mouseX / size)
+      const cellY = p5.floor(p5.mouseY / size)
       if (board[cellX]) board[cellX][cellY] = (board[cellX][cellY] - 1) * -1
     }
   }
