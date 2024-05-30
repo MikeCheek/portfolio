@@ -11,9 +11,23 @@ import Network from "@atoms/Network"
 import ProgressPage from "@atoms/ProgressPage"
 import Background from "@molecules/Background"
 
+import {Montserrat, Rubik} from "next/font/google"
+
+const montserrat = Montserrat({
+  // weight: ["700"],
+  display: "swap",
+  subsets: ["latin"],
+})
+
+const rubik = Rubik({
+  // weight: ["300", "500", "700"],
+  display: "swap",
+  subsets: ["latin"],
+})
+
 const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
   return (
-    <main>
+    <main className={`${montserrat.className} ${rubik.className}`}>
       <Background />
       <div id="top" className={styles.layout}>
         <ProgressPage />

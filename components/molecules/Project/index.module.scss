@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 
   @media screen and (min-width: 768px) {
@@ -147,6 +147,7 @@
   max-width: none;
   height: 100%;
   width: 100%;
+  opacity: 0.6;
   img {
     object-position: top;
   }
@@ -160,8 +161,22 @@
   justify-content: center;
   width: 100%;
   align-self: baseline;
+}
+
+.chipsWrapDesktop {
+  @extend .chipsWrap;
+  margin-top: 5vh;
+
+  @media screen and (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.chipsWrapMobile {
+  @extend .chipsWrap;
+  margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    margin-top: -5vh;
+    display: none !important;
   }
 }
 

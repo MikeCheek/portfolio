@@ -38,7 +38,7 @@ const Index = ({size}: GameOfLifeProps) => {
     if (!paused) generate()
     for (let i = 0; i < columns; i++) {
       for (let j = 0; j < rows; j++) {
-        if (board[i][j] == 1) p5.fill(70)
+        if (board[i][j] == 1) p5.fill(70) //(i % j) % 2 == 0 ? p5.fill(255, 172, 48) : p5.fill(253, 118, 203)
         else p5.fill(0)
         p5.stroke(0)
         p5.rect(i * size, j * size, size - 1, size - 1)

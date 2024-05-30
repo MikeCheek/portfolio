@@ -33,6 +33,30 @@ const Index = ({project, reversed = false}: ProjectProps) => {
     }
   }, [inView])
 
+  const Chips = (mobile?: boolean) => (
+    <div className={mobile ? styles.chipsWrapMobile : styles.chipsWrapDesktop}>
+      {project.technologies ? (
+        <div className={styles.chips}>
+          {(project.technologies as string[]).map((technology, key) => (
+            <Chip key={key} text={technology} />
+          ))}
+        </div>
+      ) : (
+        <></>
+      )}
+      {project.tools ? (
+        <div className={styles.chips}>
+          {(project.tools as string[]).map((tool, key) => (
+            <Chip key={key} orange text={tool} />
+          ))}
+        </div>
+      ) : (
+        <></>
+      )}
+      {/* <p>Try to light these tags up, they need to be recharged</p> */}
+    </div>
+  )
+
   return (
     <div className={reversed ? styles.projectReverse : styles.project} id={id}>
       <div className={styles.head}>
@@ -81,6 +105,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
             </Button>
           )}
         </div>
+        {Chips(true)}
       </div>
       <div ref={ref} className={styles.desktopWrap}>
         <a
@@ -108,27 +133,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           )}
         </a>
         <div className={styles.stand} />
-      </div>
-      <div className={styles.chipsWrap}>
-        {project.technologies ? (
-          <div className={styles.chips}>
-            {(project.technologies as string[]).map((technology, key) => (
-              <Chip key={key} text={technology} />
-            ))}
-          </div>
-        ) : (
-          <></>
-        )}
-        {project.tools ? (
-          <div className={styles.chips}>
-            {(project.tools as string[]).map((tool, key) => (
-              <Chip key={key} orange text={tool} />
-            ))}
-          </div>
-        ) : (
-          <></>
-        )}
-        <p>Try to light these tags up, they need to be recharged</p>
+        {Chips()}
       </div>
     </div>
   )

@@ -1,9 +1,9 @@
 import React from "react"
 import NextHeadSeo from "next-head-seo"
 import config from "../../../properties"
-//import { useStaticQuery, graphql } from "gatsby"
 import {SEOProps /*QueryTypes*/} from "./index.types"
 import Head from "next/head"
+import Script from "next/script"
 
 const Index = ({
   description = "",
@@ -122,7 +122,8 @@ const Index = ({
         ]}
       />
       <Head>
-        <script
+        <Script
+          strategy="lazyOnload"
           type="application/ld+json"
           key="product-jsonld"
           dangerouslySetInnerHTML={{
@@ -135,7 +136,7 @@ const Index = ({
         ]           
         }`,
           }}
-        ></script>
+        ></Script>
       </Head>
     </>
   )
