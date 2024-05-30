@@ -3,7 +3,6 @@ import NextHeadSeo from "next-head-seo"
 import config from "../../../properties"
 import {SEOProps /*QueryTypes*/} from "./index.types"
 import Head from "next/head"
-import Script from "next/script"
 
 const Index = ({
   description = "",
@@ -122,8 +121,7 @@ const Index = ({
         ]}
       />
       <Head>
-        <Script
-          strategy="lazyOnload"
+        <script
           type="application/ld+json"
           key="product-jsonld"
           dangerouslySetInnerHTML={{
@@ -136,7 +134,7 @@ const Index = ({
         ]           
         }`,
           }}
-        ></Script>
+        ></script>
       </Head>
     </>
   )
