@@ -1,7 +1,7 @@
 enum P_CATEGORY {
   GUN = "Gun",
   TRAIN = "Train",
-  SPACESHIP = "Spaceship",
+  SPACE = "Space",
   STUFF = "Stuff",
   FUSE = "Fuse",
   PHASE = "Phase",
@@ -111,6 +111,21 @@ const patterns: Pattern[] = [
     name: "Line",
     category: P_CATEGORY.INFINITE_GROWTH,
     cells: [[0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 17, 18, 19, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38]],
+  },
+  {
+    name: "Kok's Galaxy",
+    category: P_CATEGORY.SPACE,
+    cells: [
+      [0, 1, 2, 3, 4, 5, 7, 8],
+      [0, 1, 2, 3, 4, 5, 7, 8],
+      [7, 8],
+      [0, 1, 7, 8],
+      [0, 1, 7, 8],
+      [0, 1, 7, 8],
+      [0, 1],
+      [0, 1, 3, 4, 5, 6, 7, 8],
+      [0, 1, 3, 4, 5, 6, 7, 8],
+    ],
   },
 ].map((p) => {
   const maxX = Math.max(...p.cells.map((v) => Math.max(...v))) + 1

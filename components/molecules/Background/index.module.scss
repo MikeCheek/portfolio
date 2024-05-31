@@ -18,9 +18,11 @@
   width: fit-content;
   opacity: 0.5;
   z-index: 1;
+  align-items: flex-start;
 
   & svg {
     fill: var(--grey);
+    stroke: var(--grey);
     width: 20px;
     height: 20px;
   }
@@ -34,6 +36,14 @@
     justify-content: center;
     gap: 5px;
   }
+}
+
+.arrowDown {
+  font-size: 1.5rem;
+  cursor: pointer;
+  // @media (hover: hover) and (pointer: fine) {
+  //   display: none;
+  // }
 }
 
 .keyAction {
@@ -61,6 +71,13 @@
     text-align: center;
     box-shadow: -2px 3px 0px 0px var(--grey);
   }
+}
+
+.wrapSizes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .sizes {
@@ -116,5 +133,5 @@
 }
 
 .patterns {
-  margin-top: 10px;
+  margin: 10px 0;
 }

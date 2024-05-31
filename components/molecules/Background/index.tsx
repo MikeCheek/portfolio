@@ -7,7 +7,7 @@ import {P_CATEGORY, patternToMatrix, patterns} from "@utilities/gameOfLife"
 const keys = [
   {key: "P", action: "Pause"},
   {key: "Click", action: "Change cell state"},
-  {key: "R", action: "Restart random"},
+  {key: "R", action: "Restart"},
 ]
 
 const sizes = [
@@ -19,6 +19,7 @@ const sizes = [
 
 const Index = () => {
   // const [browser, setBrowser] = useState<string>("waiting")
+  const [showMenu, setShowMenu] = useState<boolean>(false)
   const [sizeIndex, setSizeIndex] = useState<number>(2)
   const [pattern, setPattern] = useState<number[][]>()
   const [key, setKey] = useState<number>(1)
@@ -55,53 +56,65 @@ const Index = () => {
         <GameOfLife key={key} size={sizes[sizeIndex].value} pattern={pattern} />
       </div>
       <div className={styles.menu}>
-        <p>
+        <p style={{cursor: "pointer"}} onClick={() => setShowMenu((s) => !s)}>
           Game of Life simulation{" "}
-          <a title="Game of life" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
-            <Info />
-          </a>
+          <span className={styles.arrowDown} style={{transform: `rotate(${showMenu ? "-" : ""}90deg)`}}>
+            &gt;
+          </span>
         </p>
-        {keys.map((v, key) => (
-          <div key={key} className={styles.keyAction}>
-            <b>{v.key}</b>
-            <p>{v.action}</p>
-          </div>
-        ))}
-
-        <p>Cell size</p>
-        <div className={styles.sizes}>
-          {sizes.map((v, key) => (
-            <button
-              key={key}
-              className={`${key === sizeIndex ? styles.buttonActive : styles.button} ${
-                v.warning ? styles.warning : ""
-              }`}
-              onClick={() => handleSizeSelect(key)}
-            >
-              {v.key}
-            </button>
-          ))}
-        </div>
-
-        <select
-          className={styles.patterns}
-          title="Choose a pattern"
-          onChange={handlePatternSelect}
-          defaultValue="default"
-        >
-          <option value="default">{defaultValue}</option>
-          {Object.values(P_CATEGORY).map((cat, key) => (
-            <optgroup key={key} label={cat}>
-              {patterns
-                .filter((p) => p.category === cat)
-                .map((p, key) => (
-                  <option key={key} value={p.name}>
-                    {p.name}
-                  </option>
+        {showMenu ? (
+          <>
+            {keys.map((v, key) => (
+              <div key={key} className={styles.keyAction}>
+                <b>{v.key}</b>
+                <p>{v.action}</p>
+              </div>
+            ))}
+            <div className={styles.wrapSizes}>
+              <p>Cell size</p>
+              <div className={styles.sizes}>
+                {sizes.map((v, key) => (
+                  <button
+                    key={key}
+                    className={`${key === sizeIndex ? styles.buttonActive : styles.button} ${
+                      v.warning ? styles.warning : ""
+                    }`}
+                    onClick={() => handleSizeSelect(key)}
+                  >
+                    {v.key}
+                  </button>
                 ))}
-            </optgroup>
-          ))}
-        </select>
+              </div>
+            </div>{" "}
+            <div className={styles.wrapSizes}>
+              <p>Pattern</p>
+              <select
+                className={styles.patterns}
+                title="Choose a pattern"
+                onChange={handlePatternSelect}
+                defaultValue="default"
+              >
+                <option value="default">{defaultValue}</option>
+                {Object.values(P_CATEGORY).map((cat, key) => (
+                  <optgroup key={key} label={cat}>
+                    {patterns
+                      .filter((p) => p.category === cat)
+                      .map((p, key) => (
+                        <option key={key} value={p.name}>
+                          {p.name}
+                        </option>
+                      ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+        <a title="Game of life" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
+          <Info />
+        </a>
       </div>
     </div>
   )
