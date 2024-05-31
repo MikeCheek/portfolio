@@ -5,7 +5,7 @@ import GameOfLifeProps from "./index.types"
 
 const Sketch = dynamic(import("react-p5"), {ssr: false})
 
-const Index = ({size, pattern}: GameOfLifeProps) => {
+const Index = ({size, pattern, speed = 10}: GameOfLifeProps) => {
   let columns: number
   let rows: number
   let board: number[][]
@@ -13,7 +13,7 @@ const Index = ({size, pattern}: GameOfLifeProps) => {
   let paused = false
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.frameRate(10)
+    p5.frameRate(speed)
     p5.createCanvas(window.innerWidth, window.innerHeight).parent(canvasParentRef)
 
     window.addEventListener("resize", () => p5.resizeCanvas(window.innerWidth, window.innerHeight))

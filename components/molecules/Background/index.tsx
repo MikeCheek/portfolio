@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import styles from "./index.module.scss"
 import GameOfLife from "@atoms/GameOfLife"
 import Info from "@assets/info.svg"
@@ -19,15 +19,20 @@ const sizes = [
 
 const Index = () => {
   // const [browser, setBrowser] = useState<string>("waiting")
-  const [showMenu, setShowMenu] = useState<boolean>(false)
   const [sizeIndex, setSizeIndex] = useState<number>(2)
   const [pattern, setPattern] = useState<number[][]>()
   const [key, setKey] = useState<number>(1)
+  const [speed, setSpeed] = useState<number>(10)
 
   const changeKey = () => setKey((k) => (k + 1) % 2)
 
   const handleSizeSelect = (index: number) => {
     setSizeIndex(index)
+    changeKey()
+  }
+
+  const handleSpeedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSpeed(Number(e.currentTarget.value))
     changeKey()
   }
 
@@ -41,77 +46,72 @@ const Index = () => {
     changeKey()
   }
 
-  // useEffect(() => {
-  //   setBrowser(detectBrowser())
-  // }, [])
-
   return (
     <div className={styles.background}>
-      {/* {browser === "waiting" ? null : browser === "Safari" ? (
-    <Ball BallSvg={BallStill} />
-  ) : (
-    <Ball BallSvg={BallMoving} />
-  )} */}
       <div className={styles.gol}>
-        <GameOfLife key={key} size={sizes[sizeIndex].value} pattern={pattern} />
+        <GameOfLife key={key} size={sizes[sizeIndex].value} pattern={pattern} speed={speed} />
       </div>
       <div className={styles.menu}>
-        <p style={{cursor: "pointer"}} onClick={() => setShowMenu((s) => !s)}>
-          Game of Life simulation{" "}
-          <span className={styles.arrowDown} style={{transform: `rotate(${showMenu ? "-" : ""}90deg)`}}>
-            &gt;
-          </span>
+        <p style={{cursor: "pointer"}}>
+          Game of Life simulation <span className={styles.arrowDown}>&gt;</span>
         </p>
-        {showMenu ? (
-          <>
-            {keys.map((v, key) => (
-              <div key={key} className={styles.keyAction}>
-                <b>{v.key}</b>
-                <p>{v.action}</p>
-              </div>
-            ))}
-            <div className={styles.wrapSizes}>
-              <p>Cell size</p>
-              <div className={styles.sizes}>
-                {sizes.map((v, key) => (
-                  <button
-                    key={key}
-                    className={`${key === sizeIndex ? styles.buttonActive : styles.button} ${
-                      v.warning ? styles.warning : ""
-                    }`}
-                    onClick={() => handleSizeSelect(key)}
-                  >
-                    {v.key}
-                  </button>
-                ))}
-              </div>
-            </div>{" "}
-            <div className={styles.wrapSizes}>
-              <p>Pattern</p>
-              <select
-                className={styles.patterns}
-                title="Choose a pattern"
-                onChange={handlePatternSelect}
-                defaultValue="default"
-              >
-                <option value="default">{defaultValue}</option>
-                {Object.values(P_CATEGORY).map((cat, key) => (
-                  <optgroup key={key} label={cat}>
-                    {patterns
-                      .filter((p) => p.category === cat)
-                      .map((p, key) => (
-                        <option key={key} value={p.name}>
-                          {p.name}
-                        </option>
-                      ))}
-                  </optgroup>
-                ))}
-              </select>
+        <div className={styles.options}>
+          {keys.map((v, key) => (
+            <div key={key} className={styles.keyAction}>
+              <b>{v.key}</b>
+              <p>{v.action}</p>
             </div>
-          </>
-        ) : (
-          <></>
-        )}
+          ))}
+          <div className={styles.wrapSizes}>
+            <p>Cell size</p>
+            <div className={styles.sizes}>
+              {sizes.map((v, key) => (
+                <button
+                  key={key}
+                  className={`${key === sizeIndex ? styles.buttonActive : styles.button} ${
+                    v.warning ? styles.warning : ""
+                  }`}
+                  onClick={() => handleSizeSelect(key)}
+                >
+                  {v.key}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className={styles.wrapSizes}>
+            <p>Speed</p>
+            <input
+              className={styles.slider}
+              type="range"
+              min={1}
+              max={1000}
+              onChange={handleSpeedChange}
+              value={speed}
+            />
+          </div>
+          <div className={styles.wrapSizes}>
+            <p>Pattern</p>
+            <select
+              className={styles.patterns}
+              title="Choose a pattern"
+              onChange={handlePatternSelect}
+              defaultValue="default"
+            >
+              <option value="default">{defaultValue}</option>
+              {Object.values(P_CATEGORY).map((cat, key) => (
+                <optgroup key={key} label={cat}>
+                  {patterns
+                    .filter((p) => p.category === cat)
+                    .map((p, key) => (
+                      <option key={key} value={p.name}>
+                        {p.name}
+                      </option>
+                    ))}
+                </optgroup>
+              ))}
+            </select>
+          </div>
+        </div>
         <a title="Game of life" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
           <Info />
         </a>

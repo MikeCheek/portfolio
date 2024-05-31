@@ -36,14 +36,29 @@
     justify-content: center;
     gap: 5px;
   }
-}
 
-.arrowDown {
-  font-size: 1.5rem;
-  cursor: pointer;
-  // @media (hover: hover) and (pointer: fine) {
-  //   display: none;
-  // }
+  .options {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transform-origin: top center;
+  }
+
+  .arrowDown {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+
+  &:hover {
+    .options {
+      display: flex;
+    }
+    .arrowDown {
+      transform: rotate(-90deg);
+    }
+  }
 }
 
 .keyAction {
@@ -78,6 +93,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+  width: 100%;
 }
 
 .sizes {
@@ -134,4 +150,8 @@
 
 .patterns {
   margin: 10px 0;
+}
+
+.slider {
+  width: 70%;
 }
