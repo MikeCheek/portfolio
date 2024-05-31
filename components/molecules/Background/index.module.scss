@@ -43,6 +43,7 @@
     align-items: flex-start;
     justify-content: center;
     transform-origin: top center;
+    transform: scale(0);
   }
 
   .arrowDown {
@@ -54,6 +55,7 @@
   &:hover {
     .options {
       display: flex;
+      transform: none;
     }
     .arrowDown {
       transform: rotate(-90deg);
