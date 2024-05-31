@@ -1,16 +1,16 @@
 import dynamic from "next/dynamic"
-import React, {useEffect} from "react"
+import React from "react"
 import p5Types from "p5"
 import GameOfLifeProps from "./index.types"
 
 const Sketch = dynamic(import("react-p5"), {ssr: false})
 
-const Index = ({size}: GameOfLifeProps) => {
+const Index = ({size, pattern}: GameOfLifeProps) => {
   let columns: number
   let rows: number
   let board: number[][]
   let next: number[][]
-  let paused: boolean = false
+  let paused = false
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.frameRate(10)
@@ -69,12 +69,19 @@ const Index = ({size}: GameOfLifeProps) => {
   }
 
   const init = (p5: p5Types) => {
+    // const pattern = patternToMatrix(patterns[0])
+    const center = {i: columns / 2, j: rows / 2}
     for (let i = 0; i < columns; i++) {
       for (let j = 0; j < rows; j++) {
         // Lining the edges with 0s
         if (i == 0 || j == 0 || i == columns - 1 || j == rows - 1) board[i][j] = 0
-        // Filling the rest randomly
-        else board[i][j] = p5.floor(p5.random(2))
+        // Filling the rest
+        else if (!pattern) board[i][j] = p5.floor(p5.random(2))
+        else {
+          board[i][j] = 0
+          const start = {i: Math.floor(center.i - pattern[0].length / 2), j: Math.floor(center.j - pattern.length / 2)}
+          if (pattern[j - start.j] && pattern[j - start.j][i - start.i]) board[i][j] = pattern[j - start.j][i - start.i]
+        }
         next[i][j] = 0
       }
     }

@@ -19,9 +19,20 @@
   opacity: 0.5;
   z-index: 1;
 
+  & svg {
+    fill: var(--grey);
+    width: 20px;
+    height: 20px;
+  }
+
   & p {
     margin-top: 5px;
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
   }
 }
 
@@ -102,4 +113,8 @@
       transform: scale(1);
     }
   }
+}
+
+.patterns {
+  margin-top: 10px;
 }
