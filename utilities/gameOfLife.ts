@@ -12,6 +12,7 @@ type Pattern = {
   name: string
   cells: number[][]
   category: P_CATEGORY
+  description?: string
   size: {x: number; y: number}
   rightTrimmable?: number // number of cells to trim keeping the pattern work, it can be multiplied
 }
@@ -49,6 +50,7 @@ const mirrorY = (cells: number[][], inTheMiddle?: number[]) =>
 const patterns: Pattern[] = [
   {
     name: "Gosper Glider Gun",
+    description: "A famous pattern that periodically emits gliders.",
     category: P_CATEGORY.GUN,
     cells: [
       [24],
@@ -189,6 +191,82 @@ const patterns: Pattern[] = [
       [1, 8],
       [0, 1, 9, 10, 11],
       [11],
+    ],
+  },
+  {
+    name: "R-Pentomino",
+    category: P_CATEGORY.INFINITE_GROWTH,
+    description: "A simple pattern that evolves for a long time before stabilizing.",
+    cells: [[1, 2], [0, 1], [1]],
+  },
+  {
+    name: "Lightweight Spaceship (LWSS)",
+    description: "A small, common spaceship pattern that moves across the grid.",
+    category: P_CATEGORY.SPACE,
+    cells: [[1, 4], [0], [0, 4], [0, 1, 2, 3]],
+  },
+  {
+    name: "Blinker",
+    category: P_CATEGORY.PHASE,
+    description: "A simple oscillator that switches between two states.",
+    cells: [[0, 1, 2]],
+  },
+  {
+    name: "Toad",
+    category: P_CATEGORY.PHASE,
+    description: " A small oscillator with a period of 2.",
+    cells: [
+      [1, 2, 3],
+      [0, 1, 2],
+    ],
+  },
+  {
+    name: "Beacon",
+    description: "A small oscillator with a period of 2",
+    category: P_CATEGORY.PHASE,
+    cells: [[0, 1], [0], [3], [2, 3]],
+  },
+  {
+    name: "Glider",
+    category: P_CATEGORY.SPACE,
+    description: "A small, well-known spaceship that travels diagonally across the grid.",
+    cells: [[1], [2], [0, 1, 2]],
+  },
+  {
+    name: "Acorn",
+    category: P_CATEGORY.INFINITE_GROWTH,
+    description: "A small pattern that grows indefinitely.",
+    cells: [[1], [3], [0, 1, 4, 5, 6]],
+  },
+  {
+    name: "Diehard",
+    category: P_CATEGORY.INFINITE_GROWTH,
+    description: "A pattern that eventually stabilizes after 130 generations.",
+    cells: [[6], [0, 1], [1, 5, 6, 7]],
+  },
+  {
+    name: "Switch Engine",
+    category: P_CATEGORY.ENGINE,
+    description: "A pattern that creates gliders and moves diagonally.",
+    cells: [[1, 3], [0], [1, 4], [3, 4, 5]],
+  },
+  {
+    name: "Copperhead",
+    category: P_CATEGORY.SPACE,
+    description: "A lightweight spaceship that moves orthogonally.",
+    cells: [
+      [1, 2, 3, 4],
+      [],
+      [1, 4],
+      [0, 2, 3, 5],
+      [0, 5],
+      [],
+      [0, 5],
+      [0, 1, 4, 5],
+      [0, 1, 2, 3, 4, 5],
+      [1, 4],
+      [2, 3],
+      [2, 3],
     ],
   },
 ].map((p) => {
