@@ -13,7 +13,6 @@ import Background from "@molecules/Background"
 
 import {Montserrat, Rubik} from "next/font/google"
 
-
 const montserrat = Montserrat({
   // weight: ["700"],
   display: "swap",
