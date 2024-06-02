@@ -13,6 +13,8 @@ import Background from "@molecules/Background"
 
 import {Montserrat, Rubik} from "next/font/google"
 
+import {SpeedInsights} from "@vercel/speed-insights/next"
+
 const montserrat = Montserrat({
   // weight: ["700"],
   display: "swap",
@@ -41,7 +43,7 @@ const Index = ({children, noGameLink = false}: LayoutProps): JSX.Element => {
           </>
         )}
       </div>
-      {!noGameLink && <ArrowUp />}
+      {!noGameLink && <ArrowUp />} <SpeedInsights />
     </main>
   )
 }

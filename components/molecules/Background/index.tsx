@@ -17,12 +17,20 @@ const sizes = [
   {key: "Large", value: 30},
 ]
 
+const speeds = [
+  {key: "Slow", value: 1},
+  {key: "Normal", value: 10},
+  {key: "Fast", value: 100},
+  {key: "Turbo", value: 1000, warning: true},
+]
+
 const Index = () => {
   // const [browser, setBrowser] = useState<string>("waiting")
   const [sizeIndex, setSizeIndex] = useState<number>(2)
   const [pattern, setPattern] = useState<number[][]>()
   const [key, setKey] = useState<number>(1)
-  const [speed, setSpeed] = useState<number>(10)
+  const [speed, setSpeed] = useState<number>(1)
+  const [full, setFull] = useState<boolean>(false)
 
   const changeKey = () => setKey((k) => (k + 1) % 2)
 
@@ -31,8 +39,8 @@ const Index = () => {
     changeKey()
   }
 
-  const handleSpeedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSpeed(Number(e.currentTarget.value))
+  const handleSpeedSelect = (index: number) => {
+    setSpeed(index)
     changeKey()
   }
 
@@ -47,9 +55,9 @@ const Index = () => {
   }
 
   return (
-    <div className={styles.background}>
+    <div className={styles.background} style={full ? {zIndex: 99999} : {}}>
       <div className={styles.gol}>
-        <GameOfLife key={key} size={sizes[sizeIndex].value} pattern={pattern} speed={speed} />
+        <GameOfLife key={key} size={sizes[sizeIndex].value} pattern={pattern} speed={speeds[speed].value} />
       </div>
       <div className={styles.menu}>
         <p style={{cursor: "pointer"}}>
@@ -80,14 +88,19 @@ const Index = () => {
           </div>
           <div className={styles.wrapSizes}>
             <p>Speed</p>
-            <input
-              className={styles.slider}
-              type="range"
-              min={1}
-              max={1000}
-              onChange={handleSpeedChange}
-              value={speed}
-            />
+            <div className={styles.sizes}>
+              {speeds.map((v, key) => (
+                <button
+                  key={key}
+                  className={`${key === speed ? styles.buttonActive : styles.button} ${
+                    v.warning ? styles.warning : ""
+                  }`}
+                  onClick={() => handleSpeedSelect(key)}
+                >
+                  {v.key}
+                </button>
+              ))}
+            </div>
           </div>
           <div className={styles.wrapSizes}>
             <p>Pattern</p>
@@ -111,6 +124,7 @@ const Index = () => {
               ))}
             </select>
           </div>
+          <p onClick={() => setFull((f) => !f)}>Fullscreen</p>
         </div>
         <a title="Game of life" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
           <Info />

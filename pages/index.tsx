@@ -11,7 +11,6 @@ import {Project} from "../utilities/info.types"
 const IndexPage = ({projects}: {projects: Project[]}): JSX.Element => {
   // const [scale, setScale] = useState<{x: number; y: number}>({x: 1, y: 1})
   // const [position, setPosition] = useState<{x: number; y: number}>()
-  const dimension = 100
 
   useEffect(() => {
     document.addEventListener("keydown", animateKeyDown, {passive: true})

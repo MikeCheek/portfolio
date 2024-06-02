@@ -1,6 +1,6 @@
 enum P_CATEGORY {
   GUN = "Gun",
-  TRAIN = "Train",
+  ENGINE = "Engine",
   SPACE = "Space",
   STUFF = "Stuff",
   FUSE = "Fuse",
@@ -39,7 +39,8 @@ const doubleNumbers = (start: number, length: number) => {
   return result
 }
 
-const mirrorY = (cells: number[][]) => [...cells, ...cells.reverse()]
+const mirrorY = (cells: number[][], inTheMiddle?: number[]) =>
+  inTheMiddle ? [...cells, inTheMiddle, ...cells.reverse()] : [...cells, ...cells.reverse()]
 
 // Pattern are saved in this way:
 // The cells matrix stores positions of the active cells of the pattern
@@ -125,6 +126,69 @@ const patterns: Pattern[] = [
       [0, 1],
       [0, 1, 3, 4, 5, 6, 7, 8],
       [0, 1, 3, 4, 5, 6, 7, 8],
+    ],
+  },
+  {
+    name: "119P4H1V0",
+    category: P_CATEGORY.SPACE,
+    cells: mirrorY(
+      [
+        [33],
+        [16, 32, 34],
+        [6, 8, 15, 21, 22, 31],
+        [6, 11, 16, 18, 19, 20, 21, 22, 23, 28, 29],
+        [6, 8, 9, 10, 11, 12, 13, 14, 15, 26, 29, 31, 32, 33],
+        [9, 15, 23, 24, 25, 26, 31, 32, 33],
+        [4, 5, 23, 24, 25, 27],
+        [1, 4, 5, 13, 14, 23, 24],
+        [1, 4],
+      ],
+      [0]
+    ),
+  },
+  {
+    name: "Coe ship",
+    category: P_CATEGORY.ENGINE,
+    cells: [[4, 5, 6, 7, 8, 9], [2, 3, 9], [0, 1, 3, 9], [4, 8], [6], [6, 7], [5, 6, 7, 8], [5, 6, 8, 9], [7, 8]],
+  },
+  {
+    name: "double-barrelled",
+    category: P_CATEGORY.GUN,
+    cells: [
+      [17],
+      [17, 18],
+      [18, 19],
+      [17, 18],
+      [32],
+      [31, 32, 48, 49],
+      [30, 31, 48, 49],
+      [17, 18, 31, 32],
+      [0, 1, 18, 19],
+      [0, 1, 17, 18],
+      [17],
+      [31, 32],
+      [30, 31],
+      [31, 32],
+      [32],
+    ],
+  },
+  {
+    name: "Dinner Table",
+    category: P_CATEGORY.STUFF,
+    cells: [
+      [1],
+      [1, 2, 3, 11, 12],
+      [4, 11],
+      [3, 4, 9, 11],
+      [9, 10],
+      [],
+      [5, 6, 7],
+      [5, 6, 7],
+      [2, 3],
+      [1, 3, 8, 9],
+      [1, 8],
+      [0, 1, 9, 10, 11],
+      [11],
     ],
   },
 ].map((p) => {
