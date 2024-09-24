@@ -11,7 +11,7 @@ export interface Project {
   image: StaticImageData
   image_mobile: StaticImageData
   description: string
-  href: string
+  href?: string
   github?: string
   reduce_opacity?: boolean
   video?: string

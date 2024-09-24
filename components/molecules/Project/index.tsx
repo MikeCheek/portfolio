@@ -86,14 +86,16 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         </div>
 
         <div className={styles.links}>
-          <Button
-            title={"Go to " + project.title + " website"}
-            // onMouseEnter={(e) => handleMouseHover(e)}
-            // onMouseLeave={handleMouseLeave}
-            href={project.href}
-          >
-            Visit Website
-          </Button>
+          {project.href && (
+            <Button
+              title={"Go to " + project.title + " website"}
+              // onMouseEnter={(e) => handleMouseHover(e)}
+              // onMouseLeave={handleMouseLeave}
+              href={project.href}
+            >
+              Visit Website
+            </Button>
+          )}
           {project.github && (
             <Button
               title={"Go to " + project.title + " repository"}

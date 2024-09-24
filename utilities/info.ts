@@ -1,9 +1,11 @@
 import {Project, SkillsType} from "./info.types"
 import pop from "../assets/images/screenshots/pop.png"
+import quoridor from "../assets/images/screenshots/quoridor.png"
 import nt from "../assets/images/screenshots/nt.png"
 import wdc from "../assets/images/screenshots/wdc.png"
 import wordgame from "../assets/images/screenshots/wordgame.png"
 import pop_mobile from "../assets/images/screenshots/pop-mobile.jpg"
+import quoridor_mobile from "../assets/images/screenshots/quoridor-mobile.png"
 import nt_mobile from "../assets/images/screenshots/nt-mobile.jpg"
 import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
 import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
@@ -215,6 +217,31 @@ export const navItems = [
 
 export const projectsList: Project[] = [
   {
+    title: "Naturalmente Tecnologici",
+    image: nt,
+    image_mobile: nt_mobile,
+    description: `Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)<br/><br/>
+      During the event there were conferences and workshops on the theme of ethical and sustainable technological development in social and environmental terms.<br/><br/>
+      In the background is implemented a working Flocking simulation (to be activated by clicking on "Animate Background")`,
+    href: "https://nt.syskrack.org",
+    github: "https://github.com/MikeCheek/naturalmente-tecnologici",
+    video: require("../assets/videos/nt-new.mp4"),
+    technologies: ["GatsbyJs", "Typescript", "Sass"],
+    tools: ["FTP Deploy Action"],
+  },
+  {
+    title: "Quoridor - LandTiger",
+    image: quoridor,
+    image_mobile: quoridor_mobile,
+    description: `Project developed for the extrapoint of "Architetture dei sistemi di elaborazione" course at Politecnico di Torino 2023/2024.<br/><br/>
+The aim of the project was to acquire full confidence in the usage of KEIL software debug environment to emulate the behaviour of the LPC1768 and the LANDTIGER board.<br/><br/>
+To achieve this result we were asked to develop a working reprodution of the Quoridor game.`,
+    github: "https://github.com/MikeCheek/ASE-Extrapoint-1-Quoridor",
+    video: require("../assets/videos/quoridor.mp4"),
+    technologies: ["NextJs", "Typescript", "TailwindCSS"],
+    tools: ["ESLint", "Prettier"],
+  },
+  {
     title: "Pop! Funding",
     image: pop,
     image_mobile: pop_mobile,
@@ -227,19 +254,6 @@ export const projectsList: Project[] = [
     video: require("../assets/videos/pop.mp4"),
     technologies: ["NextJs", "Typescript", "TailwindCSS"],
     tools: ["ESLint", "Prettier"],
-  },
-  {
-    title: "Naturalmente Tecnologici",
-    image: nt,
-    image_mobile: nt_mobile,
-    description: `Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)<br/><br/>
-      During the event there were conferences and workshops on the theme of ethical and sustainable technological development in social and environmental terms.<br/><br/>
-      Visit the site and try to catch the flying insects!`,
-    href: "https://nt.syskrack.org",
-    github: "https://github.com/MikeCheek/naturalmente-tecnologici",
-    video: require("../assets/videos/nt.mp4"),
-    technologies: ["GatsbyJs", "Typescript", "Sass"],
-    tools: ["FTP Deploy Action"],
   },
   {
     title: "Web Dev Challenge 2022",
