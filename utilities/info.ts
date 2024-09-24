@@ -238,8 +238,8 @@ The aim of the project was to acquire full confidence in the usage of KEIL softw
 To achieve this result we were asked to develop a working reprodution of the Quoridor game.`,
     github: "https://github.com/MikeCheek/ASE-Extrapoint-1-Quoridor",
     video: require("../assets/videos/quoridor.mp4"),
-    technologies: ["NextJs", "Typescript", "TailwindCSS"],
-    tools: ["ESLint", "Prettier"],
+    technologies: ["C", "Assembly MIPS"],
+    tools: ["Keil"],
   },
   {
     title: "Pop! Funding",
