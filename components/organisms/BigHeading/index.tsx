@@ -16,21 +16,22 @@ const Index = () => {
         </HoverPopUp>
       </h1>
       <h2>
-        As a{" "}
+        a{" "}
         <HoverPopUp href="#skills">
           <span title="" className={styles.colored}>
-            developer
+            Computer Engineer
           </span>
           <span>See my skills!</span>
         </HoverPopUp>{" "}
-        <br />I currently{" "}
+        <br />
+        who likes{" "}
         <HoverPopUp href="#projects" down>
           <span title="" className={styles.colored}>
-            work
+            developing
           </span>
           <span>Look at my projects!</span>
         </HoverPopUp>{" "}
-        on the web
+        things
       </h2>
       {/*<Circles number={5} />*/}
       <GoDown />
