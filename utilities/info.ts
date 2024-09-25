@@ -107,6 +107,10 @@ export const programming: SkillsType = [
     percentage: 60,
   },
   {
+    name: "Rust",
+    percentage: 70,
+  },
+  {
     name: "JavaScript",
     percentage: 95,
   },
@@ -115,7 +119,7 @@ export const programming: SkillsType = [
     percentage: 95,
   },
   {
-    name: "Assembly MIPS",
+    name: "Assembly MIPS/ARM",
     percentage: 50,
   },
   {
@@ -238,7 +242,7 @@ The aim of the project was to acquire full confidence in the usage of KEIL softw
 To achieve this result we were asked to develop a working reprodution of the Quoridor game.`,
     github: "https://github.com/MikeCheek/ASE-Extrapoint-1-Quoridor",
     video: require("../assets/videos/quoridor.mp4"),
-    technologies: ["C", "Assembly MIPS"],
+    technologies: ["C", "ARM Assembly"],
     tools: ["Keil"],
   },
   {
