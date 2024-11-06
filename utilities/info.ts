@@ -54,7 +54,7 @@ export const about: string = `
     <h3>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
     I'm a <span style="color: var(--pink)">Computer Engineer</span></h3>
     <p>I am enrolled in Artificial Intelligence and Data Analytics course at Polytechnic of Turin.</p>
-    <p>Currently, I am in Paris for a one year Erasmus at Pole Leonard de Vinci.</p>
+    <p>Currently, I am in Paris for a one year Erasmus in Data & AI at ESILV - Pole Leonard de Vinci.</p>
     <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics.</p>`
 
 //work experiences
@@ -234,7 +234,7 @@ export const projectsList: Project[] = [
     image: quoridor,
     image_mobile: quoridor_mobile,
     description: `Project developed for the extrapoint of "Architetture dei sistemi di elaborazione" course at Politecnico di Torino 2023/2024.<br/><br/>
-The aim of the project was to acquire full confidence in the usage of KEIL software debug environment to emulate the behaviour of the LPC1768 and the LANDTIGER board.<br/><br/>
+The aim of the project was to acquire full confidence in using the KEIL software debug environment to emulate the behaviour of the LPC1768 and the LANDTIGER board.<br/><br/>
 To achieve this result we were asked to develop a working reprodution of the Quoridor game.`,
     github: "https://github.com/MikeCheek/ASE-Extrapoint-1-Quoridor",
     video: require("../assets/videos/quoridor.mp4"),
