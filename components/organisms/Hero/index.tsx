@@ -4,7 +4,7 @@ import styles from "./index.module.scss"
 
 import Section from "../../atoms/Section"
 
-import {about} from "@utilities/info"
+import { about } from "@utilities/info"
 import BigHeading from "@organisms/BigHeading"
 import Projects from "@organisms/Projects"
 import Skills from "@molecules/Skills"
@@ -21,14 +21,14 @@ const Index = (): JSX.Element => {
       </header>
       <div className={styles.sectionWrap}>
         <Section title={"About me"} id={"about"}>
-          <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
+          <div className={styles.about} dangerouslySetInnerHTML={{ __html: about }} />
         </Section>
         <Section title={"My projects"} id={"projects"} reversed>
           <Projects />
         </Section>
-        <Section title={"Hard skills"} id={"skills"}>
+        {/* <Section title={"Hard skills"} id={"skills"}>
           <Skills />
-        </Section>
+        </Section> */}
       </div>
     </div>
   )

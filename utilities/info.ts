@@ -226,7 +226,7 @@ export const projectsList: Project[] = [
     image_mobile: nt_mobile,
     description: `Website created on the occasion of the Naturalmente Tecnologici event organized by the Syskrack association in Grassano (Matera)<br/><br/>
       During the event there were conferences and workshops on the theme of ethical and sustainable technological development in social and environmental terms.<br/><br/>
-      In the background is implemented a working Flocking simulation (to be activated by clicking on "Animate Background")`,
+      In the background is implemented a working <a href="https://en.wikipedia.org/wiki/Flocking" class="link" rel="noopener noreferrer" alt="Flocking simulation">Flocking simulation</a> (to be activated by clicking on "Animate Background")`,
     href: "https://nt.syskrack.org",
     github: "https://github.com/MikeCheek/naturalmente-tecnologici",
     video: require("../assets/videos/nt-new.mp4"),
@@ -259,17 +259,17 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     technologies: ["NextJs", "Typescript", "TailwindCSS"],
     tools: ["ESLint", "Prettier"],
   },
-  {
-    title: "Web Dev Challenge 2022",
-    image: wdc,
-    image_mobile: wdc_mobile,
-    description: `Website created to show all info of the Web Dev Challenge event organized by JEToP<br/><br/>
-                In the challenge, teams were required to create landing pages on a specific topic<br/><br/>
-                Have a look also at the <a title="JEToP WDC Thanks" href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
-    href: "https://wdc.jetop.com",
-    technologies: ["NextJs", "Typescript", "TailwindCSS"],
-    tools: ["Husky", "ESLint", "Prettier"],
-  },
+  // {
+  //   title: "Web Dev Challenge 2022",
+  //   image: wdc,
+  //   image_mobile: wdc_mobile,
+  //   description: `Website created to show all info of the Web Dev Challenge event organized by JEToP<br/><br/>
+  //               In the challenge, teams were required to create landing pages on a specific topic<br/><br/>
+  //               Have a look also at the <a title="JEToP WDC Thanks" href="https://wdc.jetop.com/thanks" class="link" rel="noopener noreferrer" target="_blank">thanks page</a>`,
+  //   href: "https://wdc.jetop.com",
+  //   technologies: ["NextJs", "Typescript", "TailwindCSS"],
+  //   tools: ["Husky", "ESLint", "Prettier"],
+  // },
   {
     title: "Word Game",
     image: wordgame,
