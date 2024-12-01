@@ -7,7 +7,7 @@ const InfoPage = () => {
   return (
     <>
       <SEO title="Info" description="Just multiple test" pathname="/info/" />
-      <Layout>
+      <Layout noBackground>
         <InfoHero />
       </Layout>
     </>

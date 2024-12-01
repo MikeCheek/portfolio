@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import SEO from "@atoms/Seo"
 import Layout from "@organisms/Layout"
@@ -38,7 +38,7 @@ const NotFoundPage = (): JSX.Element => {
   return (
     <>
       <SEO title={"Not found"} pathname={"/404/"} />
-      <Layout>
+      <Layout noBackground>
         <h1 className={styles.heading}>PAGE NOT FOUND</h1>
         <span className={styles.lost}>
           Did you lose your way while navigating?{" "}

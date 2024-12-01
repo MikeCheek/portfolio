@@ -3,6 +3,7 @@ import pop from "../assets/images/screenshots/pop.png"
 import quoridor from "../assets/images/screenshots/quoridor.png"
 import nt from "../assets/images/screenshots/nt.png"
 import wdc from "../assets/images/screenshots/wdc.png"
+import nlp from "../assets/images/screenshots/nlp.png"
 import wordgame from "../assets/images/screenshots/wordgame.png"
 import pop_mobile from "../assets/images/screenshots/pop-mobile.jpg"
 import quoridor_mobile from "../assets/images/screenshots/quoridor-mobile.png"
@@ -55,7 +56,7 @@ export const about: string = `
     I'm a <span style="color: var(--pink)">Computer Engineer</span></h3>
     <p>I am enrolled in Artificial Intelligence and Data Analytics course at Polytechnic of Turin.</p>
     <p>Currently, I am in Paris for a one year Erasmus in Data & AI at ESILV - Pole Leonard de Vinci.</p>
-    <p>In my spare time, I like to draw, both on paper and digitally, and I also do acrobatic gymnastics.</p>`
+    <p>I do artistic gymnastics and I like to draw, both on paper and digitally.</p>`
 
 //work experiences
 export const works: string = `<strong><h3><a title="JEToP Website" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Now)<br/><br/>
@@ -220,6 +221,18 @@ export const navItems = [
 ]
 
 export const projectsList: Project[] = [
+  {
+    title: "TripAdvisor Recommendation Challenge",
+    image: nlp,
+    image_mobile: nlp,
+    description: `A machine learning project focused on building a recommendation system for TripAdvisor reviews. 
+    Starting with a BM25 baseline, advanced NLP models like BERT and Sentence Transformers were tested, with Roberta achieving the best results.<br/><br/>
+      Preprocessing included language filtering, tokenization, and lemmatization to enhance data quality. An ensemble learning approach combined model outputs to improve recommendation accuracy.<br/><br/>
+      Project developed for Machine Learning for NLP course at ESILV.`,
+    github: "https://github.com/MikeCheek/Project1-MachineLearningForNLP",
+    technologies: ["Python"],
+    tools: ["Machine Learning for NLP", "Ensemble Learning"],
+  },
   {
     title: "Naturalmente Tecnologici",
     image: nt,

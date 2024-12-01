@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import styles from "./index.module.scss"
 import Loading from "@atoms/Loading"
 import ViewChart from "@atoms/ViewChart"
-import {CustomData, GitHubData} from "./index.types"
+import { CustomData, GitHubData } from "./index.types"
 
 const colors = [
   "var(--pink)",
@@ -17,7 +17,7 @@ const colors = [
 const Index = () => {
   const [data, setData] = useState<CustomData[]>()
   const [max, setMax] = useState<number>(0)
-  const [deploys, setDeploys] = useState<JSON>()
+  // const [deploys, setDeploys] = useState<JSON>()
   const [error, setError] = useState<boolean[]>([false, false])
   const [fetched, setFetched] = useState<boolean[]>([false, false])
 
@@ -25,16 +25,16 @@ const Index = () => {
     fetch("https://api.github.com/repos/mikecheek/portfolio/languages")
       .then((response) => response.json())
       .then((data: GitHubData) =>
-        setData(Object.keys(data).map((entry: string) => ({language: entry, value: data[entry], percentage: 0})))
+        setData(Object.keys(data).map((entry: string) => ({ language: entry, value: data[entry], percentage: 0 })))
       )
       .catch((_err) => setError((err) => [true, err[1]]))
       .finally(() => setFetched((fetch) => [true, fetch[1]]))
 
-    fetch("https://api.github.com/repos/mikecheek/portfolio/actions/workflows/20375826/runs")
-      .then((response) => response.json())
-      .then((data) => setDeploys(data))
-      .catch((_err) => setError((err) => [err[0], true]))
-      .finally(() => setFetched((fetch) => [fetch[0], true]))
+    // fetch("https://api.github.com/repos/mikecheek/portfolio/actions/workflows/20375826/runs")
+    //   .then((response) => response.json())
+    //   .then((data) => setDeploys(data))
+    //   .catch((_err) => setError((err) => [err[0], true]))
+    //   .finally(() => setFetched((fetch) => [fetch[0], true]))
   }
 
   useEffect(() => {
@@ -60,9 +60,9 @@ const Index = () => {
             <div className={styles.progress}>
               {data!.map((entry, key) => {
                 return (
-                  <span key={key} style={{width: entry.percentage + "%", backgroundColor: colors[key]}}>
+                  <span key={key} style={{ width: entry.percentage + "%", backgroundColor: colors[key] }}>
                     {entry.percentage > 4 ? (
-                      <p style={{color: colors[key]}}>{entry.percentage.toFixed(2) + "%"}</p>
+                      <p style={{ color: colors[key] }}>{entry.percentage.toFixed(2) + "%"}</p>
                     ) : (
                       <></>
                     )}
@@ -74,7 +74,7 @@ const Index = () => {
               {data!.map((entry, key) => {
                 return (
                   <p className={styles.legend} key={key}>
-                    {entry.language} <span style={{backgroundColor: colors[key]}}></span>
+                    {entry.language} <span style={{ backgroundColor: colors[key] }}></span>
                   </p>
                 )
               })}
@@ -85,7 +85,7 @@ const Index = () => {
         <Loading />
       )}
 
-      {fetched[1] ? (
+      {/* {fetched[1] ? (
         !error[1] && (
           <div>
             <p>This site was built and deployed {(deploys as any)["total_count"]} times</p>
@@ -93,9 +93,9 @@ const Index = () => {
         )
       ) : (
         <Loading />
-      )}
-      <h2 className={styles.heading}>Home page views</h2>
-      <ViewChart />
+      )} */}
+      {/* <h2 className={styles.heading}>Home page views</h2> */}
+      {/* <ViewChart /> */}
     </div>
   )
 }

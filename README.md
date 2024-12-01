@@ -8,12 +8,12 @@ This website is developed with
 
 Code is checked and formatted before every commit thanks to:
 
-  - Husky pre-committer
-  - ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E) ![ESlint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+- Husky pre-committer
+- ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E) ![ESlint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
 The website is deployed to Vercel
 
-## Interesting things 
+## Interesting things
 
 - On the background it's implemented a working [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) simulation.
 
@@ -25,4 +25,4 @@ The website is deployed to Vercel
 
 ##
 
-*Try to discover hidden tricks on the website!*
+_Try to discover hidden tricks on the website!_

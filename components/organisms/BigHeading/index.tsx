@@ -16,20 +16,12 @@ const Index = () => {
         </HoverPopUp>
       </h1>
       <h2>
-        a{" "}
-        <HoverPopUp href="#skills">
-          <span title="" className={styles.colored}>
-            Computer Engineer
-          </span>
-          <span>See my skills!</span>
-        </HoverPopUp>{" "}
-        <br />
-        who likes{" "}
+        a Computer Engineer <br /> who likes{" "}
         <HoverPopUp href="#projects" down>
           <span title="" className={styles.colored}>
             developing
           </span>
-          <span>Look at my projects!</span>
+          <span>View my projects!</span>
         </HoverPopUp>{" "}
         things
       </h2>
