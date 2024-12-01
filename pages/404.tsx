@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, {useState, useEffect} from "react"
 import Link from "next/link"
 import SEO from "@atoms/Seo"
 import Layout from "@organisms/Layout"

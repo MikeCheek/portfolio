@@ -5,13 +5,13 @@ import styles from "./index.module.scss"
 import Email from "@assets/email.svg"
 import Linkedin from "@assets/linkedin.svg"
 import Github from "@assets/github.svg"
-import { email, github, linkedin } from "@utilities/info"
+import {email, github, linkedin} from "@utilities/info"
 import FooterProps from "./index.types"
 
 const width: string = "50px"
 const height: string = "50px"
 
-const Index = ({ noGameLink = false }: FooterProps): JSX.Element => {
+const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
   const color: string = "var(--white)"
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

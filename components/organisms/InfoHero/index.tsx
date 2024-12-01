@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useState} from "react"
 import styles from "./index.module.scss"
 import Loading from "@atoms/Loading"
 import ViewChart from "@atoms/ViewChart"
-import { CustomData, GitHubData } from "./index.types"
+import {CustomData, GitHubData} from "./index.types"
 
 const colors = [
   "var(--pink)",
@@ -25,7 +25,7 @@ const Index = () => {
     fetch("https://api.github.com/repos/mikecheek/portfolio/languages")
       .then((response) => response.json())
       .then((data: GitHubData) =>
-        setData(Object.keys(data).map((entry: string) => ({ language: entry, value: data[entry], percentage: 0 })))
+        setData(Object.keys(data).map((entry: string) => ({language: entry, value: data[entry], percentage: 0})))
       )
       .catch((_err) => setError((err) => [true, err[1]]))
       .finally(() => setFetched((fetch) => [true, fetch[1]]))
@@ -60,9 +60,9 @@ const Index = () => {
             <div className={styles.progress}>
               {data!.map((entry, key) => {
                 return (
-                  <span key={key} style={{ width: entry.percentage + "%", backgroundColor: colors[key] }}>
+                  <span key={key} style={{width: entry.percentage + "%", backgroundColor: colors[key]}}>
                     {entry.percentage > 4 ? (
-                      <p style={{ color: colors[key] }}>{entry.percentage.toFixed(2) + "%"}</p>
+                      <p style={{color: colors[key]}}>{entry.percentage.toFixed(2) + "%"}</p>
                     ) : (
                       <></>
                     )}
@@ -74,7 +74,7 @@ const Index = () => {
               {data!.map((entry, key) => {
                 return (
                   <p className={styles.legend} key={key}>
-                    {entry.language} <span style={{ backgroundColor: colors[key] }}></span>
+                    {entry.language} <span style={{backgroundColor: colors[key]}}></span>
                   </p>
                 )
               })}
