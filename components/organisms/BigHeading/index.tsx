@@ -22,7 +22,8 @@ const Index = () => {
             Computer Engineer
           </span>
           <span>View my projects!</span>
-        </HoverPopUp> <br />
+        </HoverPopUp>{" "}
+        <br />
         interested in Computer Vision
       </h2>
       {/*<Circles number={5} />*/}
