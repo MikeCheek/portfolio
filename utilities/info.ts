@@ -4,11 +4,13 @@ import quoridor from "../assets/images/screenshots/quoridor.png"
 import nt from "../assets/images/screenshots/nt.png"
 import wdc from "../assets/images/screenshots/wdc.png"
 import nlp from "../assets/images/screenshots/nlp.png"
+import segmentation from "../assets/images/screenshots/segmentation.png"
 import wordgame from "../assets/images/screenshots/wordgame.png"
 import pop_mobile from "../assets/images/screenshots/pop-mobile.jpg"
 import quoridor_mobile from "../assets/images/screenshots/quoridor-mobile.png"
 import nt_mobile from "../assets/images/screenshots/nt-mobile.jpg"
 import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
+import segmentation_mobile from "../assets/images/screenshots/segmentation-mobile.png"
 import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
 
 //head
@@ -222,6 +224,19 @@ export const navItems = [
 
 export const projectsList: Project[] = [
   {
+    title: "Semantic Segmentation of Underwater Imagery",
+    image: segmentation,
+    image_mobile: segmentation_mobile,
+    description: `This project focuses on developing a multi-class segmentation algorithm for underwater images.<br/><br/>
+    The U-Net model was used and enhanced by incorporating a dropout mechanism to mitigate overfitting.<br/>
+    Various images manipulation techniques were applied to calculate database statistics and to improve the data through preprocessing and augmentation.<br/><br/>
+    
+    Project developed for Machine Learning for CV course at ESILV.`,
+    github: "https://github.com/MikeCheek/Semantic-Segmentation-of-Underwater-Imagery",
+    technologies: ["Python", "OpenCV", "PyTorch", "MatplotLib", "NumPy"],
+    tools: ["Machine Learning for Computer Vision", "Segmentation models"],
+  },
+  {
     title: "TripAdvisor Recommendation Challenge",
     image: nlp,
     image_mobile: nlp,
@@ -230,7 +245,7 @@ export const projectsList: Project[] = [
       Preprocessing included language filtering, tokenization, and lemmatization to enhance data quality. An ensemble learning approach combined model outputs to improve recommendation accuracy.<br/><br/>
       Project developed for Machine Learning for NLP course at ESILV.`,
     github: "https://github.com/MikeCheek/Project1-MachineLearningForNLP",
-    technologies: ["Python"],
+    technologies: ["Python", "NumPy", "Pandas", "nltk", "PyTorch"],
     tools: ["Machine Learning for NLP", "Ensemble Learning"],
   },
   {
@@ -287,7 +302,7 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     title: "Word Game",
     image: wordgame,
     image_mobile: wordgame_mobile,
-    description: `Webapp developed for fun and to try something new<br/><br/>
+    description: `WebApp developed for fun and to try something new<br/><br/>
                 It is a simple guess the hidden word game and you can play in english or in italian<br/><br/>
                 This webapp is also a PWA, so you can install it and play offline<br/><br/>
                 When you guess the word, you can also see its definition (only available in English).

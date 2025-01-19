@@ -9,7 +9,7 @@ $desktop-dis: calc($desktop-dim / -2);
   height: 110%;
   overflow-x: hidden;
   overflow-y: clip;
-  @media screen and(min-width: 768px) {
+  @media screen and (min-width: 768px) {
     height: 120%;
   }
 }

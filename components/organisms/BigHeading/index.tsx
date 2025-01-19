@@ -16,14 +16,14 @@ const Index = () => {
         </HoverPopUp>
       </h1>
       <h2>
-        a Computer Engineer <br /> who likes{" "}
-        <HoverPopUp href="#projects" down>
+        a{" "}
+        <HoverPopUp href="#projects">
           <span title="" className={styles.colored}>
-            developing
+            Computer Engineer
           </span>
           <span>View my projects!</span>
-        </HoverPopUp>{" "}
-        things
+        </HoverPopUp> <br />
+        interested in Computer Vision
       </h2>
       {/*<Circles number={5} />*/}
       <GoDown />
