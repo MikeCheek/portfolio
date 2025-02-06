@@ -13,6 +13,8 @@ import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
 import segmentation_mobile from "../assets/images/screenshots/segmentation-mobile.png"
 import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
 
+export const bannerText = `Check out my projects also in an <a title="Portfolio interactive" class="link" href="https://michelepulvirenti-interactive.vercel.app">interactive way</a> <br/> (still in development)`
+
 //head
 export const introduce = `/*welcome to my portfolio*/`
 export const commands = [
