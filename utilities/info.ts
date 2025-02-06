@@ -233,7 +233,7 @@ export const projectsList: Project[] = [
     
     Project developed for Machine Learning for CV course at ESILV.`,
     github: "https://github.com/MikeCheek/Semantic-Segmentation-of-Underwater-Imagery",
-    video: require("../assets/videos/segmented-low.mp4"),
+    video: require("../assets/videos/segmented-very-low.mp4"),
     technologies: ["Python", "OpenCV", "PyTorch", "MatplotLib", "NumPy"],
     tools: ["Machine Learning for Computer Vision", "Segmentation models"],
   },
@@ -284,7 +284,7 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     Visit the site and try to click on bubbles!`,
     href: "https://pop-funding.vercel.app",
     github: "https://github.com/MikeCheek/pop-funding",
-    video: require("../assets/videos/pop.mp4"),
+    video: require("../assets/videos/pop-low.mp4"),
     technologies: ["NextJs", "Typescript", "TailwindCSS"],
     tools: ["ESLint", "Prettier"],
   },
