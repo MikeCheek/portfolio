@@ -13,8 +13,6 @@ import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
 import segmentation_mobile from "../assets/images/screenshots/segmentation-mobile.png"
 import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
 
-export const bannerText = `Check out my projects also in an <a title="Portfolio interactive" class="link" href="https://michelepulvirenti-interactive.vercel.app">interactive way</a> <br/> (still in development)`
-
 //head
 export const introduce = `/*welcome to my portfolio*/`
 export const commands = [
@@ -224,6 +222,12 @@ export const navItems = [
   },
 ]
 
+export enum P_CATEGORY {
+  ML = "Machine Learning",
+  WEB = "Web Developing",
+  LOW = "Low Level Programming",
+}
+
 export const projectsList: Project[] = [
   {
     title: "Semantic Segmentation of Underwater Imagery",
@@ -238,6 +242,7 @@ export const projectsList: Project[] = [
     video: require("../assets/videos/segmented-very-low.mp4"),
     technologies: ["Python", "OpenCV", "PyTorch", "MatplotLib", "NumPy"],
     tools: ["Machine Learning for Computer Vision", "Segmentation models"],
+    category: P_CATEGORY.ML,
   },
   {
     title: "TripAdvisor Recommendation Challenge",
@@ -250,6 +255,7 @@ export const projectsList: Project[] = [
     github: "https://github.com/MikeCheek/Project1-MachineLearningForNLP",
     technologies: ["Python", "NumPy", "Pandas", "nltk", "PyTorch"],
     tools: ["Machine Learning for NLP", "Ensemble Learning"],
+    category: P_CATEGORY.ML,
   },
   {
     title: "Naturalmente Tecnologici",
@@ -263,6 +269,7 @@ export const projectsList: Project[] = [
     video: require("../assets/videos/nt-new.mp4"),
     technologies: ["GatsbyJs", "Typescript", "Sass"],
     tools: ["FTP Deploy Action"],
+    category: P_CATEGORY.WEB,
   },
   {
     title: "Quoridor - LandTiger",
@@ -275,6 +282,7 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     video: require("../assets/videos/quoridor.mp4"),
     technologies: ["C", "ARM Assembly"],
     tools: ["Keil"],
+    category: P_CATEGORY.LOW,
   },
   {
     title: "Pop! Funding",
@@ -289,6 +297,7 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     video: require("../assets/videos/pop-low.mp4"),
     technologies: ["NextJs", "Typescript", "TailwindCSS"],
     tools: ["ESLint", "Prettier"],
+    category: P_CATEGORY.WEB,
   },
   // {
   //   title: "Web Dev Challenge 2022",
@@ -313,5 +322,6 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     href: "https://mikecheek.github.io/wordgame",
     github: "https://github.com/MikeCheek/wordgame",
     technologies: ["GatsbyJs", "Typescript", "Sass"],
+    category: P_CATEGORY.WEB,
   },
 ]

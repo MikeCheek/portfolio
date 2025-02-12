@@ -1,0 +1,25 @@
+.wrap {
+  color: var(--orange);
+  border-color: var(--orange);
+  background-color: var(--black);
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  will-change: background-color, color;
+  transition: background-color 500ms ease;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: x-small;
+  margin-bottom: -10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: small;
+  }
+}
+
+.wrapActive {
+  @extend .wrap;
+  color: var(--black);
+  background-color: var(--orange);
+  font-weight: 700;
+}

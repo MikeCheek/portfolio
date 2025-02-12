@@ -2,17 +2,17 @@ import React from "react"
 import styles from "./index.module.scss"
 import BannerProps from "./index.types"
 
-const Index = ({text}: BannerProps) => {
-  return (
+const Index = ({ text, href }: BannerProps) => {
+  return href ? (
     <a
       className={styles.banner}
-      href={text.includes("href=") ? text.match(/href="([^"]*)"/)![1] : "#"}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span dangerouslySetInnerHTML={{__html: text}}></span>
+      {text}
     </a>
-  )
+  ) : <p className={styles.banner}>{text}</p>
 }
 
 export default Index

@@ -17,4 +17,5 @@ export interface Project {
   video?: string
   technologies?: string[]
   tools?: string[]
+  category: string
 }

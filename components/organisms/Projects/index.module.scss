@@ -9,6 +9,36 @@
   margin-top: 20px;
   @media screen and (min-width: 768px) {
     width: 120%;
-    gap: 100px;
+    gap: 70px;
+  }
+}
+
+.announce{
+  margin-top: -50px;
+  margin-bottom: -10px;
+}
+
+.filterContainer {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--transparent-black);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky {
+  @extend .filterContainer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
 }
