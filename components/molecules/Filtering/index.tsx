@@ -1,9 +1,9 @@
-import React from 'react'
-import FilteringProps from './index.types'
-import Badge from '@atoms/Badge'
-import styles from './index.module.scss'
+import React from "react"
+import FilteringProps from "./index.types"
+import Badge from "@atoms/Badge"
+import styles from "./index.module.scss"
 
-const Index = ({ values, onChange, active }: FilteringProps) => {
+const Index = ({values, onChange, active}: FilteringProps) => {
   return (
     <div className={styles.wrap}>
       <p>Filter by category: </p>
