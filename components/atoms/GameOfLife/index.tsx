@@ -3,9 +3,9 @@ import dynamic from "next/dynamic"
 import p5Types from "p5"
 import GameOfLifeProps from "./index.types"
 
-const Sketch = dynamic(import("react-p5"), { ssr: false })
+const Sketch = dynamic(import("react-p5"), {ssr: false})
 
-const Index = ({ size, pattern, speed = 10 }: GameOfLifeProps) => {
+const Index = ({size, pattern, speed = 10}: GameOfLifeProps) => {
   let columns: number
   let rows: number
   let board: number[][]
@@ -62,10 +62,12 @@ const Index = ({ size, pattern, speed = 10 }: GameOfLifeProps) => {
   }
 
   const keyPressed = (p5: p5Types) => {
-    if (p5.keyCode === 82) { // R key to reinitialize
+    if (p5.keyCode === 82) {
+      // R key to reinitialize
       init(p5)
     }
-    if (p5.keyCode === 80 || p5.keyCode === 32) { // P or Space to toggle pause
+    if (p5.keyCode === 80 || p5.keyCode === 32) {
+      // P or Space to toggle pause
       paused = !paused
     }
   }
@@ -79,7 +81,7 @@ const Index = ({ size, pattern, speed = 10 }: GameOfLifeProps) => {
   }
 
   const init = (p5: p5Types) => {
-    const center = { i: columns / 2, j: rows / 2 }
+    const center = {i: columns / 2, j: rows / 2}
     for (let i = 0; i < columns; i++) {
       for (let j = 0; j < rows; j++) {
         // Border cells set to 0
@@ -131,14 +133,7 @@ const Index = ({ size, pattern, speed = 10 }: GameOfLifeProps) => {
     next = temp
   }
 
-  return (
-    <Sketch
-      setup={setup}
-      draw={draw}
-      mousePressed={mousePressed}
-      keyPressed={keyPressed}
-    />
-  )
+  return <Sketch setup={setup} draw={draw} mousePressed={mousePressed} keyPressed={keyPressed} />
 }
 
 export default Index
