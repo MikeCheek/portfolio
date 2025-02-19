@@ -9,13 +9,16 @@
   margin-top: 20px;
   @media screen and (min-width: 768px) {
     width: 120%;
-    gap: 70px;
+    gap: 50px;
   }
 }
 
 .announce {
-  margin-top: -50px;
+  margin-top: -10px;
   margin-bottom: -10px;
+  @media screen and (min-width: 768px) {
+    margin-top: -50px;
+  }
 }
 
 .filterContainer {
