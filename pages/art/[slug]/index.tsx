@@ -1,5 +1,5 @@
 import React from "react"
-import {anime, ArtImage, drawings, pandify} from "@utilities/artImages"
+import { anime, ArtImage, categories, drawings, pandify } from "@utilities/artImages"
 import ArtGallery from "@molecules/ArtGallery"
 import Layout from "@organisms/Layout"
 
@@ -7,27 +7,26 @@ interface IndexProps {
   error: boolean
   images: ArtImage[]
   title: string
+  description?: string
 }
 
-const Index = ({error, images, title}: IndexProps) => {
+const Index = ({ error, images, title, description }: IndexProps) => {
   return (
     <Layout noBackground noGameLink>
-      <h1>{title}</h1>
+      <h1 className="artTitle">{title}</h1>
+      {
+        description ? <p className="artDescription" dangerouslySetInnerHTML={{ __html: description }} /> : <></>
+      }
       {!error ? <ArtGallery images={images} /> : <h2>Gallery not found</h2>}
     </Layout>
   )
 }
 export default Index
 
-export async function getServerSideProps({params}: {params: {slug: string}}) {
-  const {slug} = params
-  const categories: {[key: string]: ArtImage[]} = {
-    paper: drawings,
-    digital: pandify,
-    anime: anime,
-  }
+export async function getServerSideProps({ params }: { params: { slug: string } }) {
+  const { slug } = params
 
-  const validSlugs = Object.keys(categories)
+  const validSlugs = categories.map((cat) => cat.link.split("/").pop()).filter((cat) => cat !== undefined)
 
   if (!validSlugs.includes(slug)) {
     return {
@@ -39,18 +38,22 @@ export async function getServerSideProps({params}: {params: {slug: string}}) {
     }
   }
 
-  const currentImages = categories[slug].sort((a, b) => {
-    if (a.date && b.date) {
-      return new Date(b.date).getTime() - new Date(a.date).getTime()
-    }
-    return 0
-  })
+  const currentCategory = categories.find(cat => cat.link.split("/").pop() === slug)!
+
+  const currentImages = currentCategory.images
+    .sort((a, b) => {
+      if (a.date && b.date) {
+        return new Date(b.date).getTime() - new Date(a.date).getTime()
+      }
+      return 0
+    })
 
   return {
     props: {
       error: false,
       images: currentImages,
-      title: slug.charAt(0).toUpperCase() + slug.slice(1),
+      title: currentCategory.name,
+      description: currentCategory.description ?? '',
     },
   }
 }

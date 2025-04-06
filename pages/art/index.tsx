@@ -4,7 +4,7 @@ import Layout from "@organisms/Layout"
 import SEO from "@atoms/Seo"
 import ArtCategories from "@molecules/ArtCategories"
 
-const Index = () => {
+const Index = ({ num }: { num: number }) => {
   return (
     <>
       <SEO
@@ -17,10 +17,19 @@ const Index = () => {
         pathname={"/"}
       />
       <Layout noGameLink noBackground>
-        <ArtCategories />
+        <ArtCategories randNum={num} />
       </Layout>
     </>
   )
 }
 
 export default Index
+
+export async function getServerSideProps() {
+  const randNum = Math.random()
+  return {
+    props: {
+      num: randNum,
+    },
+  }
+}

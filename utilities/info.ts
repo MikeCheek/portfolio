@@ -58,7 +58,8 @@ export const about: string = `
     I'm a <span style="color: var(--pink)">Computer Engineer</span></h3>
     <p>I am enrolled in Artificial Intelligence and Data Analytics course at Polytechnic of Turin.</p>
     <p>Currently, I am in Paris for a one year Erasmus in Data & AI at ESILV - Pole Leonard de Vinci.</p>
-    <p>I do artistic gymnastics and I like to draw, both on paper and digitally.</p>`
+    <p>I do artistic gymnastics and I like to draw, both on paper and digitally.</p>
+    <p style="flex:1 1 100%;text-align:center;">Check out my drawings in the <a href="/art" class="link">art section</a></p>`
 
 //work experiences
 export const works: string = `<strong><h3><a title="JEToP Website" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Now)<br/><br/>

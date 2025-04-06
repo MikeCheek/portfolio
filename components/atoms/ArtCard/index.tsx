@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
-import {ArtImage} from "@utilities/artImages"
+import { ArtImage, BADGE_COLORS } from "@utilities/artImages"
 
 interface ArtCardProps {
   keyIndex: number
@@ -11,7 +11,7 @@ interface ArtCardProps {
   active?: boolean
 }
 
-const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop, active = false}) => {
+const Index: React.FC<ArtCardProps> = ({ keyIndex, loc, setSelectedImg, setImgPop, active = false }) => {
   return (
     <a
       className={(keyIndex * 7 * 2) % 3 === 0 ? styles.galleryItemWide : styles.galleryItem}
@@ -27,7 +27,7 @@ const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop
       <Image
         src={loc.img}
         alt={loc.title}
-        quality={90}
+        quality={80}
         width={300}
         height={300}
         className={`${styles.galleryImage} ${active ? styles.galleryImageActive : ""}`}
@@ -35,6 +35,14 @@ const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop
       <div className={`${styles.hoverText} ${active ? styles.hoverTextActive : ""}`}>
         <p>{loc.title}</p>
         {loc.date ? <p className={styles.date}>{loc.date}</p> : <></>}
+      </div>
+
+      <div className={`${styles.badges} ${active ? styles.badgesActive : ""}`}>
+        {loc.badges?.map((badge, key) => (
+          <div key={key} className={styles.badge} style={{ backgroundColor: BADGE_COLORS[badge] }}>
+            <span>{badge}</span>
+          </div>
+        ))}
       </div>
     </a>
   )

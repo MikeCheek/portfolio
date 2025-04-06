@@ -22,7 +22,7 @@ const checkDev = (mbare?: boolean) => {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
-  return
+  return res.status(200)
 
   if (req.method == "POST") {
     const body: BodyReq = req.body
@@ -36,8 +36,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
   if (req.method == "GET") {
     const pages = doc(firestore, checkDev() ? "dev-pages" : "pages", "index")
     return getDoc(pages)
-      .then((data) => res.status(200).json(data.data() as Data))
-      .catch((e) => console.log(e))
+      .then(data => res.status(200).json(data.data() as Data))
+      .catch(e => console.log(e))
   }
   return res.status(405).json({ok: false, message: "Method not allowed"})
 }

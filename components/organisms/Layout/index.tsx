@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 
 import styles from "./index.module.scss"
-import {LayoutProps} from "./index.types"
+import { LayoutProps } from "./index.types"
 
 import Footer from "@atoms/Footer"
 import Separator from "@atoms/Separator"
@@ -11,8 +11,8 @@ import Network from "@atoms/Network"
 import ProgressPage from "@atoms/ProgressPage"
 import Background from "@molecules/Background"
 
-import {Montserrat, Rubik} from "next/font/google"
-import {SpeedInsights} from "@vercel/speed-insights/next"
+import { Montserrat, Rubik } from "next/font/google"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import postRequest from "../../../utilities/postRequest"
 
@@ -28,16 +28,16 @@ const rubik = Rubik({
   subsets: ["latin"],
 })
 
-const Index = ({children, noGameLink = false, noBackground = false}: LayoutProps) => {
+const Index = ({ children, noGameLink = false, noBackground = false }: LayoutProps) => {
   useEffect(() => {
-    const params = new URLSearchParams(location.search)
-    const referrer = document.referrer
-    if (referrer && referrer.length > 0) addRef(referrer)
-    updateRef(params)
-    updateView(params)
+    // const params = new URLSearchParams(location.search)
+    // const referrer = document.referrer
+    // if (referrer && referrer.length > 0) addRef(referrer)
+    // updateRef(params)
+    // updateView(params)
     return () => {
-      document.removeEventListener("keydown", () => {})
-      document.removeEventListener("keyup", () => {})
+      document.removeEventListener("keydown", () => { })
+      document.removeEventListener("keyup", () => { })
     }
   }, [])
 

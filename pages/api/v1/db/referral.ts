@@ -17,7 +17,7 @@ type BodyReq = {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
-  return
+  return res.status(200)
 
   if (req.method == "POST") {
     const body: BodyReq = req.body

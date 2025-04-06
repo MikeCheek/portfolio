@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import ArtCard from "../../atoms/ArtCard"
-import {ArtImage} from "@utilities/artImages"
+import { ArtImage } from "@utilities/artImages"
 
-const Gallery = ({images}: {images: ArtImage[]}) => {
+const Gallery = ({ images }: { images: ArtImage[] }) => {
   const [selectedImg, setSelectedImg] = useState<number>(0)
   const [imgPop, setImgPop] = useState<boolean>(false)
 
@@ -34,6 +34,22 @@ const Gallery = ({images}: {images: ArtImage[]}) => {
     }
   }, [selectedImg])
 
+  const handlePopupImageClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+
+    if (target.style.transform === "scale(1)" || target.style.transform === "") {
+      target.style.transformOrigin = `${clickX}px ${clickY}px`;
+      target.style.transform = "scale(2)";
+      target.style.cursor = "zoom-out";
+    } else {
+      target.style.transform = "scale(1)";
+      target.style.cursor = "zoom-in";
+    }
+  };
+
   return (
     <>
       <div className={styles.galleryWrapper}>
@@ -44,11 +60,12 @@ const Gallery = ({images}: {images: ArtImage[]}) => {
 
       {imgPop && (
         <div className={styles.imagePopup}>
+          <div className={styles.overlay} onClick={() => setImgPop(false)}></div>
           <a onClick={() => setImgPop(false)} className={styles.closeButton}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
               <path
                 d="m100.3,90.4l-26.4-26.4,26.3-26.4c.4-.4.4-1,0-1.4l-8.5-8.5c-.4-.4-1-.4-1.4,0l-26.3,26.4-26.3-26.3c-.4-.4-1-.4-1.4,0l-8.5,8.5c-.4.4-.4,1,0,1.4l26.2,26.3-26.3,26.3c-.4.4-.4,1,0,1.4l8.5,8.5c.4.4,1.1.4,1.4,0l26.4-26.3,26.3,26.3c.4.4,1.1.4,1.5.1l8.5-8.5c.4-.4.4-1,0-1.4Z"
-                fill="#c93636"
+                fill="var(--pink)"
               />
             </svg>
           </a>
@@ -71,15 +88,16 @@ const Gallery = ({images}: {images: ArtImage[]}) => {
           </a>
 
           <div className={styles.imageContainer}>
-            {/* The key on the container forces remounting on image change,
-                which triggers the CSS animation */}
             <div key={selectedImg} className={styles.fadeIn}>
               <Image
                 src={images[selectedImg].img}
                 alt={images[selectedImg].title}
                 width={650}
                 height={500}
+                quality={100}
                 className={styles.popupImage}
+                onClick={handlePopupImageClick}
+                style={{ transition: "transform 0.3s ease", cursor: "zoom-in" }}
               />
             </div>
             <h3 className={styles.popupTitle}>{images[selectedImg].title}</h3>
