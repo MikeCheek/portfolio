@@ -1,11 +1,20 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
 import p5Types from "p5"
 import GameOfLifeProps from "./index.types"
 
-const Sketch = dynamic(import("react-p5"), {ssr: false})
+const Index = ({ size, pattern, speed = 10 }: GameOfLifeProps) => {
 
-const Index = ({size, pattern, speed = 10}: GameOfLifeProps) => {
+  const [Sketch, setSketch] = useState<any>(null);
+
+  useEffect(() => {
+    import("react-p5").then((mod) => {
+      setSketch(() => mod.default);
+    });
+  }, []);
+
+  if (!Sketch) return <p>Loading...</p>;
+
   let columns: number
   let rows: number
   let board: number[][]
@@ -81,7 +90,7 @@ const Index = ({size, pattern, speed = 10}: GameOfLifeProps) => {
   }
 
   const init = (p5: p5Types) => {
-    const center = {i: columns / 2, j: rows / 2}
+    const center = { i: columns / 2, j: rows / 2 }
     for (let i = 0; i < columns; i++) {
       for (let j = 0; j < rows; j++) {
         // Border cells set to 0

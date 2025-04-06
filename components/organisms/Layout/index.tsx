@@ -12,7 +12,7 @@ import ProgressPage from "@atoms/ProgressPage"
 import Background from "@molecules/Background"
 
 import { Montserrat, Rubik } from "next/font/google"
-// import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import postRequest from "../../../utilities/postRequest"
 
@@ -83,7 +83,7 @@ const Index = ({ children, noGameLink = false, noBackground = false }: LayoutPro
 
   return (
     <main className={`${montserrat.className} ${rubik.className}`}>
-      {/* <SpeedInsights /> */}
+      <SpeedInsights />
       {!noBackground && <Background />}
       <div id="top" className={styles.layout}>
         <ProgressPage />
