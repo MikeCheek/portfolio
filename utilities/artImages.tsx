@@ -176,7 +176,7 @@ export const pandify: ArtImage[] = [
 
 export const categories = [
   {
-    name: "Pencil/Charchoal",
+    name: "Pencil & Charchoal",
     logo: () => drawings[Math.floor(Math.random() * drawings.length)].img,
     link: "/art/paper",
   },
@@ -186,7 +186,7 @@ export const categories = [
     link: "/art/digital",
   },
   {
-    name: "Anime/Manga",
+    name: "Anime & Manga",
     logo: () => anime[Math.floor(Math.random() * anime.length)].img,
     link: "/art/anime",
   },
