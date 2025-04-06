@@ -1,5 +1,5 @@
 import React from "react"
-import { anime, ArtImage, categories, drawings, pandify } from "@utilities/artImages"
+import {anime, ArtImage, categories, drawings, pandify} from "@utilities/artImages"
 import ArtGallery from "@molecules/ArtGallery"
 import Layout from "@organisms/Layout"
 
@@ -10,21 +10,19 @@ interface IndexProps {
   description?: string
 }
 
-const Index = ({ error, images, title, description }: IndexProps) => {
+const Index = ({error, images, title, description}: IndexProps) => {
   return (
     <Layout noBackground noGameLink>
       <h1 className="artTitle">{title}</h1>
-      {
-        description ? <p className="artDescription" dangerouslySetInnerHTML={{ __html: description }} /> : <></>
-      }
+      {description ? <p className="artDescription" dangerouslySetInnerHTML={{__html: description}} /> : <></>}
       {!error ? <ArtGallery images={images} /> : <h2>Gallery not found</h2>}
     </Layout>
   )
 }
 export default Index
 
-export async function getServerSideProps({ params }: { params: { slug: string } }) {
-  const { slug } = params
+export async function getServerSideProps({params}: {params: {slug: string}}) {
+  const {slug} = params
 
   const validSlugs = categories.map((cat) => cat.link.split("/").pop()).filter((cat) => cat !== undefined)
 
@@ -38,22 +36,21 @@ export async function getServerSideProps({ params }: { params: { slug: string } 
     }
   }
 
-  const currentCategory = categories.find(cat => cat.link.split("/").pop() === slug)!
+  const currentCategory = categories.find((cat) => cat.link.split("/").pop() === slug)!
 
-  const currentImages = currentCategory.images
-    .sort((a, b) => {
-      if (a.date && b.date) {
-        return new Date(b.date).getTime() - new Date(a.date).getTime()
-      }
-      return 0
-    })
+  const currentImages = currentCategory.images.sort((a, b) => {
+    if (a.date && b.date) {
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    }
+    return 0
+  })
 
   return {
     props: {
       error: false,
       images: currentImages,
       title: currentCategory.name,
-      description: currentCategory.description ?? '',
+      description: currentCategory.description ?? "",
     },
   }
 }

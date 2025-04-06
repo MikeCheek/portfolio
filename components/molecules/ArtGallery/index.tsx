@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useState} from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import ArtCard from "../../atoms/ArtCard"
-import { ArtImage } from "@utilities/artImages"
+import {ArtImage} from "@utilities/artImages"
 
-const Gallery = ({ images }: { images: ArtImage[] }) => {
+const Gallery = ({images}: {images: ArtImage[]}) => {
   const [selectedImg, setSelectedImg] = useState<number>(0)
   const [imgPop, setImgPop] = useState<boolean>(false)
 
@@ -35,20 +35,20 @@ const Gallery = ({ images }: { images: ArtImage[] }) => {
   }, [selectedImg])
 
   const handlePopupImageClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    const target = e.target as HTMLElement;
-    const rect = target.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const clickY = e.clientY - rect.top;
+    const target = e.target as HTMLElement
+    const rect = target.getBoundingClientRect()
+    const clickX = e.clientX - rect.left
+    const clickY = e.clientY - rect.top
 
     if (target.style.transform === "scale(1)" || target.style.transform === "") {
-      target.style.transformOrigin = `${clickX}px ${clickY}px`;
-      target.style.transform = "scale(2)";
-      target.style.cursor = "zoom-out";
+      target.style.transformOrigin = `${clickX}px ${clickY}px`
+      target.style.transform = "scale(2)"
+      target.style.cursor = "zoom-out"
     } else {
-      target.style.transform = "scale(1)";
-      target.style.cursor = "zoom-in";
+      target.style.transform = "scale(1)"
+      target.style.cursor = "zoom-in"
     }
-  };
+  }
 
   return (
     <>
@@ -97,7 +97,7 @@ const Gallery = ({ images }: { images: ArtImage[] }) => {
                 quality={100}
                 className={styles.popupImage}
                 onClick={handlePopupImageClick}
-                style={{ transition: "transform 0.3s ease", cursor: "zoom-in" }}
+                style={{transition: "transform 0.3s ease", cursor: "zoom-in"}}
               />
             </div>
             <h3 className={styles.popupTitle}>{images[selectedImg].title}</h3>

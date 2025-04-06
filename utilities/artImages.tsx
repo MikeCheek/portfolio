@@ -16,7 +16,7 @@ export const BADGE_COLORS: Record<BADGES, string> = {
   [BADGES.PENCIL_COLORS]: "var(--orange)",
   [BADGES.DIGITAL]: "var(--pink)",
   [BADGES.CHINA_INK]: "var(--black)",
-};
+}
 
 export type ArtImage = {
   img: string
@@ -189,73 +189,73 @@ export const pandify: ArtImage[] = [
   },
   {
     img: "/images/pandify/noWritings/1.jpg",
-    title: "\"Ombre\"",
-    date: "2020-11-11"
+    title: '"Ombre"',
+    date: "2020-11-11",
   },
   {
     img: "/images/pandify/noWritings/2.jpg",
-    title: "\"Record\"",
-    date: "2020-11-12"
+    title: '"Record"',
+    date: "2020-11-12",
   },
   {
     img: "/images/pandify/noWritings/3.jpg",
-    title: "\"Palazzina Gialla\"",
-    date: "2020-11-16"
+    title: '"Palazzina Gialla"',
+    date: "2020-11-16",
   },
   {
     img: "/images/pandify/noWritings/4.jpg",
-    title: "\"La tua futura ex moglie\"",
-    date: "2020-11-19"
+    title: '"La tua futura ex moglie"',
+    date: "2020-11-19",
   },
   {
     img: "/images/pandify/noWritings/5.jpg",
-    title: "\"Non ci sei più\"",
-    date: "2020-11-28"
+    title: '"Non ci sei più"',
+    date: "2020-11-28",
   },
   {
     img: "/images/pandify/noWritings/6.jpg",
-    title: "\"Festa\"",
-    date: "2020-12-08"
+    title: '"Festa"',
+    date: "2020-12-08",
   },
   {
     img: "/images/pandify/noWritings/7.jpg",
-    title: "\"Stanza singola\"",
-    date: "2020-12-18"
+    title: '"Stanza singola"',
+    date: "2020-12-18",
   },
   {
     img: "/images/pandify/noWritings/8.jpg",
-    title: "\"Maionese\"",
-    date: "2020-12-25"
+    title: '"Maionese"',
+    date: "2020-12-25",
   },
   {
     img: "/images/pandify/noWritings/9.jpg",
-    title: "\"Settebello\"",
-    date: "2020-12-27"
+    title: '"Settebello"',
+    date: "2020-12-27",
   },
   {
     img: "/images/pandify/noWritings/10.jpg",
-    title: "\"Cialde\"",
-    date: "2021-01-06"
+    title: '"Cialde"',
+    date: "2021-01-06",
   },
   {
     img: "/images/pandify/noWritings/11.jpg",
-    title: "\"Someone to you\"",
-    date: "2021-02-22"
+    title: '"Someone to you"',
+    date: "2021-02-22",
   },
   {
     img: "/images/pandify/noWritings/12.jpg",
-    title: "\"Appuntamento\"",
-    date: "2021-03-10"
+    title: '"Appuntamento"',
+    date: "2021-03-10",
   },
   {
     img: "/images/pandify/noWritings/13.jpg",
-    title: "\"Fiamme negli occhi\"",
-    date: "2021-07-11"
+    title: '"Fiamme negli occhi"',
+    date: "2021-07-11",
   },
   {
     img: "/images/pandify/noWritings/14.jpg",
-    title: "\"Bacio illimitato\"",
-    date: "2021-12-26"
+    title: '"Bacio illimitato"',
+    date: "2021-12-26",
   },
 ]
 
@@ -265,7 +265,8 @@ export const categories = [
     logo: (num: number) => drawings[Math.floor(num * drawings.length)].img,
     link: "/art/paper",
     images: drawings,
-    description: "Nowadays, I like most to draw using pencil and charcoal.<br/><br/>I love to draw realistic portraits, the human body and landscapes from cities.",
+    description:
+      "Nowadays, I like most to draw using pencil and charcoal.<br/><br/>I love to draw realistic portraits, the human body and landscapes from cities.",
   },
   {
     name: "Paintings & Colors",
@@ -279,13 +280,15 @@ export const categories = [
     logo: (num: number) => pandify[Math.floor(num * pandify.length)].img,
     link: "/art/digital",
     images: pandify,
-    description: "Digital art created on my iPad.<br/><br/>The titles in quotes are the names of the songs that inspired the corresponding artwork.",
+    description:
+      "Digital art created on my iPad.<br/><br/>The titles in quotes are the names of the songs that inspired the corresponding artwork.",
   },
   {
     name: "Anime & Manga",
     logo: (num: number) => anime[Math.floor(num * anime.length)].img,
     link: "/art/anime",
     images: anime,
-    description: "I started drawing at a young age by copying cartoon characters.<br/><br/>Growing up, I continued to draw scenes taken from anime and manga.",
+    description:
+      "I started drawing at a young age by copying cartoon characters.<br/><br/>Growing up, I continued to draw scenes taken from anime and manga.",
   },
 ]

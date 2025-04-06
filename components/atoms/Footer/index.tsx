@@ -5,14 +5,14 @@ import styles from "./index.module.scss"
 import Email from "@assets/email.svg"
 import Linkedin from "@assets/linkedin.svg"
 import Github from "@assets/github.svg"
-import { email, github, linkedin } from "@utilities/info"
+import {email, github, linkedin} from "@utilities/info"
 import FooterProps from "./index.types"
 import Link from "next/link"
 
 const width: string = "50px"
 const height: string = "50px"
 
-const Index = ({ noGameLink = false }: FooterProps) => {
+const Index = ({noGameLink = false}: FooterProps) => {
   const color: string = "var(--white)"
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -76,13 +76,7 @@ const Index = ({ noGameLink = false }: FooterProps) => {
         </div>
       </footer>
       {noGameLink ? null : (
-        <Link
-          href={"/art"}
-          target={"_blank"}
-          className={"link"}
-          title="See my artworks"
-          rel="noopener noreferrer"
-        >
+        <Link href={"/art"} target={"_blank"} className={"link"} title="See my artworks" rel="noopener noreferrer">
           Have a look at my artworks
         </Link>
       )}

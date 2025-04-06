@@ -4,7 +4,7 @@ import Layout from "@organisms/Layout"
 import SEO from "@atoms/Seo"
 import ArtCategories from "@molecules/ArtCategories"
 
-const Index = ({ num }: { num: number }) => {
+const Index = ({num}: {num: number}) => {
   return (
     <>
       <SEO
