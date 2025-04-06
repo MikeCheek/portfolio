@@ -1,29 +1,29 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import styles from "./index.module.scss"
 import Info from "@assets/info.svg"
-import { P_CATEGORY, patternToMatrix, patterns } from "@utilities/gameOfLife"
+import {P_CATEGORY, patternToMatrix, patterns} from "@utilities/gameOfLife"
 import dynamic from "next/dynamic"
 
-const GameOfLife = dynamic(import("@atoms/GameOfLife"), { ssr: false })
+const GameOfLife = dynamic(import("@atoms/GameOfLife"), {ssr: false})
 
 const keys = [
-  { key: "P", action: "Pause" },
-  { key: "Click", action: "Change cell state" },
-  { key: "R", action: "Restart" },
+  {key: "P", action: "Pause"},
+  {key: "Click", action: "Change cell state"},
+  {key: "R", action: "Restart"},
 ]
 
 const sizes = [
-  { key: "XSmall", value: 5, warning: true },
-  { key: "Small", value: 10, warning: true },
-  { key: "Medium", value: 20 },
-  { key: "Large", value: 30 },
+  {key: "XSmall", value: 5, warning: true},
+  {key: "Small", value: 10, warning: true},
+  {key: "Medium", value: 20},
+  {key: "Large", value: 30},
 ]
 
 const speeds = [
-  { key: "Slow", value: 1 },
-  { key: "Normal", value: 10 },
-  { key: "Fast", value: 100 },
-  { key: "Turbo", value: 1000, warning: true },
+  {key: "Slow", value: 1},
+  {key: "Normal", value: 10},
+  {key: "Fast", value: 100},
+  {key: "Turbo", value: 1000, warning: true},
 ]
 
 const Index = () => {
@@ -56,12 +56,12 @@ const Index = () => {
   }
 
   return (
-    <div className={styles.background} style={full ? { zIndex: 99999 } : {}}>
+    <div className={styles.background} style={full ? {zIndex: 99999} : {}}>
       <div className={styles.gol}>
         <GameOfLife key={key} size={sizes[sizeIndex].value} pattern={pattern} speed={speeds[speed].value} />
       </div>
       <div className={styles.menu}>
-        <p style={{ cursor: "pointer" }}>
+        <p style={{cursor: "pointer"}}>
           Game of Life simulation <span className={styles.arrowDown}>&gt;</span>
         </p>
         <div className={styles.options}>
@@ -77,8 +77,9 @@ const Index = () => {
               {sizes.map((v, key) => (
                 <button
                   key={key}
-                  className={`${key === sizeIndex ? styles.buttonActive : styles.button} ${v.warning ? styles.warning : ""
-                    }`}
+                  className={`${key === sizeIndex ? styles.buttonActive : styles.button} ${
+                    v.warning ? styles.warning : ""
+                  }`}
                   onClick={() => handleSizeSelect(key)}
                 >
                   {v.key}
@@ -92,8 +93,9 @@ const Index = () => {
               {speeds.map((v, key) => (
                 <button
                   key={key}
-                  className={`${key === speed ? styles.buttonActive : styles.button} ${v.warning ? styles.warning : ""
-                    }`}
+                  className={`${key === speed ? styles.buttonActive : styles.button} ${
+                    v.warning ? styles.warning : ""
+                  }`}
                   onClick={() => handleSpeedSelect(key)}
                 >
                   {v.key}

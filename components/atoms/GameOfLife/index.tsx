@@ -4,16 +4,15 @@ import p5Types from "p5"
 import GameOfLifeProps from "./index.types"
 
 const Index = ({ size, pattern, speed = 10 }: GameOfLifeProps) => {
-
-  const [Sketch, setSketch] = useState<any>(null);
+  const [Sketch, setSketch] = useState<any>(null)
 
   useEffect(() => {
     import("react-p5").then((mod) => {
-      setSketch(() => mod.default);
-    });
-  }, []);
+      setSketch(() => mod.default)
+    })
+  }, [])
 
-  if (!Sketch) return <p>Loading...</p>;
+  if (!Sketch) return <></>
 
   let columns: number
   let rows: number
