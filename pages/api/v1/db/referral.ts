@@ -17,6 +17,8 @@ type BodyReq = {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
+  return
+
   if (req.method == "POST") {
     const body: BodyReq = req.body
     const source = doc(firestore, "referral", body.source)
