@@ -12,7 +12,7 @@ const Index = ({
   pathname,
   googleSiteVerification,
   bingSiteVerification,
-}: SEOProps): JSX.Element => {
+}: SEOProps) => {
   const metaDescription = description || config.description
   const defaultTitle: string = title + " | Portfolio"
   const url: string = config.url

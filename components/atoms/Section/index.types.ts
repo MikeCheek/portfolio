@@ -1,6 +1,6 @@
 export type SectionProps = {
   title: string
-  children: JSX.Element
+  children: React.ReactNode
   reversed?: boolean
   id?: string
   Svg?: {
@@ -9,5 +9,5 @@ export type SectionProps = {
     stroke?: string
   }
   paragraph?: boolean
-  Model3d?: JSX.Element
+  Model3d?: React.ReactNode
 }

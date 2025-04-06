@@ -4,10 +4,11 @@
   left: 0;
   width: 100vw;
   z-index: 999999999999;
+  cursor: e-resize;
 }
 
 .bar {
-  height: 4px;
+  height: 5px;
   background: linear-gradient(to left, var(--orange), var(--pink));
   width: 100%;
   transition: transform 300ms ease-out;

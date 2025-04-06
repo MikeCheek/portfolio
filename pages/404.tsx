@@ -15,7 +15,7 @@ interface Bored {
   accessibility?: number
 }
 
-const NotFoundPage = (): JSX.Element => {
+const NotFoundPage = () => {
   const [bored, setBored] = useState<Bored>({})
   const [fetched, setFetched] = useState<boolean>(false)
   const [_error, setError] = useState<boolean>(false)

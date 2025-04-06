@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./index.module.scss"
 
-const Index = (): JSX.Element => {
+const Index = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.circle1} />

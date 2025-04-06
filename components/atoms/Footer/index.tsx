@@ -11,7 +11,7 @@ import FooterProps from "./index.types"
 const width: string = "50px"
 const height: string = "50px"
 
-const Index = ({noGameLink = false}: FooterProps): JSX.Element => {
+const Index = ({noGameLink = false}: FooterProps) => {
   const color: string = "var(--white)"
 
   const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

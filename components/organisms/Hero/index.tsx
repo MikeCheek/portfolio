@@ -10,7 +10,7 @@ import Projects from "@organisms/Projects"
 import Skills from "@molecules/Skills"
 import Cursor from "@atoms/Cursor"
 
-const Index = (): JSX.Element => {
+const Index = () => {
   // const color = "var(--transparent-pink)"
 
   return (

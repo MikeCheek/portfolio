@@ -14,6 +14,8 @@ import Background from "@molecules/Background"
 import {Montserrat, Rubik} from "next/font/google"
 import {SpeedInsights} from "@vercel/speed-insights/next"
 
+import postRequest from "../../../utilities/postRequest"
+
 const montserrat = Montserrat({
   // weight: ["700"],
   display: "swap",
@@ -26,7 +28,57 @@ const rubik = Rubik({
   subsets: ["latin"],
 })
 
-const Index = ({children, noGameLink = false, noBackground = false}: LayoutProps): JSX.Element => {
+const Index = ({children, noGameLink = false, noBackground = false}: LayoutProps) => {
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    const referrer = document.referrer
+    if (referrer && referrer.length > 0) addRef(referrer)
+    updateRef(params)
+    updateView(params)
+    return () => {
+      document.removeEventListener("keydown", () => {})
+      document.removeEventListener("keyup", () => {})
+    }
+  }, [])
+
+  const addRef = (ref: string) => {
+    postRequest(window.location.origin + "/api/v1/db/referral", {
+      source: ref,
+    })
+  }
+
+  const updateView = (params: URLSearchParams) => {
+    postRequest(window.location.origin + "/api/v1/db/views", {
+      page: "index",
+      mbare: params.has("mbare"),
+    })
+  }
+
+  const updateRef = (params: URLSearchParams) => {
+    if (!params.has("r")) return
+    const value = params.get("r")
+    switch (value) {
+      case "ln":
+        addRef("linkedin")
+        break
+      case "nt":
+        addRef("nt")
+        break
+      case "wg":
+        addRef("wordgame")
+        break
+      case "gt":
+        addRef("github")
+        break
+      case "ld":
+        addRef("oldsite")
+        break
+      default:
+        addRef(value ?? "null")
+        break
+    }
+  }
+
   return (
     <main className={`${montserrat.className} ${rubik.className}`}>
       <SpeedInsights />
@@ -36,12 +88,8 @@ const Index = ({children, noGameLink = false, noBackground = false}: LayoutProps
         <Network />
         {children}
 
-        {!noGameLink && (
-          <>
-            <Separator />
-            <Footer noGameLink={noGameLink} />
-          </>
-        )}
+        <Separator />
+        <Footer noGameLink={noGameLink} />
       </div>
       {!noGameLink && <ArrowUp />}
     </main>

@@ -28,7 +28,14 @@ const Index = ({number}: CirclesProps) => {
     <div className={styles.wrap}>
       <div className={styles.circles} onClick={handleClick}>
         {Array.from({length: num}).map((_el, index) => {
-          return <span key={index} ref={(el) => (ref.current[index] = el)}></span>
+          return (
+            <span
+              key={index}
+              ref={(el) => {
+                ref.current[index] = el
+              }}
+            ></span>
+          )
         })}
       </div>
     </div>

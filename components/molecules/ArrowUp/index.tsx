@@ -3,7 +3,7 @@ import styles from "./index.module.scss"
 
 import Arrow from "@assets/arrowUp.svg"
 
-const Index = (): JSX.Element => {
+const Index = () => {
   const ref = useRef<HTMLDivElement>(null)
 
   let prevScrollpos = 0

@@ -1,5 +1,7 @@
+import {ReactNode} from "react"
+
 export type LayoutProps = {
-  children: React.ReactNode
+  children: ReactNode
   noGameLink?: boolean
   noBackground?: boolean
 }

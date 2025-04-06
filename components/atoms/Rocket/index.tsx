@@ -4,7 +4,7 @@ import WindSvg from "@assets/wind.svg"
 
 import styles from "./index.module.scss"
 
-const Index = (): JSX.Element => {
+const Index = () => {
   return (
     <div className={styles.wrap}>
       <div className={styles.rocketWrap}>

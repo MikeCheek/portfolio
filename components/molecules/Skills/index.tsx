@@ -5,7 +5,7 @@ import Skill from "@atoms/Skill"
 
 import styles from "./index.module.scss"
 
-const Index = (): JSX.Element => {
+const Index = () => {
   const [degree, setDegree] = useState<number>(45)
   let touchX: number
   let mouseDown = false

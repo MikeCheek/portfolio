@@ -5,7 +5,7 @@ import styles from "./index.module.scss"
 import sleep from "@utilities/sleep"
 // import {useInView} from 'react-intersection-observer'
 
-const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps): JSX.Element => {
+const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps) => {
   // const [ref, inView, _entry] = useInView({
   //   threshold: 0,
   //   fallbackInView: true,

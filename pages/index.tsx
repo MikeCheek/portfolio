@@ -8,55 +8,18 @@ import {NextApiRequest} from "next"
 import {getAllProjects} from "./api/v1/data/projects"
 import {Project} from "../utilities/info.types"
 
-const IndexPage = ({projects}: {projects: Project[]}): JSX.Element => {
+const IndexPage = ({projects}: {projects: Project[]}) => {
   // const [scale, setScale] = useState<{x: number; y: number}>({x: 1, y: 1})
   // const [position, setPosition] = useState<{x: number; y: number}>()
 
   useEffect(() => {
     document.addEventListener("keydown", animateKeyDown, {passive: true})
     document.addEventListener("keyup", animateKeyUp, {passive: true})
-    const params = new URLSearchParams(location.search)
-    const referrer = document.referrer
-    if (referrer && referrer.length > 0) addRef(referrer)
-    updateRef(params)
-    updateView(params)
     return () => {
       document.removeEventListener("keydown", () => {})
       document.removeEventListener("keyup", () => {})
     }
   }, [])
-
-  const updateView = (params: URLSearchParams) => {
-    postRequest(window.location.origin + "/api/v1/db/views", {
-      page: "index",
-      mbare: params.has("mbare"),
-    })
-  }
-
-  const updateRef = (params: URLSearchParams) => {
-    if (!params.has("r")) return
-    const value = params.get("r")
-    switch (value) {
-      case "ln":
-        addRef("linkedin")
-        break
-      case "nt":
-        addRef("nt")
-        break
-      case "wg":
-        addRef("wordgame")
-        break
-      case "gt":
-        addRef("github")
-        break
-      case "ld":
-        addRef("oldsite")
-        break
-      default:
-        addRef(value ?? "null")
-        break
-    }
-  }
 
   // const fit = (width: number, height: number) => {
   //   setScale({x: width / dimension + 1, y: height / dimension + 1})
@@ -100,12 +63,6 @@ const IndexPage = ({projects}: {projects: Project[]}): JSX.Element => {
   }
   const animateKeyUp = () => {
     document.body.removeAttribute("style")
-  }
-
-  const addRef = (ref: string) => {
-    postRequest(window.location.origin + "/api/v1/db/referral", {
-      source: ref,
-    })
   }
 
   return (
