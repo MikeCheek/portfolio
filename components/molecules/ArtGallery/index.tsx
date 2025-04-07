@@ -62,7 +62,7 @@ const Gallery = ({images}: {images: ArtImage[]}) => {
       window.removeEventListener("touchmove", handleTouchMove)
       window.removeEventListener("touchend", handleTouchEnd)
     }
-  }, [selectedImg])
+  }, [selectedImg, touchStartX])
 
   const handlePopupImageClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     const target = e.target as HTMLElement
