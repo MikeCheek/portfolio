@@ -30,7 +30,7 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  max-width: 60%;
+  max-width: 80%;
   height: 300px;
   opacity: 0;
 
@@ -43,10 +43,13 @@
     }
     .hoverTextActive {
       opacity: 1;
-      transform: translateX(-50%) translateY(-25%);
+      transform: translateX(-50%) translateY(-60%);
     }
     .galleryImage {
       transform: scale(1.05);
+      filter: brightness(0.5);
+    }
+    .galleryImageActive {
       filter: brightness(0.5);
     }
     .badges {
@@ -113,10 +116,14 @@
   transform: translate(-50%, -50%);
   text-align: center;
   margin: 0;
+  height: fit-content;
+  line-height: 2rem;
+  width: 80%;
+  text-transform: uppercase;
 }
 .galleryImageActive {
   // transform: scale(1.05);
-  filter: brightness(0.5);
+  filter: brightness(0.5) blur(1px);
 }
 
 .badges {

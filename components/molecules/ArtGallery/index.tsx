@@ -7,6 +7,7 @@ import {ArtImage} from "@utilities/artImages"
 const Gallery = ({images}: {images: ArtImage[]}) => {
   const [selectedImg, setSelectedImg] = useState<number>(0)
   const [imgPop, setImgPop] = useState<boolean>(false)
+  const [touchStartX, setTouchStartX] = useState<number | null>(null)
 
   const swipeImg = (moveType: string) => {
     if (moveType === "prv") {
@@ -28,9 +29,38 @@ const Gallery = ({images}: {images: ArtImage[]}) => {
       }
     }
 
+    const handleTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0]
+      setTouchStartX(touch.clientX)
+    }
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!touchStartX) return
+      const touch = e.touches[0]
+      const touchEndX = touch.clientX
+      const diffX = touchStartX - touchEndX
+
+      if (diffX > 50) {
+        swipeImg("nxt")
+      } else if (diffX < -50) {
+        swipeImg("prv")
+      }
+    }
+
+    const handleTouchEnd = () => {
+      setTouchStartX(null)
+    }
+
     window.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("touchstart", handleTouchStart)
+    window.addEventListener("touchmove", handleTouchMove)
+    window.addEventListener("touchend", handleTouchEnd)
+
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("touchstart", handleTouchStart)
+      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener("touchend", handleTouchEnd)
     }
   }, [selectedImg])
 
@@ -53,9 +83,31 @@ const Gallery = ({images}: {images: ArtImage[]}) => {
   return (
     <>
       <div className={styles.galleryWrapper}>
-        {images.map((loc, key) => (
-          <ArtCard key={key} keyIndex={key} loc={loc} setSelectedImg={setSelectedImg} setImgPop={setImgPop} />
-        ))}
+        {Object.entries(
+          images.reduce((acc, image) => {
+            const year = image.date?.split("-")[0] || "Unknown"
+            if (!acc[year]) acc[year] = []
+            acc[year].push(image)
+            return acc
+          }, {} as Record<string, ArtImage[]>)
+        )
+          .sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA))
+          .map(([year, yearImages]) => (
+            <div key={year} className={styles.yearGroup}>
+              <h2 className={styles.yearTitle}>{year}</h2>
+              <div className={styles.imageList}>
+                {yearImages.map((loc, key) => (
+                  <ArtCard
+                    key={key}
+                    keyIndex={images.indexOf(loc)}
+                    loc={loc}
+                    setSelectedImg={setSelectedImg}
+                    setImgPop={setImgPop}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
       </div>
 
       {imgPop && (

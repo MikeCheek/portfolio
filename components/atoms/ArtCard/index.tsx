@@ -18,6 +18,7 @@ const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop
       style={{
         height: `${(keyIndex * 7 * 2) % 4 === 0 ? 350 : 400}px`,
         animationDelay: `${keyIndex * 0.1}s`,
+        borderRadius: `${active ? 20 : 0}px`,
       }}
       onClick={() => {
         setSelectedImg(keyIndex)
@@ -34,6 +35,7 @@ const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop
       />
       <div className={`${styles.hoverText} ${active ? styles.hoverTextActive : ""}`}>
         <p>{loc.title}</p>
+        {/* {active ? <p style={{ opacity: 0.5 }}>&gt;&gt;</p> : <></>} */}
         {loc.date ? <p className={styles.date}>{loc.date}</p> : <></>}
       </div>
 

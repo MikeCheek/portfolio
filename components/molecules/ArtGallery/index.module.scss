@@ -154,3 +154,32 @@
   height: 90%;
   padding: 100px 0;
 }
+
+.yearGroup {
+  margin-bottom: 3rem;
+  text-align: center;
+  min-width: 20%;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.yearTitle {
+  font-size: 2rem;
+  color: var(--grey);
+  margin-bottom: 1.5rem;
+  font-weight: lighter;
+  text-transform: uppercase;
+  width: 90%;
+  border-bottom: 1px solid var(--grey);
+  padding-bottom: 1rem;
+}
+
+.imageList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
