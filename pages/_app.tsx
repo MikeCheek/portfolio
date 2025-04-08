@@ -3,9 +3,12 @@ import type {AppProps} from "next/app"
 import {Analytics} from "@vercel/analytics/react"
 import {AnimatePresence} from "framer-motion"
 import {useRouter} from "next/router"
+import {fixTimeoutTransition} from "@utilities/fixCssRoute"
 
 function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter()
+
+  fixTimeoutTransition(300)
 
   process.on("unhandledRejection", (reason, promise) => {
     console.error("Unhandled Rejection at:", promise, "reason:", reason)
