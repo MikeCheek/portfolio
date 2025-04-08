@@ -91,6 +91,7 @@ const Index = ({children, noGameLink = false, noBackground = false}: LayoutProps
         duration: 0.3,
         ease: "easeInOut",
       }}
+      style={{display: "flex"}}
     >
       <div className={`${montserrat.className} ${rubik.className}`}>
         <SpeedInsights />
