@@ -2,6 +2,7 @@ import React from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import {ArtImage, BADGE_COLORS} from "@utilities/artImages"
+import Link from "next/link"
 
 interface ArtCardProps {
   keyIndex: number
@@ -9,11 +10,14 @@ interface ArtCardProps {
   setSelectedImg: (key: number) => void
   setImgPop: (value: boolean) => void
   active?: boolean
+  link?: string
 }
 
-const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop, active = false}) => {
+const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop, active = false, link}) => {
+  const Element = link ? Link : "div"
   return (
-    <a
+    <Element
+      href={link ?? "#"}
       className={(keyIndex * 7 * 2) % 3 === 0 ? styles.galleryItemWide : styles.galleryItem}
       style={{
         height: `${(keyIndex * 7 * 2) % 4 === 0 ? 350 : 400}px`,
@@ -46,7 +50,7 @@ const Index: React.FC<ArtCardProps> = ({keyIndex, loc, setSelectedImg, setImgPop
           </div>
         ))}
       </div>
-    </a>
+    </Element>
   )
 }
 

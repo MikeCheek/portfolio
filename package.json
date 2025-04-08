@@ -23,6 +23,7 @@
     "@vercel/analytics": "^1.0.1",
     "@vercel/speed-insights": "^1.0.11",
     "firebase": "^9.13.0",
+    "framer-motion": "^12.6.3",
     "next": "^15.2.4",
     "next-compose-plugins": "^2.2.1",
     "next-head-seo": "^0.1.3",

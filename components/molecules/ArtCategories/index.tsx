@@ -7,10 +7,6 @@ import {categories} from "@utilities/artImages"
 const Index = ({randNum}: {randNum: number}) => {
   const router = useRouter()
 
-  const setSelectedImg = (key: number) => {
-    router.push(categories[key].link)
-  }
-
   return (
     <div className={styles.wrap}>
       <h1 className="artTitle">Categories</h1>
@@ -21,8 +17,9 @@ const Index = ({randNum}: {randNum: number}) => {
             keyIndex={0}
             key={index}
             loc={{img: cat.logo(randNum), title: cat.name}}
-            setSelectedImg={() => setSelectedImg(index)}
+            setSelectedImg={() => {}}
             setImgPop={() => {}}
+            link={categories[index].link}
           />
         ))}
       </div>

@@ -2,6 +2,7 @@ import React from "react"
 import {anime, ArtImage, categories, drawings, pandify} from "@utilities/artImages"
 import ArtGallery from "@molecules/ArtGallery"
 import Layout from "@organisms/Layout"
+import Link from "next/link"
 
 interface IndexProps {
   error: boolean
@@ -13,6 +14,9 @@ interface IndexProps {
 const Index = ({error, images, title, description}: IndexProps) => {
   return (
     <Layout noBackground noGameLink>
+      <Link href="/art" className="goBack">
+        &lt;
+      </Link>
       <h1 className="artTitle">{title}</h1>
       {description ? <p className="artDescription" dangerouslySetInnerHTML={{__html: description}} /> : <></>}
       {!error ? <ArtGallery images={images} /> : <h2>Gallery not found</h2>}
