@@ -4,6 +4,7 @@ import {Analytics} from "@vercel/analytics/react"
 import {AnimatePresence} from "framer-motion"
 import {useRouter} from "next/router"
 import {fixTimeoutTransition} from "@utilities/fixCssRoute"
+import PageTransition from "@molecules/PageTransition"
 
 function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter()
@@ -20,7 +21,9 @@ function MyApp({Component, pageProps}: AppProps) {
   })
   return (
     <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
-      <Component key={router.pathname} {...pageProps} />
+      <PageTransition key={router.pathname}>
+        <Component {...pageProps} />
+      </PageTransition>
       <Analytics />
     </AnimatePresence>
   )

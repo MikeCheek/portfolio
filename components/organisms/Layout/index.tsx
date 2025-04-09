@@ -15,7 +15,6 @@ import {Montserrat, Rubik} from "next/font/google"
 import {SpeedInsights} from "@vercel/speed-insights/next"
 
 import postRequest from "../../../utilities/postRequest"
-import {motion} from "framer-motion"
 
 const montserrat = Montserrat({
   // weight: ["700"],
@@ -83,29 +82,19 @@ const Index = ({children, noGameLink = false, noBackground = false}: LayoutProps
   }
 
   return (
-    <motion.main
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
-      transition={{
-        duration: 0.3,
-        ease: "easeInOut",
-      }}
-    >
-      <div className={`${montserrat.className} ${rubik.className}`}>
-        <SpeedInsights />
-        {!noBackground && <Background />}
-        <div id="top" className={styles.layout}>
-          <ProgressPage />
-          <Network />
-          {children}
+    <div className={`${montserrat.className} ${rubik.className}`}>
+      <SpeedInsights />
+      {!noBackground && <Background />}
+      <div id="top" className={styles.layout}>
+        <ProgressPage />
+        <Network />
+        {children}
 
-          <Separator />
-          <Footer noGameLink={noGameLink} />
-        </div>
-        {!noGameLink && <ArrowUp />}
+        <Separator />
+        <Footer noGameLink={noGameLink} />
       </div>
-    </motion.main>
+      {!noGameLink && <ArrowUp />}
+    </div>
   )
 }
 
