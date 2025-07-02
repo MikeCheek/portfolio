@@ -38,7 +38,7 @@ const pageVariants = {
 
 const Index = forwardRef(({children}: PageTransitionProps) => {
   return (
-    <motion.div
+    <motion.main
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}
@@ -48,7 +48,7 @@ const Index = forwardRef(({children}: PageTransitionProps) => {
       }}
     >
       {children}
-    </motion.div>
+    </motion.main>
   )
 })
 
