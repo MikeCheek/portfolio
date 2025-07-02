@@ -307,6 +307,12 @@ export const pandify: ArtImage[] = [
     date: "2021-12-26",
     badges: [BADGES.DIGITAL],
   },
+  {
+    img: "/images/pandify/withWritings/15.jpg",
+    title: '"HO SBAGLIATO ANCORA"',
+    date: "2025-07-02",
+    badges: [BADGES.DIGITAL],
+  },
 ]
 
 export const categories = [
