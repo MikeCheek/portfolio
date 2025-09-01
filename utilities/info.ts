@@ -227,9 +227,10 @@ export const navItems = [
 ]
 
 export enum P_CATEGORY {
-  ML = "Machine Learning",
-  WEB = "Web Developing",
-  LOW = "Low Level Programming",
+  MLCV = "ML - CV",
+  MLNLP = "ML - NLP",
+  WEB = "Web",
+  LOW = "Low Level",
 }
 
 export const projectsList: Project[] = [
@@ -246,7 +247,7 @@ export const projectsList: Project[] = [
     video: require("../assets/videos/segmented-very-low.mp4"),
     technologies: ["Python", "OpenCV", "PyTorch", "MatplotLib", "NumPy"],
     tools: ["Computer Vision", "Segmentation models"],
-    category: P_CATEGORY.ML,
+    category: P_CATEGORY.MLCV,
   },
   {
     title: "TripAdvisor Recommendation Challenge",
@@ -259,7 +260,7 @@ export const projectsList: Project[] = [
     github: "https://github.com/MikeCheek/Project1-MachineLearningForNLP",
     technologies: ["Python", "NumPy", "Pandas", "nltk", "PyTorch"],
     tools: ["Natural Language Processing", "Ensemble Learning"],
-    category: P_CATEGORY.ML,
+    category: P_CATEGORY.MLNLP,
   },
   {
     title: "Mine Recognition",
@@ -271,7 +272,7 @@ export const projectsList: Project[] = [
     github: "https://github.com/MikeCheek/mine-recognition",
     technologies: ["Python", "YOLO"],
     tools: ["Computer Vision", "Object Detection"],
-    category: P_CATEGORY.ML,
+    category: P_CATEGORY.MLCV,
   },
   {
     title: "ML-powered Business Assistant Chatbot",
@@ -285,7 +286,7 @@ export const projectsList: Project[] = [
     github: "https://github.com/MikeCheek/ML-Tool-for-business",
     technologies: ["Python", "Streamlit", "spaCy", "Transformers", "BeautifulSoup", "Selenium"],
     tools: ["Natural Language Processing", "Web Scraping", "API Integration"],
-    category: P_CATEGORY.ML,
+    category: P_CATEGORY.MLNLP,
   },
   {
     title: "Naturalmente Tecnologici",

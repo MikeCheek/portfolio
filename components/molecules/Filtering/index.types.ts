@@ -1,5 +1,6 @@
 export default interface FilteringProps {
-  values: string[]
+  values: {[key: string]: number}
   onChange: (value: string) => void
+  clearAll: () => void
   active: string[]
 }

@@ -114,7 +114,7 @@ export const drawings: ArtImage[] = [
     title: "Acquegrandi",
     date: "2025-02-24",
     badges: [BADGES.CHARCOAL],
-  }, 
+  },
   {
     img: "/images/paper/IMG_2055.jpeg",
     title: "Undressing",

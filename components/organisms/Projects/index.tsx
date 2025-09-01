@@ -7,9 +7,15 @@ import {P_CATEGORY} from "@utilities/info"
 
 const Index = () => {
   const {projects} = useContext(CursorContext)
-  const [filter, setFilter] = useState<string[]>(Object.values(P_CATEGORY))
   const [isSticky, setIsSticky] = useState(false)
   const filterRef = useRef<HTMLDivElement>(null)
+
+  const categoriesCount: Record<string, number> = {}
+  for (const project of projects) {
+    categoriesCount[project.category] = (categoriesCount[project.category] || 0) + 1
+  }
+
+  const [filter, setFilter] = useState<string[]>(Object.keys(categoriesCount))
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +34,17 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isSticky])
 
+  const filtering = (
+    <Filtering
+      values={categoriesCount}
+      onChange={(value) => {
+        setFilter((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]))
+      }}
+      clearAll={() => setFilter([])}
+      active={filter}
+    />
+  )
+
   return (
     <div className={styles.projects}>
       <span className={styles.announce}>
@@ -43,27 +60,9 @@ const Index = () => {
         (still in development)
       </span>
       <div ref={filterRef} className={styles.filterContainer}>
-        <Filtering
-          values={Object.values(P_CATEGORY)}
-          onChange={(value) =>
-            setFilter((curr) => (curr.includes(value) ? curr.filter((v) => v != value) : [...curr, value]))
-          }
-          active={filter}
-        />
+        {filtering}
       </div>
-      {isSticky ? (
-        <div className={styles.sticky}>
-          <Filtering
-            values={Object.values(P_CATEGORY)}
-            onChange={(value) =>
-              setFilter((curr) => (curr.includes(value) ? curr.filter((v) => v != value) : [...curr, value]))
-            }
-            active={filter}
-          />
-        </div>
-      ) : (
-        <></>
-      )}
+      {isSticky ? <div className={styles.sticky}>{filtering}</div> : <></>}
       {projects
         .filter((project) => filter.includes(project.category))
         .map((project, key) => {
