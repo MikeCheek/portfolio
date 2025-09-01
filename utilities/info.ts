@@ -12,6 +12,9 @@ import nt_mobile from "../assets/images/screenshots/nt-mobile.jpg"
 import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
 import segmentation_mobile from "../assets/images/screenshots/segmentation-mobile.png"
 import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
+import mines from "../assets/images/screenshots/mines.gif"
+import mines_mobile from "../assets/images/screenshots/mines-mobile.gif"
+import mlbusiness from "../assets/images/screenshots/mlbusiness.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -242,7 +245,7 @@ export const projectsList: Project[] = [
     github: "https://github.com/MikeCheek/Semantic-Segmentation-of-Underwater-Imagery",
     video: require("../assets/videos/segmented-very-low.mp4"),
     technologies: ["Python", "OpenCV", "PyTorch", "MatplotLib", "NumPy"],
-    tools: ["Machine Learning for Computer Vision", "Segmentation models"],
+    tools: ["Computer Vision", "Segmentation models"],
     category: P_CATEGORY.ML,
   },
   {
@@ -255,7 +258,33 @@ export const projectsList: Project[] = [
       Project developed for Machine Learning for NLP course at ESILV.`,
     github: "https://github.com/MikeCheek/Project1-MachineLearningForNLP",
     technologies: ["Python", "NumPy", "Pandas", "nltk", "PyTorch"],
-    tools: ["Machine Learning for NLP", "Ensemble Learning"],
+    tools: ["Natural Language Processing", "Ensemble Learning"],
+    category: P_CATEGORY.ML,
+  },
+  {
+    title: "Mine Recognition",
+    image: mines,
+    image_mobile: mines_mobile,
+    description: `Training of a YOLO-based model designed to recognize a custom mine (PFM-1).<br/><br/>
+    We created a dedicated photo dataset by 3D printing the PFM-1 mine and capturing images to feed the YOLO model.<br/><br/>
+    The project involved dataset creation, annotation, model training, and evaluation for robust object detection.`,
+    github: "https://github.com/MikeCheek/mine-recognition",
+    technologies: ["Python", "YOLO"],
+    tools: ["Computer Vision", "Object Detection"],
+    category: P_CATEGORY.ML,
+  },
+  {
+    title: "ML-powered Business Assistant Chatbot",
+    image: mlbusiness,
+    image_mobile: mlbusiness,
+    description: `ML-powered business assistant implemented as a chatbot in a Streamlit app.<br/><br/>
+    At its core, the system uses NLP techniques with a fine-tuned DistilBERT classifier trained on a custom dataset to recognize six business-related intents, such as generating LinkedIn notes, researching B2B accounts, and extracting company value propositions.<br/><br/>
+    spaCy was integrated for preprocessing and keyword extraction, while pre-trained transformer models were used for sentiment analysis and question answering.<br/>
+    A T5-small model was fine-tuned to generate personalized LinkedIn connection notes. Real-time company research was enabled via APIs and web scraping (LinkedIn, News APIs, Google Search, BeautifulSoup, Selenium).<br/><br/>
+    For a deeper explanation, see <a href="https://github.com/MikeCheek/ML-Tool-for-business/blob/main/ML_Tool_Explanation.pdf" class="link" target="_blank" rel="noopener noreferrer">the project documentation</a>.`,
+    github: "https://github.com/MikeCheek/ML-Tool-for-business",
+    technologies: ["Python", "Streamlit", "spaCy", "Transformers", "BeautifulSoup", "Selenium"],
+    tools: ["Natural Language Processing", "Web Scraping", "API Integration"],
     category: P_CATEGORY.ML,
   },
   {
