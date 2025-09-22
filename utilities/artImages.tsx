@@ -121,6 +121,12 @@ export const drawings: ArtImage[] = [
     date: "2025-08-30",
     badges: [BADGES.PENCIL],
   },
+  {
+    img: "/images/paper/20250912.jpg",
+    title: "Santa Caterina",
+    date: "2025-09-12",
+    badges: [BADGES.PENCIL],
+  },
 ]
 
 export const anime: ArtImage[] = [
@@ -318,12 +324,6 @@ export const pandify: ArtImage[] = [
     title: '"HO SBAGLIATO ANCORA"',
     date: "2025-07-02",
     badges: [BADGES.DIGITAL],
-  },
-  {
-    img: "/images/paper/20250912.jpg",
-    title: "Santa Caterina",
-    date: "2025-09-12",
-    badges: [BADGES.PENCIL],
   },
 ]
 
