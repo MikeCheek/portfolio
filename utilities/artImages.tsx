@@ -319,6 +319,12 @@ export const pandify: ArtImage[] = [
     date: "2025-07-02",
     badges: [BADGES.DIGITAL],
   },
+  {
+    img: "/images/paper/20250912.jpg",
+    title: "Santa Caterina",
+    date: "2025-09-12",
+    badges: [BADGES.PENCIL],
+  },
 ]
 
 export const categories = [
