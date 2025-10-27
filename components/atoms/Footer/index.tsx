@@ -5,11 +5,12 @@ import styles from "./index.module.scss"
 import Email from "@assets/email.svg"
 import Linkedin from "@assets/linkedin.svg"
 import Github from "@assets/github.svg"
+import Kaggle from "@assets/kaggle.svg"
 import {email, github, linkedin} from "@utilities/info"
 import FooterProps from "./index.types"
 import Link from "next/link"
 
-const width: string = "50px"
+const width: string = "60px"
 const height: string = "50px"
 
 const Index = ({noGameLink = false}: FooterProps) => {
@@ -72,6 +73,17 @@ const Index = ({noGameLink = false}: FooterProps) => {
             rel="noopener noreferrer"
           >
             <Github width={width} height={height} fill={color} className={styles.icon} />
+          </a>
+          <a
+            onMouseMove={(event) => handleMouseMove(event)}
+            onMouseLeave={(event) => handleMouseLeave(event)}
+            className={styles.iconWrap}
+            href={"https://www.kaggle.com/michelepulvirenti"}
+            title={"Visit my Kaggle profile"}
+            target={"_blank"}
+            rel="noopener noreferrer"
+          >
+            <Kaggle width={width} height={height} fill={color} className={styles.icon} />
           </a>
         </div>
       </footer>

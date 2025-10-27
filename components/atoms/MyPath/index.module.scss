@@ -1,0 +1,159 @@
+// filepath: c:/Users/miche/Developing/portfolio/components/atoms/MyPath/index.module.scss
+// Now using the predefined :root CSS custom properties
+
+// Theme variables (mapped to CSS custom properties)
+$bg: var(--white);
+$card-bg: var(--light-black);
+$text: var(--white);
+$muted: var(--grey);
+$accent: var(--pink);
+$line: var(--transparent-white);
+$radius: 10px;
+$shadow: 0 6px 18px var(--very-transparent-black);
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: transparent;
+  box-sizing: border-box;
+  color: $text;
+  text-align: left;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 0 0 0 -1.25rem;
+  padding: 0 0 0 2.25rem; // leave room for the vertical line & markers
+
+  // vertical line
+  &::before {
+    content: "";
+    position: absolute;
+    left: 3.25rem;
+    top: 10px;
+    bottom: 90px;
+    width: 2px;
+    background: $line;
+    border-radius: 2px;
+  }
+}
+
+.item {
+  position: relative;
+  margin: 0 0 3rem 0;
+  padding-left: 0.75rem;
+  display: block;
+  min-height: 3.5rem;
+
+  // spacing for the marker so cards don't overlap
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* round marker on the line */
+.marker {
+  position: absolute;
+  left: 0.45rem;
+  top: 0.5rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  transform: translateY(0);
+  border-radius: 50%;
+  background: $card-bg;
+  border: 3px solid $accent;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* content card */
+.card {
+  background: $card-bg;
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 0.9rem 1rem;
+  margin-left: 1.2rem;
+  box-shadow: $shadow;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  will-change: transform, box-shadow;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    /* Avoid Sass color functions on CSS vars — use the accent directly */
+    border-color: $accent;
+  }
+}
+
+/* header inside card */
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $text;
+}
+
+.date {
+  font-size: 0.875rem;
+  color: $muted;
+  white-space: nowrap;
+}
+
+/* description text */
+.description {
+  margin: 0;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: $muted;
+  line-height: 1.4;
+}
+
+/* Accessibility: focus outline for keyboard users */
+.card:focus-within,
+.card:focus {
+  /* use a transparent CSS var for focus ring */
+  outline: 3px solid var(--transparent-black);
+  outline-offset: 3px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .timeline {
+    padding-left: 2.75rem;
+
+    &::before {
+      left: 4.1rem;
+      bottom: 70px;
+    }
+  }
+
+  .marker {
+    left: 0.8rem;
+  }
+
+  .card {
+    margin-left: 1.7rem;
+    padding: 1rem 1.15rem;
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+    transform: none !important;
+    box-shadow: $shadow;
+  }
+}

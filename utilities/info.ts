@@ -15,6 +15,7 @@ import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
 import mines from "../assets/images/screenshots/mines.gif"
 import mines_mobile from "../assets/images/screenshots/mines-mobile.gif"
 import mlbusiness from "../assets/images/screenshots/mlbusiness.png"
+import segmentationpointcloud from "../assets/images/screenshots/segmentation-pointcloud.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -234,6 +235,21 @@ export enum P_CATEGORY {
 }
 
 export const projectsList: Project[] = [
+  {
+    title: "Segmentation of Heritage Building Point Clouds",
+    image: segmentationpointcloud,
+    image_mobile: segmentationpointcloud,
+    description: `Development of a computer program for segmenting point clouds of old monuments.<br/><br/>
+    The final program implements 2 segmentation approaches:
+    <ul>
+    <li>A segmentation completer where a Machine Learning classifier is trained on a partially segmented part of a point cloud and used to propagate the segmentation</li>
+    <li>A neural network model that was trained on a dataset is used to segment unlabelled point clouds</li>
+    </ul>
+    This work was done during my Internship at A-BIME in Paris.`,
+    technologies: ["Python", "PyTorch", "scikit-learn", "PyQt6"],
+    tools: ["Computer Vision", "Point Cloud Segmentation", "PointNet++", "DGCNN"],
+    category: P_CATEGORY.MLCV,
+  },
   {
     title: "Semantic Segmentation of Underwater Imagery",
     image: segmentation,
