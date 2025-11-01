@@ -35,7 +35,7 @@ $shadow: 0 6px 18px var(--very-transparent-black);
     position: absolute;
     left: 3.25rem;
     top: 10px;
-    bottom: 90px;
+    bottom: 60px;
     width: 2px;
     background: $line;
     border-radius: 2px;
@@ -109,6 +109,9 @@ $shadow: 0 6px 18px var(--very-transparent-black);
   font-size: 0.875rem;
   color: $muted;
   white-space: nowrap;
+  border-radius: 5px;
+  border: 0.5px solid $line;
+  padding: 0.15rem 0.5rem;
 }
 
 /* description text */
