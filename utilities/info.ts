@@ -16,6 +16,8 @@ import mines from "../assets/images/screenshots/mines.gif"
 import mines_mobile from "../assets/images/screenshots/mines-mobile.gif"
 import mlbusiness from "../assets/images/screenshots/mlbusiness.png"
 import segmentationpointcloud from "../assets/images/screenshots/segmentation-pointcloud.png"
+import plantguardian from "../assets/images/screenshots/plantguardian.png"
+import plantguardianmobile from "../assets/images/screenshots/plantguardian-mobile.jpg"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -235,6 +237,17 @@ export enum P_CATEGORY {
 }
 
 export const projectsList: Project[] = [
+  {
+    title: "Plant Guardian (in progress)",
+    image: plantguardian,
+    image_mobile: plantguardianmobile,
+    description: `A mobile application for monitoring and taking care of indoor plants.<br/><br/>
+    The application combines the use of Computer Vision techniques to identify plant species and an AI Agent with LLM model to provide personalized care advice based on user input and environmental data.`,
+    technologies: ["Flutter", "Dart", "Python", "OpenCV"],
+    tools: ["Computer Vision", "AI Agents", "Large Language Models"],
+    category: P_CATEGORY.MLCV,
+    github: "https://github.com/MikeCheek/plant_guardian",
+  },
   {
     title: "Segmentation of Heritage Building Point Clouds",
     image: segmentationpointcloud,

@@ -4,7 +4,7 @@ import styles from "./index.module.scss"
 export default function MyPath(): React.JSX.Element {
   const events = [
     {
-      title: "Born in Catania",
+      title: "Born in Catania, Sicily",
       date: "2000",
       // description: "Lived in Acireale",
     },
