@@ -10,6 +10,7 @@ import Projects from "@organisms/Projects"
 import Skills from "@molecules/Skills"
 import Cursor from "@atoms/Cursor"
 import MyPath from "@atoms/MyPath"
+import GlassCard from "@atoms/GlassCard"
 
 const Index = () => {
   // const color = "var(--transparent-pink)"
@@ -22,7 +23,7 @@ const Index = () => {
       </header>
       <div className={styles.sectionWrap}>
         <Section title={"About me"} id={"about"}>
-          <div className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
+          <GlassCard className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
         <Section title={"My Path"} id={"mypath"}>
           <MyPath />

@@ -1,0 +1,26 @@
+.glass {
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+  /* glass effect */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  background-clip: padding-box;
+  background-color: rgba(15, 23, 42, 0.45); /* translucent dark base */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--transparent-black);
+
+  overflow: hidden;
+  padding: 0.9rem 1rem;
+
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, backdrop-filter 180ms ease;
+  will-change: transform, box-shadow, backdrop-filter;
+
+  &:hover,
+  &:focus-within {
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
+    border-color: var(--pink);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.7);
+    transform: translateY(-4px);
+  }
+}

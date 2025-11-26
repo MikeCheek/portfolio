@@ -1,5 +1,6 @@
 import * as React from "react"
 import styles from "./index.module.scss"
+import GlassCard from "@atoms/GlassCard"
 
 export default function MyPath(): React.JSX.Element {
   const events = [
@@ -31,13 +32,13 @@ export default function MyPath(): React.JSX.Element {
         {events.map((ev, idx) => (
           <li key={idx} className={styles.item}>
             <span className={styles.marker} aria-hidden="true" />
-            <div className={styles.card}>
+            <GlassCard className={styles.card}>
               <header className={styles.cardHeader}>
                 <h3 className={styles.title}>{ev.title}</h3>
                 <time className={styles.date}>{ev.date}</time>
               </header>
               <p className={styles.description}>{ev.description}</p>
-            </div>
+            </GlassCard>
           </li>
         ))}
       </ol>

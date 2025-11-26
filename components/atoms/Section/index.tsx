@@ -3,6 +3,7 @@ import {SectionProps} from "./index.types"
 import styles from "./index.module.scss"
 
 import sleep from "@utilities/sleep"
+import Decorations from "@atoms/Decorations"
 // import {useInView} from 'react-intersection-observer'
 
 const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps) => {
@@ -24,6 +25,7 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
 
   return (
     <div className={`${reversed ? styles.sectionReversed : styles.section}`} id={id ?? title}>
+      <Decorations />
       {paragraph ? (
         <>
           <h2 className={styles.titleParagraph}>{title}</h2>

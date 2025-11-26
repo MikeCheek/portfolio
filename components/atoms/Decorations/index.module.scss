@@ -1,0 +1,49 @@
+.decorations {
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.shape {
+  animation-iteration-count: infinite;
+  animation-name: pulseFloat;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(8px) saturate(120%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  will-change: transform, opacity, filter;
+
+  @media (max-width: 640px) {
+    filter: blur(6px);
+  }
+}
+
+@keyframes pulseFloat {
+  0% {
+    filter: blur(8px) saturate(100%);
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  30% {
+    opacity: 0.1;
+    transform: translate3d(-50%, -52%, 0) scale(1.05);
+  }
+  50% {
+    filter: blur(4px) saturate(130%);
+    opacity: 1;
+    transform: translate3d(-50%, -48%, 0) scale(1.18);
+  }
+  70% {
+    opacity: 0.1;
+    transform: translate3d(-50%, -52%, 0) scale(1.05);
+  }
+  100% {
+    filter: blur(8px) saturate(100%);
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}

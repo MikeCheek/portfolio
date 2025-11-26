@@ -7,6 +7,7 @@ import Link from "@assets/link.svg"
 import {useInView} from "react-intersection-observer"
 import Button from "@atoms/Button"
 import Chip from "@atoms/Chip"
+import GlassCard from "@atoms/GlassCard"
 
 const Index = ({project, reversed = false}: ProjectProps) => {
   // const {fitElement, unFit} = useContext(CursorContext)
@@ -72,7 +73,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
           <Link />
         </a>
         <h3>{project.title}</h3>
-        <em dangerouslySetInnerHTML={{__html: project.description}}></em>
+        <GlassCard dangerouslySetInnerHTML={{__html: project.description}}></GlassCard>
         <div className={styles.imageMobileWrap}>
           <Image
             src={project.image_mobile}
@@ -111,7 +112,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
       </div>
       <div ref={ref} className={styles.desktopWrap}>
         <a
-          title={"Go to " + project.title + " website"}
+          title={project.title}
           className={styles.imageWrap}
           href={project.href}
           target="_blank"
