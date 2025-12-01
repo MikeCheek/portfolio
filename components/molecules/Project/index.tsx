@@ -20,12 +20,59 @@ const Index = ({project, reversed = false}: ProjectProps) => {
 
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  const movingRef = useRef<HTMLElement | null>(null)
+  const projectRef = useRef<HTMLDivElement>(null)
+
   // const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   //   fitElement(e.currentTarget)
   // }
   // const handleMouseLeave = () => {
   //   unFit()
   // }
+
+  useEffect(() => {
+    const handle = projectRef.current
+    if (!handle) return
+    const el = movingRef.current
+    if (!el) return
+
+    let raf = 0
+
+    const clamp = (v: number) => Math.max(-1, Math.min(1, v))
+
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect()
+      const cx = rect.left + rect.width / 2
+      const cy = rect.top + rect.height / 2
+
+      const dx = clamp((e.clientX - cx) / (rect.width / 2))
+      const dy = clamp((e.clientY - cy) / (rect.height / 2))
+
+      const rotateY = dx * 5 // degrees
+      const rotateX = -dy * 15 // degrees (invert for natural tilt)
+      const translateX = dx * 10 // px
+      const translateY = dy * 10 // px
+
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => {
+        el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${translateX}px, ${translateY}px, 0)`
+      })
+    }
+
+    const onLeave = () => {
+      cancelAnimationFrame(raf)
+      el.style.transform = "none"
+    }
+
+    handle.addEventListener("mousemove", onMove)
+    handle.addEventListener("mouseleave", onLeave)
+
+    return () => {
+      handle.removeEventListener("mousemove", onMove)
+      handle.removeEventListener("mouseleave", onLeave)
+      cancelAnimationFrame(raf)
+    }
+  }, [id])
 
   useEffect(() => {
     if (videoRef.current) {
@@ -59,7 +106,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
   )
 
   return (
-    <div className={reversed ? styles.projectReverse : styles.project} id={id}>
+    <div ref={projectRef} className={reversed ? styles.projectReverse : styles.project} id={id}>
       <div className={styles.head}>
         <a
           href={"#" + id}
@@ -111,31 +158,33 @@ const Index = ({project, reversed = false}: ProjectProps) => {
         {Chips(true)}
       </div>
       <div ref={ref} className={styles.desktopWrap}>
-        <a
-          title={project.title}
-          className={styles.imageWrap}
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {project.video ? (
-            <video
-              className={styles.video}
-              muted
-              ref={videoRef}
-              controls={false}
-              onMouseEnter={(e) => e.currentTarget.pause()}
-              onMouseLeave={(e) => e.currentTarget.play()}
-              loop
-              about={project.title + " video"}
-            >
-              <source src={project.video} />
-            </video>
-          ) : (
-            <Image src={project.image} alt={project.title} className={styles.image} height={380} quality={80} />
-          )}
-        </a>
-        <div className={styles.stand} />
+        <span ref={movingRef} className={styles.imageDesktopWrap}>
+          <a
+            title={project.title}
+            className={styles.imageWrap}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {project.video ? (
+              <video
+                className={styles.video}
+                muted
+                ref={videoRef}
+                controls={false}
+                onMouseEnter={(e) => e.currentTarget.pause()}
+                onMouseLeave={(e) => e.currentTarget.play()}
+                loop
+                about={project.title + " video"}
+              >
+                <source src={project.video} />
+              </video>
+            ) : (
+              <Image src={project.image} alt={project.title} className={styles.image} height={380} quality={80} />
+            )}
+          </a>
+          <div className={styles.stand} />
+        </span>
         {Chips()}
       </div>
     </div>

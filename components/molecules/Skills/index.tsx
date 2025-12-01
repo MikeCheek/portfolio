@@ -1,9 +1,10 @@
-import React, {useCallback, useState} from "react"
+import React, {useCallback, useContext, useState} from "react"
 import {useInView} from "react-intersection-observer"
 import {programming, frameworks, others} from "@utilities/info"
 import Skill from "@atoms/Skill"
 
 import styles from "./index.module.scss"
+import CursorContext from "@utilities/useCursorContext"
 
 const Index = () => {
   const [degree, setDegree] = useState<number>(45)
@@ -16,7 +17,31 @@ const Index = () => {
     rootMargin: "-35% 0px -35% 0px",
   })
 
-  const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0))
+  const {projects} = useContext(CursorContext)
+
+  // const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0))
+
+  const data = (() => {
+    const counts = new Map<string, number>()
+
+    projects.forEach((project) => {
+      const techs = project.technologies ?? []
+      const list = Array.isArray(techs) ? techs.flat() : [String(techs)]
+      list.forEach((skill) => {
+        counts.set(skill, (counts.get(skill) ?? 0) + 1)
+      })
+    })
+
+    return Array.from(counts.entries())
+      .sort((a, b) => {
+        const aMulti = a[1] > 1 ? 1 : 0
+        const bMulti = b[1] > 1 ? 1 : 0
+        if (aMulti !== bMulti) return bMulti - aMulti // multi-occurrence first
+        if (a[1] !== b[1]) return b[1] - a[1] // then by count desc
+        return a[0].localeCompare(b[0]) // then alphabetically
+      })
+      .map(([name]) => ({name, link: ""}))
+  })()
 
   const degreeConverter = (degree: number): [number, number] => {
     return [Math.cos(degree), Math.sin(degree)]
@@ -28,7 +53,7 @@ const Index = () => {
       let [x, y] = degreeConverter(degree * mult)
       x = x * expand
       y = y * expand
-      const max = 50
+      const max = 30
       x = x > max ? max : x < -max ? -max : x
       y = y > max ? max : y < -max ? -max : y
       return [x, y]
@@ -111,9 +136,9 @@ const Index = () => {
                 inView
                   ? {
                       transform: `translate(${calculate(key + 1)[0]}vw,${calculate(key + 1)[1]}vh)`,
-                      fontSize: `${1.7 - key / 17}rem`,
+                      // fontSize: `${1.7 - key / 17}rem`,
                       zIndex: data.length - key,
-                      transitionDelay: `${key / 15}s`,
+                      transitionDelay: `${key / 30}s`,
                     }
                   : {}
               }
@@ -121,8 +146,16 @@ const Index = () => {
               <Skill
                 name={item.name}
                 link={item.link}
-                style={inView ? {transform: "scale(1)", transitionDelay: `${key / 15}s`} : {transform: "scale(0)"}}
-                color={key % 2 ? "var(--pink)" : "var(--orange)"}
+                style={inView ? {transform: "scale(1)", transitionDelay: `${key / 30}s`} : {transform: "scale(0)"}}
+                color={
+                  key % 4 == 3
+                    ? "var(--pink)"
+                    : key % 4 == 2
+                    ? "var(--violet)"
+                    : key % 4 == 1
+                    ? "var(--orange)"
+                    : "var(--blue)"
+                }
               />
             </span>
           )

@@ -124,6 +124,23 @@
   }
 }
 
+.imageDesktopWrap {
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+
+  perspective: 800px;
+  -webkit-perspective: 800px;
+  perspective-origin: center;
+  transform-style: preserve-3d;
+  transition: transform 80ms linear;
+
+  will-change: transform;
+}
+
 .imageMobileWrap {
   filter: brightness(0.4) opacity(0.6) blur(2px);
   height: 100%;
