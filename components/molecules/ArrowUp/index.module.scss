@@ -1,18 +1,126 @@
+// .arrowUp {
+//   position: fixed;
+//   margin: 20px;
+//   right: 0;
+//   bottom: -500px;
+//   will-change: transform;
+//   -webkit-transition: transform 1s cubic-bezier(0.51, 1, 0.36, 1.3);
+//   transition: transform 1s cubic-bezier(0.51, 1, 0.36, 1.3);
+//   fill: var(--transparent-orange);
+//   stroke: var(--transparent-orange);
+//   cursor: pointer;
+//   z-index: 999;
+// }
+
+// .arrowUp:hover {
+//   fill: var(--orange);
+//   stroke: var(--orange);
+// }
+
+// Base style for the arrow container
 .arrowUp {
-  position: fixed;
-  margin: 20px;
-  right: 0;
-  bottom: -500px;
-  will-change: transform;
-  -webkit-transition: transform 1s cubic-bezier(0.51, 1, 0.36, 1.3);
-  transition: transform 1s cubic-bezier(0.51, 1, 0.36, 1.3);
-  fill: var(--transparent-orange);
-  stroke: var(--transparent-orange);
+  align-items: center;
+  bottom: 20px;
   cursor: pointer;
+  cursor: pointer;
+
+  // Center the Arrow SVG
+  display: flex;
+  fill: var(--transparent-orange);
+  justify-content: center;
+  opacity: 0;
+  position: fixed;
+  right: 20px;
+  stroke: var(--transparent-orange);
+  // Start hidden/moved down
+  transform: translateY(150px);
+
+  // Add a slight tilt and shadow for a 'floating' feel
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 999;
+  &:hover {
+    filter: brightness(1.2);
+  }
 }
 
-.arrowUp:hover {
-  fill: var(--orange);
-  stroke: var(--orange);
+// ------------------------------------
+// ROCKET EFFECT STYLES
+// ------------------------------------
+
+// Class applied when isRocket state is true
+.rocketActive {
+  // Add a subtle vertical shake during launch (optional)
+  animation: shake 0.1s infinite alternate;
+}
+
+.exhaustContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  pointer-events: none; // Ensures the lines don't interfere with the click
+  position: absolute;
+  top: 100%; // Position the lines just below the arrow
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.exhaustLine {
+  // Set the common animation: grow, move down, fade out
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  animation-name: exhaust;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); // Smoother deceleration
+  background-color: white;
+  border-radius: 50%;
+  height: 5px; // Start small
+  opacity: 0;
+  position: absolute;
+  width: 3px;
+}
+
+// Stagger the animation start for a more natural effect
+.line1 {
+  animation-delay: 0s;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.line2 {
+  animation-delay: 0.05s; // Slight delay
+  left: 30%;
+}
+
+.line3 {
+  animation-delay: 0.1s; // More delay
+  left: 70%;
+}
+
+// Keyframe animation for the exhaust
+@keyframes exhaust {
+  0% {
+    height: 5px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    height: 15px; // Lines grow
+    opacity: 1;
+  }
+  100% {
+    height: 2px;
+    opacity: 0; // Lines fade out
+    transform: translateY(30px); // Lines move down
+  }
+}
+
+// Optional: Subtle shake animation for the arrow during launch
+@keyframes shake {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2px);
+  }
 }
