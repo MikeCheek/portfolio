@@ -3,7 +3,6 @@ import Project from "@molecules/Project"
 import CursorContext from "@utilities/useCursorContext"
 import styles from "./index.module.scss"
 import Filtering from "@molecules/Filtering"
-import {P_CATEGORY} from "@utilities/info"
 
 const Index = () => {
   const {projects} = useContext(CursorContext)
@@ -63,11 +62,13 @@ const Index = () => {
         {filtering}
       </div>
       {isSticky ? <div className={styles.sticky}>{filtering}</div> : <></>}
-      {projects
-        .filter((project) => filter.includes(project.category))
-        .map((project, key) => {
-          return <Project project={project} reversed={key % 2 == 1} key={`${key}-${filter.join("-")}`} />
-        })}
+      <div className={styles.projectsGrid}>
+        {projects
+          .filter((project) => filter.includes(project.category))
+          .map((project, key) => {
+            return <Project project={project} key={`${key}-${filter.join("-")}`} />
+          })}
+      </div>
     </div>
   )
 }

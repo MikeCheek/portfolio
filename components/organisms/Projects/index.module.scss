@@ -1,47 +1,60 @@
 .projects {
-  width: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 50px;
-  z-index: 10;
+  justify-content: center;
   margin-top: 20px;
+  width: 100%;
+  z-index: 10;
   @media screen and (min-width: 768px) {
-    width: 120%;
     gap: 50px;
+    width: 120%;
   }
 }
 
 .announce {
-  margin-top: -10px;
   margin-bottom: -10px;
+  margin-top: -10px;
   @media screen and (min-width: 768px) {
     margin-top: -50px;
   }
 }
 
 .filterContainer {
+  align-items: center;
+  background-color: var(--transparent-black);
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
   position: relative;
   width: 100%;
-  padding: 20px 0;
-  background-color: var(--transparent-black);
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .sticky {
   @extend .filterContainer;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: none;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
   @media screen and (min-width: 768px) {
     display: flex;
+  }
+}
+
+.projectsGrid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    width: 120%;
   }
 }

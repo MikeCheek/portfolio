@@ -28,17 +28,3 @@
     line-height: 5rem;
   }
 }
-
-.colored {
-  animation: gradient 10s ease infinite;
-  background: linear-gradient(-45deg, var(--orange), var(--pink), var(--orange), var(--pink));
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-size: 400% 400%;
-  text-decoration: none;
-  -webkit-text-fill-color: transparent;
-  cursor: pointer;
-  &a {
-    text-decoration: none;
-  }
-}

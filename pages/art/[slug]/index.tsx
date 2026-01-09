@@ -1,5 +1,5 @@
 import React from "react"
-import {anime, ArtImage, categories, drawings, pandify} from "@utilities/artImages"
+import {ArtImage, categories} from "@utilities/artImages"
 import ArtGallery from "@molecules/ArtGallery"
 import Layout from "@organisms/Layout"
 import Link from "next/link"

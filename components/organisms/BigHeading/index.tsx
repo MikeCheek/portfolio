@@ -9,7 +9,7 @@ const Index = () => {
       <h1>
         Hi, I&apos;m{" "}
         <HoverPopUp href="#about" down>
-          <span title="" className={styles.colored}>
+          <span title="" className={"coloredGradient"}>
             Michele Pulvirenti
           </span>
           <span>Discover my background!</span>
@@ -18,7 +18,7 @@ const Index = () => {
       <h2>
         a{" "}
         <HoverPopUp href="#projects">
-          <span title="" className={styles.colored}>
+          <span title="" className={"coloredGradient"}>
             Computer Engineer
           </span>
           <span>View my projects!</span>

@@ -7,6 +7,7 @@ export type SkillsType = {
 }[]
 
 export interface Project {
+  id: string
   title: string
   image: StaticImageData
   image_mobile: StaticImageData
@@ -18,4 +19,6 @@ export interface Project {
   technologies?: string[]
   tools?: string[]
   category: string
+  readme?: string
+  readmeLink?: string
 }

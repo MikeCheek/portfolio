@@ -30,12 +30,12 @@ body {
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
     background-size: 100% 2px, 0 2px;
+    border: none;
     color: inherit;
+    cursor: pointer;
     text-decoration: none;
     transition: background-size 400ms;
-    border: none;
     z-index: 10;
-    cursor: pointer;
   }
   .link:hover {
     background-size: 0 2px, 100% 2px;
@@ -44,12 +44,12 @@ body {
     background: none;
     border: 5px groove var(--transparent-orange);
     color: var(--transparent-orange);
+    font-weight: bolder;
     margin: 5px;
     padding: 10px;
+    text-align: center;
     text-decoration: none;
     transition: 100ms;
-    font-weight: bolder;
-    text-align: center;
     &:hover {
       border: 5px groove var(--orange);
       color: var(--orange);
@@ -58,34 +58,48 @@ body {
   }
 
   .artTitle {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-weight: lighter;
-    text-transform: uppercase;
-    line-height: 3rem;
     color: var(--orange);
+    font-size: 3rem;
+    font-weight: lighter;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   .artDescription {
     font-size: 1.5rem;
-    text-align: center;
-    margin: 4rem 0;
     font-weight: lighter;
-    text-transform: uppercase;
+    margin: 4rem 0;
     max-width: 800px;
     padding: 0 2rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .coloredGradient {
+    animation: gradient 10s ease infinite;
+    background: linear-gradient(-45deg, var(--orange), var(--pink), var(--orange), var(--pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 400% 400%;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-text-fill-color: transparent;
+    &a {
+      text-decoration: none;
+    }
   }
 }
 
 .goBack {
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  font-size: 2.5rem;
-  text-decoration: none;
   color: var(--pink);
   display: none;
+  font-size: 2.5rem;
+  left: 2.5rem;
+  position: absolute;
+  text-decoration: none;
+  top: 2.5rem;
 
   @media screen and (min-width: 768px) {
     display: block;

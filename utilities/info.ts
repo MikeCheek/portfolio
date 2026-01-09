@@ -238,6 +238,7 @@ export enum P_CATEGORY {
 
 export const projectsList: Project[] = [
   {
+    id: "plantguardian",
     title: "Plant Guardian (in progress)",
     image: plantguardian,
     image_mobile: plantguardianmobile,
@@ -249,6 +250,7 @@ export const projectsList: Project[] = [
     github: "https://github.com/MikeCheek/plant_guardian",
   },
   {
+    id: "segmentationpointcloud",
     title: "Segmentation of Heritage Building Point Clouds",
     image: segmentationpointcloud,
     image_mobile: segmentationpointcloud,
@@ -264,6 +266,7 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.MLCV,
   },
   {
+    id: "segmentationunderwater",
     title: "Semantic Segmentation of Underwater Imagery",
     image: segmentation,
     image_mobile: segmentation_mobile,
@@ -279,6 +282,7 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.MLCV,
   },
   {
+    id: "nlprecommendation",
     title: "TripAdvisor Recommendation Challenge",
     image: nlp,
     image_mobile: nlp,
@@ -292,6 +296,7 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.MLNLP,
   },
   {
+    id: "minerecognition",
     title: "Mine Recognition",
     image: mines,
     image_mobile: mines_mobile,
@@ -304,6 +309,7 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.MLCV,
   },
   {
+    id: "mlbusinessassistant",
     title: "ML-powered Business Assistant Chatbot",
     image: mlbusiness,
     image_mobile: mlbusiness,
@@ -318,6 +324,7 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.MLNLP,
   },
   {
+    id: "naturalmentetecnologici",
     title: "Naturalmente Tecnologici",
     image: nt,
     image_mobile: nt_mobile,
@@ -332,6 +339,7 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.WEB,
   },
   {
+    id: "quoridorlandtiger",
     title: "Quoridor - LandTiger",
     image: quoridor,
     image_mobile: quoridor_mobile,
@@ -345,6 +353,7 @@ To achieve this result we were asked to develop a working reprodution of the Quo
     category: P_CATEGORY.LOW,
   },
   {
+    id: "popfunding",
     title: "Pop! Funding",
     image: pop,
     image_mobile: pop_mobile,
@@ -371,6 +380,7 @@ To achieve this result we were asked to develop a working reprodution of the Quo
   //   tools: ["Husky", "ESLint", "Prettier"],
   // },
   {
+    id: "wordgame",
     title: "Word Game",
     image: wordgame,
     image_mobile: wordgame_mobile,

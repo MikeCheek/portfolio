@@ -2,24 +2,24 @@ import React, {useContext, useEffect, useRef} from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import {ProjectProps} from "./index.types"
-import CursorContext from "@utilities/useCursorContext"
 import Link from "@assets/link.svg"
 import {useInView} from "react-intersection-observer"
 import Button from "@atoms/Button"
 import Chip from "@atoms/Chip"
 import GlassCard from "@atoms/GlassCard"
+import ReactMarkdown from "react-markdown"
+import ReadmeViewer from "@atoms/ReadmeViewer"
 
-const Index = ({project, reversed = false}: ProjectProps) => {
+const Index = ({project, fullpage = false}: ProjectProps) => {
   // const {fitElement, unFit} = useContext(CursorContext)
-  const id = project.title.replace(/\s+/g, "")
+  const id = project.id
   const [ref, inView, _entry] = useInView({
     threshold: 0,
     fallbackInView: true,
-    rootMargin: "-30% 0px -30% 0px",
+    rootMargin: "-10% 0px -10% 0px",
   })
 
   const videoRef = useRef<HTMLVideoElement>(null)
-
   const movingRef = useRef<HTMLElement | null>(null)
   const projectRef = useRef<HTMLDivElement>(null)
 
@@ -32,30 +32,23 @@ const Index = ({project, reversed = false}: ProjectProps) => {
 
   useEffect(() => {
     const handle = projectRef.current
-    if (!handle) return
+    if (!handle || fullpage) return // Disable tilt effect on fullpage for better readability
     const el = movingRef.current
     if (!el) return
 
     let raf = 0
-
     const clamp = (v: number) => Math.max(-1, Math.min(1, v))
 
     const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect()
       const cx = rect.left + rect.width / 2
       const cy = rect.top + rect.height / 2
-
       const dx = clamp((e.clientX - cx) / (rect.width / 2))
       const dy = clamp((e.clientY - cy) / (rect.height / 2))
 
-      const rotateY = dx * 5 // degrees
-      const rotateX = -dy * 15 // degrees (invert for natural tilt)
-      const translateX = dx * 10 // px
-      const translateY = dy * 10 // px
-
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
-        el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${translateX}px, ${translateY}px, 0)`
+        el.style.transform = `rotateX(${-dy * 15}deg) rotateY(${dx * 5}deg) translate3d(${dx * 10}px, ${dy * 10}px, 0)`
       })
     }
 
@@ -72,7 +65,7 @@ const Index = ({project, reversed = false}: ProjectProps) => {
       handle.removeEventListener("mouseleave", onLeave)
       cancelAnimationFrame(raf)
     }
-  }, [id])
+  }, [id, fullpage])
 
   useEffect(() => {
     if (videoRef.current) {
@@ -81,111 +74,118 @@ const Index = ({project, reversed = false}: ProjectProps) => {
     }
   }, [inView])
 
-  const Chips = (mobile?: boolean) => (
-    <div className={mobile ? styles.chipsWrapMobile : styles.chipsWrapDesktop}>
-      {project.technologies ? (
+  const Chips = (
+    <div className={styles.chipsWrap}>
+      {project.technologies && (
         <div className={styles.chips}>
-          {(project.technologies as string[]).map((technology, key) => (
-            <Chip key={key} text={technology} />
+          {(project.technologies as string[]).map((tech, i) => (
+            <Chip key={i} text={tech} />
           ))}
         </div>
-      ) : (
-        <></>
       )}
-      {project.tools ? (
+      {project.tools && (
         <div className={styles.chips}>
-          {(project.tools as string[]).map((tool, key) => (
-            <Chip key={key} orange text={tool} />
+          {(project.tools as string[]).map((tool, i) => (
+            <Chip key={i} orange text={tool} />
           ))}
         </div>
-      ) : (
-        <></>
       )}
-      {/* <p>Try to light these tags up, they need to be recharged</p> */}
     </div>
   )
 
-  return (
-    <div ref={projectRef} className={reversed ? styles.projectReverse : styles.project} id={id}>
-      <div className={styles.head}>
-        <a
-          href={"#" + id}
-          title={"Link to " + id}
-          className={reversed ? styles.linkReversed : styles.link}
-          // onMouseOver={(e) => handleMouseHover(e)}
-          // onMouseEnter={(e) => handleMouseHover(e)}
-          // onMouseOut={handleMouseLeave}
-          // onMouseLeave={handleMouseLeave}
-        >
-          <Link />
-        </a>
-        <h3>{project.title}</h3>
-        <GlassCard dangerouslySetInnerHTML={{__html: project.description}}></GlassCard>
-        <div className={styles.imageMobileWrap}>
+  // Dynamic Class Names
+  const containerClass = `
+    ${styles.project} 
+    ${fullpage ? styles.fullpage : ""}
+  `
+
+  const Media = (
+    <span ref={movingRef} className={styles.imageDesktopWrap}>
+      <a
+        title={project.title}
+        className={styles.imageWrap}
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {project.video ? (
+          <video
+            className={styles.video}
+            muted
+            ref={videoRef}
+            controls={false}
+            loop
+            onMouseEnter={(e) => !fullpage && e.currentTarget.pause()}
+            onMouseLeave={(e) => !fullpage && e.currentTarget.play()}
+          >
+            <source src={project.video} />
+          </video>
+        ) : (
           <Image
-            src={project.image_mobile}
+            src={project.image}
             alt={project.title}
-            className={styles.imageMobile}
-            style={project.reduce_opacity ? {opacity: 0.4} : {}}
-            loading={"lazy"}
-            fill
-            quality={50}
+            className={styles.image}
+            height={fullpage ? 600 : 380}
+            quality={90}
           />
+        )}
+      </a>
+      <div className={styles.stand} />
+    </span>
+  )
+
+  if (!fullpage) {
+    return (
+      <div ref={projectRef} className={containerClass} id={id}>
+        <div className={styles.head}>
+          <div className={styles.titleSection}>
+            <a href={"#" + id} title={"Link to " + id} className={styles.link}>
+              <Link />
+            </a>
+            <h3>{project.title}</h3>
+          </div>
+        </div>
+        <div ref={ref} className={styles.desktopWrap}>
+          {Media}
+        </div>
+        <Button title="See project details" href={"/project/" + id} internal>
+          See details -&gt;
+        </Button>
+      </div>
+    )
+  }
+
+  return (
+    <div ref={projectRef} className={containerClass} id={id}>
+      <div className={styles.head}>
+        <div className={styles.titleSection}>
+          <a href={fullpage ? "#" : "#" + id} title={"Link to " + id} className={styles.link}>
+            <Link />
+          </a>
+          <h1 className="coloredGradient">{project.title}</h1>
+        </div>
+
+        <div ref={ref} className={styles.desktopWrap}>
+          {Media}
+          <GlassCard className={styles.descriptionFull} dangerouslySetInnerHTML={{__html: project.description}} />
         </div>
 
         <div className={styles.links}>
           {project.href && (
-            <Button
-              title={"Go to " + project.title + " website"}
-              // onMouseEnter={(e) => handleMouseHover(e)}
-              // onMouseLeave={handleMouseLeave}
-              href={project.href}
-            >
+            <Button title="Visit website" href={project.href}>
               Visit Website
             </Button>
           )}
           {project.github && (
-            <Button
-              title={"Go to " + project.title + " repository"}
-              // onMouseEnter={(e) => handleMouseHover(e)}
-              // onMouseLeave={handleMouseLeave}
-              href={project.github}
-            >
+            <Button title="Visit repository" href={project.github}>
               Visit Repo
             </Button>
           )}
         </div>
-        {Chips(true)}
-      </div>
-      <div ref={ref} className={styles.desktopWrap}>
-        <span ref={movingRef} className={styles.imageDesktopWrap}>
-          <a
-            title={project.title}
-            className={styles.imageWrap}
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {project.video ? (
-              <video
-                className={styles.video}
-                muted
-                ref={videoRef}
-                controls={false}
-                onMouseEnter={(e) => e.currentTarget.pause()}
-                onMouseLeave={(e) => e.currentTarget.play()}
-                loop
-                about={project.title + " video"}
-              >
-                <source src={project.video} />
-              </video>
-            ) : (
-              <Image src={project.image} alt={project.title} className={styles.image} height={380} quality={80} />
-            )}
-          </a>
-          <div className={styles.stand} />
-        </span>
-        {Chips()}
+
+        {Chips}
+
+        {project.readme ? <ReadmeViewer content={project.readme} repoUrl={project.github ?? ""} /> : <></>}
       </div>
     </div>
   )
