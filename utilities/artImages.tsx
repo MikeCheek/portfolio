@@ -29,6 +29,12 @@ export type ArtImage = {
 
 export const paintings: ArtImage[] = [
   {
+    img: "/images/painting/20260107.jpg",
+    title: "Santa Maria la Scala",
+    date: "2026-01-07",
+    badges: [BADGES.ACRILYC],
+  },
+  {
     img: "/images/painting/20251210.jpg",
     title: "Oriental Night",
     date: "2025-12-10",
