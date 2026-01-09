@@ -18,8 +18,6 @@ const Index = () => {
 
   const {projects} = useContext(CursorContext)
 
-  // const data = [...programming, ...frameworks, ...others].sort((a, b) => (b.percentage ?? 0) - (a.percentage ?? 0))
-
   const data = (() => {
     const counts = new Map<string, number>()
 
