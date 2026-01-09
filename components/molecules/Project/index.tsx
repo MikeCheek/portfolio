@@ -134,6 +134,21 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
     </span>
   )
 
+  const Links = (
+    <div className={styles.links}>
+      {project.href && (
+        <Button title={project.hrefText ?? "Visit website"} href={project.href}>
+          {project.hrefText ?? "Visit Website"}
+        </Button>
+      )}
+      {project.github && (
+        <Button title="Visit repository" href={project.github}>
+          Visit Repo
+        </Button>
+      )}
+    </div>
+  )
+
   if (!fullpage) {
     return (
       <div ref={projectRef} className={containerClass} id={id}>
@@ -162,7 +177,9 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
           <a href={fullpage ? "#" : "#" + id} title={"Link to " + id} className={styles.link}>
             <Link />
           </a>
-          <h1 className="coloredGradient">{project.title}</h1>
+          <h1 className="coloredGradient" style={{cursor: "default !important"}}>
+            {project.title}
+          </h1>
         </div>
 
         <div ref={ref} className={styles.desktopWrap}>
@@ -170,18 +187,7 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
           <GlassCard className={styles.descriptionFull} dangerouslySetInnerHTML={{__html: project.description}} />
         </div>
 
-        <div className={styles.links}>
-          {project.href && (
-            <Button title="Visit website" href={project.href}>
-              Visit Website
-            </Button>
-          )}
-          {project.github && (
-            <Button title="Visit repository" href={project.github}>
-              Visit Repo
-            </Button>
-          )}
-        </div>
+        {Links}
 
         {Chips}
 

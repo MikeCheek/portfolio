@@ -2,21 +2,19 @@ import {Project, SkillsType} from "./info.types"
 import pop from "../assets/images/screenshots/pop.png"
 import quoridor from "../assets/images/screenshots/quoridor.png"
 import nt from "../assets/images/screenshots/nt.png"
-import wdc from "../assets/images/screenshots/wdc.png"
 import nlp from "../assets/images/screenshots/nlp.png"
 import segmentation from "../assets/images/screenshots/segmentation.png"
 import wordgame from "../assets/images/screenshots/wordgame.png"
 import pop_mobile from "../assets/images/screenshots/pop-mobile.jpg"
 import quoridor_mobile from "../assets/images/screenshots/quoridor-mobile.png"
 import nt_mobile from "../assets/images/screenshots/nt-mobile.jpg"
-import wdc_mobile from "../assets/images/screenshots/wdc-mobile.jpg"
 import segmentation_mobile from "../assets/images/screenshots/segmentation-mobile.png"
 import wordgame_mobile from "../assets/images/screenshots/wordgame-mobile.png"
 import mines from "../assets/images/screenshots/mines.gif"
 import mines_mobile from "../assets/images/screenshots/mines-mobile.gif"
 import mlbusiness from "../assets/images/screenshots/mlbusiness.png"
 import segmentationpointcloud from "../assets/images/screenshots/segmentation-pointcloud.png"
-import plantguardian from "../assets/images/screenshots/plantguardian.png"
+import plantguardian from "../assets/images/screenshots/plantguardian.jpg"
 import plantguardianmobile from "../assets/images/screenshots/plantguardian-mobile.jpg"
 
 //head
@@ -30,167 +28,20 @@ export const commands = [
   {auto: false, input: "", output: `Nice try, but I'm still working on this feature`},
 ]
 
-//other experiences
-export const otherExperiences = [
-  {
-    title: "JEISM - JE Italy Summer Meeting (2021)",
-    text: `// Event between Italian Junior Enterprises<br/><br/>
-                // Location: Gabicce, Marche<br/><br/>
-                // Duration: 3 days<br/><br/>
-                    The event provided an <strong>excellent opportunity</strong> 
-                    for discussion with guys from <strong>different</strong> Junior Enterprises, 
-                    as well as getting to know the <strong>partner companies</strong> of the event through daily workshops.
-                <br/>
-                    A stimulating workshop was organized by Open
-                    Marketplace on the theme of Open Innovation`,
-  },
-  {
-    title: "SysE2021 - Summer School (2021)",
-    text: `/* Master's degree orientation event
-                        organized by the University of Genova in
-                        collaboration with the University of Savoie Mont
-                        Blanc and carried out in English */<br/><br/>
-                // Location: Imperia, Liguria<br/><br/>
-                // Duration: 5 days<br/><br/>
-                        Thanks to the <strong>Hackathon</strong> held during the event, 
-                        I <strong>gained experience</strong> with scientific calculation 
-                        languages such as Matlab and Simulink`,
-  },
-]
-
 //about
 export const about: string = `
     <h3>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
     I'm a <span style="color: var(--pink)">Computer Engineer</span></h3>
-    <p>I am enrolled in Artificial Intelligence and Data Analytics course at Polytechnic of Turin.</p>
-    <p>Currently, I am in Paris for a one year Erasmus in Data & AI at ESILV - Pole Leonard de Vinci.</p>
+    <p>I graduated with a Bachelor’s degree in Computer Engineering and a Master’s degree in Artificial Intelligence and Data Analytics from the Polytechnic of Turin</p>
+    <p>I've also done a one year Erasmus in Paris in Data & AI at ESILV - Pole Leonard de Vinci.</p>
     <p>I do artistic gymnastics and I like to draw, both on paper and digitally.</p>
     <p style="flex:1 1 100%;text-align:center;">Check out my drawings in the <a href="/art" class="link">art section</a></p>`
-
-//work experiences
-export const works: string = `<strong><h3><a title="JEToP Website" class="link" href="https://jetop.com">JEToP - Junior Enterprise Torino Politecnico</a></h3></strong>(October 2019 - Now)<br/><br/>
-    <h4>Role: IT Consultant</h4>
-    <p>As a member of <strong>teams</strong> on both internal and external projects, 
-      <strong>I have increased my knowledge</strong> of web programming by developing websites with frameworks 
-      like <strong>ReactJs, GatsbyJs and NextJs</strong> and have improved my backend skills through training.<br/> 
-      <br/><br/>
-    </p>
-    <h4>Role: Collaborator of IT Area</h4>
-    <br/>
-    
-    <h4><strong>[Examples of things I've contributed to develop]</strong></h4>
-    <p>Blog section of the association's website (<a title="JEToP Blog" class="link" href="https://jetop.com/blog">https://jetop.com/blog</a>)</p>
-    <p>Web Dev Challenge landing page (<a  title="JEToP WDC" class="link" href="https://wdc.jetop.com">https://wdc.jetop.com</a>)</p>
-    `
-
-//education
-export const events = [
-  {
-    name: "Politecnico di Torino",
-    dateStart: "2019/09",
-    dateEnd: "Now",
-    text: ` -> Bachelor's degree<br/>
-                -> Computer Engeneering`,
-  },
-  {
-    name: `High school "Archimede" - Acireale`,
-    dateStart: "2013/09",
-    dateEnd: "2019/06",
-    text: ` -> High school diploma`,
-  },
-]
 
 //Contacts
 //export const phone: number = 1111111111
 export const email: string = "pulvirentimichele00@gmail.com"
 export const linkedin: string = "https://www.linkedin.com/in/michele-pulvirenti"
 export const github: string = "https://github.com/Mikecheek"
-
-//skills
-export const programming: SkillsType = [
-  {
-    name: "C",
-    percentage: 60,
-  },
-  {
-    name: "Java",
-    percentage: 60,
-  },
-  {
-    name: "Rust",
-    percentage: 70,
-  },
-  {
-    name: "JavaScript",
-    percentage: 95,
-  },
-  {
-    name: "Typescript",
-    percentage: 95,
-  },
-  {
-    name: "Assembly MIPS/ARM",
-    percentage: 50,
-  },
-  {
-    name: "Bash (Unix)",
-    percentage: 70,
-  },
-  {
-    name: "PHP",
-    percentage: 20,
-  },
-]
-export const frameworks: SkillsType = [
-  {
-    name: "React Js",
-    link: "https://it.reactjs.org",
-    percentage: 90,
-  },
-  {
-    name: "Gatsby Js",
-    link: "https://www.gatsbyjs.com",
-    percentage: 90,
-  },
-  {
-    name: "Next Js",
-    link: "https://nextjs.org",
-    percentage: 80,
-  },
-  {
-    name: "Tailwind CSS",
-    link: "https://tailwindcss.com",
-    percentage: 80,
-  },
-]
-export const others: SkillsType = [
-  {
-    name: "HTML",
-    percentage: 90,
-  },
-  {
-    name: "CSS",
-    percentage: 90,
-  },
-  {
-    name: "Sass",
-    link: "https://sass-lang.com",
-    percentage: 70,
-  },
-  {
-    name: "Linux",
-    percentage: 60,
-  },
-  {
-    name: "SQL",
-    percentage: 40,
-  },
-]
-export const languages = `
-    <h3>Languages</h3>
-    <p>Italian (mother tongue)</p>
-    <p>English (B2 Cambridge First Certificate)</p>
-`
 
 //navBar
 export const navItems = [
@@ -260,10 +111,12 @@ export const projectsList: Project[] = [
     <li>A segmentation completer where a Machine Learning classifier is trained on a partially segmented part of a point cloud and used to propagate the segmentation</li>
     <li>A neural network model that was trained on a dataset is used to segment unlabelled point clouds</li>
     </ul>
-    This work was done during my Internship at A-BIME in Paris.`,
+    This project was developed during my internship at A-BIME in Paris and served as the core subject of my Master's thesis.`,
     technologies: ["Python", "PyTorch", "scikit-learn", "PyQt6"],
     tools: ["Computer Vision", "Point Cloud Segmentation", "PointNet++", "DGCNN"],
     category: P_CATEGORY.MLCV,
+    href: "https://webthesis.biblio.polito.it/37726/",
+    hrefText: "Thesis Document",
   },
   {
     id: "segmentationunderwater",

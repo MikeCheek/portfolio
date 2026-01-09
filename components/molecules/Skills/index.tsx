@@ -1,6 +1,5 @@
 import React, {useCallback, useContext, useState} from "react"
 import {useInView} from "react-intersection-observer"
-import {programming, frameworks, others} from "@utilities/info"
 import Skill from "@atoms/Skill"
 
 import styles from "./index.module.scss"
