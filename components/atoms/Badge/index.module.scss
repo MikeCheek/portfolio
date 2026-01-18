@@ -1,25 +1,83 @@
 .wrap {
-  color: var(--orange);
-  border-color: var(--orange);
   background-color: var(--black);
-  position: relative;
+  border: 1px solid var(--orange); // Added border-style
   border-radius: 20px;
-  overflow: hidden;
-  will-change: background-color, color;
-  transition: background-color 500ms ease;
-  padding: 10px 20px;
+  color: var(--orange);
   cursor: pointer;
   font-size: x-small;
   margin-bottom: 5px;
+  padding: 10px 20px;
+  position: relative;
+  transition: all 300ms ease;
+  // REMOVED overflow: hidden to allow tooltip to show
+  will-change: background-color, color;
 
   @media screen and (min-width: 768px) {
     font-size: small;
+  }
+
+  // --- TOOLTIP LOGIC ---
+  &::after {
+    background-color: var(--black);
+    border: 1px solid var(--orange);
+    border-radius: 6px;
+    bottom: calc(100% + 10px); // Position above the button
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: var(--orange);
+    content: attr(data-fulltext);
+    font-size: 13px;
+    font-weight: 600;
+    left: 50%;
+    opacity: 0;
+    padding: 6px 12px;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%) translateY(5px);
+    transition: all 200ms ease;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  // The small arrow below the tooltip
+  &::before {
+    background-color: var(--black);
+    border-color: var(--orange) transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    bottom: calc(100% + 5px);
+    content: "";
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%) translateY(5px);
+    transition: all 200ms ease;
+    z-index: 10;
+  }
+
+  // Hover state to show tooltip
+  &:hover {
+    &::after,
+    &::before {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
   }
 }
 
 .wrapActive {
   @extend .wrap;
-  color: var(--black);
   background-color: var(--orange);
+  color: var(--black);
   font-weight: 700;
+
+  // Optional: Change tooltip color when button is active
+  &::after {
+    background-color: var(--orange);
+    border: 1px solid var(--orange);
+    color: var(--black);
+  }
+  &::before {
+    border-color: var(--orange) transparent transparent transparent;
+  }
 }

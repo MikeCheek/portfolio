@@ -9,26 +9,30 @@ const Index = () => {
   const [isSticky, setIsSticky] = useState(false)
   const filterRef = useRef<HTMLDivElement>(null)
 
+  // 1. IMPROVED CATEGORY COUNTING
+  // We normalize project.category to an array to handle both strings and arrays
   const categoriesCount: Record<string, number> = {}
-  for (const project of projects) {
-    categoriesCount[project.category] = (categoriesCount[project.category] || 0) + 1
-  }
+
+  projects.forEach((project) => {
+    const projectCats = Array.isArray(project.category) ? project.category : [project.category]
+
+    projectCats.forEach((cat: string) => {
+      categoriesCount[cat] = (categoriesCount[cat] || 0) + 1
+    })
+  })
 
   const [filter, setFilter] = useState<string[]>(Object.keys(categoriesCount))
 
   useEffect(() => {
     const handleScroll = () => {
       if (!filterRef.current) return
-
       const {bottom} = filterRef.current.getBoundingClientRect()
-
       if (!isSticky && bottom <= 0) {
         setIsSticky(true)
       } else if (isSticky && bottom > 0) {
         setIsSticky(false)
       }
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isSticky])
@@ -64,7 +68,14 @@ const Index = () => {
       {isSticky ? <div className={styles.sticky}>{filtering}</div> : <></>}
       <div className={styles.projectsGrid}>
         {projects
-          .filter((project) => filter.includes(project.category))
+          .filter((project) => {
+            // 2. IMPROVED FILTER LOGIC
+            // Convert project.category to array if it's a string
+            const projectCats = Array.isArray(project.category) ? project.category : [project.category]
+
+            // Check if at least one category in the project is included in the active filters
+            return projectCats.some((cat: string) => filter.includes(cat))
+          })
           .map((project, key) => {
             return <Project project={project} key={`${key}-${filter.join("-")}`} />
           })}

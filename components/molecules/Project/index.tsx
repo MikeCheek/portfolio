@@ -7,7 +7,6 @@ import {useInView} from "react-intersection-observer"
 import Button from "@atoms/Button"
 import Chip from "@atoms/Chip"
 import GlassCard from "@atoms/GlassCard"
-import ReactMarkdown from "react-markdown"
 import ReadmeViewer from "@atoms/ReadmeViewer"
 
 const Index = ({project, fullpage = false}: ProjectProps) => {
@@ -93,7 +92,6 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
     </div>
   )
 
-  // Dynamic Class Names
   const containerClass = `
     ${styles.project} 
     ${fullpage ? styles.fullpage : ""}
@@ -129,7 +127,17 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
             quality={90}
           />
         )}
-        <div className={styles.tag}>{project.category}</div>
+        <div className={styles.tagWrap}>
+          {Array.isArray(project.category) ? (
+            project.category.map((cat, idx) => (
+              <span key={idx} className={styles.tag}>
+                {cat}
+              </span>
+            ))
+          ) : (
+            <span className={styles.tag}>{project.category}</span>
+          )}
+        </div>
       </a>
       <div className={styles.stand} />
     </span>

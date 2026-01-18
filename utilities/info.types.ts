@@ -19,7 +19,7 @@ export interface Project {
   video?: string
   technologies?: string[]
   tools?: string[]
-  category: string
+  category: string | string[]
   readme?: string
   readmeLink?: string
 }

@@ -17,6 +17,7 @@ import segmentationpointcloud from "../assets/images/screenshots/segmentation-po
 import plantguardian from "../assets/images/screenshots/plantguardian.jpg"
 import plantguardianmobile from "../assets/images/screenshots/plantguardian-mobile.jpg"
 import termuxcmdhub from "../assets/images/screenshots/termux-cmd-hub.png"
+import gpt2 from "../assets/images/screenshots/gpt2.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -82,10 +83,19 @@ export const navItems = [
 ]
 
 export enum P_CATEGORY {
-  MLCV = "ML - CV",
-  MLNLP = "ML - NLP",
+  MLCV = "CV",
+  MLNLP = "NLP",
+  LLM = "LLM",
   WEB = "Web",
   LOW = "Low Level",
+}
+
+export const P_FULLCATEGORY: {[key: string]: string} = {
+  CV: "Computer Vision",
+  NLP: "Natural Language Processing",
+  LLM: "Large Language Models",
+  Web: "Web Development",
+  Low: "Low Level Programming",
 }
 
 export const projectsList: Project[] = [
@@ -98,7 +108,7 @@ export const projectsList: Project[] = [
     The application combines the use of Computer Vision techniques to identify plant species and an AI Agent with LLM model to provide personalized care advice based on user input and environmental data.`,
     technologies: ["Flutter", "Dart", "Python", "OpenCV"],
     tools: ["Computer Vision", "AI Agents", "Large Language Models"],
-    category: P_CATEGORY.MLCV,
+    category: [P_CATEGORY.MLCV, P_CATEGORY.LLM],
     github: "https://github.com/MikeCheek/plant_guardian",
   },
   {
@@ -114,6 +124,19 @@ export const projectsList: Project[] = [
     tools: ["Termux", "Fullstack Development", "Process Management", "WebSockets"],
     category: P_CATEGORY.WEB,
     github: "https://github.com/MikeCheek/termux-process-manager",
+  },
+  {
+    id: "gpt2fromscratch",
+    title: "GPT-2 from Scratch",
+    image: gpt2,
+    image_mobile: gpt2,
+    description: `Implementation of the GPT-2 architecture from scratch using PyTorch.<br/><br/>
+   The model architecture is implemented in PyTorch, including components such as multi-head self-attention, feed-forward neural networks, and layer normalization.<br/><br/>
+   The official model's weights published by OpenAI are used to initialize the model.`,
+    github: "https://github.com/MikeCheek/gpt-2-from-scratch",
+    technologies: ["Python", "PyTorch"],
+    tools: ["Natural Language Processing", "Large Language Models"],
+    category: P_CATEGORY.LLM,
   },
   {
     id: "segmentationpointcloud",
