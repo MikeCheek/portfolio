@@ -20,12 +20,14 @@ function MyApp({Component, pageProps}: AppProps) {
     }
   })
   return (
-    <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
-      <PageTransition key={router.pathname}>
-        <Component {...pageProps} />
-      </PageTransition>
+    <>
+      <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+        <PageTransition key={router.pathname}>
+          <Component {...pageProps} />
+        </PageTransition>
+      </AnimatePresence>
       <Analytics />
-    </AnimatePresence>
+    </>
   )
 }
 
