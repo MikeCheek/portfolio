@@ -30,6 +30,13 @@ const ReadmeViewer = ({content, repoUrl}: {content: string; repoUrl: string}) =>
           remarkPlugins={[remarkGfm]}
           components={{
             a: ({node, ...props}) => <a {...props} className="link" target="_blank" rel="noopener noreferrer" />,
+            // Shift headers down by one level
+            h1: ({node, ...props}) => <h2 {...props} />,
+            h2: ({node, ...props}) => <h3 {...props} />,
+            h3: ({node, ...props}) => <h4 {...props} />,
+            h4: ({node, ...props}) => <h5 {...props} />,
+            h5: ({node, ...props}) => <h6 {...props} />,
+            h6: ({node, ...props}) => <p {...props} />,
           }}
         >
           {content}

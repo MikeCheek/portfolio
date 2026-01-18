@@ -16,6 +16,7 @@ import mlbusiness from "../assets/images/screenshots/mlbusiness.png"
 import segmentationpointcloud from "../assets/images/screenshots/segmentation-pointcloud.png"
 import plantguardian from "../assets/images/screenshots/plantguardian.jpg"
 import plantguardianmobile from "../assets/images/screenshots/plantguardian-mobile.jpg"
+import termuxcmdhub from "../assets/images/screenshots/termux-cmd-hub.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -99,6 +100,20 @@ export const projectsList: Project[] = [
     tools: ["Computer Vision", "AI Agents", "Large Language Models"],
     category: P_CATEGORY.MLCV,
     github: "https://github.com/MikeCheek/plant_guardian",
+  },
+  {
+    id: "termuxcmdhub",
+    title: "Termux Command Hub",
+    image: termuxcmdhub,
+    image_mobile: termuxcmdhub,
+    description: `A fullstack web application designed to manage better Termux active processes and commands.<br/><br/>
+    Termux is a terminal emulator for Android that allows users to run a Linux environment on their mobile devices. This makes possibleto make an old smartphone a home server but managing processes remotely can be challenging.<br/><br/>
+    The application allows users to start, stop, and monitor termux commands remotely through a user-friendly web interface.<br/><br/>
+    Since Docker is not natively supported on Android, PM2 is used as a process manager to keep commands running in the background and restart them if they crash.`,
+    technologies: ["Nest JS", "Vite JS", "PM2", "TypeScript", "TailwindCSS"],
+    tools: ["Termux", "Fullstack Development", "Process Management", "WebSockets"],
+    category: P_CATEGORY.WEB,
+    github: "https://github.com/MikeCheek/termux-process-manager",
   },
   {
     id: "segmentationpointcloud",

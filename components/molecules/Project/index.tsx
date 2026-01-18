@@ -129,6 +129,7 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
             quality={90}
           />
         )}
+        <div className={styles.tag}>{project.category}</div>
       </a>
       <div className={styles.stand} />
     </span>
@@ -163,6 +164,7 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
         <div ref={ref} className={styles.desktopWrap}>
           {Media}
         </div>
+        {Chips}
         <Button title="See project details" href={"/project/" + id} internal>
           See details -&gt;
         </Button>
@@ -187,9 +189,8 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
           <GlassCard className={styles.descriptionFull} dangerouslySetInnerHTML={{__html: project.description}} />
         </div>
 
-        {Links}
-
         {Chips}
+        {Links}
 
         {project.readme ? <ReadmeViewer content={project.readme} repoUrl={project.github ?? ""} /> : <></>}
       </div>

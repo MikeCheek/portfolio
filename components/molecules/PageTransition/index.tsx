@@ -36,9 +36,10 @@ import {forwardRef} from "react"
 //   },
 // }
 
-const Index = forwardRef(({children}: PageTransitionProps) => {
+const Index = forwardRef<HTMLElement, PageTransitionProps>(({children}, ref) => {
   return (
     <motion.main
+      ref={ref}
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}
