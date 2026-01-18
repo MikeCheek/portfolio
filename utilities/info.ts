@@ -131,7 +131,7 @@ export const projectsList: Project[] = [
     image: gpt2,
     image_mobile: gpt2,
     description: `Implementation of the GPT-2 architecture from scratch using PyTorch.<br/><br/>
-   The model architecture is implemented in PyTorch, including components such as multi-head self-attention, feed-forward neural networks, and layer normalization.<br/><br/>
+   The model architecture is implemented in PyTorch, including components such as multi-head self-attention, feed-forward neural network, and layer normalization.<br/><br/>
    The official model's weights published by OpenAI are used to initialize the model.`,
     github: "https://github.com/MikeCheek/gpt-2-from-scratch",
     technologies: ["Python", "PyTorch"],
