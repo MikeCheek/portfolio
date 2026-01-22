@@ -18,6 +18,7 @@ import plantguardian from "../assets/images/screenshots/plantguardian.jpg"
 import plantguardianmobile from "../assets/images/screenshots/plantguardian-mobile.jpg"
 import termuxcmdhub from "../assets/images/screenshots/termux-cmd-hub.png"
 import gpt2 from "../assets/images/screenshots/gpt2.png"
+import gpt2_2 from "../assets/images/screenshots/gpt2_2.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -128,8 +129,8 @@ export const projectsList: Project[] = [
   {
     id: "gpt2fromscratch",
     title: "GPT-2 from Scratch",
-    image: gpt2,
-    image_mobile: gpt2,
+    image: [gpt2, gpt2_2],
+    image_mobile: [gpt2, gpt2_2],
     description: `Implementation of the GPT-2 architecture from scratch using PyTorch.<br/><br/>
    The model architecture is implemented in PyTorch, including components such as multi-head self-attention, feed-forward neural network, and layer normalization.<br/><br/>
    The official model's weights published by OpenAI are used to initialize the model.`,

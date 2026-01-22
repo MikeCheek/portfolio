@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from "react"
+import React, {useContext, useEffect, useRef, useState} from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import {ProjectProps} from "./index.types"
@@ -11,6 +11,7 @@ import ReadmeViewer from "@atoms/ReadmeViewer"
 
 const Index = ({project, fullpage = false}: ProjectProps) => {
   // const {fitElement, unFit} = useContext(CursorContext)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const id = project.id
   const [ref, inView, _entry] = useInView({
     threshold: 0,
@@ -22,12 +23,25 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
   const movingRef = useRef<HTMLElement | null>(null)
   const projectRef = useRef<HTMLDivElement>(null)
 
+  const images = Array.isArray(project.image) ? project.image : [project.image]
+
   // const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   //   fitElement(e.currentTarget)
   // }
   // const handleMouseLeave = () => {
   //   unFit()
   // }
+
+  useEffect(() => {
+    // Only start timer if there's more than one image
+    if (images.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length)
+    }, 5000) // 5 seconds
+
+    return () => clearInterval(interval)
+  }, [images.length])
 
   useEffect(() => {
     const handle = projectRef.current
@@ -119,13 +133,19 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
             <source src={project.video} />
           </video>
         ) : (
-          <Image
-            src={project.image}
-            alt={project.title}
-            className={styles.image}
-            height={fullpage ? 600 : 380}
-            quality={90}
-          />
+          <div className={styles.imageContainer}>
+            {images.map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt={project.title}
+                className={`${styles.image} ${index === currentImageIndex ? styles.active : styles.inactive}`}
+                height={fullpage ? 600 : 380}
+                width={800} // Added width for Next.js Image optimization
+                quality={90}
+              />
+            ))}
+          </div>
         )}
         <div className={styles.tagWrap}>
           {Array.isArray(project.category) ? (

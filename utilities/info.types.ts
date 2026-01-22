@@ -9,8 +9,8 @@ export type SkillsType = {
 export interface Project {
   id: string
   title: string
-  image: StaticImageData
-  image_mobile: StaticImageData
+  image: StaticImageData | StaticImageData[]
+  image_mobile: StaticImageData | StaticImageData[]
   description: string
   href?: string
   hrefText?: string
