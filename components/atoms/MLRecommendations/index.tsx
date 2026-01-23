@@ -44,7 +44,11 @@ const Index = ({recommendations}: {recommendations: Project[]}) => {
                 />
               </div>
               <h4>{rec.title}</h4>
-              <p>{Array.isArray(rec.category) ? rec.category[0] : rec.category}</p>
+              {Array.isArray(rec.category) ? (
+                <p className={styles.tag}>{rec.category[0]}</p>
+              ) : (
+                <p className={styles.tag}>{rec.category}</p>
+              )}
             </Link>
           ))}
         </div>
