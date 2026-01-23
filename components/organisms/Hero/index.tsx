@@ -26,9 +26,7 @@ const Index = () => {
         <Section title={"About me"} id={"about"}>
           <GlassCard className={styles.about} dangerouslySetInnerHTML={{__html: about}} />
         </Section>
-        <Section title={"Skills"} id={"skills"} reversed>
-          <Skills />
-        </Section>
+
         <Section title={"My Path"} id={"mypath"}>
           <MyPath />
         </Section>
@@ -39,6 +37,9 @@ const Index = () => {
         {/* <Section title={"Hard skills"} id={"skills"}>
           <Skills />
         </Section> */}
+        <Section title={"Skills"} id={"skills"} reversed>
+          <Skills />
+        </Section>
       </div>
     </div>
   )

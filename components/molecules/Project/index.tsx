@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import Image from "next/image"
 import styles from "./index.module.scss"
 import {ProjectProps} from "./index.types"
@@ -8,6 +8,8 @@ import Button from "@atoms/Button"
 import Chip from "@atoms/Chip"
 import GlassCard from "@atoms/GlassCard"
 import ReadmeViewer from "@atoms/ReadmeViewer"
+import {useRecommendations} from "@utilities/useRecommendations"
+import MLRecommendations from "@atoms/MLRecommendations"
 
 const Index = ({project, fullpage = false}: ProjectProps) => {
   // const {fitElement, unFit} = useContext(CursorContext)
@@ -24,6 +26,7 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
   const projectRef = useRef<HTMLDivElement>(null)
 
   const images = Array.isArray(project.image) ? project.image : [project.image]
+  const recommendations = useRecommendations(project, 3)
 
   // const handleMouseHover = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   //   fitElement(e.currentTarget)
@@ -221,6 +224,7 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
         {Links}
 
         {project.readme ? <ReadmeViewer content={project.readme} repoUrl={project.github ?? ""} /> : <></>}
+        {fullpage && <MLRecommendations recommendations={recommendations} />}
       </div>
     </div>
   )

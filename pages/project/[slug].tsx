@@ -20,7 +20,7 @@ const Index = ({error, project}: {error: boolean; project: ProjectType}) => {
         <CursorContext.Provider
           value={{
             //scale, position, fit, fitElement, unFit,
-            projects: [],
+            projects: projectsList,
           }}
         >
           <Project project={project} fullpage />

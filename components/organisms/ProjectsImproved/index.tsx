@@ -1,4 +1,4 @@
-import React, {use, useContext, useEffect, useRef, useState} from "react"
+import React, {use, useContext, useEffect, useMemo, useRef, useState} from "react"
 import Image from "next/image"
 import {motion, AnimatePresence} from "framer-motion"
 import CursorContext from "@utilities/useCursorContext"
@@ -31,38 +31,40 @@ const ProjectsImproved = () => {
   const isSmallSet = filteredProjects.length < 9
 
   return (
-    <section className={styles.container}>
-      {/* --- HEADER & FILTERS --- */}
-      <div className={styles.header}>
-        <div className={styles.filterBar}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`${styles.filterBtn} ${activeFilter === cat ? styles.active : ""}`}
-            >
-              {cat}
-              {activeFilter === cat && <motion.div layoutId="activePill" className={styles.activeBackground} />}
-            </button>
-          ))}
+    <>
+      <section className={styles.container}>
+        {/* --- HEADER & FILTERS --- */}
+        <div className={styles.header}>
+          <div className={styles.filterBar}>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`${styles.filterBtn} ${activeFilter === cat ? styles.active : ""}`}
+              >
+                {cat}
+                {activeFilter === cat && <motion.div layoutId="activePill" className={styles.activeBackground} />}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* --- FLUID GRID --- */}
-      <motion.div layout className={`${styles.gallery} ${isSmallSet ? styles.masonryLike : ""}`}>
-        <AnimatePresence>
-          {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              isHovered={hoveredId === project.id}
-              onHover={setHoveredId}
-              isDimmed={hoveredId !== null && hoveredId !== project.id}
-            />
-          ))}
-        </AnimatePresence>
-      </motion.div>
-    </section>
+        {/* --- FLUID GRID --- */}
+        <motion.div layout className={`${styles.gallery} ${isSmallSet ? styles.masonryLike : ""}`}>
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                isHovered={hoveredId === project.id}
+                onHover={setHoveredId}
+                isDimmed={hoveredId !== null && hoveredId !== project.id}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </section>
+    </>
   )
 }
 

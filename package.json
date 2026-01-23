@@ -18,10 +18,11 @@
     "test-all": "npm run prettify && npm run check-format && npm run check-types && npm run build"
   },
   "dependencies": {
-    "@react-three/drei": "^10.0.5",
-    "@react-three/fiber": "^9.1.1",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "@vercel/analytics": "^1.0.1",
     "@vercel/speed-insights": "^1.0.11",
+    "@xenova/transformers": "^2.17.2",
     "firebase": "^9.13.0",
     "framer-motion": "^12.6.3",
     "next": "15.2.6",
