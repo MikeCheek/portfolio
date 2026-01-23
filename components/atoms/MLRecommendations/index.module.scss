@@ -7,17 +7,15 @@
 
   // Horizontal scroll on very small screens or standard grid
   .recGrid {
-    display: grid;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    grid-template-columns: 1fr; // Single column on mobile
+    justify-content: center;
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
+      flex-direction: row;
       gap: 2rem;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -34,6 +32,7 @@
     position: relative;
     text-decoration: none;
     transition: background 0.3s ease;
+    width: 200px;
 
     // Active state for mobile (better than hover)
     &:hover {
@@ -45,6 +44,10 @@
       &:hover {
         transform: translateY(-8px);
       }
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 100%;
     }
 
     .recImageWrapper {
