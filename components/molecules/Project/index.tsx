@@ -10,6 +10,7 @@ import GlassCard from "@atoms/GlassCard"
 import ReadmeViewer from "@atoms/ReadmeViewer"
 import {useRecommendations} from "@utilities/useRecommendations"
 import MLRecommendations from "@atoms/MLRecommendations"
+import Separator from "@atoms/Separator"
 
 const Index = ({project, fullpage = false}: ProjectProps) => {
   // const {fitElement, unFit} = useContext(CursorContext)
@@ -224,6 +225,7 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
         {Links}
 
         {project.readme ? <ReadmeViewer content={project.readme} repoUrl={project.github ?? ""} /> : <></>}
+        <Separator />
         {fullpage && <MLRecommendations recommendations={recommendations} />}
       </div>
     </div>

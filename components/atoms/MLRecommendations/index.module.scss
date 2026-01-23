@@ -24,17 +24,19 @@
   .recCard {
     align-items: center;
     background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     color: inherit;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 12px;
+    position: relative;
     text-decoration: none;
     transition: background 0.3s ease;
 
     // Active state for mobile (better than hover)
-    &:active {
+    &:hover {
       background: rgba(255, 255, 255, 0.08);
     }
 
@@ -42,9 +44,6 @@
     @media (hover: hover) {
       &:hover {
         transform: translateY(-8px);
-        .recImageWrapper {
-          border-color: var(--orange);
-        }
       }
     }
 
@@ -54,10 +53,15 @@
       border-radius: 14px;
       /* Optimization: Prevents layout shift */
       contain: paint;
+      height: 100px;
       margin-bottom: 0.75rem;
       overflow: hidden;
       position: relative;
       width: 80%;
+
+      @media screen and (min-width: 768px) {
+        height: 200px;
+      }
     }
 
     h4 {
@@ -67,14 +71,18 @@
     }
 
     .tag {
+      background-color: var(--black);
       border: 1px solid var(--orange); // Thinner border for cleaner mobile look
       border-radius: 8px;
       color: var(--orange);
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 500;
+      left: 10px;
       margin-top: auto;
       padding: 0.2rem 0.5rem;
+      position: absolute;
+      top: 10px;
       width: fit-content;
     }
   }
@@ -90,9 +98,10 @@
 
   // The Glow Effect
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.1em;
+  line-height: 2rem;
   margin: 0;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 7px rgba(121, 40, 202, 0.5), 0 0 10px rgba(121, 40, 202, 0.3), 0 0 21px rgba(121, 40, 202, 0.2);
@@ -117,37 +126,61 @@
 .titleContainer {
   align-items: center;
   display: flex;
+  flex-direction: column;
   gap: 12px;
   justify-content: center;
   margin-bottom: 2.5rem;
   padding: 5px; // Prevents clipping of the glow
   width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .infoWrapper {
   align-items: center;
   display: inline-flex;
   justify-content: center;
+  position: relative;
 
   .tooltip {
-    /* Optimization: Hide by default on mobile, show on tap if needed */
-    display: none;
+    backdrop-filter: blur(10px);
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    bottom: calc(100% + 10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    left: 50%;
 
-    @media (min-width: 768px) {
-      display: block;
-      opacity: 0;
-      pointer-events: none;
-      /* Rest of your tooltip CSS */
-      position: absolute;
-      width: 240px;
+    opacity: 0;
+    padding: 15px;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%) translateY(10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 260px;
+    z-index: 100;
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 13px;
+      line-height: 1.4;
+      margin: 0 0 8px 0;
+
+      strong {
+        color: var(--white);
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
-  @media (hover: hover) {
-    &:hover .tooltip {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+  &:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
   }
 }
 
