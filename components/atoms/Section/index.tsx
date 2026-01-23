@@ -6,7 +6,16 @@ import sleep from "@utilities/sleep"
 import Decorations from "@atoms/Decorations"
 // import {useInView} from 'react-intersection-observer'
 
-const Index = ({title, children, id, reversed = false, Svg, paragraph = false, Model3d}: SectionProps) => {
+const Index = ({
+  title,
+  children,
+  id,
+  reversed = false,
+  Svg,
+  paragraph = false,
+  wider = false,
+  Model3d,
+}: SectionProps) => {
   // const [ref, inView, _entry] = useInView({
   //   threshold: 0,
   //   fallbackInView: true,
@@ -24,7 +33,10 @@ const Index = ({title, children, id, reversed = false, Svg, paragraph = false, M
   }
 
   return (
-    <div className={`${reversed ? styles.sectionReversed : styles.section}`} id={id ?? title}>
+    <div
+      className={`${reversed ? styles.sectionReversed : styles.section} ${wider ? styles.sectionWider : ""}`}
+      id={id ?? title}
+    >
       <Decorations />
       {paragraph ? (
         <>

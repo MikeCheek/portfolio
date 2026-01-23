@@ -43,7 +43,10 @@ const Index = () => {
       onChange={(value) => {
         setFilter((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]))
       }}
-      clearAll={() => setFilter([])}
+      buttonText={filter.length === Object.keys(categoriesCount).length ? "X" : "All"}
+      buttonAction={() =>
+        filter.length === Object.keys(categoriesCount).length ? setFilter([]) : setFilter(Object.keys(categoriesCount))
+      }
       active={filter}
     />
   )

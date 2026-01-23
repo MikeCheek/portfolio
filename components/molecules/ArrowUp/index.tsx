@@ -7,6 +7,7 @@ const Index = () => {
   const ref = useRef<HTMLDivElement>(null)
   // 1. New state to trigger the rocket effect
   const [isRocket, setIsRocket] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   let prevScrollpos = 0
   let currentScrollPos: number
@@ -32,6 +33,7 @@ const Index = () => {
   }
 
   useEffect(() => {
+    setMounted(true)
     const interval = setInterval(() => {
       setIsRocket((curr) => !curr)
     }, 1000)
@@ -117,7 +119,7 @@ const Index = () => {
     >
       {/* 4. Conditionally render the exhaust lines */}
       {isRocket ? <ExhaustTrail /> : <></>}
-      <ExhaustTrail startRandom />
+      {mounted && <ExhaustTrail startRandom />}
       <Arrow width={"50px"} height={"50px"} />
     </div>
   )

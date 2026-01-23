@@ -9,5 +9,6 @@ export type SectionProps = {
     stroke?: string
   }
   paragraph?: boolean
+  wider?: boolean
   Model3d?: React.ReactNode
 }

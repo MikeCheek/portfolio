@@ -19,6 +19,7 @@ const Index = ({
   const image: string = url + "/logo.png"
   const canonical = pathname ? `${config.siteUrl}${pathname}` : null
   const name = "Michele Pulvirenti"
+  const staticDate = "2026-01-01T00:00:00+00:00"
 
   const shcemaOrgPerson = {
     "@context": "https://www.schema.org",
@@ -28,7 +29,7 @@ const Index = ({
     alternateName: name,
     nationality: "Italian",
     gender: "Male",
-    Description: "Developer and student",
+    description: "Engineer",
     // disambiguatingDescription: "",
     jobTitle: "Developer",
     email: "pulvirentimichele00@gmail.com",
@@ -62,8 +63,8 @@ const Index = ({
       "@type": "Person",
       name: name,
     },
-    datePublished: new Date(Date.now()).toISOString(),
-    dateModified: new Date(Date.now()).toISOString(),
+    datePublished: staticDate,
+    dateModified: staticDate,
     image: {
       "@type": "ImageObject",
       url: image,

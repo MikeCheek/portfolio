@@ -22,6 +22,12 @@
 .sectionReversed {
   @extend .structure;
 }
+.sectionWider {
+  @extend .structure;
+  @media screen and (min-width: "768px") {
+    margin: 2%;
+  }
+}
 
 .content {
   align-items: center;
@@ -70,7 +76,7 @@
   flex-direction: column;
   justify-content: center;
   @media screen and (min-width: "768px") {
-    width: 80%;
+    width: 90%;
   }
 }
 

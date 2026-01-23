@@ -4,7 +4,7 @@ import Badge from "@atoms/Badge"
 import styles from "./index.module.scss"
 import {P_FULLCATEGORY} from "@utilities/info"
 
-const Index = ({values, onChange, active, clearAll}: FilteringProps) => {
+const Index = ({values, onChange, active, buttonText, buttonAction}: FilteringProps) => {
   return (
     <div className={styles.wrap}>
       <p>Categories: </p>
@@ -17,7 +17,7 @@ const Index = ({values, onChange, active, clearAll}: FilteringProps) => {
           fulltext={P_FULLCATEGORY[key]}
         />
       ))}
-      <Badge text="X" active={false} onClick={clearAll} aria-label="Clear all filters" />
+      <Badge text={buttonText} onClick={buttonAction} fulltext="Toggle All Categories" />
     </div>
   )
 }

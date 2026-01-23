@@ -11,6 +11,7 @@ import Skills from "@molecules/Skills"
 import Cursor from "@atoms/Cursor"
 import MyPath from "@atoms/MyPath"
 import GlassCard from "@atoms/GlassCard"
+import ProjectsImproved from "@organisms/ProjectsImproved"
 
 const Index = () => {
   // const color = "var(--transparent-pink)"
@@ -31,8 +32,9 @@ const Index = () => {
         <Section title={"My Path"} id={"mypath"}>
           <MyPath />
         </Section>
-        <Section title={"My projects"} id={"projects"} reversed>
-          <Projects />
+        <Section title={"My projects"} id={"projects"} wider>
+          {/* <Projects /> */}
+          <ProjectsImproved />
         </Section>
         {/* <Section title={"Hard skills"} id={"skills"}>
           <Skills />

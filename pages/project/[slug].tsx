@@ -2,9 +2,9 @@ import {projectsList} from "@utilities/info"
 import {Project as ProjectType} from "@utilities/info.types"
 import SEO from "next-head-seo"
 import React from "react"
-import Layout from "../../app/layout"
 import CursorContext from "@utilities/useCursorContext"
 import Project from "@molecules/Project"
+import Layout from "@organisms/Layout"
 
 const Index = ({error, project}: {error: boolean; project: ProjectType}) => {
   return error ? (
@@ -16,7 +16,7 @@ const Index = ({error, project}: {error: boolean; project: ProjectType}) => {
         description={project.description.length > 150 ? project.description.slice(0, 147) + "..." : project.description}
         pathname={"/project/" + project.id}
       />
-      <Layout>
+      <Layout noBackground noGameLink>
         <CursorContext.Provider
           value={{
             //scale, position, fit, fitElement, unFit,

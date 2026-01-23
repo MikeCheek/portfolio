@@ -19,6 +19,7 @@ import plantguardianmobile from "../assets/images/screenshots/plantguardian-mobi
 import termuxcmdhub from "../assets/images/screenshots/termux-cmd-hub.png"
 import gpt2 from "../assets/images/screenshots/gpt2.png"
 import gpt2_2 from "../assets/images/screenshots/gpt2_2.png"
+import psicologialetizia from "../assets/images/screenshots/psicologialetizia.png"
 
 //head
 export const introduce = `/*welcome to my portfolio*/`
@@ -156,6 +157,19 @@ export const projectsList: Project[] = [
     category: P_CATEGORY.MLCV,
     href: "https://webthesis.biblio.polito.it/37726/",
     hrefText: "Thesis Document",
+  },
+  {
+    id: "psicologialetizia",
+    title: "Psychology Website",
+    image: psicologialetizia,
+    image_mobile: psicologialetizia,
+    description: `Website created for Dr. Letizia Puglisi, a licensed psychologist.<br/><br/>
+    The website provides information about her professional services, areas of expertise, and contact details for potential clients.<br/><br/>
+    Built with GatsbyJS and Typescript, the site features a clean and user-friendly design to ensure easy navigation and accessibility for visitors.`,
+    href: "https://www.psicologialetizia.it",
+    category: P_CATEGORY.WEB,
+    technologies: ["GatsbyJs", "Typescript", "TailwindCSS"],
+    tools: ["SEO Optimization", "Responsive Design"],
   },
   {
     id: "segmentationunderwater",
