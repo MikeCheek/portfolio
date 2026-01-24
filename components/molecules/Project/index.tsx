@@ -11,6 +11,7 @@ import ReadmeViewer from "@atoms/ReadmeViewer"
 import {useRecommendations} from "@utilities/useRecommendations"
 import MLRecommendations from "@atoms/MLRecommendations"
 import Separator from "@atoms/Separator"
+import Router from "next/router"
 
 const Index = ({project, fullpage = false}: ProjectProps) => {
   // const {fitElement, unFit} = useContext(CursorContext)
@@ -206,16 +207,15 @@ const Index = ({project, fullpage = false}: ProjectProps) => {
 
   return (
     <div ref={projectRef} className={containerClass} id={id}>
+      <div className={styles.goBack} onClick={() => Router.back()}>
+        <p>&lt;</p>
+      </div>
       <div className={styles.head}>
         <div className={styles.titleSection}>
-          <a href={fullpage ? "#" : "#" + id} title={"Link to " + id} className={styles.link}>
-            <Link />
-          </a>
           <h1 className="coloredGradient" style={{cursor: "default !important"}}>
             {project.title}
           </h1>
         </div>
-
         <div ref={ref} className={styles.desktopWrap}>
           {Media}
           <GlassCard className={styles.descriptionFull} dangerouslySetInnerHTML={{__html: project.description}} />

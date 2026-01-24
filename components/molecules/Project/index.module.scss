@@ -196,6 +196,7 @@
   justify-content: center;
   min-height: 100vh;
   padding: 4rem 2rem;
+  position: relative;
 
   .head {
     margin-bottom: 3rem;
@@ -255,5 +256,27 @@
     pointer-events: none; // Prevent clicking hidden images
     transform: scale(1.05); // Optional: slight zoom out effect on transition
     z-index: -1;
+  }
+}
+
+.goBack {
+  align-items: center;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 100;
+  gap: 8px;
+  left: 50px;
+  position: absolute;
+  top: 30px;
+  transition: color 300ms ease;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    color: var(--orange);
   }
 }
