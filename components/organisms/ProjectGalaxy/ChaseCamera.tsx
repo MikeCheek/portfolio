@@ -1,40 +1,41 @@
-import {useFrame, useThree} from "@react-three/fiber"
-import {useEffect, useRef} from "react"
-import * as THREE from "three"
-import {Group} from "three"
+import {useFrame} from "@react-three/fiber"
+import {Group, MathUtils, PerspectiveCamera, Vector3} from "three"
 
 export default function ChaseCamera({ship}: {ship: React.RefObject<Group | null>}) {
-  const {camera, gl} = useThree()
+  const cameraOffset = new Vector3(0, 4, 12) // Slightly higher/further for better view
+  const currentPosition = new Vector3()
+  const currentLookAt = new Vector3()
 
-  const yaw = useRef(0)
-  const pitch = useRef(0)
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      yaw.current -= e.movementX * 0.002
-      pitch.current -= e.movementY * 0.002
-
-      pitch.current = Math.max(-1.2, Math.min(1.2, pitch.current))
-    }
-
-    gl.domElement.requestPointerLock()
-    document.addEventListener("mousemove", onMouseMove)
-
-    return () => document.removeEventListener("mousemove", onMouseMove)
-  }, [gl])
-
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (!ship.current) return
 
-    const rotation = new THREE.Euler(pitch.current, yaw.current, 0, "YXZ")
-    const offset = new THREE.Vector3(0, 4, 12).applyEuler(rotation)
+    // 1. Calculate ideal position (behind ship)
+    const idealOffset = cameraOffset.clone().applyQuaternion(ship.current.quaternion)
+    const idealPosition = ship.current.position.clone().add(idealOffset)
 
-    camera.position.copy(ship.current.position).add(offset)
-    camera.lookAt(ship.current.position)
+    // 2. Smoothly lerp camera position
+    // We use a slightly faster lerp (0.15) to reduce "lag" feeling
+    currentPosition.lerp(idealPosition, 5 * delta)
+    state.camera.position.copy(currentPosition)
 
-    // 🔥 Rotate ship to face forward
-    ship.current.rotation.y = yaw.current
-    ship.current.rotation.x = pitch.current * 0.3
+    // 3. Calculate ideal LookAt (slightly ahead of ship)
+    const forward = new Vector3(0, 0, -1).applyQuaternion(ship.current.quaternion)
+    const lookAtTarget = ship.current.position.clone().add(forward.multiplyScalar(10))
+
+    currentLookAt.lerp(lookAtTarget, 5 * delta)
+    state.camera.lookAt(currentLookAt)
+
+    // 4. Dynamic FOV based on speed (Juice)
+    // We estimate speed by distance between ship and camera (rudimentary but effective)
+    // or strictly by checking if thrusting (passed via props), but this works generally:
+    const dist = state.camera.position.distanceTo(ship.current.position)
+    const baseFov = 75
+    // As ship pulls away (thrusting), increase FOV
+    const targetFov = baseFov + (dist - 12) * 2
+    if (state.camera instanceof PerspectiveCamera) {
+      state.camera.fov = MathUtils.lerp(state.camera.fov, targetFov, delta * 2)
+      state.camera.updateProjectionMatrix()
+    }
   })
 
   return null

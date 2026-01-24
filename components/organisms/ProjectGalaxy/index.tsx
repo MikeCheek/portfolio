@@ -13,6 +13,8 @@ import PlayerShip from "./PlayerShip"
 import ChaseCamera from "./ChaseCamera"
 import {ProjectWithEmbedding} from "@utilities/info.types"
 
+import Crosshair from "./Crosshair"
+
 const ProjectGalaxy = ({projects}: {projects: ProjectWithEmbedding[]}) => {
   const router = useRouter()
 
@@ -34,9 +36,9 @@ const ProjectGalaxy = ({projects}: {projects: ProjectWithEmbedding[]}) => {
 
   return (
     <div
-      onClick={() => {
-        document.body.requestPointerLock()
-      }}
+      // onClick={() => {
+      //   document.body.requestPointerLock()
+      // }}
       style={{
         width: "100%",
         height: "600px",
@@ -45,8 +47,10 @@ const ProjectGalaxy = ({projects}: {projects: ProjectWithEmbedding[]}) => {
         overflow: "hidden",
         border: "1px solid rgba(255,255,255,0.1)",
         cursor: "crosshair",
+        position: "relative",
       }}
     >
+      <Crosshair />
       <Canvas shadows camera={{far: 2000}}>
         <Suspense
           fallback={
@@ -64,12 +68,6 @@ const ProjectGalaxy = ({projects}: {projects: ProjectWithEmbedding[]}) => {
           {/* 💡 Lighting */}
           <ambientLight intensity={1} />
           <pointLight position={[100, 100, 100]} intensity={2} />
-
-          {/* 🟥 Debug center cube */}
-          <mesh position={[0, 0, 0]}>
-            <boxGeometry args={[2, 2, 2]} />
-            <meshBasicMaterial color="red" />
-          </mesh>
 
           {/* 🪐 Project planets */}
           {projects.map((proj) => (
