@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic"
 import projectsData from "../utilities/projects-with-embeddings.json"
+import {ProjectWithEmbedding} from "@utilities/info.types"
 
 // Important: Disable SSR for Three.js
 const ProjectGalaxy = dynamic(() => import("../components/organisms/ProjectGalaxy"), {
@@ -29,9 +30,8 @@ export default function GalaxyPage() {
       p.embedding[1] * 500, // Amplifying Y
       p.embedding[2] * 500, // Amplifying Z
     ] as [number, number, number],
-  }))
+  })) as ProjectWithEmbedding[]
 
-  console.log(nodes)
   return (
     <main style={{padding: "2rem"}}>
       <h1 className="glowTitle">Project Universe</h1>

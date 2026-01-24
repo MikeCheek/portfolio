@@ -1,65 +1,42 @@
 "use client"
 
-import React, {useRef, useState, useMemo, Suspense} from "react"
-import {Canvas, useFrame} from "@react-three/fiber"
-import {OrbitControls, Text, Float, PerspectiveCamera, Stars, Html} from "@react-three/drei"
-import * as THREE from "three"
+import React, {Suspense, useEffect, useRef, useState} from "react"
+import {Canvas} from "@react-three/fiber"
+import {Html} from "@react-three/drei"
+import {EffectComposer, Bloom} from "@react-three/postprocessing"
+import {Group, Vector3} from "three"
 import {useRouter} from "next/navigation"
 
-const ProjectNode = ({project, position}: {project: any; position: [number, number, number]}) => {
+import ProjectNode from "./ProjectNode"
+import Starfield from "./Starfield"
+import PlayerShip from "./PlayerShip"
+import ChaseCamera from "./ChaseCamera"
+import {ProjectWithEmbedding} from "@utilities/info.types"
+
+const ProjectGalaxy = ({projects}: {projects: ProjectWithEmbedding[]}) => {
   const router = useRouter()
-  const meshRef = useRef<THREE.Mesh>(null)
-  const [hovered, setHovered] = useState(false)
 
-  const idHash = useMemo(() => {
-    return project.id.split("").reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0)
-  }, [project.id])
+  const shipRef = useRef<Group | null>(null)
 
-  // 1. Unified Animation Logic
-  useFrame((state) => {
-    if (meshRef.current) {
-      // Gentle pulse effect
-      const s = 1 + Math.sin(state.clock.elapsedTime * 2 + idHash) * 0.05
-      meshRef.current.scale.set(s, s, s)
+  const [targetPlanet, setTargetPlanet] = useState<Vector3 | null>(null)
+  const [selectedProject, setSelectedProject] = useState<ProjectWithEmbedding | null>(null)
+  const [landed, setLanded] = useState(false)
 
-      // Gentle float effect for the whole group
-      meshRef.current.parent!.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.5 + idHash) * 0.5
+  useEffect(() => {
+    const onChange = () => {
+      const locked = document.pointerLockElement !== null
+      console.log("Pointer lock:", locked)
     }
-  })
 
-  return (
-    <group position={position}>
-      <mesh
-        ref={meshRef}
-        onPointerOver={(e) => {
-          e.stopPropagation()
-          setHovered(true)
-        }}
-        onPointerOut={() => setHovered(false)}
-        onClick={() => router.push(`/project/${project.id}`)}
-      >
-        <sphereGeometry args={[1.2, 32, 32]} />
+    document.addEventListener("pointerlockchange", onChange)
+    return () => document.removeEventListener("pointerlockchange", onChange)
+  }, [])
 
-        <meshStandardMaterial
-          color={hovered ? "#ff8a00" : "#7928ca"}
-          emissive={hovered ? "#ff8a00" : "#7928ca"}
-          emissiveIntensity={hovered ? 5 : 1.5} // High intensity for that "Star" look
-          toneMapped={false} // Prevents the color from getting "washed out"
-        />
-      </mesh>
-
-      {hovered && <pointLight distance={10} intensity={5} color="#ff8a00" />}
-
-      <Text position={[0, 2.5, 0]} fontSize={1.2} color="white" anchorX="center" maxWidth={10} textAlign="center">
-        {project.title}
-      </Text>
-    </group>
-  )
-}
-
-const ProjectGalaxy = ({projects}: {projects: any[]}) => {
   return (
     <div
+      onClick={() => {
+        document.body.requestPointerLock()
+      }}
       style={{
         width: "100%",
         height: "600px",
@@ -67,6 +44,7 @@ const ProjectGalaxy = ({projects}: {projects: any[]}) => {
         borderRadius: "24px",
         overflow: "hidden",
         border: "1px solid rgba(255,255,255,0.1)",
+        cursor: "crosshair",
       }}
     >
       <Canvas shadows camera={{far: 2000}}>
@@ -77,24 +55,76 @@ const ProjectGalaxy = ({projects}: {projects: any[]}) => {
             </Html>
           }
         >
-          {/* Increased Far clipping and adjusted position */}
-          <PerspectiveCamera makeDefault position={[0, 0, 250]} fov={50} far={2000} />
+          {/* 🚀 Player ship */}
+          <PlayerShip shipRef={shipRef} targetPlanet={targetPlanet} onLand={() => setLanded(true)} />
 
-          <OrbitControls enablePan={true} enableZoom={true} maxDistance={1000} minDistance={1} />
+          {/* 🎥 Chase camera */}
+          <ChaseCamera ship={shipRef} />
 
-          {/* Stronger lighting to cover the wide area */}
-          <ambientLight intensity={1.0} />
+          {/* 💡 Lighting */}
+          <ambientLight intensity={1} />
           <pointLight position={[100, 100, 100]} intensity={2} />
 
-          {/* Debug Box: If you see this red box but no projects, check your map logic */}
+          {/* 🟥 Debug center cube */}
           <mesh position={[0, 0, 0]}>
             <boxGeometry args={[2, 2, 2]} />
             <meshBasicMaterial color="red" />
           </mesh>
 
-          {projects && projects.map((proj) => <ProjectNode key={proj.id} project={proj} position={proj.pos} />)}
+          {/* 🪐 Project planets */}
+          {projects.map((proj) => (
+            <ProjectNode
+              key={proj.id}
+              project={proj}
+              position={proj.pos}
+              onSelect={(pos) => {
+                setTargetPlanet(pos.clone())
+                setSelectedProject(proj) // 🔥 REQUIRED
+                setLanded(false)
+              }}
+            />
+          ))}
 
-          <Stars radius={300} depth={60} count={2000} factor={7} saturation={0} fade speed={1} />
+          {/* 🛬 Landing UI */}
+          {landed && targetPlanet && selectedProject && (
+            <Html
+              position={targetPlanet}
+              center
+              distanceFactor={12}
+              style={{pointerEvents: "auto"}} // 🔥 REQUIRED
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  background: "rgba(0,0,0,0.7)",
+                  padding: "12px 16px",
+                  borderRadius: "16px",
+                  backdropFilter: "blur(6px)",
+                }}
+              >
+                <button onClick={() => router.push(`/project/${selectedProject.id}`)}>Enter Project</button>
+
+                <button
+                  onClick={() => {
+                    setTargetPlanet(null)
+                    setSelectedProject(null)
+                    setLanded(false)
+                  }}
+                >
+                  Take off
+                </button>
+              </div>
+            </Html>
+          )}
+
+          {/* ✨ Postprocessing */}
+          <EffectComposer>
+            <Bloom intensity={1.5} luminanceThreshold={0.2} luminanceSmoothing={0.9} />
+          </EffectComposer>
+
+          {/* 🌌 Background */}
+          <Starfield />
         </Suspense>
       </Canvas>
     </div>

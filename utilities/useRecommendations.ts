@@ -1,14 +1,10 @@
 import projectsData from "@utilities/projects-with-embeddings.json"
 import {useState, useEffect, useRef} from "react"
-import {Project} from "./info.types"
+import {Project, ProjectWithEmbedding} from "./info.types"
 import {projectsList} from "./info"
 
 const recommendationCache: Record<string, Project[]> = {}
 const CACHE_KEY_PREFIX = "ml_rec_"
-
-interface ProjectWithEmbedding extends Project {
-  embedding: number[]
-}
 
 export const useRecommendations = (project: Project, limit = 3) => {
   const [recommended, setRecommended] = useState<Project[]>([])

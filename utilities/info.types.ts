@@ -23,3 +23,8 @@ export interface Project {
   readme?: string
   readmeLink?: string
 }
+
+export interface ProjectWithEmbedding extends Project {
+  embedding: number[]
+  pos: [number, number, number]
+}
