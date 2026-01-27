@@ -1,5 +1,14 @@
 [
   {
+    "id": "peopletracker",
+    "title": "People Tracker with Identification",
+    "description": "A real-time people tracking system using face recognition powered by InsightFace and DeepFace.<br/><br/>    The system captures video from a webcam, detects faces, extracts facial features, and matches them against a database of known individuals using FAISS for fast similarity search.<br/><br/>    Includes a Streamlit-based interface for managing the database of known faces, with features to view, add, remove, and merge duplicate identities. The system also provides emotion analysis and face smoothing for enhanced insights.",
+    "technologies": ["Python", "OpenCV", "Streamlit", "FAISS", "InsightFace", "DeepFace"],
+    "tools": ["Computer Vision", "Face Recognition", "Real-time Processing"],
+    "category": "MLCV",
+    "github": "https://github.com/MikeCheek/people-tracking"
+  },
+  {
     "id": "plantguardian",
     "title": "Plant Guardian (in progress)",
     "description": "A mobile application for monitoring and taking care of indoor plants.<br/><br/>    The application combines the use of Computer Vision techniques to identify plant species and an AI Agent with LLM model to provide personalized care advice based on user input and environmental data.",

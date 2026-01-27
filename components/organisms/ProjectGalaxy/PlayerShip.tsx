@@ -11,18 +11,80 @@ const PlayerShip = ({targetPlanet, onLand, shipRef}: any) => {
   // Track active keys
   const keys = useRef<Record<string, boolean>>({})
 
+  const touchState = useRef({
+    steering: {x: 0, y: 0},
+    roll: 0,
+    thrust: false,
+    leftId: null as number | null,
+    rightId: null as number | null,
+  })
+
   useEffect(() => {
     const down = (e: KeyboardEvent) => (keys.current[e.code] = true)
     const up = (e: KeyboardEvent) => (keys.current[e.code] = false)
 
+    const handleTouchStart = (e: TouchEvent) => {
+      for (let t of Array.from(e.changedTouches)) {
+        if (t.clientX < window.innerWidth / 2) {
+          // Left side = Steering
+          touchState.current.leftId = t.identifier
+          touchState.current.steering = {x: 0, y: 0}
+        } else {
+          // Right side = Thrust / Roll
+          touchState.current.rightId = t.identifier
+          touchState.current.thrust = true
+        }
+      }
+    }
+
+    const handleTouchMove = (e: TouchEvent) => {
+      for (let t of Array.from(e.changedTouches)) {
+        // Steering
+        if (t.identifier === touchState.current.leftId) {
+          const dx = (t.clientX / window.innerWidth - 0.25) * 2
+          const dy = (t.clientY / window.innerHeight - 0.5) * 2
+
+          touchState.current.steering.x = dx
+          touchState.current.steering.y = dy
+        }
+
+        // Roll
+        if (t.identifier === touchState.current.rightId) {
+          const dx = (t.clientX / window.innerWidth - 0.75) * 2
+          touchState.current.roll = dx
+        }
+      }
+    }
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      for (let t of Array.from(e.changedTouches)) {
+        if (t.identifier === touchState.current.leftId) {
+          touchState.current.leftId = null
+          touchState.current.steering = {x: 0, y: 0}
+        }
+
+        if (t.identifier === touchState.current.rightId) {
+          touchState.current.rightId = null
+          touchState.current.thrust = false
+          touchState.current.roll = 0
+        }
+      }
+    }
+
     window.addEventListener("keydown", down)
     window.addEventListener("keyup", up)
 
-    // We removed the mouse listener since WASD now handles rotation
+    window.addEventListener("touchstart", handleTouchStart, {passive: false})
+    window.addEventListener("touchmove", handleTouchMove, {passive: false})
+    window.addEventListener("touchend", handleTouchEnd)
 
     return () => {
       window.removeEventListener("keydown", down)
       window.removeEventListener("keyup", up)
+
+      window.removeEventListener("touchstart", handleTouchStart)
+      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener("touchend", handleTouchEnd)
     }
   }, [gl])
 
@@ -35,36 +97,52 @@ const PlayerShip = ({targetPlanet, onLand, shipRef}: any) => {
     const yawSpeed = 1.5 * delta
     const rollSpeed = 2.0 * delta
 
-    // --- 1. WASD ROTATION (Steering) ---
+    // --- KEYBOARD INPUT ---
+    const pitchInput = (keys.current["KeyS"] ? 1 : 0) - (keys.current["KeyW"] ? 1 : 0)
 
-    // Pitch (W = Nose Down, S = Nose Up)
+    const yawInput = (keys.current["KeyD"] ? 1 : 0) - (keys.current["KeyA"] ? 1 : 0)
+
+    const rollInput = (keys.current["KeyQ"] ? 1 : 0) - (keys.current["KeyE"] ? 1 : 0)
+
+    const thrustInput = keys.current["Space"] || keys.current["ShiftLeft"]
+
+    // --- TOUCH INPUT ---
+    const touch = touchState.current
+
+    const pitch = pitchInput - touch.steering.y
+
+    const yaw = yawInput + touch.steering.x
+
+    const roll = rollInput + touch.roll
+
+    const thrust = thrustInput || touch.thrust
+
     if (keys.current["KeyW"]) ship.rotateX(-pitchSpeed)
     if (keys.current["KeyS"]) ship.rotateX(pitchSpeed)
 
-    // Yaw (A = Left, D = Right)
     if (keys.current["KeyD"]) {
       ship.rotateY(yawSpeed)
-      // Auto-bank: slightly roll ship left when turning left
       ship.rotateZ(rollSpeed * 0.1)
     }
     if (keys.current["KeyA"]) {
       ship.rotateY(-yawSpeed)
-      // Auto-bank: slightly roll ship right when turning right
       ship.rotateZ(-rollSpeed * 0.1)
     }
 
-    // --- 2. ROLL (Q/E) ---
-    // Manual Roll for precise adjustment
     if (keys.current["KeyQ"]) ship.rotateZ(rollSpeed)
     if (keys.current["KeyE"]) ship.rotateZ(-rollSpeed)
 
-    // --- 3. THRUST (Space/Shift) ---
-    // Since W is now pitch, we move Thrust to Space or Shift
-    const activeThrust = keys.current["Space"] || keys.current["ShiftLeft"]
-    setIsThrusting(activeThrust)
+    // Apply rotation
+    ship.rotateX(pitch * pitchSpeed)
+    ship.rotateY(yaw * yawSpeed)
+    ship.rotateZ(roll * rollSpeed)
 
-    if (activeThrust) {
-      // Calculate "Forward" direction relative to ship's new rotation
+    // Auto-bank
+    ship.rotateZ(yaw * rollSpeed * 0.1)
+
+    setIsThrusting(thrust)
+
+    if (thrust) {
       const forward = new Vector3(0, 0, -1).applyQuaternion(ship.quaternion)
       velocity.current.add(forward.multiplyScalar(THRUST * delta))
     }

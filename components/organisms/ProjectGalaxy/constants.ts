@@ -5,8 +5,8 @@ const GRAVITY_STRENGTH = 18
 const AUTO_BRAKE = 0.92
 const THRUST = 0.15 // 👈 slow acceleration
 const DAMPING = 0.98
-const TURN_SPEED = 0.8
-const ROLL_SPEED = 1.5
+const TURN_SPEED = 0.4
+const ROLL_SPEED = 1.0
 
 export {
   GRAVITY_RADIUS,

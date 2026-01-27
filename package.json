@@ -15,7 +15,8 @@
     "type-check": "tsc",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
-    "test-all": "npm run prettify && npm run check-format && npm run check-types && npm run build"
+    "test-all": "npm run prettify && npm run check-format && npm run check-types && npm run build",
+    "compute-embeddings": "npx tsx scripts/precomputeEmbeddings.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -48,7 +49,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.0",
-    "@types/node": "18.11.3",
+    "@types/node": "^18.11.3",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "@types/three": "^0.175.0",

@@ -2,8 +2,8 @@ import fs from "fs"
 import {pipeline} from "@xenova/transformers"
 
 // 1. Setup
-const PROJECTS_PATH = "./projects.json"
-const OUTPUT_PATH = "./projects-with-embeddings.json"
+const PROJECTS_PATH = "./utilities/projects.json"
+const OUTPUT_PATH = "./utilities/projects-with-embeddings.json"
 
 async function generate() {
   console.log("🚀 Starting Embedding Generation...")
