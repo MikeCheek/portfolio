@@ -3,6 +3,7 @@ import styles from "./index.module.scss"
 import ReactMarkdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 import remarkGfm from "remark-gfm"
+import Mermaid from "./mermaid"
 
 const ReadmeViewer = ({content, repoUrl}: {content: string; repoUrl: string}) => {
   const readmeLink = repoUrl.endsWith("/") ? `${repoUrl}blob/main/README.md` : `${repoUrl}/blob/main/README.md`
@@ -30,6 +31,22 @@ const ReadmeViewer = ({content, repoUrl}: {content: string; repoUrl: string}) =>
           remarkPlugins={[remarkGfm]}
           components={{
             a: ({node, ...props}) => <a {...props} className="link" target="_blank" rel="noopener noreferrer" />,
+
+            code({inline, className, children, ...props}: any) {
+              const match = /language-(\w+)/.exec(className || "")
+              const language = match?.[1]
+
+              if (!inline && language === "mermaid") {
+                return <Mermaid chart={String(children)} />
+              }
+
+              return (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            },
+
             // Shift headers down by one level
             h1: ({node, ...props}) => <h2 {...props} />,
             h2: ({node, ...props}) => <h3 {...props} />,
