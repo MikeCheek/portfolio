@@ -100,9 +100,14 @@ const Index = ({noGameLink = false}: FooterProps) => {
             )}
           </div>
         </div>
-        <Link href={"/privacy"} className={"link"} title="Privacy Policy">
-          Privacy Policy
-        </Link>
+        <div className={styles.links}>
+          <Link href={"/privacy"} className={"link"} title="Privacy Policy">
+            Privacy Policy
+          </Link>
+          <Link href={"/cookies"} className={"link"} title="Cookies Policy">
+            Cookies Policy
+          </Link>
+        </div>
       </footer>
     </>
   )
