@@ -341,7 +341,7 @@ export const pandify: ArtImage[] = [
 
 export const categories = [
   {
-    name: "Pencil & Charchoal",
+    name: "Pencil & Charcoal",
     logo: (num: number) => drawings[Math.floor(num * drawings.length)].img,
     link: "/art/paper",
     images: drawings,
