@@ -12,19 +12,19 @@ const Index = () => {
           <span title="" className={"coloredGradient"}>
             Michele Pulvirenti
           </span>
-          <span>Discover my background!</span>
+          <span>Discover who I am!</span>
         </HoverPopUp>
       </h1>
       <h2>
-        a{" "}
+        an{" "}
         <HoverPopUp href="#projects">
           <span title="" className={"coloredGradient"}>
-            Computer Engineer
+            AI Engineer
           </span>
           <span>View my projects!</span>
         </HoverPopUp>{" "}
         <br />
-        interested in Computer Vision
+        focused on Edge Computer Vision &amp; AI Agents
       </h2>
       {/*<Circles number={5} />*/}
       <GoDown />

@@ -39,12 +39,11 @@ export const commands = [
 
 //about
 export const about: string = `
-    <h3>Hi, I'm <b><span  style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
-    I'm a <span style="color: var(--pink)">Computer Engineer</span></h3>
-    <p>I graduated with a Bachelor’s degree in Computer Engineering and a Master’s degree in Artificial Intelligence and Data Analytics from the Polytechnic of Turin</p>
-    <p>I've also done a one year Erasmus in Paris in Data & AI at ESILV - Pole Leonard de Vinci.</p>
-    <p>I do artistic gymnastics and I like to draw, both on paper and digitally.</p>
-    <p style="flex:1 1 100%;text-align:center;">Check out my drawings in the <a href="/art" class="link">art section</a></p>`
+<h3>Hi, I'm <b><span style="color: var(--orange)">Michele Pulvirenti</span></b> <br/>
+I'm an <span style="color: var(--pink)">AI Engineer</span></h3>
+    <p>I specialize in building intelligent systems, with a core focus on <b>Computer Vision deployed entirely on the edge</b>.</p>
+    <p>I'm also passionate about leveraging <b>LLMs and AI agents</b> to build smarter, more autonomous development workflows and applications.</p>
+    <p>When I'm not coding, you can find me doing artistic gymnastics or drawing (my works in the <a href="/art" class="link">art page</a>)</p>`
 
 //Contacts
 //export const phone: number = 1111111111
