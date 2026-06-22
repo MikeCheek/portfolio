@@ -13,6 +13,10 @@ export default function MyPath(): React.JSX.Element {
       title: "Master's Degree in Turin",
       date: "2023 - 2025",
       description: "Master in Artificial Intelligence and Data Analytics at Politecnico di Torino",
+      thesis: {
+        title: "Leveraging AI for the Analysis of Historical Monuments and the Processing of Cultural Heritage Data.",
+        url: "https://webthesis.biblio.polito.it/37726/"
+      },
       subEvents: [
         {
           title: "Machine Learning Engineer Intern @ A-BIME",
@@ -57,6 +61,21 @@ export default function MyPath(): React.JSX.Element {
                 <time className={styles.date}>{ev.date}</time>
               </header>
               {ev.description && <p className={styles.description}>{ev.description}</p>}
+
+              {/* Render Thesis if it exists */}
+              {ev.thesis && (
+                <div className={styles.thesis}>
+                  <strong>Thesis:</strong>{" "}
+                  <a 
+                    href={ev.thesis.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={"link"}
+                  >
+                    {ev.thesis.title}
+                  </a>
+                </div>
+              )}
 
               {/* Render hierarchical sub-events if they exist */}
               {ev.subEvents && ev.subEvents.length > 0 && (
