@@ -144,3 +144,59 @@ $shadow: 0 6px 18px var(--very-transparent-black);
     transition: none;
   }
 }
+
+/* --- PREVIOUS STYLES REMAIN THE SAME --- */
+
+/* Sub-events (Nested hierarchical timeline inside the card) */
+.subEvents {
+  border-left: 2px solid $line;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+}
+
+.subEvent {
+  position: relative;
+
+  /* Small accent dot for sub-events */
+  &::before {
+    background: $accent;
+    border-radius: 50%;
+    content: "";
+    height: 0.45rem;
+    left: -1.25rem; /* Aligns dot perfectly over the left border */
+    position: absolute;
+    top: 0.35rem;
+    width: 0.45rem;
+  }
+}
+
+.subHeader {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 0.15rem;
+}
+
+.subTitle {
+  color: $text;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.subDate {
+  color: $muted;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.subDescription {
+  color: $muted;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+}
