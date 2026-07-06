@@ -74,7 +74,7 @@ export default function MyPath(): React.JSX.Element {
               )}
               {/* Render Article if it exists */}
               {ev.article && (
-                <div className={styles.article}>
+                <div className={styles.thesis}>
                   <strong>Article:</strong>{" "}
                   <a href={ev.article.url} target="_blank" rel="noopener noreferrer" className={"link"}>
                     {ev.article.title}
