@@ -15,7 +15,11 @@ export default function MyPath(): React.JSX.Element {
       description: "Master in Artificial Intelligence and Data Analytics at Politecnico di Torino",
       thesis: {
         title: "Leveraging AI for the Analysis of Historical Monuments and the Processing of Cultural Heritage Data.",
-        url: "https://webthesis.biblio.polito.it/37726/"
+        url: "https://webthesis.biblio.polito.it/37726/",
+      },
+      article: {
+        title: "Semantic Segmentation of Heritage Point Cloud",
+        url: "/Semantic_Segmentation_of_Heritage_Point_Cloud.pdf",
       },
       subEvents: [
         {
@@ -47,7 +51,6 @@ export default function MyPath(): React.JSX.Element {
       date: "2000",
     },
   ]
-
   return (
     <section className={styles.container} aria-label="Timeline">
       <ol className={styles.timeline}>
@@ -55,28 +58,29 @@ export default function MyPath(): React.JSX.Element {
           <li key={idx} className={styles.item}>
             <span className={styles.marker} aria-hidden="true" />
             <GlassCard className={styles.card}>
-              
               <header className={styles.cardHeader}>
                 <h3 className={styles.title}>{ev.title}</h3>
                 <time className={styles.date}>{ev.date}</time>
               </header>
               {ev.description && <p className={styles.description}>{ev.description}</p>}
-
               {/* Render Thesis if it exists */}
               {ev.thesis && (
                 <div className={styles.thesis}>
                   <strong>Thesis:</strong>{" "}
-                  <a 
-                    href={ev.thesis.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className={"link"}
-                  >
+                  <a href={ev.thesis.url} target="_blank" rel="noopener noreferrer" className={"link"}>
                     {ev.thesis.title}
                   </a>
                 </div>
               )}
-
+              {/* Render Article if it exists */}
+              {ev.article && (
+                <div className={styles.article}>
+                  <strong>Article:</strong>{" "}
+                  <a href={ev.article.url} target="_blank" rel="noopener noreferrer" className={"link"}>
+                    {ev.article.title}
+                  </a>
+                </div>
+              )}
               {/* Render hierarchical sub-events if they exist */}
               {ev.subEvents && ev.subEvents.length > 0 && (
                 <div className={styles.subEvents}>
@@ -86,14 +90,11 @@ export default function MyPath(): React.JSX.Element {
                         <h4 className={styles.subTitle}>{sub.title}</h4>
                         <time className={styles.subDate}>{sub.date}</time>
                       </header>
-                      {sub.description && (
-                        <p className={styles.subDescription}>{sub.description}</p>
-                      )}
+                      {sub.description && <p className={styles.subDescription}>{sub.description}</p>}
                     </div>
                   ))}
                 </div>
               )}
-
             </GlassCard>
           </li>
         ))}
