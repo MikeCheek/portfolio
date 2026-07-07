@@ -9,71 +9,9 @@ $glass-border: rgba(255, 255, 255, 0.2);
   flex-direction: column;
   gap: 3rem;
   margin: 0 auto;
-  max-width: 90vw; // Limits expansion on huge screens
-  padding: 0 20px; // Prevents cards from touching screen edges
+  max-width: 90vw;
+  padding: 0 20px;
   width: 100%;
-}
-
-// --- MASONRY GALLERY GRID ---
-.gallery {
-  column-count: 1;
-  column-gap: 20px;
-  display: block;
-
-  // Ensure the gallery itself doesn't cause overflow
-  overflow: visible;
-  width: 100%;
-
-  @media (min-width: 600px) {
-    column-count: 2;
-  }
-
-  @media (min-width: 1024px) {
-    column-count: 3;
-    column-gap: 24px; // Slight increase for better breathing room
-  }
-
-  @media (min-width: 1440px) {
-    column-count: 4;
-  }
-}
-
-.card {
-  background: var(--black);
-  border-radius: 24px;
-  box-sizing: border-box; // Critical: ensures borders/padding don't add to width
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid; // Safari fix
-  cursor: pointer;
-  display: inline-block;
-
-  // Heights remain dynamic
-  height: 320px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  position: relative;
-  width: 100%; // Fills exactly one column width
-  &:nth-child(2n) {
-    height: 420px;
-  }
-  &:nth-child(3n) {
-    height: 360px;
-  }
-
-  &[data-expanded="true"] {
-    border: 1px solid var(--violet);
-    box-shadow: 0 0 60px 0px rgba(121, 40, 202, 0.5);
-    flex: 3; // Expands wide
-
-    // Fix: Ensure title wraps correctly when expanded
-    .title {
-      white-space: normal;
-    }
-
-    .bottomInfo {
-      transform: translateY(-100%);
-    }
-  }
 }
 
 .header {
@@ -81,6 +19,21 @@ $glass-border: rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
+}
+
+.topBar {
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 
 .searchBar {
@@ -89,8 +42,8 @@ $glass-border: rgba(255, 255, 255, 0.2);
   border: 1px solid $glass-border;
   border-radius: 28px;
   box-sizing: border-box;
+  flex: 1;
   padding: 1rem 1.1rem;
-  width: 100%;
 }
 
 .searchLabel {
@@ -147,22 +100,41 @@ $glass-border: rgba(255, 255, 255, 0.2);
   }
 }
 
-.searchSummary {
-  color: var(--grey);
-  font-size: 0.9rem;
-  margin: 0.75rem 0 0;
+// --- VIEW MODE TOGGLE LAYOUT ---
+.viewSwitchContainer {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid $glass-border;
+  border-radius: 20px;
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.35rem;
+
+  @media (max-width: 900px) {
+    align-self: flex-start;
+  }
 }
 
-.matchReason {
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  margin: 0;
+.switchBtn {
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  color: var(--grey);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 
-  strong {
-    color: var(--orange);
-    font-weight: 700;
+  &:hover {
+    color: var(--white);
   }
+}
+
+.switchBtnActive {
+  background: var(--white);
+  color: var(--black) !important;
 }
 
 .filterBar {
@@ -175,7 +147,9 @@ $glass-border: rgba(255, 255, 255, 0.2);
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
+  margin: 0 auto;
   padding: 0.5rem;
+  width: fit-content;
 }
 
 .filterBtn {
@@ -202,6 +176,68 @@ $glass-border: rgba(255, 255, 255, 0.2);
   }
 }
 
+// --- BENTO GRID MESH WORK ---
+.bentoLayout {
+  display: grid;
+  gap: 20px;
+  grid-auto-flow: dense;
+  grid-auto-rows: 240px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  width: 100%;
+}
+
+// Grid Variation Spans
+.bentoNormal {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bentoWide {
+  grid-column: span 2;
+  grid-row: span 1;
+  @media (max-width: 680px) {
+    grid-column: span 1;
+  }
+}
+
+.bentoTall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.bentoLarge {
+  grid-column: span 2;
+  grid-row: span 2;
+  @media (max-width: 768px) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+.card {
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s $ease-out-expo, border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+
+  // On hover effects (Scaling & styling card container, opacity drops avoided)
+  &:hover {
+    border-color: var(--violet);
+    box-shadow: 0 12px 40px rgba(121, 40, 202, 0.25);
+    transform: scale(1.02);
+
+    .imageBg {
+      transform: scale(1.06);
+    }
+  }
+}
+
 .mediaWrapper {
   inset: 0;
   position: absolute;
@@ -210,24 +246,20 @@ $glass-border: rgba(255, 255, 255, 0.2);
   .videoBg {
     height: 100%;
     object-fit: cover;
-    transition: transform 1.5s ease;
+    transition: transform 0.6s $ease-out-expo;
     width: 100%;
   }
 
-  // Darker gradient on mobile to ensure text readability always
   .gradientOverlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%);
     inset: 0;
     position: absolute;
     z-index: 1;
   }
 }
 
-.card:hover .imageBg {
-  transform: scale(1.1);
-}
-
 .content {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -244,48 +276,140 @@ $glass-border: rgba(255, 255, 255, 0.2);
 
 .categoryTag {
   backdrop-filter: blur(8px);
-  background: var(--transparent-black);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--orange);
   border-radius: 8px;
   color: var(--orange);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
   text-transform: uppercase;
 }
 
+// Text properties remain clean and stationary (No sliding out of place)
 .bottomInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transform: translateY(-100%);
-  transition: transform 0.45s $ease-out-expo;
-
-  @media screen and (min-width: 768px) {
-    // transform: translateY(0);
-  }
+  gap: 0.65rem;
+  width: 100%;
 
   .title {
+    -webkit-box-orient: vertical;
     color: var(--white);
-    font-size: 1.5rem;
+    display: -webkit-box;
+    font-size: 1.4rem;
     font-weight: 700;
-    line-height: 1.2;
+    -webkit-line-clamp: 2;
+    line-height: 1.25;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
 
-    // Desktop: truncate text when closed
-    @media (min-width: 768px) {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+// Dynamic tag chips layout styles
+.smartChipsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.smartChip {
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+// --- TERMINAL LAYOUT VIEW ---
+.terminalLayout {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Courier New", Courier, monospace;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.terminalRow {
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+
+    .termTarget {
+      color: #4af626;
+      text-decoration: underline;
     }
   }
 }
 
-.searchMeta {
+.termPrompt {
+  color: #4af626;
+  font-weight: bold;
+}
+
+.termCommand {
+  color: var(--violet);
+  font-weight: 600;
+}
+
+.termTarget {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.termMeta {
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+  font-size: 0.85rem;
+  gap: 1rem;
+  margin-left: auto;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding-left: 1.5rem;
+    width: 100%;
+  }
+}
+
+.termCategory {
+  color: var(--orange);
+}
+
+.termChips {
+  color: #888;
+}
+
+// --- HIGHLIGHTING & SEARCH EXTRA ---
+.searchMeta {
+  margin-top: -0.5rem;
+  padding: 0 1.5rem 1.2rem;
+}
+
+.matchReason {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
 }
 
 .matchPills {
@@ -295,31 +419,21 @@ $glass-border: rgba(255, 255, 255, 0.2);
 }
 
 .matchPill {
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  color: var(--white);
-  font-size: 0.72rem;
+  background: rgba(255, 152, 0, 0.15);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  border-radius: 4px;
+  color: var(--orange);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 0.2rem 0.6rem;
+  padding: 2px 6px;
   text-transform: uppercase;
-  width: fit-content;
-}
-
-.matchSnippet {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.9rem;
-  line-height: 1.45;
-  margin: 0;
 }
 
 .highlight {
-  background: rgba(255, 174, 76, 0.24);
-  border-radius: 0.3rem;
+  background: rgba(255, 174, 76, 0.3);
+  border-radius: 3px;
   color: var(--white);
-  padding: 0 0.2rem;
+  padding: 0 2px;
 }
 
 .emptyState {
@@ -337,115 +451,12 @@ $glass-border: rgba(255, 255, 255, 0.2);
     font-size: 1.4rem;
     margin: 0;
   }
-
-  p {
-    margin: 0;
-  }
-}
-
-// --- CONTENT VISIBILITY FIX ---
-.details {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  opacity: 0;
-
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-
-  @media (max-width: 768px) {
-    opacity: 1 !important;
-    pointer-events: auto;
-    transform: none !important;
-  }
-}
-
-.techStack {
-  display: flex;
-  flex-wrap: wrap; // Fix: Allow tags to wrap on mobile
-  gap: 0.5rem;
-
-  .miniTag {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 4px;
-    color: var(--white);
-    font-size: 0.75rem;
-    padding: 4px 10px; // Larger touch target
-  }
-}
-
-.viewBtn {
-  align-items: center;
-  background: var(--white);
-  border-radius: 8px;
-  color: var(--black);
-  display: inline-flex;
-  font-size: 0.9rem;
-  font-weight: 700;
-  gap: 0.5rem;
-  margin-top: 0.5rem; // Add spacing
-  padding: 0.8rem 1.5rem; // Bigger button for mobile fingers
-  text-decoration: none;
-  transition: transform 0.2s ease;
-  width: fit-content;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  svg {
-    fill: var(--black);
-  }
-}
-
-.projectLink {
-  text-decoration: none;
-  z-index: 2;
-}
-
-// Ensure images fill the varied heights
-.mediaWrapper {
-  inset: 0;
-  position: absolute;
-
-  .imageBg,
-  .videoBg {
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-  }
-}
-
-.masonryLike {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-
-  // optional: center only when few items
-  justify-content: flex-start;
-
-  .card {
-    flex: 1 1 calc(33.333% - 20px);
-    max-width: calc(33.333% - 20px);
-
-    @media (max-width: 1024px) {
-      flex-basis: calc(50% - 20px);
-      max-width: calc(50% - 20px);
-    }
-
-    @media (max-width: 600px) {
-      flex-basis: 100%;
-      max-width: 100%;
-    }
-  }
 }
 
 @media (max-width: 768px) {
   .searchInputWrap {
-    flex-direction: column;
     align-items: stretch;
+    flex-direction: column;
   }
 
   .clearButton {

@@ -169,10 +169,11 @@ const buildSearchHit = (project: Project, queryTokens: string[]): SearchHit | nu
 const ProjectsImproved = () => {
   const {projects} = useContext(CursorContext)
 
-  // State for Filters
+  // State for Filters and View Layouts
   const [activeFilter, setActiveFilter] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
   const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const [viewMode, setViewMode] = useState<"bento" | "terminal">("bento")
 
   // 1. Extract Unique Categories
   const categories = [
@@ -204,7 +205,6 @@ const ProjectsImproved = () => {
     })
   }, [filteredProjects, queryTokens])
 
-  const isSmallSet = rankedProjects.length < 9
   const hasSearch = queryTokens.length > 0
 
   return (
@@ -212,30 +212,45 @@ const ProjectsImproved = () => {
       <section className={styles.container}>
         {/* --- HEADER & FILTERS --- */}
         <div className={styles.header}>
-          <div className={styles.searchBar}>
-            <label className={styles.searchLabel} htmlFor="project-search">
-              Search projects
-            </label>
-            <div className={styles.searchInputWrap}>
-              <input
-                id="project-search"
-                type="search"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search title, description, readme, tools or technologies"
-                className={styles.searchInput}
-              />
-              {searchQuery && (
-                <button type="button" className={styles.clearButton} onClick={() => setSearchQuery("")}>
-                  Clear
-                </button>
-              )}
+          <div className={styles.topBar}>
+            <div className={styles.searchBar}>
+              <label className={styles.searchLabel} htmlFor="project-search">
+                Search projects
+              </label>
+              <div className={styles.searchInputWrap}>
+                <input
+                  id="project-search"
+                  type="search"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="Search title, description, readme, tools or technologies"
+                  className={styles.searchInput}
+                />
+                {searchQuery && (
+                  <button type="button" className={styles.clearButton} onClick={() => setSearchQuery("")}>
+                    Clear
+                  </button>
+                )}
+              </div>
             </div>
-            {/* <p className={styles.searchSummary}>
-              {hasSearch
-                ? `${rankedProjects.length} relevant project${rankedProjects.length === 1 ? "" : "s"} found for “${searchQuery.trim()}”`
-                : `${rankedProjects.length} project${rankedProjects.length === 1 ? "" : "s"} available`}
-            </p> */}
+
+            {/* View Switching Control */}
+            <div className={styles.viewSwitchContainer}>
+              <button
+                type="button"
+                className={`${styles.switchBtn} ${viewMode === "bento" ? styles.switchBtnActive : ""}`}
+                onClick={() => setViewMode("bento")}
+              >
+                Bento Grid
+              </button>
+              <button
+                type="button"
+                className={`${styles.switchBtn} ${viewMode === "terminal" ? styles.switchBtnActive : ""}`}
+                onClick={() => setViewMode("terminal")}
+              >
+                Terminal List
+              </button>
+            </div>
           </div>
 
           <div className={styles.filterBar}>
@@ -252,9 +267,9 @@ const ProjectsImproved = () => {
           </div>
         </div>
 
-        {/* --- FLUID GRID --- */}
-        <motion.div layout className={`${styles.gallery} ${isSmallSet ? styles.masonryLike : ""}`}>
-          <AnimatePresence>
+        {/* --- DYNAMIC VIEWPORT RENDER --- */}
+        <motion.div layout className={viewMode === "bento" ? styles.bentoLayout : styles.terminalLayout}>
+          <AnimatePresence mode="popLayout">
             {rankedProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
@@ -262,8 +277,8 @@ const ProjectsImproved = () => {
                 searchQuery={searchQuery}
                 isHovered={hoveredId === project.id}
                 onHover={setHoveredId}
-                isDimmed={hoveredId !== null && hoveredId !== project.id}
                 index={index}
+                viewMode={viewMode}
               />
             ))}
           </AnimatePresence>
@@ -285,42 +300,97 @@ const navigateTo = (path: string) => {
 }
 
 // --- SUB-COMPONENT: CARD ---
-const ProjectCard = ({project, searchQuery, isHovered, onHover, isDimmed, index}: any) => {
+const ProjectCard = ({project, searchQuery, isHovered, onHover, index, viewMode}: any) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const imageSrc = Array.isArray(project.image) ? project.image[0] : project.image
   const queryTokens = tokenize(searchQuery)
 
   useEffect(() => {
+    if (viewMode === "terminal") return
+
     if (videoRef.current) {
       if (isHovered) {
         videoRef.current.pause()
       } else {
-        // We use a promise check because play() can be interrupted
         const playPromise = videoRef.current.play()
         if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // Auto-play was prevented by browser
-          })
+          playPromise.catch(() => {})
         }
       }
     }
-  }, [isHovered])
+  }, [isHovered, viewMode])
 
-  const heights = ["300px", "450px", "350px", "500px"]
-  const randomHeight = heights[index % heights.length]
+  // Smart combined list of tags for the preview chips
+  const smartChips = useMemo(() => {
+    const stack = project.technologies || []
+    const tools = project.tools || []
+    return Array.from(new Set([...stack, ...tools])).slice(0, 4)
+  }, [project.technologies, project.tools])
+
+  // --- TERMINAL MODE RENDER ---
+  if (viewMode === "terminal") {
+    return (
+      <motion.div
+        initial={{opacity: 0, y: 10}}
+        animate={{opacity: 1, y: 0}}
+        exit={{opacity: 0, y: -10}}
+        transition={{duration: 0.2}}
+        className={styles.terminalRow}
+        onClick={() => navigateTo(`/project/${project.id}`)}
+      >
+        <span className={styles.termPrompt}>$&gt;</span>
+        <span className={styles.termCommand}>cat</span>
+        <span className={styles.termTarget}>{renderHighlightedText(project.title, queryTokens)}</span>
+        <div className={styles.termMeta}>
+          <span className={styles.termCategory}>
+            [{Array.isArray(project.category) ? project.category[0] : project.category}]
+          </span>
+          {smartChips.length > 0 && <span className={styles.termChips}>tags:{JSON.stringify(smartChips)}</span>}
+        </div>
+      </motion.div>
+    )
+  }
+
+  // --- BENTO GRID MODE RENDER ---
+  // Select an organic bento dimension variation based on layout sequence
+  const bentoVariations = [
+    styles.bentoNormal,
+    styles.bentoWide,
+    styles.bentoTall,
+    styles.bentoNormal,
+    styles.bentoLarge,
+    styles.bentoWide,
+  ]
+
+  const computeBentoClass = (project: Project): string => {
+    const hasVideo = !!project.video
+    const tagCount = (project.technologies?.length || 0) + (project.tools?.length || 0)
+    const descriptionLength = project.description?.length || 0
+
+    // 1. Highest Priority: Rich Media dictates massive real estate
+    if (hasVideo) return styles.bentoLarge
+
+    // 2. Second Priority: Tech-heavy complexity commands width
+    if (tagCount >= 6) return styles.bentoWide
+
+    // 3. Third Priority: Heavy textual case studies command height
+    if (descriptionLength > 200) return styles.bentoTall
+
+    // 4. Default baseline grid filler
+    return styles.bentoNormal
+  }
 
   return (
     <motion.div
-      initial={{opacity: 0, scale: 0.9}}
-      animate={{opacity: isDimmed ? 0.4 : 1, scale: 1}}
-      exit={{opacity: 0, scale: 0.9}}
+      initial={{opacity: 0, scale: 0.95}}
+      animate={{opacity: 1, scale: 1}}
+      exit={{opacity: 0, scale: 0.95}}
       transition={{duration: 0.4, ease: "easeOut"}}
-      className={styles.card}
+      className={`${styles.card} ${computeBentoClass(project)}`}
       onMouseEnter={() => onHover(project.id)}
       onMouseLeave={() => onHover(null)}
       data-expanded={isHovered}
       onClick={() => navigateTo(`/project/${project.id}`)}
-      style={{height: randomHeight}}
     >
       {/* Background Media */}
       <div className={styles.mediaWrapper}>
@@ -333,7 +403,7 @@ const ProjectCard = ({project, searchQuery, isHovered, onHover, isDimmed, index}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={styles.imageBg}
-          style={{opacity: project.video ? 0 : 1}} // Fade out img if video plays
+          style={{opacity: project.video ? 0 : 1}}
         />
         <div className={styles.gradientOverlay} />
       </div>
@@ -341,35 +411,24 @@ const ProjectCard = ({project, searchQuery, isHovered, onHover, isDimmed, index}
       {/* Content Overlay */}
       <div className={styles.content}>
         <div className={styles.topTags}>
-          {/* Show first category only to keep it clean */}
           <span className={styles.categoryTag}>
             {Array.isArray(project.category) ? project.category[0] : project.category}
           </span>
         </div>
 
         <div className={styles.bottomInfo}>
-          <motion.h3 layout="position" className={styles.title}>
-            {renderHighlightedText(project.title, queryTokens)}
-          </motion.h3>
+          <h3 className={styles.title}>{renderHighlightedText(project.title, queryTokens)}</h3>
 
-          {/* Details that slide in on Hover */}
-          {/* <motion.div
-            className={styles.details}
-            initial={false}
-          >
-
-            <div className={styles.techStack}>
-              {project.technologies?.slice(0, 3).map((t: string) => (
-                <span key={t} className={styles.miniTag}>{t}</span>
+          {/* Smart dynamic tag chips embedded perfectly within the content layer */}
+          {smartChips.length > 0 && (
+            <div className={styles.smartChipsWrapper}>
+              {smartChips.map((tag: any) => (
+                <span key={tag} className={styles.smartChip}>
+                  {tag}
+                </span>
               ))}
             </div>
-
-            {project.href && (
-              <a href={project.href} target="_blank" rel="noreferrer" className={styles.viewBtn}>
-                View Project <LinkIcon width={16} />
-              </a>
-            )}
-          </motion.div> */}
+          )}
         </div>
       </div>
 
