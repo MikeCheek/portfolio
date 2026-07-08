@@ -1,7 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling, testing and building your project before committing'
+echo '🏗️👷 Styling, testing, building, and generating AI embeddings before committing'
 
 npm run format
 
@@ -26,6 +26,15 @@ npm run check-types ||
 (
     echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
             Are you seriously trying to write that? Make the changes required above.'
+    false;
+)
+
+# Generate AI Embeddings
+echo '🧠 Vectorizing project data...'
+npx tsx scripts/precomputeEmbeddings.ts ||
+(
+    echo '🤖💥🚨🤖 AI Malfunction! 🤖💥🚨🤖
+            Embedding generation failed. Check your script or JSON data and try again.'
     false;
 )
 

@@ -1,4 +1,3 @@
-// utilities/ml.worker.ts
 import {dotProduct} from "./ml"
 
 self.onmessage = (e) => {
