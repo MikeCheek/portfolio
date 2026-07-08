@@ -1,5 +1,14 @@
 [
   {
+    "id": "edgecraftai",
+    "title": "EdgeCraft AI - Local TinyML Studio",
+    "description": "A self-hosted, private alternative to Edge Impulse: collect data, train TinyML models, optimize them for microcontrollers, and export ready-to-flash Arduino/C++ projects, all on your own machine.<br/><br/>    An LLM is built into the actual workflow rather than bolted on the side: it suggests training configs based on your dataset and target board, diagnoses training results, and gives board-specific deployment advice grounded in your actual optimization results.<br/><br/>    Covers the full pipeline: dataset collection with ZIP import and class/split management, TensorFlow training with live metrics and transfer learning, INT8/Float16/Dynamic Range quantization plus pruning and weight clustering with real accuracy/latency/size comparisons, and full Arduino project export for ESP32-S3 and ESP32-CAM with optional camera and SPI display support.",
+    "github": "https://github.com/MikeCheek/edgecraft-ai",
+    "technologies": ["Python", "FastAPI", "TensorFlow", "React", "TypeScript", "Tailwind CSS", "Docker"],
+    "tools": ["TinyML", "Embedded AI", "Model Optimization", "Quantization", "Large Language Models", "WebSockets"],
+    "category": ["LOW", "MLCV", "LLM"]
+  },
+  {
     "id": "peopletracker",
     "title": "People Tracker with Identification",
     "description": "A real-time people tracking system using face recognition powered by InsightFace and DeepFace.<br/><br/>    The system captures video from a webcam, detects faces, extracts facial features, and matches them against a database of known individuals using FAISS for fast similarity search.<br/><br/>    Includes a Streamlit-based interface for managing the database of known faces, with features to view, add, remove, and merge duplicate identities. The system also provides emotion analysis and face smoothing for enhanced insights.",

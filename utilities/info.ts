@@ -23,6 +23,9 @@ import psicologialetizia from "../assets/images/screenshots/psicologialetizia.pn
 import peopletracker from "../assets/images/screenshots/peopletracker_live_camera.png"
 import peopletracker2 from "../assets/images/screenshots/peopletracker_list.png"
 import peopletracker3 from "../assets/images/screenshots/peopletracker_smart_merge.png"
+import edgecraftai from "../assets/images/screenshots/edgecraftai.png"
+import edgecraftai2 from "../assets/images/screenshots/edgecraftai2.png"
+import edgecraftai3 from "../assets/images/screenshots/edgecraftai3.png"
 
 import ProjectInfo from "./projects.json"
 
@@ -105,6 +108,11 @@ export const P_FULLCATEGORY: {[key: string]: string} = {
 }
 
 const projectImages: {[key: string]: any} = {
+  edgecraftai: {
+    image: [edgecraftai, edgecraftai2, edgecraftai3],
+    image_mobile: [edgecraftai, edgecraftai2, edgecraftai3],
+    category: [P_CATEGORY.LOW, P_CATEGORY.MLCV, P_CATEGORY.LLM],
+  },
   peopletracker: {
     image: [peopletracker, peopletracker2, peopletracker3],
     image_mobile: [peopletracker, peopletracker2, peopletracker3],
