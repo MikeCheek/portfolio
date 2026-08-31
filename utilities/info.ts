@@ -26,6 +26,8 @@ import peopletracker3 from "../assets/images/screenshots/peopletracker_smart_mer
 import edgecraftai from "../assets/images/screenshots/edgecraftai.png"
 import edgecraftai2 from "../assets/images/screenshots/edgecraftai2.png"
 import edgecraftai3 from "../assets/images/screenshots/edgecraftai3.png"
+import jobfinder from "../assets/images/screenshots/jobfinder.png"
+import jobfinder2 from "../assets/images/screenshots/jobfinder2.png"
 
 import ProjectInfo from "./projects.json"
 
@@ -108,6 +110,11 @@ export const P_FULLCATEGORY: {[key: string]: string} = {
 }
 
 const projectImages: {[key: string]: any} = {
+  jobhunter: {
+    image: [jobfinder, jobfinder2],
+    image_mobile: [jobfinder, jobfinder2],
+    category: P_CATEGORY.LLM,
+  },
   edgecraftai: {
     image: [edgecraftai, edgecraftai2, edgecraftai3],
     image_mobile: [edgecraftai, edgecraftai2, edgecraftai3],

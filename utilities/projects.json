@@ -1,5 +1,14 @@
 [
   {
+    "id": "jobhunter",
+    "title": "Job Hunter - AI Job Search & Application Assistant",
+    "description": "A self-hosted job search and application assistant: search LinkedIn and Indeed, or just describe the role you want in plain English, and it's parsed into a structured search automatically.<br/><br/>    Full job descriptions are fetched and scored against your profile with AI (skill match, gaps, salary/seniority extraction, automatic translation for non-English postings), and tailored CVs and cover letters are generated as real compiled LaTeX PDFs, not HTML-to-PDF approximations.<br/><br/>    Search and analysis run as genuine background tasks on the server rather than in the browser tab: they survive navigation, are cancellable mid-run, and automatically recover from a server restart instead of getting stuck in limbo.<br/><br/>    Profile data can be built manually, imported from an existing CV (with OCR for scanned PDFs), or synced from GitHub, Kaggle, and LinkedIn, always through a review step before anything is saved, with automatic duplicate detection across sources.<br/><br/>    Runs with either OpenRouter (cloud) or a fully local Ollama model, selectable per deployment, all data kept in your own PostgreSQL database.",
+    "github": "https://github.com/MikeCheek/job-hunter",
+    "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Docker", "LaTeX"],
+    "tools": ["Large Language Models", "Background Job Processing", "OCR", "Web Scraping", "API Integration"],
+    "category": ["LLM"]
+  },
+  {
     "id": "edgecraftai",
     "title": "EdgeCraft AI - Local TinyML Studio",
     "description": "A self-hosted, private alternative to Edge Impulse: collect data, train TinyML models, optimize them for microcontrollers, and export ready-to-flash Arduino/C++ projects, all on your own machine.<br/><br/>    An LLM is built into the actual workflow rather than bolted on the side: it suggests training configs based on your dataset and target board, diagnoses training results, and gives board-specific deployment advice grounded in your actual optimization results.<br/><br/>    Covers the full pipeline: dataset collection with ZIP import and class/split management, TensorFlow training with live metrics and transfer learning, INT8/Float16/Dynamic Range quantization plus pruning and weight clustering with real accuracy/latency/size comparisons, and full Arduino project export for ESP32-S3 and ESP32-CAM with optional camera and SPI display support.",
