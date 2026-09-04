@@ -1,12 +1,26 @@
 [
   {
+    "id": "ragdocumentsai",
+    "title": "RAGDocumentsAI - Self-hosted Document Q&A Assistant",
+    "description": "A self-hosted RAG web app: upload PDFs, DOCX, TXT, MD, or CSV files and ask questions about them in a chat interface, with every answer citing the exact passages it drew on.<br/><br/>    Documents are parsed and chunked, then embedded locally (Xenova/all-MiniLM-L6-v2, no API key) and stored in Postgres via pgvector. Retrieval, reranking, and answer generation all run through a configurable pipeline rather than a fixed one.<br/><br/>    Query rewriting and reranking can each be switched between fully local (stopword removal + lemmatization via wink-nlp, and a from-scratch BM25 implementation) and API-based (LLM rewriting, Cohere neural rerank with automatic fallback to local BM25), so the number of external API calls per question is fully controllable from a settings screen &mdash; down to a single call for the final answer.<br/><br/>    Supports multiple persisted, pinnable chats with automatic context compaction for long conversations, and a usage dashboard tracking database size and API consumption against each provider's free-tier limits.",
+    "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Tailwind CSS", "pgvector"],
+    "tools": [
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "Vector Search",
+      "Natural Language Processing",
+      "API Integration"
+    ],
+    "category": ["WEB", "LLM"]
+  },
+  {
     "id": "jobhunter",
     "title": "Job Hunter - AI Job Search & Application Assistant",
     "description": "A self-hosted job search and application assistant: search LinkedIn and Indeed, or just describe the role you want in plain English, and it's parsed into a structured search automatically.<br/><br/>    Full job descriptions are fetched and scored against your profile with AI (skill match, gaps, salary/seniority extraction, automatic translation for non-English postings), and tailored CVs and cover letters are generated as real compiled LaTeX PDFs, not HTML-to-PDF approximations.<br/><br/>    Search and analysis run as genuine background tasks on the server rather than in the browser tab: they survive navigation, are cancellable mid-run, and automatically recover from a server restart instead of getting stuck in limbo.<br/><br/>    Profile data can be built manually, imported from an existing CV (with OCR for scanned PDFs), or synced from GitHub, Kaggle, and LinkedIn, always through a review step before anything is saved, with automatic duplicate detection across sources.<br/><br/>    Runs with either OpenRouter (cloud) or a fully local Ollama model, selectable per deployment, all data kept in your own PostgreSQL database.",
     "github": "https://github.com/MikeCheek/job-hunter",
     "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Docker", "LaTeX"],
     "tools": ["Large Language Models", "Background Job Processing", "OCR", "Web Scraping", "API Integration"],
-    "category": ["LLM"]
+    "category": ["WEB", "LLM"]
   },
   {
     "id": "edgecraftai",

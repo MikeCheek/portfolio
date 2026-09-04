@@ -28,6 +28,8 @@ import edgecraftai2 from "../assets/images/screenshots/edgecraftai2.png"
 import edgecraftai3 from "../assets/images/screenshots/edgecraftai3.png"
 import jobfinder from "../assets/images/screenshots/jobfinder.png"
 import jobfinder2 from "../assets/images/screenshots/jobfinder2.png"
+import ragdocumentsai from "../assets/images/screenshots/ragdocumentsai.png"
+import ragdocumentsai2 from "../assets/images/screenshots/ragdocumentsai2.png"
 
 import ProjectInfo from "./projects.json"
 
@@ -110,6 +112,11 @@ export const P_FULLCATEGORY: {[key: string]: string} = {
 }
 
 const projectImages: {[key: string]: any} = {
+  ragdocumentsai: {
+    image: [ragdocumentsai, ragdocumentsai2],
+    image_mobile: [ragdocumentsai, ragdocumentsai2],
+    category: P_CATEGORY.LLM,
+  },
   jobhunter: {
     image: [jobfinder, jobfinder2],
     image_mobile: [jobfinder, jobfinder2],
