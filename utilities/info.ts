@@ -101,6 +101,7 @@ export enum P_CATEGORY {
   LLM = "LLM",
   WEB = "Web",
   LOW = "Low Level",
+  AI = "AI",
 }
 
 export const P_FULLCATEGORY: {[key: string]: string} = {
@@ -109,23 +110,24 @@ export const P_FULLCATEGORY: {[key: string]: string} = {
   LLM: "Large Language Models",
   Web: "Web Development",
   Low: "Low Level Programming",
+  AI: "Artificial Intelligence",
 }
 
 const projectImages: {[key: string]: any} = {
   ragdocumentsai: {
     image: [ragdocumentsai, ragdocumentsai2],
     image_mobile: [ragdocumentsai, ragdocumentsai2],
-    category: P_CATEGORY.LLM,
+    category: [P_CATEGORY.AI],
   },
   jobhunter: {
     image: [jobfinder, jobfinder2],
     image_mobile: [jobfinder, jobfinder2],
-    category: P_CATEGORY.LLM,
+    category: [P_CATEGORY.AI],
   },
   edgecraftai: {
     image: [edgecraftai, edgecraftai2, edgecraftai3],
     image_mobile: [edgecraftai, edgecraftai2, edgecraftai3],
-    category: [P_CATEGORY.LOW, P_CATEGORY.MLCV, P_CATEGORY.LLM],
+    category: [P_CATEGORY.LOW, P_CATEGORY.MLCV, P_CATEGORY.AI],
   },
   peopletracker: {
     image: [peopletracker, peopletracker2, peopletracker3],
@@ -135,7 +137,7 @@ const projectImages: {[key: string]: any} = {
   plantguardian: {
     image: plantguardian,
     image_mobile: plantguardianmobile,
-    category: [P_CATEGORY.MLCV, P_CATEGORY.LLM],
+    category: [P_CATEGORY.MLCV, P_CATEGORY.LLM, P_CATEGORY.AI],
   },
   termuxcmdhub: {
     image: termuxcmdhub,

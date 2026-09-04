@@ -4,6 +4,7 @@
     "title": "RAGDocumentsAI - Self-hosted Document Q&A Assistant",
     "description": "A self-hosted RAG web app: upload PDFs, DOCX, TXT, MD, or CSV files and ask questions about them in a chat interface, with every answer citing the exact passages it drew on.<br/><br/>    Documents are parsed and chunked, then embedded locally (Xenova/all-MiniLM-L6-v2, no API key) and stored in Postgres via pgvector. Retrieval, reranking, and answer generation all run through a configurable pipeline rather than a fixed one.<br/><br/>    Query rewriting and reranking can each be switched between fully local (stopword removal + lemmatization via wink-nlp, and a from-scratch BM25 implementation) and API-based (LLM rewriting, Cohere neural rerank with automatic fallback to local BM25), so the number of external API calls per question is fully controllable from a settings screen &mdash; down to a single call for the final answer.<br/><br/>    Supports multiple persisted, pinnable chats with automatic context compaction for long conversations, and a usage dashboard tracking database size and API consumption against each provider's free-tier limits.",
     "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Tailwind CSS", "pgvector"],
+    "github": "https://github.com/MikeCheek/rag-documents-ai",
     "tools": [
       "Large Language Models",
       "Retrieval-Augmented Generation",
@@ -11,7 +12,7 @@
       "Natural Language Processing",
       "API Integration"
     ],
-    "category": ["WEB", "LLM"]
+    "category": ["AI"]
   },
   {
     "id": "jobhunter",
@@ -20,7 +21,7 @@
     "github": "https://github.com/MikeCheek/job-hunter",
     "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Docker", "LaTeX"],
     "tools": ["Large Language Models", "Background Job Processing", "OCR", "Web Scraping", "API Integration"],
-    "category": ["WEB", "LLM"]
+    "category": ["AI"]
   },
   {
     "id": "edgecraftai",
@@ -29,7 +30,7 @@
     "github": "https://github.com/MikeCheek/edgecraft-ai",
     "technologies": ["Python", "FastAPI", "TensorFlow", "React", "TypeScript", "Tailwind CSS", "Docker"],
     "tools": ["TinyML", "Embedded AI", "Model Optimization", "Quantization", "Large Language Models", "WebSockets"],
-    "category": ["LOW", "MLCV", "LLM"]
+    "category": ["LOW", "MLCV", "AI"]
   },
   {
     "id": "peopletracker",
@@ -46,7 +47,7 @@
     "description": "A mobile application for monitoring and taking care of indoor plants.<br/><br/>    The application combines the use of Computer Vision techniques to identify plant species and an AI Agent with LLM model to provide personalized care advice based on user input and environmental data.",
     "technologies": ["Flutter", "Dart", "Python", "OpenCV"],
     "tools": ["Computer Vision", "AI Agents", "Large Language Models"],
-    "category": ["MLCV", "LLM"],
+    "category": ["MLCV", "LLM", "AI"],
     "github": "https://github.com/MikeCheek/plant_guardian"
   },
   {

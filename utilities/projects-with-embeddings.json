@@ -11,6 +11,7 @@
       "Tailwind CSS",
       "pgvector"
     ],
+    "github": "https://github.com/MikeCheek/rag-documents-ai",
     "tools": [
       "Large Language Models",
       "Retrieval-Augmented Generation",
@@ -19,8 +20,7 @@
       "API Integration"
     ],
     "category": [
-      "WEB",
-      "LLM"
+      "AI"
     ],
     "embedding": [
       -0.1259867548942566,
@@ -431,8 +431,7 @@
       "API Integration"
     ],
     "category": [
-      "WEB",
-      "LLM"
+      "AI"
     ],
     "embedding": [
       -0.09828174114227295,
@@ -846,7 +845,7 @@
     "category": [
       "LOW",
       "MLCV",
-      "LLM"
+      "AI"
     ],
     "embedding": [
       -0.00467934925109148,
@@ -1658,7 +1657,8 @@
     ],
     "category": [
       "MLCV",
-      "LLM"
+      "LLM",
+      "AI"
     ],
     "github": "https://github.com/MikeCheek/plant_guardian",
     "embedding": [

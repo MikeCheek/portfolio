@@ -299,6 +299,57 @@ const navigateTo = (path: string) => {
   Router.push(path)
 }
 
+// --- BENTO SHAPE ASSIGNMENT ---
+// Shapes are chosen per-project rather than by rigid content thresholds, so
+// the grid reads as organic instead of "everything average-length is the
+// same square". The pick is seeded off the project's own id (stable and
+// unique) rather than Math.random(), so a card's shape doesn't reshuffle
+// every time the grid re-renders (hover, filter change, search, etc.) —
+// only the *set* of visible cards changes, not how each one is shaped.
+const hashString = (value: string): number => {
+  let hash = 0
+  for (let i = 0; i < value.length; i++) {
+    hash = (hash << 5) - hash + value.charCodeAt(i)
+    hash |= 0 // keep it a 32-bit int
+  }
+  return Math.abs(hash)
+}
+
+// Weighted rather than uniform: normal stays the most common shape so wide/
+// tall/large read as accents, not noise.
+const WEIGHTED_BENTO_SHAPES = [
+  {key: "normal", weight: 5},
+  {key: "wide", weight: 3},
+  {key: "tall", weight: 3},
+  {key: "large", weight: 1},
+] as const
+
+const TOTAL_BENTO_WEIGHT = WEIGHTED_BENTO_SHAPES.reduce((sum, shape) => sum + shape.weight, 0)
+
+const pickSeededBentoKey = (seed: string): (typeof WEIGHTED_BENTO_SHAPES)[number]["key"] => {
+  let roll = hashString(seed) % TOTAL_BENTO_WEIGHT
+  for (const shape of WEIGHTED_BENTO_SHAPES) {
+    if (roll < shape.weight) return shape.key
+    roll -= shape.weight
+  }
+  return "normal"
+}
+
+const BENTO_CLASS_BY_KEY: {[key: string]: string} = {
+  normal: styles.bentoNormal,
+  wide: styles.bentoWide,
+  tall: styles.bentoTall,
+  large: styles.bentoLarge,
+}
+
+const computeBentoClass = (project: Project): string => {
+  // Rich media is a genuine size signal, not a random one — always give it
+  // the big slot so video previews actually get room to breathe.
+  if (project.video) return styles.bentoLarge
+
+  return BENTO_CLASS_BY_KEY[pickSeededBentoKey(project.id)]
+}
+
 // --- SUB-COMPONENT: CARD ---
 const ProjectCard = ({project, searchQuery, isHovered, onHover, index, viewMode}: any) => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -352,34 +403,6 @@ const ProjectCard = ({project, searchQuery, isHovered, onHover, index, viewMode}
   }
 
   // --- BENTO GRID MODE RENDER ---
-  // Select an organic bento dimension variation based on layout sequence
-  const bentoVariations = [
-    styles.bentoNormal,
-    styles.bentoWide,
-    styles.bentoTall,
-    styles.bentoNormal,
-    styles.bentoLarge,
-    styles.bentoWide,
-  ]
-
-  const computeBentoClass = (project: Project): string => {
-    const hasVideo = !!project.video
-    const tagCount = (project.technologies?.length || 0) + (project.tools?.length || 0)
-    const descriptionLength = project.description?.length || 0
-
-    // 1. Highest Priority: Rich Media dictates massive real estate
-    if (hasVideo) return styles.bentoLarge
-
-    // 2. Second Priority: Tech-heavy complexity commands width
-    if (tagCount >= 6) return styles.bentoWide
-
-    // 3. Third Priority: Heavy textual case studies command height
-    if (descriptionLength > 200) return styles.bentoTall
-
-    // 4. Default baseline grid filler
-    return styles.bentoNormal
-  }
-
   return (
     <motion.div
       initial={{opacity: 0, scale: 0.95}}
